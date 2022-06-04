@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/germanbonacchi.com/static/css/main.073c9b0a.css",
-    "main.js": "/germanbonacchi.com/static/js/main.b14c0b45.js",
+    "main.js": "/germanbonacchi.com/static/js/main.7c4079d6.js",
     "static/js/787.36beaa89.chunk.js": "/germanbonacchi.com/static/js/787.36beaa89.chunk.js",
     "static/media/logo.svg": "/germanbonacchi.com/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/germanbonacchi.com/index.html",
     "main.073c9b0a.css.map": "/germanbonacchi.com/static/css/main.073c9b0a.css.map",
-    "main.b14c0b45.js.map": "/germanbonacchi.com/static/js/main.b14c0b45.js.map",
+    "main.7c4079d6.js.map": "/germanbonacchi.com/static/js/main.7c4079d6.js.map",
     "787.36beaa89.chunk.js.map": "/germanbonacchi.com/static/js/787.36beaa89.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.b14c0b45.js"
+    "static/js/main.7c4079d6.js"
   ]
 }
