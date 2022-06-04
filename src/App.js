@@ -1,28 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import ParticlesBackground from './components/ParticleBackground'
+import SocialFollow from './components/SocialFollow'
+import './css/App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>germanbonacchi.com</h1>
-        <p>
-          Test
-        </p>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ParticlesBackground />
+      <div className="App">
+        <header className="App-header">
+          <h1>Germán Bonacchi</h1>
+          <p> Site under construction </p>
+          <p> 👷🔨🔧🧱 </p>
+          <SocialFollow />
+
+        </header>
+      </div>
+    </>
+
   );
 }
 
