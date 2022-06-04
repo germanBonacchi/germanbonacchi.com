@@ -2,7 +2,7 @@
   "name": "germanbonacchi.com",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://germanbonacchi.github.io/germanbonacchi.com",
+  "homepage": "http://germanbonacchi.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -14,7 +14,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build && echo 'germanbonacchi.com' > ./build/CNAME",
+    "predeploy": "npm run build && echo germanbonacchi.com > ./build/CNAME",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
