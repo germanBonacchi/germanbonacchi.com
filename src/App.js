@@ -1,8 +1,13 @@
+import React, { useEffect } from 'react'
+
 import ParticlesBackground from './components/ParticleBackground'
 import SocialFollow from './components/SocialFollow'
 import './css/App.css';
 
 function App() {
+  useEffect(() => {
+    document.title = "Germán Bonacchi"
+  }, [])
   return (
     <>
       <ParticlesBackground />
