@@ -2,7 +2,7 @@
   "name": "germanbonacchi.com",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://germanBonacchi.github.io/germanbonacchi.com",
+  "homepage": "http://gitname.github.io/germanbonacchi.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
