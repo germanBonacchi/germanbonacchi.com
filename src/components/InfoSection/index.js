@@ -4,15 +4,19 @@ import {
  InfoWrapper,
  InfoRow,
  Column1,
+ Column2,
  TextWrapper,
  TopLine,
  Heading,
  Subtitle,
-} from './AboutElements'
-const AboutSection = () => {
+ ImgWrap,
+ Img,
+} from './InfoElements'
+
+const InfoSection = () => {
  return (
   <>
-   <InfoContainer>
+   <InfoContainer id="about">
     <InfoWrapper>
      <InfoRow>
       <Column1>
@@ -22,6 +26,11 @@ const AboutSection = () => {
         <Subtitle>Subtitle</Subtitle>
        </TextWrapper>
       </Column1>
+      <Column2>
+       <ImgWrap>
+        <Img />
+       </ImgWrap>
+      </Column2>
      </InfoRow>
     </InfoWrapper>
    </InfoContainer>
@@ -29,4 +38,4 @@ const AboutSection = () => {
  )
 }
 
-export default AboutSection
+export default InfoSection
