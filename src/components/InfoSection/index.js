@@ -13,6 +13,8 @@ import {
  Img,
 } from './InfoElements'
 
+import { Button } from 'react-scroll'
+
 const InfoSection = () => {
  return (
   <>
@@ -24,6 +26,17 @@ const InfoSection = () => {
         <TopLine>TopLine</TopLine>
         <Heading>Heading</Heading>
         <Subtitle>Subtitle</Subtitle>
+        <Button
+         to="home"
+         smooth={true}
+         duration={500}
+         spy={true}
+         exact="true"
+         offset={-80}
+         primary={1}
+         dark={1}
+         dark2={1}
+        ></Button>
        </TextWrapper>
       </Column1>
       <Column2>
