@@ -13,7 +13,7 @@ import {
  Img,
 } from './InfoElements'
 
-import { Button } from 'react-scroll'
+import { Button } from '../ButtomElement'
 
 const InfoSection = () => {
  return (

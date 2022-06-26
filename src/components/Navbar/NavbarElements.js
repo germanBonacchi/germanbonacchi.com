@@ -57,11 +57,11 @@ export const NavMenu = styled.ul`
  display: flex;
  align-items: center;
  list-style: none;
- text-align: center;x
+ text-align: center;
  margin-right: -22px;
 
  @media screen and (max-width: 768px) {
-     display: none;
+  display: none;
  }
 `
 export const NavItems = styled.li`
