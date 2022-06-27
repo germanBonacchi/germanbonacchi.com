@@ -27,9 +27,8 @@ const InfoSection = ({
  img,
  alt,
  buttonLabel,
-
- buttonPrimary,
- buttonTextDark,
+ primary,
+ dark,
 }) => {
  return (
   <>
@@ -48,8 +47,8 @@ const InfoSection = ({
          spy={true}
          exact="true"
          offset={-80}
-         buttonPrimary={buttonPrimary ? 1 : 0}
-         buttonTextDark={buttonTextDark ? 1 : 0}
+         primary={primary ? 1 : 0}
+         dark={dark ? 1 : 0}
         >
          {buttonLabel}
         </Button>

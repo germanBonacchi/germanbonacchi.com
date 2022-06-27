@@ -15,8 +15,8 @@ export const homeObjOne = {
  img: svg1,
  alt: 'Car',
  buttonLabel: 'Empecemos',
- buttonPrimary: true,
- buttonTextDark: true,
+ primary: true,
+ dark: true,
 }
 
 export const homeObjTwo = {
@@ -32,8 +32,8 @@ export const homeObjTwo = {
  img: svg2,
  alt: 'Car',
  buttonLabel: 'Empecemos',
- buttonPrimary: false,
- buttonTextDark: false,
+ primary: false,
+ dark: false,
 }
 
 export const homeObjThree = {
@@ -49,6 +49,6 @@ export const homeObjThree = {
  img: svg3,
  alt: 'Car',
  buttonLabel: 'Empecemos',
- buttonPrimary: true,
- buttonTextDark: true,
+ primary: true,
+ dark: true,
 }
