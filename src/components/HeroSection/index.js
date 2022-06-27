@@ -6,8 +6,7 @@ import {
  HeroH1,
  HeroP,
 } from './HeroElements'
-import ParticlesBackground from '../ParticleBackground'
-import SocialFollow from '../SocialFollow'
+import ParticlesBackground from '../Particles/ParticleBackground'
 
 const HeroSection = () => {
  return (
@@ -16,10 +15,9 @@ const HeroSection = () => {
     <ParticlesBackground />
    </HeroBg>
    <HeroContent>
+    <HeroP>Hi, I'm</HeroP>
     <HeroH1>Germán Bonacchi</HeroH1>
-    <HeroP> Site under construction </HeroP>
-    <HeroP> 👷🔨🔧🧱 </HeroP>
-    <SocialFollow />
+    <HeroP>Software Developer | VTEX Apps Engineer</HeroP>
    </HeroContent>
   </HeroContainer>
  )
