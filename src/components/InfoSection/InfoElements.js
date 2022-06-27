@@ -3,12 +3,15 @@ import styled from 'styled-components'
 export const InfoContainer = styled.div`
  color: #fff;
  position: relative;
- background: #000;
  z-index: 1;
+ background: ${({ lightBg }) => (lightBg ? '#f9f9f9' : '#010606')};
+
+ @media screen and (max-width: 768px) {
+  padding: 100px 0;
+ }
 `
 export const InfoWrapper = styled.div`
  display: grid;
- z-index: 1;
  height: 860px;
  width: 100%;
  max-width: 1100px;
@@ -18,14 +21,15 @@ export const InfoWrapper = styled.div`
  justify-content: center;
 `
 export const InfoRow = styled.div`
- z-index: 1;
  display: grid;
  grid-auto-flow: minmax(auto, 1fr);
  align-items: center;
- grid-template-areas: 'col2 col1';
+ grid-template-areas: ${({ imgStart }) =>
+  imgStart ? `'col2 col1'` : `'col1 col2'`};
 
  @media screen and (max-width: 768px) {
-  grid-template-areas: 'col1' 'col2';
+  grid-template-areas: ${({ imgStart }) =>
+   imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
  }
 `
 
@@ -61,20 +65,20 @@ export const Heading = styled.h1`
  font-size: 48px;
  line-height: 1.1;
  font-weight: 600;
- color: '#f7f8fa';
+ color: ${({ lightHeading }) => (lightHeading ? '#f7f8fa' : '#010606')};
+
  @media screen and (max-width: 480px) {
   font-size: 32px;
  }
 `
 
-export const Subtitle = styled.p`
+export const Description = styled.p`
  max-width: 440px;
  margin-bottom: 35px;
  font-size: 18px;
  line-height: 24px;
- color: '#010606';
+ color: ${({ lightDesc }) => (lightDesc ? '#f7f8fa' : '#010606')};
 `
-//    color: {({darkText}) => (darkText ? '#010606' : '#fff')};
 
 export const ImgWrap = styled.div`
  max-width: 555px;

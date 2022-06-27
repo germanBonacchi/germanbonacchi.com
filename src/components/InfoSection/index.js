@@ -8,24 +8,39 @@ import {
  TextWrapper,
  TopLine,
  Heading,
- Subtitle,
+ Description,
  ImgWrap,
  Img,
 } from './InfoElements'
 
 import { Button } from '../ButtomElement'
 
-const InfoSection = () => {
+const InfoSection = ({
+ id,
+ lightBg,
+ imgStart,
+ topLine,
+ lightHeading,
+ heading,
+ lightDesc,
+ description,
+ img,
+ alt,
+ buttonLabel,
+
+ buttonPrimary,
+ buttonTextDark,
+}) => {
  return (
   <>
-   <InfoContainer id="about">
+   <InfoContainer id={id} lightBg={lightBg}>
     <InfoWrapper>
-     <InfoRow>
+     <InfoRow imgStart={imgStart}>
       <Column1>
        <TextWrapper>
-        <TopLine>TopLine</TopLine>
-        <Heading>Heading</Heading>
-        <Subtitle>Subtitle</Subtitle>
+        <TopLine>{topLine}</TopLine>
+        <Heading lightHeading={lightHeading}>{heading}</Heading>
+        <Description lightDesc={lightDesc}>{description}</Description>
         <Button
          to="home"
          smooth={true}
@@ -33,15 +48,16 @@ const InfoSection = () => {
          spy={true}
          exact="true"
          offset={-80}
-         primary={1}
-         dark={1}
-         dark2={1}
-        ></Button>
+         buttonPrimary={buttonPrimary ? 1 : 0}
+         buttonTextDark={buttonTextDark ? 1 : 0}
+        >
+         {buttonLabel}
+        </Button>
        </TextWrapper>
       </Column1>
       <Column2>
        <ImgWrap>
-        <Img />
+        <Img src={img} alt={alt} />
        </ImgWrap>
       </Column2>
      </InfoRow>
