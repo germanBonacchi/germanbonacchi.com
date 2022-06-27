@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaBars } from 'react-icons/fa'
 import { IconContext } from 'react-icons/lib'
+import { animateScroll as scroll } from 'react-scroll'
 import {
  Nav,
  NavbarContainer,
@@ -27,12 +28,17 @@ const Navbar = ({ toggle }) => {
  useEffect(() => {
   window.addEventListener('scroll', changeNav)
  }, [])
+
+ const toggleHome = () => {
+  scroll.scrollToTop()
+ }
+
  return (
   <>
    <IconContext.Provider value={{ color: '#fff' }}>
     <Nav scrollNav={scrollNav}>
      <NavbarContainer>
-      <NavLogo to="/">
+      <NavLogo to="/" onClick={toggleHome}>
        <svg
         className="svgLogo"
         xmlns="http://www.w3.org/2000/svg"
@@ -46,13 +52,43 @@ const Navbar = ({ toggle }) => {
       </MobileIcon>
       <NavMenu>
        <NavItems>
-        <NavLinks to="about">About</NavLinks>
+        <NavLinks
+         id="aboutLink"
+         to="about"
+         smooth={true}
+         duration={500}
+         spy={true}
+         exact="true"
+         offset={-80}
+        >
+         About
+        </NavLinks>
        </NavItems>
        <NavItems>
-        <NavLinks to="discover">Discover</NavLinks>
+        <NavLinks
+         id="discoverLink"
+         to="discover"
+         smooth={true}
+         duration={500}
+         spy={true}
+         exact="true"
+         offset={-80}
+        >
+         Discover
+        </NavLinks>
        </NavItems>
        <NavItems>
-        <NavLinks to="services">Services</NavLinks>
+        <NavLinks
+         id="servicesLink"
+         to="services"
+         smooth={true}
+         duration={500}
+         spy={true}
+         exact="true"
+         offset={-80}
+        >
+         Services
+        </NavLinks>
        </NavItems>
       </NavMenu>
      </NavbarContainer>
