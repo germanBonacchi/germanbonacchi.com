@@ -12,13 +12,17 @@ export const InfoContainer = styled.div`
 `
 export const InfoWrapper = styled.div`
  display: grid;
- height: 860px;
  width: 100%;
  max-width: 1100px;
  margin-right: auto;
  margin-left: auto;
- padding: 0 24px;
+ padding: 50px 24px;
  justify-content: center;
+
+ @media screen and (max-width: 768px) {
+  grid-template-areas: ${({ imgStart }) =>
+   imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
+ }
 `
 export const InfoRow = styled.div`
  display: grid;
