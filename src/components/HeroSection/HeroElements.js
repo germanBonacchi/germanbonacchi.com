@@ -101,3 +101,17 @@ export const HeroP = styled.p`
   font-size: 18px;
  }
 `
+export const ImgWrap = styled.div`
+ max-width: 555px;
+ width: 10em;
+ height: 10em;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+`
+export const Img = styled.img`
+ width: 100%;
+ margin-top: 24px;
+ border-radius: 50%;
+ border: 2px solid #fff;
+`

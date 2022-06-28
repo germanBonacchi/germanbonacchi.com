@@ -9,7 +9,8 @@ export const homeObjOne = {
  lightDesc: true,
  topLine: 'About Me',
  heading: '',
- description: 'I am lidering a team with the objetive to solve',
+ description:
+  'I am lidering a team with the objetive to analyze and solve the known issues of all LATAM and giving training of VTEX IO.',
  imgStart: false,
  img: svg1,
  alt: 'Car',
@@ -33,7 +34,7 @@ export const homeObjTwo = {
  topLine: 'Premiun Bank',
  heading: 'At vero eos et accusamus et iusto odio dignissimos ducimus',
  description:
-  'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem.',
+  'and I am always looking for new challenges to improve my skills and knowledge.',
  imgStart: true,
  img: svg2,
  alt: 'Car',
