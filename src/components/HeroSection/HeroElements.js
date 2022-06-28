@@ -82,7 +82,7 @@ export const HeroH1 = styled.h1`
   background: hsl(200 100% 80%);
   z-index: -1;
   transition: transform 0.3s ease;
-  background: #3f016b;
+  background: #a32eff;
  }
 `
 

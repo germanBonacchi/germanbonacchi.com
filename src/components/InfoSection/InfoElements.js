@@ -55,7 +55,7 @@ export const TextWrapper = styled.div`
 `
 
 export const TopLine = styled.p`
- color: #7101bf;
+ color: #a32eff;
  font-size: 16px;
  line-height: 16px;
  font-weight: 700;
@@ -73,6 +73,75 @@ export const Heading = styled.h1`
 
  @media screen and (max-width: 480px) {
   font-size: 32px;
+ }
+`
+
+export const Heading2 = styled.h1`
+ display: inline;
+ margin-bottom: 24px;
+ font-size: 48px;
+ line-height: 1.1;
+ font-weight: 600;
+ color: ${({ color }) => color};
+
+ @media screen and (max-width: 480px) {
+  font-size: 32px;
+ }
+`
+export const Heading3 = styled.h1`
+ position: relative;
+ display: inline;
+ margin-bottom: 24px;
+ font-size: 48px;
+ line-height: 1.1;
+ font-weight: 600;
+
+ @media screen and (max-width: 480px) {
+  font-size: 32px;
+ }
+
+ &::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+ }
+
+ &:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+ }
+
+ &::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background: hsl(200 100% 80%);
+  z-index: -1;
+  transition: transform 0.3s ease;
+  background: #a32eff;
+ }
+`
+export const Anchor = styled.a`
+ text-decoration: none;
+ color: ${({ color }) => color};
+
+ background: linear-gradient(to right, #fff, #fff),
+  linear-gradient(
+   to right,
+   rgba(255, 0, 0, 1),
+   rgba(255, 0, 180, 1),
+   rgba(0, 100, 200, 1)
+  );
+ background-size: 100% 3px, 0 3px;
+ background-position: 100% 100%, 0 100%;
+ background-repeat: no-repeat;
+ transition: background-size 400ms;
+ &:hover {
+  background-size: 0 3px, 100% 3px;
  }
 `
 
