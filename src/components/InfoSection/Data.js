@@ -10,7 +10,7 @@ export const homeObjOne = {
  topLine: 'About Me',
  heading: '',
  description:
-  'I am lidering a team with the objetive to analyze and solve the known issues of all LATAM and giving training of VTEX IO.',
+  'I am leading a team with the objective of analyzing and solving known problems throughout LATAM developing innovative solutions and giving VTEX IO trainings.',
  imgStart: false,
  img: svg1,
  alt: 'Car',
