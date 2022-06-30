@@ -18,6 +18,7 @@ import {
 } from './InfoElements'
 
 import { Button } from '../ButtomElement'
+import ReactPlayer from 'react-player'
 
 export const InfoSection = ({
  id,
@@ -219,6 +220,75 @@ export const SkillSection = ({
       <Column2>
        <ImgWrap>
         <SpanSphere id="skillsSphere"></SpanSphere>
+       </ImgWrap>
+      </Column2>
+     </InfoRow>
+    </InfoWrapper>
+   </InfoContainer>
+  </>
+ )
+}
+
+export const TrainingsSection = ({
+ id,
+ lightBg,
+ imgStart,
+ topLine,
+ lightDesc,
+ description,
+ buttonLabel,
+ primary,
+ dark,
+}) => {
+ return (
+  <>
+   <InfoContainer id={id} lightBg={lightBg}>
+    <InfoWrapper>
+     <InfoRow imgStart={imgStart}>
+      <Column1>
+       <TextWrapper>
+        <TopLine>{topLine}</TopLine>
+        <Description lightDesc={lightDesc}>{description}</Description>
+
+        {buttonLabel && (
+         <Button
+          to="home"
+          smooth={true}
+          duration={500}
+          spy={true}
+          exact="true"
+          offset={-80}
+          primary={primary ? 1 : 0}
+          dark={dark ? 1 : 0}
+         >
+          {buttonLabel}
+         </Button>
+        )}
+       </TextWrapper>
+      </Column1>
+      <Column2>
+       <ImgWrap>
+        <div class="container"></div>
+        <div class="video-list">
+         <ReactPlayer
+          controls
+          url="https://www.youtube.com/watch?v=WjRuhuWnqeo"
+         ></ReactPlayer>
+         <ReactPlayer
+          controls
+          url="https://www.youtube.com/watch?v=EjZpzq3yl6c"
+         ></ReactPlayer>
+         <ReactPlayer
+          controls
+          url="https://www.youtube.com/watch?v=FrRqouiu6jE"
+         ></ReactPlayer>
+        </div>
+        <div class="main-video">
+         <ReactPlayer
+          controls
+          url="https://www.youtube.com/watch?v=WjRuhuWnqeo"
+         ></ReactPlayer>
+        </div>
        </ImgWrap>
       </Column2>
      </InfoRow>

@@ -62,7 +62,7 @@ export const homeObjSkills = {
  dark: false,
 }
 
-export const homeObjThree = {
+export const homeObjTraining = {
  id: 'trainings',
  lightBg: false,
  lightHeading: true,

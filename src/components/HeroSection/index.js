@@ -10,6 +10,7 @@ import {
 } from './HeroElements'
 import ParticlesBackground from '../Particles/ParticleBackground'
 import profile from '../../images/profile.jpg'
+
 const HeroSection = () => {
  return (
   <HeroContainer id="home">
