@@ -166,3 +166,9 @@ export const BtnWrap = styled.img`
  display: flex;
  justify-content: center;
 `
+
+export const SpanSphere = styled.span`
+ display: flex;
+ justify-content: center;
+ color: #000;
+`

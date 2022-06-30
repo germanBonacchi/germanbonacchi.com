@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
  InfoContainer,
  InfoWrapper,
@@ -14,6 +14,7 @@ import {
  Description,
  ImgWrap,
  Img,
+ SpanSphere,
 } from './InfoElements'
 
 import { Button } from '../ButtomElement'
@@ -136,6 +137,88 @@ export const AboutSection = ({
       <Column2>
        <ImgWrap>
         <Img src={img} alt={alt} />
+       </ImgWrap>
+      </Column2>
+     </InfoRow>
+    </InfoWrapper>
+   </InfoContainer>
+  </>
+ )
+}
+
+export const SkillSection = ({
+ id,
+ lightBg,
+ imgStart,
+ topLine,
+ lightDesc,
+ description,
+ description2,
+ description3,
+ description4,
+ skills,
+ buttonLabel,
+ primary,
+ dark,
+}) => {
+ const TagCloud = require('TagCloud')
+
+ useEffect(() => {
+  TagCloud('#skillsSphere', skills, {
+   radius: 250,
+   maxSpeed: 'fast',
+   initSpeed: 'fast',
+   direction: 135,
+  })
+
+  const observerTagElements = new MutationObserver((mutations, obsTE) => {
+   const tagElements = document.querySelectorAll('.tagcloud')
+   if (tagElements && tagElements.length > 1) {
+    tagElements.forEach((el, index) => {
+     if (index > 0) {
+      el.remove()
+     }
+    })
+   }
+  })
+
+  observerTagElements.observe(document, {
+   childList: true,
+   subtree: true,
+  })
+ }, [])
+
+ return (
+  <>
+   <InfoContainer id={id} lightBg={lightBg}>
+    <InfoWrapper>
+     <InfoRow imgStart={imgStart}>
+      <Column1>
+       <TextWrapper>
+        <TopLine>{topLine}</TopLine>
+        <Description lightDesc={lightDesc}>{description}</Description>
+        <Description lightDesc={lightDesc}>{description2}</Description>
+        <Description lightDesc={lightDesc}>{description3}</Description>
+        <Description lightDesc={lightDesc}>{description4}</Description>
+        {buttonLabel && (
+         <Button
+          to="home"
+          smooth={true}
+          duration={500}
+          spy={true}
+          exact="true"
+          offset={-80}
+          primary={primary ? 1 : 0}
+          dark={dark ? 1 : 0}
+         >
+          {buttonLabel}
+         </Button>
+        )}
+       </TextWrapper>
+      </Column1>
+      <Column2>
+       <ImgWrap>
+        <SpanSphere id="skillsSphere"></SpanSphere>
        </ImgWrap>
       </Column2>
      </InfoRow>
