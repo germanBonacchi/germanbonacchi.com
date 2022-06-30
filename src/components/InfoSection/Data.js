@@ -1,5 +1,5 @@
 import svg1 from '../../images/svg-1.svg'
-import svg2 from '../../images/svg-2.svg'
+//import svg2 from '../../images/svg-2.svg'
 import svg3 from '../../images/svg-3.svg'
 
 export const homeObjAbout = {

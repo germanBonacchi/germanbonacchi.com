@@ -18,7 +18,7 @@ import {
 } from './InfoElements'
 
 import { Button } from '../ButtomElement'
-import ReactPlayer from 'react-player'
+import VideoSlider from '../VideoSlider'
 
 export const InfoSection = ({
  id,
@@ -187,6 +187,7 @@ export const SkillSection = ({
    childList: true,
    subtree: true,
   })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [])
 
  return (
@@ -249,7 +250,6 @@ export const TrainingsSection = ({
        <TextWrapper>
         <TopLine>{topLine}</TopLine>
         <Description lightDesc={lightDesc}>{description}</Description>
-
         {buttonLabel && (
          <Button
           to="home"
@@ -268,27 +268,7 @@ export const TrainingsSection = ({
       </Column1>
       <Column2>
        <ImgWrap>
-        <div class="container"></div>
-        <div class="video-list">
-         <ReactPlayer
-          controls
-          url="https://www.youtube.com/watch?v=WjRuhuWnqeo"
-         ></ReactPlayer>
-         <ReactPlayer
-          controls
-          url="https://www.youtube.com/watch?v=EjZpzq3yl6c"
-         ></ReactPlayer>
-         <ReactPlayer
-          controls
-          url="https://www.youtube.com/watch?v=FrRqouiu6jE"
-         ></ReactPlayer>
-        </div>
-        <div class="main-video">
-         <ReactPlayer
-          controls
-          url="https://www.youtube.com/watch?v=WjRuhuWnqeo"
-         ></ReactPlayer>
-        </div>
+        <VideoSlider />
        </ImgWrap>
       </Column2>
      </InfoRow>
