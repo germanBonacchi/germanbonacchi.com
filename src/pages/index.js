@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import HeroSection from '../components/HeroSection'
 import {
- //InfoSection,
+ InfoSection,
  AboutSection,
  SkillSection,
  TrainingsSection,
@@ -31,6 +31,7 @@ const Home = () => {
    <AboutSection {...homeObjAbout} />
    <SkillSection {...homeObjSkills} />
    <TrainingsSection {...homeObjTraining} />
+   <InfoSection {...homeObjSkills} />
    <Footer />
   </>
  )

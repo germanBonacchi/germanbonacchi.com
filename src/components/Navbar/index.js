@@ -90,6 +90,19 @@ const Navbar = ({ toggle }) => {
          Trainings
         </NavLinks>
        </NavItems>
+       <NavItems>
+        <NavLinks
+         id="contact"
+         to="contact"
+         smooth={true}
+         duration={500}
+         spy={true}
+         exact="true"
+         offset={-80}
+        >
+         Contact
+        </NavLinks>
+       </NavItems>
       </NavMenu>
      </NavbarContainer>
     </Nav>
