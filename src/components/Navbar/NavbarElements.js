@@ -38,6 +38,13 @@ export const NavLogo = styled(LinkRouter)`
  margin-left: 24px;
  font-weight: bold;
  text-decoration: none;
+ transform: rotate(360deg);
+ transition: transform 1s;
+
+ &:active {
+  transform: rotate(0deg);
+  transition: 0s;
+ }
 `
 export const MobileIcon = styled.div`
  display: none;
