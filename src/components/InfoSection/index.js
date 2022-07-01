@@ -234,9 +234,11 @@ export const TrainingsSection = ({
  id,
  lightBg,
  imgStart,
- topLine,
- lightDesc,
+ lightHeading,
  description,
+ topLine,
+ heading,
+ lightDesc,
  buttonLabel,
  primary,
  dark,
@@ -249,6 +251,7 @@ export const TrainingsSection = ({
       <Column1>
        <TextWrapper>
         <TopLine>{topLine}</TopLine>
+        <Heading lightHeading={lightHeading}>{heading}</Heading>
         <Description lightDesc={lightDesc}>{description}</Description>
         {buttonLabel && (
          <Button

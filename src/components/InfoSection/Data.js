@@ -1,6 +1,6 @@
 import svg1 from '../../images/svg-1.svg'
 //import svg2 from '../../images/svg-2.svg'
-import svg3 from '../../images/svg-3.svg'
+//import svg3 from '../../images/svg-3.svg'
 
 export const homeObjAbout = {
  id: 'about',
@@ -67,14 +67,13 @@ export const homeObjTraining = {
  lightBg: false,
  lightHeading: true,
  lightDesc: true,
- topLine: 'Premiun Bank',
- heading: 'At vero eos et accusamus et iusto odio dignissimos ducimus',
+ topLine: 'Trainings',
+ heading: 'Here you can see the workouts I did... and there will be more',
  description:
-  'Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet consectetur adipisci[ng] velit, sed quia non numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem.',
+  'Giving training is one of the things I enjoy the most and where I can internalize knowledge by helping others to be better in the process.',
  imgStart: false,
- img: svg3,
- alt: 'Car',
- buttonLabel: 'Empecemos',
+ alt: '',
+ buttonLabel: '',
  primary: true,
  dark: true,
 }

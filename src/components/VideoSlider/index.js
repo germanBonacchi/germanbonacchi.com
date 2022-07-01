@@ -1,28 +1,39 @@
-import React from 'react'
-import Slider from 'react-slick'
+import React, { useEffect, useState } from 'react'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import ReactPlayer from 'react-player'
 import { items, settings } from './config/config.js'
-import { SliderContainer, Card, Img } from './VideoSliderElements'
+import { SliderComponent, Card, Img, Video } from './VideoSliderElements'
 import '../../css/videoSlider.css'
 
 export default function VideoSlider() {
+ const [activeVideo, setActiveVideo] = useState(0)
+
+ useEffect(() => {
+  setActiveVideo(0)
+ }, [])
+
+ useEffect(() => {
+  console.log('activeVideo', activeVideo)
+ }, [activeVideo])
+
  return (
-  <SliderContainer>
-   <Slider {...settings}>
+  <>
+   <SliderComponent {...settings}>
     {items.map((item) => (
-     <Card>
+     <Card
+      className={item.id === activeVideo ? 'active-card' : 'card'}
+      id={item.id}
+      key={item.id}
+      onClick={() => setActiveVideo(item.id)}
+     >
       <Img src={item.img} alt={item.title} />
      </Card>
     ))}
-   </Slider>
-   <div class="main-video">
-    <ReactPlayer
-     controls
-     url="https://www.youtube.com/watch?v=WjRuhuWnqeo"
-    ></ReactPlayer>
-   </div>
-  </SliderContainer>
+   </SliderComponent>
+   <Video>
+    <ReactPlayer controls url={items[activeVideo].videoLink}></ReactPlayer>
+   </Video>
+  </>
  )
 }
