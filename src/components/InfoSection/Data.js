@@ -68,7 +68,8 @@ export const homeObjTraining = {
  lightHeading: true,
  lightDesc: true,
  topLine: 'Trainings',
- heading: 'Here you can see the workouts I did... and there will be more',
+ heading:
+  'Here you can view the trainings I did... and soon there will be more',
  description:
   'Giving training is one of the things I enjoy the most and where I can internalize knowledge by helping others to be better in the process.',
  imgStart: false,
