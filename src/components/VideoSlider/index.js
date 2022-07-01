@@ -13,10 +13,6 @@ export default function VideoSlider() {
   setActiveVideo(0)
  }, [])
 
- useEffect(() => {
-  console.log('activeVideo', activeVideo)
- }, [activeVideo])
-
  return (
   <>
    <SliderComponent {...settings}>
