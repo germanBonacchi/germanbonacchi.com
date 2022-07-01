@@ -13,6 +13,7 @@ import {
  homeObjAbout,
  homeObjSkills,
  homeObjTraining,
+ homeObjContact,
 } from '../components/InfoSection/Data'
 
 import '../css/home.css'
@@ -31,7 +32,7 @@ const Home = () => {
    <AboutSection {...homeObjAbout} />
    <SkillSection {...homeObjSkills} />
    <TrainingsSection {...homeObjTraining} />
-   <InfoSection {...homeObjSkills} />
+   <InfoSection {...homeObjContact} />
    <Footer />
   </>
  )

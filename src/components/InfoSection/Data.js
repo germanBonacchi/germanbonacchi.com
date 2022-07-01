@@ -1,5 +1,5 @@
 import svg1 from '../../images/svg-1.svg'
-//import svg2 from '../../images/svg-2.svg'
+import svg2 from '../../images/svg-2.svg'
 //import svg3 from '../../images/svg-3.svg'
 
 export const homeObjAbout = {
@@ -73,6 +73,23 @@ export const homeObjTraining = {
   'Giving training is one of the things I enjoy the most and where I can internalize knowledge by helping others to be better in the process.',
  imgStart: false,
  alt: '',
+ buttonLabel: '',
+ primary: true,
+ dark: true,
+}
+
+export const homeObjContact = {
+ id: 'contact',
+ lightBg: true,
+ lightHeading: false,
+ lightDesc: false,
+ topLine: 'Contact',
+ heading: '',
+ description:
+  'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+ imgStart: true,
+ img: svg2,
+ alt: 'developer',
  buttonLabel: '',
  primary: true,
  dark: true,
