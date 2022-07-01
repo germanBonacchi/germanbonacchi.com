@@ -90,6 +90,13 @@ export const SocialLogo = styled(Link)`
  align-items: center;
  margin-bottom: 16px;
  font-weight: bold;
+ transform: rotate(360deg);
+ transition: transform 1s;
+
+ &:active {
+  transform: rotate(0deg);
+  transition: 0s;
+ }
 `
 
 export const WebsiteRights = styled.small`
