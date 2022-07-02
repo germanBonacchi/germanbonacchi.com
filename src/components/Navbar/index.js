@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { FaBars } from 'react-icons/fa'
+import { FaBars, FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa'
+
 import { IconContext } from 'react-icons/lib'
 import { animateScroll as scroll } from 'react-scroll'
 import {
@@ -10,6 +11,8 @@ import {
  NavMenu,
  NavItems,
  NavLinks,
+ SocialIcons,
+ SocialIconLink,
 } from './NavbarElements'
 
 import '../../css/navbarElements.css'
@@ -103,6 +106,29 @@ const Navbar = ({ toggle }) => {
          Contact
         </NavLinks>
        </NavItems>
+       <SocialIcons>
+        <SocialIconLink
+         href="//www.instagram.com/ger_nachi/"
+         target="_blank"
+         aria-label="Github"
+        >
+         <FaInstagram />
+        </SocialIconLink>
+        <SocialIconLink
+         href="//www.linkedin.com/in/germ%C3%A1n-bonacchi-91b59a123/"
+         target="_blank"
+         aria-label="Linkedin"
+        >
+         <FaLinkedin />
+        </SocialIconLink>
+        <SocialIconLink
+         href="//github.com/germanBonacchi"
+         target="_blank"
+         aria-label="Github"
+        >
+         <FaGithub />
+        </SocialIconLink>
+       </SocialIcons>
       </NavMenu>
      </NavbarContainer>
     </Nav>
