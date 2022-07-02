@@ -34,4 +34,7 @@ export const Video = styled.div`
  display: flex;
  justify-content: center;
  width: 100%;
+ overflow: hidden;
+ border: 2px solid #fff;
+ border-radius: 10px;
 `

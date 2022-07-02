@@ -1,6 +1,7 @@
 import video1img from '../../../images/video1img.jpg'
 import video2img from '../../../images/video2img.jpg'
 import video3img from '../../../images/video3img.jpg'
+import video4img from '../../../images/video4img.jpg'
 
 export const items = [
  {
@@ -11,15 +12,21 @@ export const items = [
  },
  {
   id: 1,
-  title: 'Tech1',
+  title: 'TechTrainingLatam1',
   videoLink: 'https://www.youtube.com/watch?v=EjZpzq3yl6c',
   img: video2img,
  },
  {
   id: 2,
-  title: 'Tech2',
+  title: 'TechTrainingLatam2',
   videoLink: 'https://www.youtube.com/watch?v=FrRqouiu6jE',
   img: video3img,
+ },
+ {
+  id: 3,
+  title: 'TechTrainingLatam3',
+  videoLink: 'https://www.youtube.com/watch?v=8Rzif31Xgrw',
+  img: video4img,
  },
 ]
 
