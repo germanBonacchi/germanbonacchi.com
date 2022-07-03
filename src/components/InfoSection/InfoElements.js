@@ -170,5 +170,31 @@ export const BtnWrap = styled.img`
 export const SpanSphere = styled.span`
  display: flex;
  justify-content: center;
- color: #000;
+ color: #010606;
+
+ .tagcloud {
+  width: 50%;
+  display: inline-block;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  padding-right: 0;
+ }
+
+ .tagcloud--item {
+  padding: 2px 4px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+ }
+
+ .tagcloud--item:hover {
+  background-color: #a32eff;
+  border: 1px solid #010606;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 1 !important;
+  z-index: 100 !important;
+ }
 `
