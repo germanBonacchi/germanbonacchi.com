@@ -9,7 +9,6 @@ import {
  TopLine,
  Heading,
  Heading2,
- Heading3,
  Anchor,
  Description,
  ImgWrap,

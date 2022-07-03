@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import ReactPlayer from 'react-player'
 import { items, settings } from './config/config.js'
 import {
- VideoSliderContainer,
  SliderComponent,
  Card,
  Img,
  Video,
+ ReactPlayerComponent,
 } from './VideoSliderElements'
 import '../../css/videoSlider.css'
 
@@ -34,7 +33,12 @@ export default function VideoSlider() {
     ))}
    </SliderComponent>
    <Video>
-    <ReactPlayer controls url={items[activeVideo].videoLink}></ReactPlayer>
+    <ReactPlayerComponent
+     width="100%"
+     height="100%"
+     controls
+     url={items[activeVideo].videoLink}
+    ></ReactPlayerComponent>
    </Video>
   </>
  )

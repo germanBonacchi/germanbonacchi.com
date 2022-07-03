@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Slider from 'react-slick'
+import ReactPlayer from 'react-player'
 
 export const SliderComponent = styled(Slider)`
  margin-bottom: 10px;
@@ -35,7 +36,16 @@ export const Img = styled.img`
 export const Video = styled.div`
  justify-content: center;
  width: 100%;
- overflow: hidden;
  border: 2px solid #fff;
  border-radius: 10px;
+ overflow: hidden;
+ position: relative;
+ padding-top: 56.25%;
+`
+export const ReactPlayerComponent = styled(ReactPlayer)`
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
 `
