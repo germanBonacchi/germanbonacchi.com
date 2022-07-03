@@ -3,10 +3,10 @@ import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import HeroSection from '../components/HeroSection'
 import {
- InfoSection,
  AboutSection,
  SkillSection,
  TrainingsSection,
+ ContactSection,
 } from '../components/InfoSection'
 import Footer from '../components/Footer'
 import {
@@ -32,7 +32,7 @@ const Home = () => {
    <AboutSection {...homeObjAbout} />
    <SkillSection {...homeObjSkills} />
    <TrainingsSection {...homeObjTraining} />
-   <InfoSection {...homeObjContact} />
+   <ContactSection {...homeObjContact} />
    <Footer />
   </>
  )

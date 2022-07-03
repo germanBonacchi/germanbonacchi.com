@@ -88,15 +88,3 @@ export const NavLinks = styled(LinkScroll)`
   border-bottom: 3px solid #a32eff;
  }
 `
-export const SocialIcons = styled.div`
- margin-left: 20px;
-
- display: flex;
- justify-content: space-between;
- align-items: center;
- width: 120px;
-`
-export const SocialIconLink = styled.a`
- color: #fff;
- font-size: 24px;
-`

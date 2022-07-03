@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa'
 import { animateScroll as scroll } from 'react-scroll'
 
 import {
@@ -14,9 +13,9 @@ import {
  SocialMediaWrap,
  SocialLogo,
  WebsiteRights,
- SocialIcons,
- SocialIconLink,
 } from './FooterElements'
+
+import SocialIcons from '../SocialIcons'
 
 const Footer = () => {
  const toggleHome = () => {
@@ -75,29 +74,7 @@ const Footer = () => {
       <WebsiteRights>
        Germán Bonacchi © {new Date().getFullYear()} All rights reserved.
       </WebsiteRights>
-      <SocialIcons>
-       <SocialIconLink
-        href="//www.instagram.com/ger_nachi/"
-        target="_blank"
-        aria-label="Github"
-       >
-        <FaInstagram />
-       </SocialIconLink>
-       <SocialIconLink
-        href="//www.linkedin.com/in/germ%C3%A1n-bonacchi-91b59a123/"
-        target="_blank"
-        aria-label="Linkedin"
-       >
-        <FaLinkedin />
-       </SocialIconLink>
-       <SocialIconLink
-        href="//github.com/germanBonacchi"
-        target="_blank"
-        aria-label="Github"
-       >
-        <FaGithub />
-       </SocialIconLink>
-      </SocialIcons>
+      <SocialIcons component="Footer" />
      </SocialMediaWrap>
     </SocialMedia>
    </FooterWrap>

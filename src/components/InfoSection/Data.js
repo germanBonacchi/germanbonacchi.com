@@ -81,7 +81,7 @@ export const homeObjTraining = {
 
 export const homeObjContact = {
  id: 'contact',
- lightBg: true,
+ lightBg: false,
  lightHeading: false,
  lightDesc: false,
  topLine: 'Contact',

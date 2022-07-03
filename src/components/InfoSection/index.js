@@ -19,7 +19,7 @@ import {
 
 import { Button } from '../ButtomElement'
 import VideoSlider from '../VideoSlider'
-
+import Contact from '../Contact'
 export const InfoSection = ({
  id,
  lightBg,
@@ -79,7 +79,6 @@ export const AboutSection = ({
  imgStart,
  topLine,
  lightHeading,
- heading,
  lightDesc,
  description,
  img,
@@ -274,6 +273,32 @@ export const TrainingsSection = ({
         <VideoSlider />
        </ImgWrap>
       </Column2>
+     </InfoRow>
+    </InfoWrapper>
+   </InfoContainer>
+  </>
+ )
+}
+
+export const ContactSection = ({
+ id,
+ lightBg,
+ imgStart,
+ topLine,
+ lightDesc,
+ description,
+ buttonLabel,
+ primary,
+ dark,
+ img,
+ alt,
+}) => {
+ return (
+  <>
+   <InfoContainer id={id} lightBg={lightBg}>
+    <InfoWrapper>
+     <InfoRow imgStart={imgStart}>
+      <Contact />
      </InfoRow>
     </InfoWrapper>
    </InfoContainer>

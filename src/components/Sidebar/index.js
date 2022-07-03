@@ -8,6 +8,7 @@ import {
  SidebarLink,
 } from './SidebarElements'
 
+import SocialIcons from '../SocialIcons'
 const Sidebar = ({ isOpen, toggle }) => {
  return (
   <SidebarContainer isOpen={isOpen} onClick={toggle}>
@@ -28,6 +29,7 @@ const Sidebar = ({ isOpen, toggle }) => {
      <SidebarLink to="contact" onClick={toggle}>
       Contact
      </SidebarLink>
+     <SocialIcons component="SideBar" />
     </SidebarMenu>
    </SidebarWrapper>
   </SidebarContainer>
