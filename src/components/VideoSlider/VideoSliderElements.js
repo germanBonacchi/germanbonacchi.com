@@ -2,8 +2,10 @@ import styled from 'styled-components'
 import Slider from 'react-slick'
 
 export const SliderComponent = styled(Slider)`
+ margin-bottom: 10px;
  width: 100%;
 `
+
 export const Card = styled.div`
  background-color: #fff;
  border: 2px solid #fff;
@@ -31,7 +33,6 @@ export const Img = styled.img`
  object-fit: cover;
 `
 export const Video = styled.div`
- display: flex;
  justify-content: center;
  width: 100%;
  overflow: hidden;

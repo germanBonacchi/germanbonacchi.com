@@ -11,7 +11,7 @@ export const InfoContainer = styled.div`
  }
 `
 export const InfoWrapper = styled.div`
- display: grid;
+ //display: grid;
  width: 100%;
  max-width: 1100px;
  margin-right: auto;
@@ -32,6 +32,7 @@ export const InfoRow = styled.div`
   imgStart ? `'col2 col1'` : `'col1 col2'`};
 
  @media screen and (max-width: 768px) {
+  display: block;
   grid-template-areas: ${({ imgStart }) =>
    imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
  }

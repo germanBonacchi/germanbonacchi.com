@@ -8,7 +8,6 @@ export const homeObjAbout = {
  lightHeading: true,
  lightDesc: true,
  topLine: 'About Me',
- heading: '',
  description:
   'I am leading a team with the objective of analyzing and solving known problems throughout LATAM developing innovative solutions and giving VTEX IO trainings.',
  imgStart: false,
@@ -17,13 +16,11 @@ export const homeObjAbout = {
  buttonLabel: '',
  primary: true,
  dark: true,
- headingTwo1: 'My name is ',
- headingTwo2: 'Germán',
- headingTwo3: ' and I am an ',
- headingTwo4: 'Apps Engineer',
- headingTwo5: ' of the ',
- headingTwo6: 'VTEX',
- headingTwo7: ' Regional Product Team LATAM',
+ heading1: 'My name is Germán and I am an ',
+ heading2: 'Apps Engineer',
+ heading3: ' of the ',
+ heading4: 'VTEX',
+ heading5: ' Regional Product Team LATAM',
 }
 
 export const homeObjSkills = {

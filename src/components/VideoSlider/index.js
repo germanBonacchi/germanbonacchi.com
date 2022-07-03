@@ -3,7 +3,13 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import ReactPlayer from 'react-player'
 import { items, settings } from './config/config.js'
-import { SliderComponent, Card, Img, Video } from './VideoSliderElements'
+import {
+ VideoSliderContainer,
+ SliderComponent,
+ Card,
+ Img,
+ Video,
+} from './VideoSliderElements'
 import '../../css/videoSlider.css'
 
 export default function VideoSlider() {

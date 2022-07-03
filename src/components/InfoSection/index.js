@@ -86,13 +86,11 @@ export const AboutSection = ({
  buttonLabel,
  primary,
  dark,
- headingTwo1,
- headingTwo2,
- headingTwo3,
- headingTwo4,
- headingTwo5,
- headingTwo6,
- headingTwo7,
+ heading1,
+ heading2,
+ heading3,
+ heading4,
+ heading5,
 }) => {
  return (
   <>
@@ -102,20 +100,18 @@ export const AboutSection = ({
       <Column1>
        <TextWrapper>
         <TopLine>{topLine}</TopLine>
-        <Heading2 lightHeading={lightHeading}>{headingTwo1}</Heading2>
-        <Heading3 lightHeading={lightHeading}>{headingTwo2}</Heading3>
-        <Heading2 lightHeading={lightHeading}>{headingTwo3} </Heading2>
+        <Heading2 lightHeading={lightHeading}>{heading1}</Heading2>
         <Heading2 lightHeading={lightHeading} color="#F71963">
-         {headingTwo4}
+         {heading2}
         </Heading2>
-        <Heading2 lightHeading={lightHeading}> {headingTwo5}</Heading2>
+        <Heading2 lightHeading={lightHeading}> {heading3}</Heading2>
         <Heading2 lightHeading={lightHeading} color="#F71963">
          <Anchor target="_blank" href="//www.vtex.com" color="#F71963">
-          {headingTwo6}
+          {heading4}
          </Anchor>
         </Heading2>
         <Heading2 lightHeading={lightHeading} color="#F71963">
-         {headingTwo7}
+         {heading5}
         </Heading2>
         <Description lightDesc={lightDesc}>{description}</Description>
         {buttonLabel && (
