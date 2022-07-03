@@ -7,7 +7,6 @@ import {
 import { socialList } from './SocialIconsData'
 
 const SocialIcons = ({ component }) => {
- console.log(component)
  return (
   <SocialIconsContainer component={component}>
    {socialList.map((social) => (
