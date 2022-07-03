@@ -25,7 +25,7 @@ const Home = () => {
   setIsOpen(!isOpen)
  }
  return (
-  <>
+  <div className="home">
    <Sidebar isOpen={isOpen} toggle={toggle} />
    <Navbar toggle={toggle} />
    <HeroSection />
@@ -34,7 +34,7 @@ const Home = () => {
    <TrainingsSection {...homeObjTraining} />
    <ContactSection {...homeObjContact} />
    <Footer />
-  </>
+  </div>
  )
 }
 

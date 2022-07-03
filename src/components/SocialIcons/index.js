@@ -11,6 +11,7 @@ const SocialIcons = ({ component }) => {
   <SocialIconsContainer component={component}>
    {socialList.map((social) => (
     <SocialIconLink
+     key={social.id}
      href={social.href}
      target={social.target}
      aria-label={social.ariaLabel}
