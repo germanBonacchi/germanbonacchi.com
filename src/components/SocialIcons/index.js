@@ -16,7 +16,7 @@ const SocialIcons = ({ component }) => {
      target={social.target}
      aria-label={social.ariaLabel}
     >
-     <Icon icon={social.icon} />
+     <Icon iconSocial={social.icon} />
     </SocialIconLink>
    ))}
   </SocialIconsContainer>

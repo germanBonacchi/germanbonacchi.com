@@ -13,8 +13,7 @@ export const SocialIconLink = styled.a`
  color: #fff;
  font-size: 24px;
 `
-export const Icon = (props) => {
- const { icon } = props
- const TheIcon = icon
- return <TheIcon {...props} />
+export const Icon = ({ iconSocial }) => {
+ const TheIcon = iconSocial
+ return <TheIcon />
 }
