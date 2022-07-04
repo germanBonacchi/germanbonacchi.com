@@ -51,9 +51,32 @@ export default function ContactForm() {
  const [name, setName] = useState('')
  const [email, setEmail] = useState('')
  const [message, setMessage] = useState('')
+
+ const [status, setStatus] = useState('Send')
+
+ const handleSubmit = async (e) => {
+  e.preventDefault()
+  setStatus('Sending...')
+  const { name, email, message } = e.target.elements
+  let details = {
+   name: name.value,
+   email: email.value,
+   message: message.value,
+  }
+  let response = await fetch('http://localhost:3000/send-email', {
+   method: 'POST',
+   headers: {
+    'Content-Type': 'application/json;charset=utf-8',
+   },
+   body: JSON.stringify(details),
+  })
+  setStatus('Send')
+  let result = await response.json()
+  alert(result.status)
+ }
  return (
   <>
-   <FormStyle>
+   <FormStyle onSubmit={handleSubmit}>
     <div className="form-group">
      <label htmlFor="name">
       Your Name
@@ -90,7 +113,7 @@ export default function ContactForm() {
       />
      </label>
     </div>
-    <button type="submit">Send</button>
+    <button type="submit">{status}</button>
    </FormStyle>
   </>
  )

@@ -4,9 +4,9 @@ import { MdEmail, MdLocalPhone, MdPlace } from 'react-icons/md'
 import ContactForm from './ContactForm'
 import ContactInfoItem from './ContactInfoItem'
 import SectionTitle from './SectionTitle'
+import { personalInfo } from './Data'
 
 const ContactSectionStyle = styled.div`
- //padding: 10rem 0;
  .contactSection__wrapper {
   display: flex;
   gap: 6rem;
@@ -53,17 +53,15 @@ const ContactSectionStyle = styled.div`
 export default function Contact() {
  return (
   <ContactSectionStyle>
-   <div className="container">
-    <SectionTitle heading="Contact" subheading="Get in touch" />
-    <div className="contactSection__wrapper">
-     <div className="left">
-      <ContactInfoItem icon={<MdLocalPhone />} text="+8801231" />
-      <ContactInfoItem icon={<MdEmail />} text="webcifar@gmail.com" />
-      <ContactInfoItem icon={<MdPlace />} text="Chittagong, Bangladesh" />
-     </div>
-     <div className="right">
-      <ContactForm />
-     </div>
+   <SectionTitle heading="Contact" subheading="Get in touch" />
+   <div className="contactSection__wrapper">
+    <div className="left">
+     <ContactInfoItem iconInfo={<MdLocalPhone />} text={personalInfo.phone} />
+     <ContactInfoItem iconInfo={<MdEmail />} text={personalInfo.email} />
+     <ContactInfoItem iconInfo={<MdPlace />} text={personalInfo.address} />
+    </div>
+    <div className="right">
+     <ContactForm />
     </div>
    </div>
   </ContactSectionStyle>
