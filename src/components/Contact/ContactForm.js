@@ -3,6 +3,11 @@ import styled from 'styled-components'
 
 const FormStyle = styled.form`
  width: 100%;
+
+ @media only screen and (max-width: 768px) {
+  margin-top: -60px;
+ }
+
  .form-group {
   width: 100%;
   margin-bottom: 2rem;
@@ -10,12 +15,12 @@ const FormStyle = styled.form`
  label {
   color: #010606;
 
-  font-size: 1.8rem;
+  font-size: 1.2rem;
  }
  input,
  textarea {
   width: 100%;
-  font-size: 2rem;
+  font-size: 1rem;
   padding: 1.2rem;
   color: #fff;
   background-color: #1e1e1e;
@@ -31,13 +36,14 @@ const FormStyle = styled.form`
  button[type='submit'] {
   background-color: #363636;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1rem;
   display: inline-block;
   outline: none;
   border: none;
-  padding: 1rem 4rem;
+  padding: 1rem 2rem;
   border-radius: 8px;
   cursor: pointer;
+  //a32eff
  }
 `
 

@@ -9,8 +9,8 @@ const ContactSectionStyle = styled.div`
  //padding: 10rem 0;
  .contactSection__wrapper {
   display: flex;
-  gap: 5rem;
-  margin-top: 7rem;
+  gap: 6rem;
+  margin-top: 3rem;
   justify-content: space-between;
   position: relative;
  }
@@ -18,11 +18,11 @@ const ContactSectionStyle = styled.div`
   position: absolute;
   content: '';
   width: 2px;
-  height: 50%;
+  height: 100%;
   background-color: #363636;
   left: 50%;
-  top: 30%;
-  transform: translate(-50%, -50%);
+  top: 60%;
+  transform: translate(-60%, -60%);
  }
  .left {
   width: 100%;
