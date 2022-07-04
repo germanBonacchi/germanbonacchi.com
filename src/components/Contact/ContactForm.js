@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-
+import emailjs from 'emailjs-com'
 const FormStyle = styled.form`
  width: 100%;
 
@@ -49,7 +49,7 @@ const FormStyle = styled.form`
 
 export default function ContactForm() {
  const [name, setName] = useState('')
- const [email, setEmail] = useState('')
+ const [user, setUser] = useState('')
  const [message, setMessage] = useState('')
 
  const [status, setStatus] = useState('Send')
@@ -57,23 +57,25 @@ export default function ContactForm() {
  const handleSubmit = async (e) => {
   e.preventDefault()
   setStatus('Sending...')
-  const { name, email, message } = e.target.elements
-  let details = {
+
+  const { name, user, message } = e.target.elements
+  const details = {
    name: name.value,
-   email: email.value,
+   user: user.value,
    message: message.value,
   }
-  let response = await fetch('http://localhost:3000/send-email', {
-   method: 'POST',
-   headers: {
-    'Content-Type': 'application/json;charset=utf-8',
-   },
-   body: JSON.stringify(details),
-  })
-  setStatus('Send')
-  let result = await response.json()
-  alert(result.status)
+  emailjs
+   .send('service_m88jayg', 'template_c05l9c4', details, 'A1ex8DiA-BK1Cs2jb')
+   .then((result) => {
+    console.log(result)
+    setStatus('Send')
+   })
+   .catch((error) => {
+    console.log(error.text)
+    setStatus('Error!')
+   })
  }
+
  return (
   <>
    <FormStyle onSubmit={handleSubmit}>
@@ -90,14 +92,14 @@ export default function ContactForm() {
      </label>
     </div>
     <div className="form-group">
-     <label htmlFor="email">
+     <label htmlFor="user">
       Your Email
       <input
        type="email"
-       id="email"
-       name="email"
-       value={email}
-       onChange={(e) => setEmail(e.target.value)}
+       id="user"
+       name="user"
+       value={user}
+       onChange={(e) => setUser(e.target.value)}
       />
      </label>
     </div>
