@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 export const FooterContainer = styled.footer`
- background: #101522;
+ background: #010606;
  position: relative;
  z-index: 1;
 `
