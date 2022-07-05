@@ -3,13 +3,13 @@ import { Link as LinkRouter } from 'react-router-dom'
 import { Link as LinkScroll } from 'react-scroll'
 
 export const FooterContainer = styled.footer`
- background: #010606;
+ background: #1e1e1e;
  position: relative;
  z-index: 1;
 `
 
 export const FooterWrap = styled.div`
- padding: 48px 24px;
+ padding: 20px 24px;
  display: flex;
  flex-direction: column;
  justify-content: center;
@@ -52,7 +52,7 @@ export const FooterLinkItems = styled.nav`
 `
 export const FooterLinkTitle = styled.h1`
  font-size: 14px;
- margin-bottom: 16px;
+ margin-bottom: 0px;
 `
 export const FooterLink = styled(LinkScroll)`
  color: #fff;
