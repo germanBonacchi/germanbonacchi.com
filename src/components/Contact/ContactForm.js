@@ -46,7 +46,12 @@ const FormStyle = styled.form`
   padding: 1rem 2rem;
   border-radius: 8px;
   cursor: pointer;
-  //a32eff
+  transition: 0.3s ease-out;
+
+  &:hover {
+   transition: 0.3s ease-out;
+   background-color: #a32eff;
+  }
  }
 `
 

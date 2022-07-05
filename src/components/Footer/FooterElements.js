@@ -60,6 +60,7 @@ export const FooterLink = styled(LinkScroll)`
  margin-bottom: 0.5rem;
  font-size: 14px;
  cursor: pointer;
+ transition: 0.3s ease-out;
 
  &:hover {
   color: #a32eff;

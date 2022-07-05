@@ -26,6 +26,7 @@ export const Card = styled.div`
  &:active {
   transform: scale(0.95);
   border: 2px solid #a32eff;
+  transition: all 0.3s ease-in-out;
  }
 `
 export const Img = styled.img`
