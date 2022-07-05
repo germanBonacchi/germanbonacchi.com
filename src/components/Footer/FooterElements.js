@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link as LinkRouter } from 'react-router-dom'
+import { Link as LinkScroll } from 'react-scroll'
 
 export const FooterContainer = styled.footer`
  background: #010606;
@@ -33,7 +34,7 @@ export const FooterLinksWraper = styled.div`
  }
 `
 
-export const FooterLinkItems = styled.div`
+export const FooterLinkItems = styled.nav`
  display: flex;
  flex-direction: column;
  align-items: flex-start;
@@ -53,11 +54,12 @@ export const FooterLinkTitle = styled.h1`
  font-size: 14px;
  margin-bottom: 16px;
 `
-export const FooterLink = styled(Link)`
+export const FooterLink = styled(LinkScroll)`
  color: #fff;
  text-decoration: none;
  margin-bottom: 0.5rem;
  font-size: 14px;
+ cursor: pointer;
 
  &:hover {
   color: #a32eff;
@@ -80,7 +82,7 @@ export const SocialMediaWrap = styled.div`
   flex-direction: column;
  }
 `
-export const SocialLogo = styled(Link)`
+export const SocialLogo = styled(LinkRouter)`
  color: #fff;
  justify-self: start;
  cursor: pointer;

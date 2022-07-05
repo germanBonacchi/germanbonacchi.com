@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { animateScroll as scroll } from 'react-scroll'
 
 import {
@@ -18,44 +18,89 @@ import {
 import SocialIcons from '../SocialIcons'
 
 const Footer = () => {
+ const [scrollNav, setScrollNav] = useState(false)
+
+ const changeNav = () => {
+  if (window.scrollY >= 80) {
+   setScrollNav(true)
+  } else {
+   setScrollNav(false)
+  }
+ }
+
+ useEffect(() => {
+  window.addEventListener('scroll', changeNav)
+ }, [])
+
  const toggleHome = () => {
   scroll.scrollToTop()
  }
-
  return (
   <FooterContainer>
    <FooterWrap>
     <FooterLinksContainer>
      <FooterLinksWraper>
-      <FooterLinkItems>
-       <FooterLinkTitle>About us</FooterLinkTitle>
-       <FooterLink to="/">Test 1</FooterLink>
-       <FooterLink to="/">Test 2</FooterLink>
-       <FooterLink to="/">Test 1</FooterLink>
-       <FooterLink to="/">Test 2</FooterLink>
+      <FooterLinkItems scrollNav={scrollNav}>
+       <FooterLinkTitle>
+        <FooterLink
+         id="aboutLinkFooter"
+         to="about"
+         smooth={true}
+         duration={500}
+         spy={true}
+         exact="true"
+         offset={-80}
+        >
+         About us
+        </FooterLink>
+       </FooterLinkTitle>
       </FooterLinkItems>
-      <FooterLinkItems>
-       <FooterLinkTitle>About us</FooterLinkTitle>
-       <FooterLink to="/">Test 1</FooterLink>
-       <FooterLink to="/">Test 2</FooterLink>
-       <FooterLink to="/">Test 1</FooterLink>
-       <FooterLink to="/">Test 2</FooterLink>
+      <FooterLinkItems scrollNav={scrollNav}>
+       <FooterLinkTitle>
+        <FooterLink
+         id="skillsLinkFooter"
+         to="skills"
+         smooth={true}
+         duration={500}
+         spy={true}
+         exact="true"
+         offset={-80}
+        >
+         Skills
+        </FooterLink>
+       </FooterLinkTitle>
       </FooterLinkItems>
      </FooterLinksWraper>
      <FooterLinksWraper>
-      <FooterLinkItems>
-       <FooterLinkTitle>About us</FooterLinkTitle>
-       <FooterLink to="/">Test 1</FooterLink>
-       <FooterLink to="/">Test 2</FooterLink>
-       <FooterLink to="/">Test 1</FooterLink>
-       <FooterLink to="/">Test 2</FooterLink>
+      <FooterLinkItems scrollNav={scrollNav}>
+       <FooterLinkTitle>
+        <FooterLink
+         id="trainingsLinkFooter"
+         to="trainings"
+         smooth={true}
+         duration={500}
+         spy={true}
+         exact="true"
+         offset={-80}
+        >
+         Trainings
+        </FooterLink>
+       </FooterLinkTitle>
       </FooterLinkItems>
-      <FooterLinkItems>
-       <FooterLinkTitle>About us</FooterLinkTitle>
-       <FooterLink to="/">Test 1</FooterLink>
-       <FooterLink to="/">Test 2</FooterLink>
-       <FooterLink to="/">Test 1</FooterLink>
-       <FooterLink to="/">Test 2</FooterLink>
+      <FooterLinkItems scrollNav={scrollNav}>
+       <FooterLinkTitle>
+        <FooterLink
+         id="contactLinkFooter"
+         to="contact"
+         smooth={true}
+         duration={500}
+         spy={true}
+         exact="true"
+         offset={-80}
+        >
+         Contact
+        </FooterLink>
+       </FooterLinkTitle>
       </FooterLinkItems>
      </FooterLinksWraper>
     </FooterLinksContainer>
