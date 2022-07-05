@@ -33,7 +33,7 @@ const FormStyle = styled.form`
   margin-top: 1rem;
  }
  textarea {
-  min-height: 250px;
+  min-height: 300px;
   resize: vertical;
  }
  button[type='submit'] {
