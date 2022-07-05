@@ -10,7 +10,7 @@ const ContactSectionStyle = styled.div`
  .contactSection__wrapper {
   display: flex;
   gap: 6rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   justify-content: space-between;
   position: relative;
  }
