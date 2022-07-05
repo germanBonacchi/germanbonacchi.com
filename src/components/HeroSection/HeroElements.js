@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const HeroContainer = styled.div`
- background: #0c0c0c;
+ background: #1e1e1e;
  display: flex;
  justify-content: center;
  align-items: center;
