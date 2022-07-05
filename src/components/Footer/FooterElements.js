@@ -77,7 +77,7 @@ export const SocialMediaWrap = styled.div`
  justify-content: space-between;
  align-items: center;
  max-width: 1100px;
- margin: 40px auto 0 auto;
+ margin: 20px auto 0 auto;
 
  @media screen and (max-width: 820px) {
   flex-direction: column;
@@ -91,7 +91,7 @@ export const SocialLogo = styled(LinkRouter)`
  font-size: 1.5rem;
  display: flex;
  align-items: center;
- margin-bottom: 16px;
+ margin-bottom: 8px;
  font-weight: bold;
  transform: rotate(360deg);
  transition: transform 1s;
@@ -104,5 +104,4 @@ export const SocialLogo = styled(LinkRouter)`
 
 export const WebsiteRights = styled.small`
  color: #fff;
- margin-bottom: 16px;
 `
