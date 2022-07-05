@@ -15,6 +15,8 @@ import {
  homeObjTraining,
  homeObjContact,
 } from '../components/InfoSection/Data'
+import { ToastContainer, Slide } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import '../css/home.css'
 
@@ -34,6 +36,18 @@ const Home = () => {
    <TrainingsSection {...homeObjTraining} />
    <ContactSection {...homeObjContact} />
    <Footer />
+   <ToastContainer
+    position="bottom-left"
+    autoClose={4000}
+    hideProgressBar={false}
+    newestOnTop={false}
+    closeOnClick
+    rtl={false}
+    pauseOnFocusLoss
+    draggable
+    pauseOnHover
+    transition={Slide}
+   />
   </div>
  )
 }

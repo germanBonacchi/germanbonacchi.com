@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import emailjs from 'emailjs-com'
+import { toast, Flip } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 const FormStyle = styled.form`
  width: 100%;
 
@@ -51,11 +54,51 @@ export default function ContactForm() {
  const [name, setName] = useState('')
  const [user, setUser] = useState('')
  const [message, setMessage] = useState('')
-
  const [status, setStatus] = useState('Send')
+
+ const toastId = React.useRef(null)
+ const notifyLoading = () => {
+  toastId.current = toast.loading('Please wait...', {
+   autoClose: false,
+   closeButton: false, // Remove the closeButton
+  })
+ }
+
+ const updateSuccess = () => {
+  toast.update(toastId.current, {
+   render: 'Success! 😊',
+   type: 'success',
+   isLoading: false,
+   position: 'bottom-left',
+   autoClose: 4000,
+   hideProgressBar: false,
+   closeOnClick: true,
+   pauseOnHover: true,
+   draggable: true,
+   progress: undefined,
+   transition: Flip,
+  })
+ }
+
+ const updateError = () => {
+  toast.update(toastId.current, {
+   render: 'Error, try again later 🙁',
+   type: 'error',
+   isLoading: false,
+   position: 'bottom-left',
+   autoClose: 4000,
+   hideProgressBar: false,
+   closeOnClick: true,
+   pauseOnHover: true,
+   draggable: true,
+   progress: undefined,
+   transition: Flip,
+  })
+ }
 
  const handleSubmit = async (e) => {
   e.preventDefault()
+  notifyLoading()
   setStatus('Sending...')
 
   const { name, user, message } = e.target.elements
@@ -66,13 +109,13 @@ export default function ContactForm() {
   }
   emailjs
    .send('service_m88jayg', 'template_c05l9c4', details, 'A1ex8DiA-BK1Cs2jb')
-   .then((result) => {
-    console.log(result)
+   .then((_result) => {
+    updateSuccess()
     setStatus('Send')
    })
    .catch((error) => {
-    console.log(error.text)
-    setStatus('Error!')
+    updateError()
+    setStatus('Send')
    })
  }
 
