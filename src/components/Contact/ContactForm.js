@@ -54,14 +54,53 @@ const FormStyle = styled.form`
    background-color: #a32eff;
   }
  }
+ .error {
+  color: #ff0000;
+  font-size: 0.9rem;
+ }
 `
 
 export default function ContactForm() {
  const [name, setName] = useState('')
  const [user, setUser] = useState('')
  const [message, setMessage] = useState('')
+ const [nameError, setNameError] = useState('')
+ const [userError, setUserError] = useState('')
+ const [messageError, setMessageError] = useState('')
  const [status, setStatus] = useState('Send')
 
+ const validateEmail = (email) => {
+  let regex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}')
+  return regex.test(email)
+ }
+
+ const validate = () => {
+  let isValid = true
+  if (name === '') {
+   setNameError('Name is required')
+   isValid = false
+  } else {
+   setNameError('')
+  }
+  if (user === '') {
+   setUserError('Email is required')
+   isValid = false
+  } else {
+   if (!validateEmail(user)) {
+    setUserError('Email is not valid')
+   } else {
+    setUserError('')
+   }
+  }
+
+  if (message === '') {
+   setMessageError('Message is required')
+   isValid = false
+  } else {
+   setMessageError('')
+  }
+  return isValid
+ }
  const toastId = React.useRef(null)
  const notifyLoading = () => {
   toastId.current = toast.loading('Please wait...', {
@@ -104,25 +143,28 @@ export default function ContactForm() {
 
  const handleSubmit = async (e) => {
   e.preventDefault()
-  notifyLoading()
-  setStatus('Sending...')
+  const isValid = validate()
+  if (isValid) {
+   notifyLoading()
+   setStatus('Sending...')
 
-  const { name, user, message } = e.target.elements
-  const details = {
-   name: name.value,
-   user: user.value,
-   message: message.value,
+   const { name, user, message } = e.target.elements
+   const details = {
+    name: name.value,
+    user: user.value,
+    message: message.value,
+   }
+   emailjs
+    .send('service_m88jayg', 'template_c05l9c4', details, 'A1ex8DiA-BK1Cs2jb')
+    .then((_result) => {
+     updateSuccess()
+     setStatus('Send')
+    })
+    .catch((error) => {
+     updateError()
+     setStatus('Send')
+    })
   }
-  emailjs
-   .send('service_m88jayg', 'template_c05l9c4', details, 'A1ex8DiA-BK1Cs2jb')
-   .then((_result) => {
-    updateSuccess()
-    setStatus('Send')
-   })
-   .catch((error) => {
-    updateError()
-    setStatus('Send')
-   })
  }
 
  return (
@@ -130,39 +172,66 @@ export default function ContactForm() {
    <FormStyle onSubmit={handleSubmit}>
     <div className="form-group">
      <label htmlFor="name">
-      Your Name
+      Your name
       <input
+       required
        type="text"
        id="name"
        name="name"
+       placeholder="name"
        value={name}
-       onChange={(e) => setName(e.target.value)}
+       onChange={(e) => {
+        const newName = e.target.value
+        if (nameError && newName) {
+         setNameError('')
+        }
+        setName(newName)
+       }}
       />
      </label>
+     {nameError ? <div className="error">{nameError}</div> : null}
     </div>
     <div className="form-group">
      <label htmlFor="user">
-      Your Email
+      Your email
       <input
+       required
        type="email"
        id="user"
        name="user"
+       placeholder="email"
        value={user}
-       onChange={(e) => setUser(e.target.value)}
+       onChange={(e) => {
+        const newUser = e.target.value
+        if (userError && newUser) {
+         setUserError('')
+        }
+        setUser(newUser)
+       }}
       />
      </label>
+     {userError ? <div className="error">{userError}</div> : null}
     </div>
     <div className="form-group">
      <label htmlFor="message">
       Your message
       <textarea
+       required
        type="text"
        id="message"
        name="message"
+       placeholder="message"
        value={message}
-       onChange={(e) => setMessage(e.target.value)}
+       onChange={(e) => {
+        const newMessage = e.target.value
+        if (messageError && newMessage) {
+         setMessageError('')
+        }
+        setMessage(newMessage)
+       }}
       />
      </label>
+     {messageError ? <div className="error">{messageError}</div> : null}
     </div>
     <button type="submit">{status}</button>
    </FormStyle>
