@@ -7,7 +7,7 @@ export const InfoContainer = styled.div`
  background: ${({ lightBg }) => (lightBg ? '#f9f9f9' : '#010606')};
 
  @media screen and (max-width: 768px) {
-  padding: 20px 0;
+  padding: 60px 0;
  }
 `
 export const InfoWrapper = styled.div`
