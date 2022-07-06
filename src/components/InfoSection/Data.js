@@ -31,7 +31,7 @@ export const homeObjSkills = {
  description:
   'Since I started my path as a developer almost 5 years ago, I have worked and learned many technologies and methodologies.',
  description2:
-  'Starting with Visual Basic in my first job at IPLUSB S.A, then at ALTOCOM S.R.L. I work as a co-analyst, developer, tester... all in one. So I had to internalize new knowledge like Oracle APEX, Oracle Database and PL/SQL, and when all of this was not enogth to accomplish the client needs, I began to learn JavaScript by trial and error on my own.',
+  'Starting with Visual Basic in my first job at IPLUSB S.A, then at ALTOCOM S.R.L. I work as a co-analyst, developer, tester... all in one. So I had to internalize new knowledge like Oracle APEX, Oracle Database and PL/SQL, and when all of this was not enough to accomplish the client needs, I began to learn JavaScript by trial and error on my own.',
  description3:
   'Currently at VTEX I had the biggest challenge so far since I had to learn TypeScript, React with Hooks, GraphQL and NodeJS to be able to develop applications and support customers and partners. As a leader I had to improve my team management by implementing Scrum as an agile methodology and defining workflows with the other teams we support.',
  description4:
