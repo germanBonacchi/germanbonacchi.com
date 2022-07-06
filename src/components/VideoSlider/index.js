@@ -18,7 +18,7 @@ export default function VideoSlider({setVideoTitle, setVideoSubTitle}) {
   setActiveVideo(0)
   setVideoTitle(items[0].title)
   setVideoSubTitle(items[0].subtitle)
- }, [])
+ }, [setVideoSubTitle, setVideoTitle])
 
  return (
   <>
