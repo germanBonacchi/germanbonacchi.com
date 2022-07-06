@@ -10,15 +10,19 @@ export const Nav = styled.nav`
  justify-content: center;
  align-items: center;
  font-size: 1rem;
+ position: -webkit-sticky;
  position: sticky;
  top: 0;
+ bottom: 0;
+ left: 0;
  z-index: 10;
 
  @media screen and (max-width: 960px) {
   transition: 0.8s all ease;
+  position: sticky;
+  top: 0;
  }
 `
-
 export const NavbarContainer = styled.div`
  display: flex;
  justify-content: space-between;
@@ -27,7 +31,6 @@ export const NavbarContainer = styled.div`
  padding: 0 24px;
  max-width: 1100px;
 `
-
 export const NavLogo = styled(LinkRouter)`
  color: #fff;
  justify-self: flex-start;
@@ -74,7 +77,6 @@ export const NavMenu = styled.ul`
 export const NavItems = styled.li`
  height: 80px;
 `
-
 export const NavLinks = styled(LinkScroll)`
  color: #fff;
  display: flex;

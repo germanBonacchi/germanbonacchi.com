@@ -28,8 +28,8 @@ const Home = () => {
  }
  return (
   <div className="home">
-   <Sidebar isOpen={isOpen} toggle={toggle} />
    <Navbar toggle={toggle} />
+   <Sidebar isOpen={isOpen} toggle={toggle} />
    <HeroSection />
    <AboutSection {...homeObjAbout} />
    <SkillSection {...homeObjSkills} />
