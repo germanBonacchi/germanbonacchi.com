@@ -1,17 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.95fb0b77.css",
-    "main.js": "/static/js/main.c796f30f.js",
-    "static/js/937.820b92b9.chunk.js": "/static/js/937.820b92b9.chunk.js",
+    "main.css": "/static/css/main.c63ea1ca.css",
+    "main.js": "/static/js/main.5a90c854.js",
+    "static/js/937.f0337379.chunk.js": "/static/js/937.f0337379.chunk.js",
     "static/js/787.36beaa89.chunk.js": "/static/js/787.36beaa89.chunk.js",
+    "static/media/profile.jpg": "/static/media/profile.dab992e10112a49185d6.jpg",
+    "static/media/video2img.jpg": "/static/media/video2img.6e7bccf3c087699052ea.jpg",
+    "static/media/video4img.jpg": "/static/media/video4img.ee8c79dff5da561eb252.jpg",
+    "static/media/video1img.jpg": "/static/media/video1img.cfad381a66fc41cd6a4b.jpg",
+    "static/media/video3img.jpg": "/static/media/video3img.31a24f1941e096fe7a82.jpg",
+    "static/media/svg-1.svg": "/static/media/svg-1.bc8f13345a03df1073aa1d2a1d1bb95d.svg",
+    "static/media/svg-2.svg": "/static/media/svg-2.b84c9ec8e9cef3860463aa9296e12cf7.svg",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.95fb0b77.css.map": "/static/css/main.95fb0b77.css.map",
-    "main.c796f30f.js.map": "/static/js/main.c796f30f.js.map",
-    "937.820b92b9.chunk.js.map": "/static/js/937.820b92b9.chunk.js.map",
+    "main.c63ea1ca.css.map": "/static/css/main.c63ea1ca.css.map",
+    "main.5a90c854.js.map": "/static/js/main.5a90c854.js.map",
+    "937.f0337379.chunk.js.map": "/static/js/937.f0337379.chunk.js.map",
     "787.36beaa89.chunk.js.map": "/static/js/787.36beaa89.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.95fb0b77.css",
-    "static/js/main.c796f30f.js"
+    "static/css/main.c63ea1ca.css",
+    "static/js/main.5a90c854.js"
   ]
 }
