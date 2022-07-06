@@ -38,6 +38,7 @@ export default function VideoSlider() {
      height="100%"
      controls
      url={items[activeVideo].videoLink}
+     config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
     ></ReactPlayerComponent>
    </Video>
   </>
