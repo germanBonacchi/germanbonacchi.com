@@ -166,14 +166,7 @@ export const SkillSection = ({
    direction: 100,
    keep: false,
   })
-  function clickEventHandler(e) {
-   if (e.target.className === 'tagcloud--item') {
-    window.open(
-     `https://www.google.com/search?q=${e.target.innerText}`,
-     '_blank'
-    )
-   }
-  }
+
   const observerTagElements = new MutationObserver((mutations, obsTE) => {
    const tagElements = document.querySelectorAll('.tagcloud')
    if (tagElements && tagElements.length > 1) {
@@ -182,8 +175,6 @@ export const SkillSection = ({
       el.remove()
      }
     })
-    var rootEl = document.querySelector('.tagcloud')
-    rootEl.addEventListener('click', clickEventHandler)
    }
   })
 
