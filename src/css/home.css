@@ -6,7 +6,7 @@
 }
 
 .home {
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 ::-webkit-scrollbar {
