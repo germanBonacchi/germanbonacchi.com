@@ -7,7 +7,7 @@ export const homeObjAbout = {
   lightDesc: true,
   topLine: "About Me",
   description:
-    "I am leading a team whose goal is solving known problems within LATAM by developing innovative solutions and giving VTEX IO trainings.",
+    "I am leading a team whose goal is solve known problems within LATAM by developing innovative solutions and giving VTEX IO trainings.",
   imgStart: false,
   img: svg1,
   alt: "developer",
