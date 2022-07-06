@@ -47,6 +47,7 @@ const FormStyle = styled.form`
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s ease-out;
+  -webkit-tap-highlight-color: transparent;
 
   &:hover {
    transition: 0.3s ease-out;

@@ -185,6 +185,7 @@ export const SpanSphere = styled.span`
   background-color: transparent;
   border: 1px solid transparent;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
  }
 
  .tagcloud--item:hover {

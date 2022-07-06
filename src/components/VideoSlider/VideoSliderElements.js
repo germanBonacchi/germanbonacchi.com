@@ -13,6 +13,8 @@ export const Card = styled.div`
  border-radius: 10px;
  overflow: hidden;
  cursor: pointer;
+ -webkit-tap-highlight-color: transparent;
+
  transition: all 0.3s ease-in-out;
  margin-top: 10px;
  margin-bottom: 10px;

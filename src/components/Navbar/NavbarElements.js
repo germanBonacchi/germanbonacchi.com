@@ -43,10 +43,12 @@ export const NavLogo = styled(LinkRouter)`
  text-decoration: none;
  transform: rotate(360deg);
  transition: transform 1s;
+ -webkit-tap-highlight-color: transparent;
 
  &:active {
   transform: rotate(0deg);
   transition: 0s;
+  -webkit-tap-highlight-color: transparent;
  }
 `
 export const MobileIcon = styled.div`
@@ -61,6 +63,7 @@ export const MobileIcon = styled.div`
   font-size: 1.8rem;
   cursor: pointer;
   color: #fff;
+  -webkit-tap-highlight-color: transparent;
  }
 `
 export const NavMenu = styled.ul`
@@ -85,6 +88,7 @@ export const NavLinks = styled(LinkScroll)`
  padding: 0 1rem;
  height: 100%;
  cursor: pointer;
+ -webkit-tap-highlight-color: transparent;
 
  &.active {
   border-bottom: 3px solid #a32eff;

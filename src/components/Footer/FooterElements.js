@@ -61,6 +61,7 @@ export const FooterLink = styled(LinkScroll)`
  font-size: 14px;
  cursor: pointer;
  transition: 0.3s ease-out;
+ -webkit-tap-highlight-color: transparent;
 
  &:hover {
   color: #a32eff;
@@ -95,6 +96,7 @@ export const SocialLogo = styled(LinkRouter)`
  font-weight: bold;
  transform: rotate(360deg);
  transition: transform 1s;
+ -webkit-tap-highlight-color: transparent;
 
  &:active {
   transform: rotate(0deg);
