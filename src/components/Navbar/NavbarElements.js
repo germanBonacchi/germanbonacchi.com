@@ -19,8 +19,8 @@ export const Nav = styled.nav`
 
  @media screen and (max-width: 960px) {
   transition: 0.8s all ease;
-  position: sticky;
-  top: 0;
+  position: relative;
+  margin-top: 0px;
  }
 `
 export const NavbarContainer = styled.div`
