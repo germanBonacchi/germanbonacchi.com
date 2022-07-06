@@ -104,4 +104,9 @@ export const SocialLogo = styled(LinkRouter)`
 
 export const WebsiteRights = styled.small`
  color: #fff;
+
+ @media screen and (max-width: 820px) {
+  padding-top: 20px;
+  padding-bottom: 20px;
+ }
 `

@@ -51,7 +51,7 @@ const Footer = () => {
          exact="true"
          offset={-80}
         >
-         About us
+         About
         </FooterLink>
        </FooterLinkTitle>
       </FooterLinkItems>
