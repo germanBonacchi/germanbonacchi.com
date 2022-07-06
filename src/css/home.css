@@ -5,6 +5,10 @@
     font-family: 'Encode Sans Expanded';
 }
 
+.home {
+    overflow-x: hidden;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
     background-color: #010606;
