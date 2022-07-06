@@ -31,13 +31,14 @@ export const FooterLinksWraper = styled.div`
 
  @media screen and (max-width: 820px) {
   flex-direction: column;
+  justify-content: center;
  }
 `
 
 export const FooterLinkItems = styled.nav`
  display: flex;
  flex-direction: column;
- align-items: flex-start;
+ align-items: center;
  margin: 16px;
  text-align: left;
  width: 160px;
