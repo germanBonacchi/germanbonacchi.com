@@ -204,3 +204,31 @@ export const SpanSphere = styled.span`
     z-index: 100 !important;
   }
 `;
+export const DescriptionVideoTitle = styled.p`
+  max-width: 440px;
+  font-size: 14px;
+  line-height: 24px;
+  color: ${({ lightDesc }) => (lightDesc ? "#f7f8fa" : "#010606")};
+`;
+export const HeadingVideoTitle = styled.h1`
+  margin-bottom: 4px;
+  font-size: 28px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: ${({ lightHeading }) => (lightHeading ? "#f7f8fa" : "#010606")};
+
+  @media screen and (max-width: 480px) {
+    font-size: 26px;
+  }
+`;
+export const HeadingVideoSubTitle = styled.h2`
+  margin-bottom: 24px;
+  font-size: 20px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: ${({ lightHeading }) => (lightHeading ? "#f7f8fa" : "#010606")};
+
+  @media screen and (max-width: 480px) {
+    font-size: 18px;
+  }
+`;

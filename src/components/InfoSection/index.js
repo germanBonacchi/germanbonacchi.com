@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
  InfoContainer,
  InfoWrapper,
@@ -9,8 +9,11 @@ import {
  TopLine,
  Heading,
  Heading2,
+ HeadingVideoTitle,
+ HeadingVideoSubTitle,
  Anchor,
  Description,
+ DescriptionVideoTitle,
  ImgWrap,
  Img,
  SpanSphere,
@@ -238,6 +241,8 @@ export const TrainingsSection = ({
  primary,
  dark,
 }) => {
+    const [videoTitle, setVideoTitle] = useState([])
+    const [videoSubTitle, setVideoSubTitle] = useState([])
  return (
   <>
    <InfoContainer id={id} lightBg={lightBg}>
@@ -248,25 +253,14 @@ export const TrainingsSection = ({
         <TopLine>{topLine}</TopLine>
         <Heading lightHeading={lightHeading}>{heading}</Heading>
         <Description lightDesc={lightDesc}>{description}</Description>
-        {buttonLabel && (
-         <Button
-          to="home"
-          smooth={true}
-          duration={500}
-          spy={true}
-          exact="true"
-          offset={-80}
-          primary={primary ? 1 : 0}
-          dark={dark ? 1 : 0}
-         >
-          {buttonLabel}
-         </Button>
-        )}
+        <DescriptionVideoTitle lightDesc={lightDesc}>Video:</DescriptionVideoTitle>
+        <HeadingVideoTitle lightHeading={lightHeading}>{videoTitle}</HeadingVideoTitle>
+        <HeadingVideoSubTitle lightHeading={lightHeading}>{videoSubTitle}</HeadingVideoSubTitle>
        </TextWrapper>
       </Column1>
       <Column2>
        <ImgWrap>
-        <VideoSlider />
+        <VideoSlider setVideoTitle={setVideoTitle} setVideoSubTitle={setVideoSubTitle}/>
        </ImgWrap>
       </Column2>
      </InfoRow>
