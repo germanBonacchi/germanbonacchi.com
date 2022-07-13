@@ -56,8 +56,8 @@ export default function Contact() {
    <SectionTitle heading="Contact" subheading="Get in touch" />
    <div className="contactSection__wrapper">
     <div className="left">
-     <ContactInfoItem iconInfo={<MdLocalPhone />} text={personalInfo.phone} />
      <ContactInfoItem iconInfo={<MdEmail />} text={personalInfo.email} />
+     <ContactInfoItem iconInfo={<MdLocalPhone />} text={personalInfo.phone} />
      <ContactInfoItem iconInfo={<MdPlace />} text={personalInfo.address} />
     </div>
     <div className="right">
