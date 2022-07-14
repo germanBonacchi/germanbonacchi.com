@@ -21,7 +21,6 @@ const HeroSection = () => {
         <ParticlesBackground />
       </HeroBg>
       <HeroContent>
-        <h1>{t("Test.1")}</h1>
         <HeroP>Hi, I'm</HeroP>
         <HeroH1>Germán Bonacchi</HeroH1>
         <ImgWrap>

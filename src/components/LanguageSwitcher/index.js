@@ -20,9 +20,9 @@ const LanguageSwitcher = ({ component, toggle, sidebarIsOpen }) => {
   , [sidebarIsOpen]);
   return (
       <NavWrapper component={component}>
-        <div class="sl-nav">
+        <div className="sl-nav">
           <ul>
-            <li class={open ? 'open' : ''} onClick={() => setOpen(!open)}>
+            <li className={open ? 'open' : ''} onClick={() => setOpen(!open)}>
               <b>
                 {i18n.language === "en"
                   ? "English▼"
@@ -30,20 +30,20 @@ const LanguageSwitcher = ({ component, toggle, sidebarIsOpen }) => {
                   ? "Español▼"
                   : ""}
               </b>{" "}
-              <i class="fa fa-angle-down" aria-hidden="true"></i>
-              <div class="triangle"></div>
+              <i className="fa fa-angle-down" aria-hidden="true"></i>
+              <div className="triangle"></div>
               <ul>
                 <li onClick={handleChange} data-id="en">
-                  <i class="sl-flag flag-gbr">
+                  <i className="sl-flag flag-gbr">
                     <div id="english"></div>
                   </i>{" "}
-                  <span class={i18n.language === "en" ? 'active' : ''}>English</span>
+                  <span className={i18n.language === "en" ? 'active' : ''}>English</span>
                 </li>
                 <li onClick={handleChange} data-id="es">
-                  <i class="sl-flag flag-esp">
+                  <i className="sl-flag flag-esp">
                     <div id="español"></div>
                   </i>{" "}
-                  <span class={i18n.language === "es" ? 'active' : ''}>Español</span>
+                  <span className={i18n.language === "es" ? 'active' : ''}>Español</span>
                 </li>
               </ul>
             </li>

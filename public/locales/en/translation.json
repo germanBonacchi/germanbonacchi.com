@@ -1,5 +1,21 @@
 {
-    "Test":{
-        "1": "Welcome to React"
+  "Contact": {
+    "ContactForm": {
+      "nameError": "Name is required",
+      "emailError": "Email is required",
+      "emailNotValid": "Email is not valid",
+      "messageError": "Message is required",
+      "wait": "Please wait...",
+      "success": "Success! 😊",
+      "error": "Error, try again later 🙁",
+      "statusSend": "Send",
+      "statusSending": "Sending...",
+      "name": "Your name",
+      "placeholderName": "name",
+      "email": "Your email",
+      "placeholderEmail": "email",
+      "message": "Your message",
+      "placeholderMessage": "message"
     }
+  }
 }
