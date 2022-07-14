@@ -14,7 +14,7 @@ import {
 } from './NavbarElements'
 
 import SocialIcons from '../SocialIcons'
-
+import LanguageSwitcher from '../LanguageSwitcher'
 import '../../css/navbarElements.css'
 
 const Navbar = ({ toggle }) => {
@@ -107,6 +107,7 @@ const Navbar = ({ toggle }) => {
         </NavLinks>
        </NavItems>
        <SocialIcons component="NavBar" />
+       <LanguageSwitcher component="NavBar"/>
       </NavMenu>
      </NavbarContainer>
     </Nav>

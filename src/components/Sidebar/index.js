@@ -9,9 +9,11 @@ import {
 } from './SidebarElements'
 
 import SocialIcons from '../SocialIcons'
+import LanguageSwitcher from '../LanguageSwitcher'
+
 const Sidebar = ({ isOpen, toggle }) => {
  return (
-  <SidebarContainer isOpen={isOpen} onClick={toggle}>
+  <SidebarContainer isOpen={isOpen}>
    <Icon onClick={toggle}>
     <CloseIcon />
    </Icon>
@@ -30,6 +32,7 @@ const Sidebar = ({ isOpen, toggle }) => {
       Contact
      </SidebarLink>
      <SocialIcons component="SideBar" />
+     <LanguageSwitcher component="SideBar" toggle={toggle}/>
     </SidebarMenu>
    </SidebarWrapper>
   </SidebarContainer>
