@@ -32,7 +32,7 @@ const Sidebar = ({ isOpen, toggle }) => {
       Contact
      </SidebarLink>
      <SocialIcons component="SideBar" />
-     <LanguageSwitcher component="SideBar" toggle={toggle}/>
+     <LanguageSwitcher component="SideBar" toggle={toggle} sidebarIsOpen={isOpen}/>
     </SidebarMenu>
    </SidebarWrapper>
   </SidebarContainer>
