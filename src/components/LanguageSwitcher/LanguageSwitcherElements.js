@@ -1,115 +1,117 @@
 import styled from "styled-components";
 
-export const NavWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  margin-left: ${({ component }) => (component === "NavBar" ? "40px" : "")};
-  margin-top: ${({ component }) => (component === "SideBar" ? "1.2rem" : "")};
-  justify-self: ${({ component }) => (component === "SideBar" ? "center" : "")};
-  color: #fff;
-
-  .sl-nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+export const Container = styled.div`
+  .switch {
     position: relative;
-    display: inline-block;
-    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: ${({ component }) => (component === "NavBar" ? "40px" : "")};
+    margin-top: ${({ component }) => (component === "SideBar" ? "1.2rem" : "")};
+    justify-self: ${({ component }) =>
+      component === "SideBar" ? "center" : ""};
+    color: #fff;
+  }
+
+  .switch > span {
+    position: absolute;
+    pointer-events: none;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+    width: 55%;
+    text-align: center;
+    font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     -webkit-tap-highlight-color: transparent;
   }
-  .sl-nav li {
-    cursor: pointer;
-  }
-  .sl-nav li:hover {
-    color: #a32eff;
-    transition: 0.2s ease-out;
-  }
-  .sl-nav li.open {
-    color: #a32eff;
-  }
-  .sl-nav li ul {
-    display: none;
-  }
-  .sl-nav li.open ul {
-    position: absolute;
-    top: 29px;
-    right: -15px;
-    display: block;
-    width: 150px;
-    padding-top: 0px;
-    z-index: 1;
-    border-radius: 5px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    background: #363636;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .sl-nav li.open .triangle {
-    position: absolute;
-    top: 15px;
-    right: -7px;
-    z-index: 10;
-    height: 14px;
-    overflow: hidden;
-    width: 30px;
-    background: transparent;
-  }
-  .sl-nav li.open .triangle:after {
-    content: "";
-    display: block;
-    z-index: 20;
-    width: 15px;
-    transform: rotate(45deg) translateY(0px) translatex(10px);
-    height: 15px;
-    background: #363636;
-    border-radius: 2px 0px 0px 0px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  }
-  .sl-nav li ul li {
-    position: relative;
-    text-align: left;
-    background: transparent;
-    padding: 15px 15px;
-    padding-bottom: 0;
-    z-index: 2;
-    font-size: 15px;
+
+  input.check-toggle-round-flat:checked ~ .off {
     color: #fff;
-    -webkit-tap-highlight-color: transparent;
   }
-  .sl-nav li ul li:last-of-type {
-    padding-bottom: 15px;
+
+  input.check-toggle-round-flat:checked ~ .on {
+    color: #fff;
   }
-  .sl-nav li ul li span {
-    padding-left: 5px;
+
+  .switch > span.on {
+    left: 0;
+    color: #fff;
   }
-  .sl-nav li ul li span:hover {
-    color: #a32eff;
-    transition: 0.2s ease-out;
+
+  .switch > span.off {
+    right: 0;
+    color: #fff;
   }
-  .sl-flag {
-    display: inline-block;
-    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
-    width: 15px;
-    height: 15px;
-    background: #aaa;
-    border-radius: 50%;
+
+  .check-toggle {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+  }
+  .check-toggle + label {
+    display: block;
     position: relative;
+    cursor: pointer;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  input.check-toggle-round-flat + label {
+    padding: 2px;
+    width: 97px;
+    height: 35px;
+    background-color: #363636;
+    -webkit-border-radius: 60px;
+    -moz-border-radius: 60px;
+    -ms-border-radius: 60px;
+    -o-border-radius: 60px;
+    border-radius: 60px;
+  }
+  input.check-toggle-round-flat + label:before,
+  input.check-toggle-round-flat + label:after {
+    display: block;
+    position: absolute;
+    content: "";
+  }
+
+  input.check-toggle-round-flat + label:before {
     top: 2px;
-    overflow: hidden;
+    left: 2px;
+    bottom: 2px;
+    right: 2px;
+    background-color: #1e1e1e;
+
+    -moz-border-radius: 60px;
+    -ms-border-radius: 60px;
+    -o-border-radius: 60px;
+    border-radius: 60px;
   }
-  .flag-gbr {
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-image: url("https://www.countryflags.com/wp-content/uploads/united-kingdom-flag-png-large.png");
+  input.check-toggle-round-flat + label:after {
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: 45px;
+    background-color: #a32eff;
+    -webkit-border-radius: 52px;
+    -moz-border-radius: 52px;
+    -ms-border-radius: 52px;
+    -o-border-radius: 52px;
+    border-radius: 52px;
+    -webkit-transition: margin 0.2s;
+    -moz-transition: margin 0.2s;
+    -o-transition: margin 0.2s;
+    transition: margin 0.2s;
   }
-  .flag-esp {
-    background: url("https://www.countryflags.com/wp-content/uploads/spain-flag-png-large.png");
-    background-size: cover;
-    background-position: center center;
+
+  input.check-toggle-round-flat:checked + label {
+  }
+
+  input.check-toggle-round-flat:checked + label:after {
+    margin-left: 44px;
   }
 `;
