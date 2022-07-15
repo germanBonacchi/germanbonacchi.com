@@ -50,6 +50,8 @@ export const Container = styled.div`
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+
   }
 
   .btn-color-mode-switch > label.btn-color-mode-switch-inner:after {
@@ -66,6 +68,8 @@ export const Container = styled.div`
     box-shadow: 0px 0px 6px -2px #111;
     padding: 5px 0px;
     color: #fff;
+    cursor: pointer;
+
   }
 
   .btn-color-mode-switch input[type="checkbox"] {
@@ -101,4 +105,9 @@ export const Container = styled.div`
     right: auto;
     left: 20px;
   }
+
+  .btn-color-mode-switch input[type="checkbox"]:checked + label.btn-color-mode-switch-inner{
+    /*background: #66BB6A; */
+    /*color: #fff;*/
+}
 `;

@@ -6,25 +6,25 @@ const LanguageSwitcher = ({ component, toggle }) => {
   const { i18n } = useTranslation();
   const handleChange = () => {
     i18n.changeLanguage(i18n.language === "en" ? "es" : "en");
-    toggle && toggle();
+    //toggle && toggle();
   };
 
   return (
     <Container component={component}>
-      <div class="btn-container">
-        <label class="switch btn-color-mode-switch">
+      <div className="btn-container">
+        <label className="switch btn-color-mode-switch">
           <input
             type="checkbox"
             name="color_mode"
             id="color_mode"
-            onClick={handleChange}
-            defaultChecked={i18n.language !== "en"}
+            onChange={handleChange}
+            checked={i18n.language !== "en"}
           />
           <label
-            for="color_mode"
+            htmlFor="color_mode"
             data-on="ES"
             data-off="EN"
-            class="btn-color-mode-switch-inner"
+            className="btn-color-mode-switch-inner"
           ></label>
         </label>
       </div>
