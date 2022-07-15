@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container2 = styled.div`
+export const Container = styled.div`
   .btn-container {
     display: flex;
     justify-content: center;

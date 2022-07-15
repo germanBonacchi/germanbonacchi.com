@@ -1,8 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import {
-  Container,
-} from "./LanguageSwitcherElements";
+import { Container } from "./LanguageSwitcherElements";
 
 const LanguageSwitcher = ({ component, toggle }) => {
   const { i18n } = useTranslation();
@@ -12,24 +10,25 @@ const LanguageSwitcher = ({ component, toggle }) => {
   };
 
   return (
-      <Container component={component}>
-        <div className="switch">
+    <Container component={component}>
+      <div class="btn-container">
+        <label class="switch btn-color-mode-switch">
           <input
-            id="language-toggle"
-            className="check-toggle check-toggle-round-flat"
             type="checkbox"
+            name="color_mode"
+            id="color_mode"
             onClick={handleChange}
             defaultChecked={i18n.language !== "en"}
           />
-          <label htmlFor="language-toggle"></label>
-          <span data-id="en" className="on">
-            EN
-          </span>
-          <span data-id="es" className="off">
-            ES
-          </span>
-        </div>
-      </Container>
+          <label
+            for="color_mode"
+            data-on="ES"
+            data-off="EN"
+            class="btn-color-mode-switch-inner"
+          ></label>
+        </label>
+      </div>
+    </Container>
   );
 };
 
