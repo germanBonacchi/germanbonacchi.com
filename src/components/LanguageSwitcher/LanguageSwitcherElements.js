@@ -1,25 +1,19 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  .switch {
-    position: relative;
+export const Container2 = styled.div`
+  .btn-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    vertical-align: middle;
+    text-align: center;
     margin-left: ${({ component }) => (component === "NavBar" ? "40px" : "")};
     margin-top: ${({ component }) => (component === "SideBar" ? "1.2rem" : "")};
     justify-self: ${({ component }) =>
       component === "SideBar" ? "center" : ""};
-    color: #fff;
   }
 
-  .switch > span {
-    position: absolute;
-    pointer-events: none;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
-    width: 55%;
-    text-align: center;
+  label {
     font-size: 12px;
     font-weight: bold;
     text-transform: uppercase;
@@ -27,91 +21,84 @@ export const Container = styled.div`
     -webkit-tap-highlight-color: transparent;
   }
 
-  input.check-toggle-round-flat:checked ~ .off {
-    color: #fff;
-  }
-
-  input.check-toggle-round-flat:checked ~ .on {
-    color: #fff;
-  }
-
-  .switch > span.on {
-    left: 0;
-    color: #fff;
-  }
-
-  .switch > span.off {
-    right: 0;
-    color: #fff;
-  }
-
-  .check-toggle {
-    position: absolute;
-    margin-left: -9999px;
-    visibility: hidden;
-  }
-  .check-toggle + label {
-    display: block;
+  .btn-color-mode-switch {
+    display: inline-block;
+    margin: 0px;
     position: relative;
-    cursor: pointer;
-    outline: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   }
 
-  input.check-toggle-round-flat + label {
-    padding: 2px;
-    width: 97px;
-    height: 35px;
-    background-color: #363636;
-    -webkit-border-radius: 60px;
-    -moz-border-radius: 60px;
-    -ms-border-radius: 60px;
-    -o-border-radius: 60px;
-    border-radius: 60px;
-  }
-  input.check-toggle-round-flat + label:before,
-  input.check-toggle-round-flat + label:after {
+  .btn-color-mode-switch > label.btn-color-mode-switch-inner {
+    margin: 0px;
+    width: 100px;
+    height: 30px;
+    background: #151515;
+    border-radius: 26px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
     display: block;
+  }
+
+  .btn-color-mode-switch > label.btn-color-mode-switch-inner:before {
+    content: attr(data-on);
     position: absolute;
-    content: "";
+    top: 7px;
+    right: 20px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  input.check-toggle-round-flat + label:before {
-    top: 2px;
+  .btn-color-mode-switch > label.btn-color-mode-switch-inner:after {
+    content: attr(data-off);
+    width: 50px;
+    height: 16px;
+    background: #a32eff;
+    border-radius: 26px;
+    position: absolute;
     left: 2px;
-    bottom: 2px;
-    right: 2px;
-    background-color: #1e1e1e;
-
-    -moz-border-radius: 60px;
-    -ms-border-radius: 60px;
-    -o-border-radius: 60px;
-    border-radius: 60px;
-  }
-  input.check-toggle-round-flat + label:after {
-    top: 4px;
-    left: 4px;
-    bottom: 4px;
-    width: 45px;
-    background-color: #a32eff;
-    -webkit-border-radius: 52px;
-    -moz-border-radius: 52px;
-    -ms-border-radius: 52px;
-    -o-border-radius: 52px;
-    border-radius: 52px;
-    -webkit-transition: margin 0.2s;
-    -moz-transition: margin 0.2s;
-    -o-transition: margin 0.2s;
-    transition: margin 0.2s;
+    top: 2px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 6px -2px #111;
+    padding: 5px 0px;
+    color: #fff;
   }
 
-  input.check-toggle-round-flat:checked + label {
+  .btn-color-mode-switch input[type="checkbox"] {
+    cursor: pointer;
+    width: 50px;
+    height: 25px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    margin: 0px;
   }
 
-  input.check-toggle-round-flat:checked + label:after {
-    margin-left: 44px;
+  .btn-color-mode-switch
+    input[type="checkbox"]:checked
+    + label.btn-color-mode-switch-inner {
+    background: #151515;
+    color: #fff;
+  }
+
+  .btn-color-mode-switch
+    input[type="checkbox"]:checked
+    + label.btn-color-mode-switch-inner:after {
+    content: attr(data-on);
+    left: 48px;
+    background: #a32eff;
+  }
+
+  .btn-color-mode-switch
+    input[type="checkbox"]:checked
+    + label.btn-color-mode-switch-inner:before {
+    content: attr(data-off);
+    right: auto;
+    left: 20px;
   }
 `;

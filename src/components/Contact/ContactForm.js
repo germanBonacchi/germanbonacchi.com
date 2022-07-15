@@ -7,19 +7,18 @@ import { useTranslation } from "react-i18next";
 
 const FormStyle = styled.form`
   width: 100%;
-
+ 
   @media only screen and (max-width: 768px) {
     margin-top: -60px;
   }
 
   .form-group {
-    width: 100%;
     margin-bottom: 2rem;
   }
   label {
     color: #010606;
-
     font-size: 1.2rem;
+    width: 80px;
   }
   input,
   textarea {
