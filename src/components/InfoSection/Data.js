@@ -1,91 +1,124 @@
 import svg1 from "../../images/svg-1.svg";
+import { useTranslation } from "react-i18next";
 
-export const homeObjAbout = {
-  id: "about",
-  lightBg: false,
-  lightHeading: true,
-  lightDesc: true,
-  topLine: "About Me",
-  description:
-    "I am leading a team whose goal is solve known problems within LATAM by developing innovative solutions and giving VTEX IO trainings.",
-  imgStart: false,
-  img: svg1,
-  alt: "developer",
-  buttonLabel: "",
-  primary: true,
-  dark: true,
-  heading1: "My name is Germán and I am an ",
-  heading2: "Apps Engineer",
-  heading3: " of the ",
-  heading4: "VTEX",
-  heading5: " Regional Product Team LATAM",
+const About = () => {
+  const { t } = useTranslation("translation", { keyPrefix: "About" });
+  const translations = {
+    topLine: t("topLine"),
+    description: t("description"),
+    heading1: t("heading1"),
+    heading2: t("heading2"),
+    heading3: t("heading3"),
+    heading4: t("heading4"),
+    heading5: t("heading5"),
+    heading6: t("heading6"),
+  };
+  const homeAbout = {
+    id: "about",
+    lightBg: false,
+    lightHeading: true,
+    lightDesc: true,
+    topLine: translations.topLine,
+    description: translations.description,
+    imgStart: false,
+    img: svg1,
+    alt: "developer",
+    buttonLabel: "",
+    primary: true,
+    dark: true,
+    heading1: translations.heading1,
+    heading2: translations.heading2,
+    heading3: translations.heading3,
+    heading4: translations.heading4,
+    heading5: translations.heading5,
+    heading6: translations.heading6,
+  };
+
+  return homeAbout;
 };
 
-export const homeObjSkills = {
-  id: "skills",
-  lightBg: true,
-  lightHeading: false,
-  lightDesc: false,
-  topLine: "My Skills",
-  heading: "",
-  description:
-    "Since I started developing, almost 5 years ago, I have worked and learned many technologies and methodologies, starting with Visual Basic at IPLUSB S.A, my first job.",
-  description2:
-    "Then as a co-analyst, developer and tester at ALTOCOM S.R.L. I have worked with Oracle APEX, Oracle Database and PL/SQL. At last, but not least, i learned JavaScript by my own in order to satisfy the customer needs.",
-  description3:
-    "Currently at VTEX I have had the biggest challenge so far, learning TypeScript, React with Hooks, GraphQL and NodeJS to be able to develop applications and give support  to customers and partners. As a leader I had to improve my team management by implementing Scrum as an agile methodology and defining workflows with the other teams we support.",
-  description4:
-    "At the same, I have been studying since 2016 at Universidad Nacional de Avellaneda to be a Software Engineer.",
-  imgStart: true,
-  skills: [
-    "C++",
-    "Java",
-    "Visual Basic",
-    "Oracle Database",
-    "Oracle APEX",
-    "PL/SQL",
-    "JavaScript",
-    "TypeScript",
-    "React with Hooks",
-    "GraphQL",
-    "NodeJS",
-    "git",
-    "Scrum",
-  ],
-  buttonLabel: "",
-  primary: false,
-  dark: false,
+const Skills = () => {
+  const { t } = useTranslation("translation", { keyPrefix: "Skills" });
+  const translations = {
+    topLine: t("topLine"),
+    description: t("description"),
+    description2: t("description2"),
+    description3: t("description3"),
+    description4: t("description4"),
+  };
+  const homeSkills = {
+    id: "skills",
+    lightBg: true,
+    lightHeading: false,
+    lightDesc: false,
+    topLine: translations.topLine,
+    description: translations.description,
+    description2: translations.description2,
+    description3: translations.description3,
+    description4: translations.description4,
+    imgStart: true,
+    skills: [
+      "C++",
+      "Java",
+      "Visual Basic",
+      "Oracle Database",
+      "Oracle APEX",
+      "PL/SQL",
+      "JavaScript",
+      "TypeScript",
+      "React with Hooks",
+      "GraphQL",
+      "NodeJS",
+      "git",
+      "Scrum",
+    ],
+    buttonLabel: "",
+    primary: false,
+    dark: false,
+  };
+  return homeSkills;
 };
 
-export const homeObjTraining = {
-  id: "trainings",
-  lightBg: false,
-  lightHeading: true,
-  lightDesc: true,
-  topLine: "Trainings",
-  heading:
-    "Here you can view the trainings I did... and soon there will be more",
-  description:
-    "Giving training is one of the things I enjoy the most and where I can internalize knowledge by helping others to be better in the process.",
-  imgStart: false,
-  alt: "",
-  buttonLabel: "",
-  primary: true,
-  dark: true,
+const Trainings = () => {
+  const { t } = useTranslation("translation", { keyPrefix: "Trainings" });
+  const translations = {
+    topLine: t("topLine"),
+    heading: t("heading"),
+    description: t("description"),
+  };
+  const homeTraining = {
+    id: "trainings",
+    lightBg: false,
+    lightHeading: true,
+    lightDesc: true,
+    topLine: translations.topLine,
+    heading: translations.heading,
+    description: translations.description,
+    imgStart: false,
+    alt: "",
+    buttonLabel: "",
+    primary: true,
+    dark: true,
+  };
+  return homeTraining;
 };
 
-export const homeObjContact = {
-  id: "contact",
-  lightBg: true,
-  lightHeading: false,
-  lightDesc: false,
-  topLine: "Contact",
-  heading: "",
-  description: "",
-  imgStart: true,
-  img: "",
-  alt: "developer",
-  buttonLabel: "",
-  primary: true,
-  dark: true,
+const Contact = () => {
+  const homeContact = {
+    id: "contact",
+    lightBg: true,
+    imgStart: true,
+  };
+  return homeContact;
 };
+
+const SectionsData = () => {
+  const homeAbout = About();
+  const homeSkills = Skills();
+  const homeTraining = Trainings();
+  const homeContact = Contact();
+
+  return { homeAbout, homeSkills, homeTraining, homeContact };
+};
+
+export default SectionsData;

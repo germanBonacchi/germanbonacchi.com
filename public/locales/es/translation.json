@@ -1,0 +1,68 @@
+{
+  "Contact": {
+    "nameError": "Nombre es requerido",
+    "emailError": "Email es requerido",
+    "emailNotValid": "Email no es valido",
+    "messageError": "Mensaje es requerido",
+    "wait": "Por favor espere...",
+    "success": "Exito! 😊",
+    "error": "Error, intente de nuevo mas tarde 🙁",
+    "statusSend": "Enviar",
+    "statusSending": "Enviando...",
+    "name": "Tu nombre",
+    "placeholderName": "nombre",
+    "email": "Tu email",
+    "placeholderEmail": "email",
+    "message": "Tu mensaje",
+    "placeholderMessage": "mensaje",
+    "heading": "Contacto",
+    "subheading": "Ponte en"
+  },
+  "Section": {
+    "about": "Sobre mi",
+    "skills": "Habilidades",
+    "trainings": "Capacitaciones",
+    "contact": "Contacto",
+    "name": "Germán Bonacchi",
+    "rights": "Todos los derechos reservados."
+  },
+  "Hero": {
+    "heading": "Hola, soy",
+    "name": "Germán Bonacchi",
+    "subheading": "Desarrollador de Software | VTEX Apps Engineer"
+  },
+  "VideoSlider": {
+    "title1": "Ciclo de Vida de las Apps",
+    "subtitle1": "de la idea al App Store",
+    "title2": "Tech Training LATAM",
+    "subtitle2": "Bloque 1 - Sesión 1",
+    "title3": "Tech Training LATAM",
+    "subtitle3": "Bloque 1 - Sesión 2",
+    "title4": "Tech Training LATAM",
+    "subtitle4": "Bloque 2 - Sesión 1",
+    "title5": "Tech Training LATAM",
+    "subtitle5": "Bloque 2 - Sesión 2"
+  },
+  "About": {
+    "topLine": "Sobre mi",
+    "description": "Lidero un equipo cuyo objetivo es analizar y resolver problemas conocidos dentro de LATAM mediante el desarrollo de soluciones innovadoras y brindando capacitaciones de VTEX IO.",
+    "heading1": "Mi nombre es Germán y soy ",
+    "heading2": "Apps Engineer",
+    "heading3": " del ",
+    "heading4": "Regional Product Team LATAM",
+    "heading5": " de ",
+    "heading6": "VTEX"
+  },
+  "Skills": {
+    "topLine": "Mis Habilidades",
+    "description": "Desde que comencé a desarrollar, hace casi 5 años, he trabajado y aprendido muchas tecnologías y metodologías, comenzando con Visual Basic en IPLUSB S.A., mi primer trabajo.",
+    "description2": "Luego como co-analista, desarrollador y tester en ALTOCOM S.R.L. He trabajado con Oracle APEX, Oracle Database y PL/SQL. Por último, pero no menos importante, aprendí JavaScript por mi cuenta para lograr satisfacer las necesidades del cliente.",
+    "description3": "Actualmente en VTEX he tenido el mayor reto hasta el momento, aprender TypeScript, React with Hooks, GraphQL y NodeJS para poder desarrollar aplicaciones, dar soporte a clientes y a partners. Como líder tuve que mejorar la gestión de mi equipo implementando Scrum como metodología ágil y definiendo flujos de trabajo con los otros equipos que apoyamos.",
+    "description4": "Al mismo tiempo, estudio desde 2016 en la Universidad Nacional de Avellaneda para ser Ingeniero en Informática."
+  },
+  "Trainings": {
+    "topLine": "Capacitaciones",
+    "heading": "Aquí puedes ver las capacitaciones que realice...y pronto habrá más",
+    "description": "Dar capacitaciones es una de las cosas que más disfruto y donde puedo interiorizar conocimientos ayudando a otros a ser mejores en el proceso."
+  }
+}
