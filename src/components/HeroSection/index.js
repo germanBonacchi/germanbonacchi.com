@@ -13,7 +13,12 @@ import profile from "../../images/profile.jpg";
 import { useTranslation } from "react-i18next";
 
 const HeroSection = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation("translation", { keyPrefix: "Hero" });
+  const translations = {
+    heading: t("heading"),
+    name: t("name"),
+    subheading: t("subheading"),
+  };
 
   return (
     <HeroContainer id="home">
@@ -21,12 +26,12 @@ const HeroSection = () => {
         <ParticlesBackground />
       </HeroBg>
       <HeroContent>
-        <HeroP>Hi, I'm</HeroP>
-        <HeroH1>Germán Bonacchi</HeroH1>
+        <HeroP>{translations.heading}</HeroP>
+        <HeroH1>{translations.name}</HeroH1>
         <ImgWrap>
           <Img src={profile} alt="profile" />
         </ImgWrap>
-        <HeroP>Software Developer | VTEX Apps Engineer</HeroP>
+        <HeroP>{translations.subheading}</HeroP>
       </HeroContent>
     </HeroContainer>
   );

@@ -61,7 +61,7 @@ const FormStyle = styled.form`
 `;
 
 export default function ContactForm() {
-  const { t, i18n } = useTranslation("translation", { keyPrefix: 'Contact.ContactForm' });
+  const { t, i18n } = useTranslation("translation", { keyPrefix: 'Contact' });
   const translations = {
     nameError: t("nameError"),
     emailError: t("emailError"),
