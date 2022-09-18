@@ -1,68 +1,68 @@
 {
-  "Contact": {
-    "nameError": "Name is required",
-    "emailError": "Email is required",
-    "emailNotValid": "Email is not valid",
-    "messageError": "Message is required",
-    "wait": "Please wait...",
-    "success": "Success! 😊",
-    "error": "Error, try again later 🙁",
-    "statusSend": "Send",
-    "statusSending": "Sending...",
-    "name": "Your name",
-    "placeholderName": "name",
-    "email": "Your email",
-    "placeholderEmail": "email",
-    "message": "Your message",
-    "placeholderMessage": "message",
-    "heading": "Contact",
-    "subheading": "Get in touch"
-  },
-  "Section": {
-    "about": "About",
-    "skills": "Skills",
-    "trainings": "Trainings",
-    "contact": "Contact",
-    "name": "Germán Bonacchi",
-    "rights": "All rights reserved."
-  },
-  "Hero": {
-    "heading": "Hi, I'm",
-    "name": "Germán Bonacchi",
-    "subheading": "Software Developer | VTEX Apps Engineer"
-  },
-  "VideoSlider": {
-    "title1": "Apps Life Cycle",
-    "subtitle1": "from the idea to the App Store",
-    "title2": "Tech Training LATAM",
-    "subtitle2": "Block 1 - Session 1",
-    "title3": "Tech Training LATAM",
-    "subtitle3": "Block 1 - Session 2",
-    "title4": "Tech Training LATAM",
-    "subtitle4": "Block 2 - Session 1",
-    "title5": "Tech Training LATAM",
-    "subtitle5": "Block 2 - Session 2"
-  },
-  "About": {
-    "topLine": "About Me",
-    "description": "I am leading a team whose goal is analyze and solve known problems within LATAM by developing innovative solutions and giving VTEX IO trainings.",
-    "heading1": "My name is Germán and I am an ",
-    "heading2": "Apps Engineer",
-    "heading3": " of the ",
-    "heading4": "Regional Product Team LATAM",
-    "heading5": " at ",
-    "heading6": "VTEX"
-  },
-  "Skills": {
-    "topLine": "My Skills",
-    "description": "Since I started developing, almost 5 years ago, I have worked and learned many technologies and methodologies, starting with Visual Basic at IPLUSB S.A., my first job.",
-    "description2": "Then as a co-analyst, developer and tester at ALTOCOM S.R.L. I have worked with Oracle APEX, Oracle Database and PL/SQL. At last, but not least, i learned JavaScript by my own in order to satisfy the customer needs.",
-    "description3": "Currently at VTEX I have had the biggest challenge so far, learning TypeScript, React with Hooks, GraphQL and NodeJS to be able to develop applications and give support  to customers and partners. As a leader I had to improve my team management by implementing Scrum as an agile methodology and defining workflows with the other teams we support.",
-    "description4": "At the same, I have been studying since 2016 at Universidad Nacional de Avellaneda to be a Software Engineer."
-  },
-  "Trainings": {
-    "topLine": "Trainings",
-    "heading": "Here you can view the trainings I did...and soon there will be more",
-    "description": "Giving training is one of the things I enjoy the most and where I can internalize knowledge by helping others to be better in the process."
-  }
+    "Contact": {
+        "nameError": "Name is required",
+        "emailError": "Email is required",
+        "emailNotValid": "Email is not valid",
+        "messageError": "Message is required",
+        "wait": "Please wait...",
+        "success": "Success! 😊",
+        "error": "Error, try again later 🙁",
+        "statusSend": "Send",
+        "statusSending": "Sending...",
+        "name": "Your name",
+        "placeholderName": "name",
+        "email": "Your email",
+        "placeholderEmail": "email",
+        "message": "Your message",
+        "placeholderMessage": "message",
+        "heading": "Contact",
+        "subheading": "Get in touch"
+    },
+    "Section": {
+        "about": "About me",
+        "skills": "Skills",
+        "trainings": "Trainings",
+        "contact": "Contact",
+        "name": "Germán Bonacchi",
+        "rights": "All rights reserved."
+    },
+    "Hero": {
+        "heading": "Hi, I'm",
+        "name": "Germán Bonacchi",
+        "subheading": "Commerce Frontend Developer Senior at Valtech"
+    },
+    "VideoSlider": {
+        "title1": "Apps Life Cycle",
+        "subtitle1": "from the idea to the App Store",
+        "title2": "Tech Training LATAM",
+        "subtitle2": "Block 1 - Session 1",
+        "title3": "Tech Training LATAM",
+        "subtitle3": "Block 1 - Session 2",
+        "title4": "Tech Training LATAM",
+        "subtitle4": "Block 2 - Session 1",
+        "title5": "Tech Training LATAM",
+        "subtitle5": "Block 2 - Session 2"
+    },
+    "About": {
+        "topLine": "About Me",
+        "description": "I am leading a team whose goal is analyze and solve known problems within LATAM by developing innovative solutions and giving VTEX IO trainings.",
+        "heading1": "My name is Germán and I am an ",
+        "heading2": "Apps Engineer",
+        "heading3": " of the ",
+        "heading4": "Regional Product Team LATAM",
+        "heading5": " at ",
+        "heading6": "VTEX"
+    },
+    "Skills": {
+        "topLine": "My Skills",
+        "description": "Since I started developing, almost 5 years ago, I have worked and learned many technologies and methodologies, starting with Visual Basic at IPLUSB S.A., my first job.",
+        "description2": "Then as a co-analyst, developer and tester at ALTOCOM S.R.L. I have worked with Oracle APEX, Oracle Database and PL/SQL. At last, but not least, i learned JavaScript by my own in order to satisfy the customer needs.",
+        "description3": "Currently at VTEX I have had the biggest challenge so far, learning TypeScript, React with Hooks, GraphQL and NodeJS to be able to develop applications and give support  to customers and partners. As a leader I had to improve my team management by implementing Scrum as an agile methodology and defining workflows with the other teams we support.",
+        "description4": "At the same, I have been studying since 2016 at Universidad Nacional de Avellaneda to be a Software Engineer."
+    },
+    "Trainings": {
+        "topLine": "Trainings",
+        "heading": "Here you can view the trainings I did...and soon there will be more",
+        "description": "Giving training is one of the things I enjoy the most and where I can internalize knowledge by helping others to be better in the process."
+    }
 }
