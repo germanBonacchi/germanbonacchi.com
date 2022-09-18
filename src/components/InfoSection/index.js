@@ -132,20 +132,6 @@ export const AboutSection = ({
          </Anchor2>
         </Heading2>
         <Description lightDesc={lightDesc}>{description}</Description>
-        {buttonLabel && (
-         <Button
-          to="home"
-          smooth={true}
-          duration={500}
-          spy={true}
-          exact="true"
-          offset={-80}
-          primary={primary ? 1 : 0}
-          dark={dark ? 1 : 0}
-         >
-          {buttonLabel}
-         </Button>
-        )}
        </TextWrapper>
       </Column1>
       <Column2>
@@ -170,6 +156,7 @@ export const SkillSection = ({
  description2,
  description3,
  description4,
+ description5,
  skills,
  buttonLabel,
  primary,
@@ -179,7 +166,7 @@ export const SkillSection = ({
   const TagCloud = require('TagCloud')
 
   TagCloud('#skillsSphere', skills, {
-   radius: 250,
+   radius: 300,
    maxSpeed: 'fast',
    initSpeed: 'fast',
    direction: 100,
@@ -216,20 +203,7 @@ export const SkillSection = ({
         <Description lightDesc={lightDesc}>{description2}</Description>
         <Description lightDesc={lightDesc}>{description3}</Description>
         <Description lightDesc={lightDesc}>{description4}</Description>
-        {buttonLabel && (
-         <Button
-          to="home"
-          smooth={true}
-          duration={500}
-          spy={true}
-          exact="true"
-          offset={-80}
-          primary={primary ? 1 : 0}
-          dark={dark ? 1 : 0}
-         >
-          {buttonLabel}
-         </Button>
-        )}
+        <Description lightDesc={lightDesc}>{description5}</Description>
        </TextWrapper>
       </Column1>
       <Column2>

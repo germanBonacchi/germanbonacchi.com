@@ -58,12 +58,13 @@
         "topLine": "My Skills",
         "description": "Since I started developing, almost 5 years ago, I have worked and learned many technologies and methodologies, starting with Visual Basic at IPLUSB S.A., my first job.",
         "description2": "Then as a co-analyst, developer and tester at ALTOCOM S.R.L. I have worked with Oracle APEX, Oracle Database and PL/SQL. At last, but not least, i learned JavaScript by my own in order to satisfy the customer needs.",
-        "description3": "Currently at VTEX I have had the biggest challenge so far, learning TypeScript, React with Hooks, GraphQL and NodeJS to be able to develop applications and give support  to customers and partners. As a leader I had to improve my team management by implementing Scrum as an agile methodology and defining workflows with the other teams we support.",
-        "description4": "At the same, I have been studying since 2016 at Universidad Nacional de Avellaneda to be a Software Engineer."
+        "description3": "At VTEX I have had one of the biggest challenge, learning TypeScript, React with Hooks, GraphQL and NodeJS to be able to develop applications and give support  to customers and partners. As a leader I had to improve my team management by implementing Scrum as an agile methodology and defining workflows with the other teams we support.",
+        "description4": "Currently at VALTECH I have a challenge that I am excited to have, get back to the code, apply what I have learned as developer at VTEX and learn much more to create innovative solutions.",
+        "description5": "At the same, I have been studying since 2016 at Universidad Nacional de Avellaneda to be a Software Engineer."
     },
     "Trainings": {
         "topLine": "Trainings",
-        "heading": "Here you can view the trainings I did...and soon there will be more",
+        "heading": "Here you can view the trainings I did...and the ones I will continue to do.",
         "description": "Giving training is one of the things I enjoy the most and where I can internalize knowledge by helping others to be better in the process."
     }
 }

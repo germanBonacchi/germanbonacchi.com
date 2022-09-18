@@ -47,6 +47,7 @@ const Skills = () => {
   description2: t('description2'),
   description3: t('description3'),
   description4: t('description4'),
+  description5: t('description5'),
  }
  const homeSkills = {
   id: 'skills',
@@ -58,6 +59,7 @@ const Skills = () => {
   description2: translations.description2,
   description3: translations.description3,
   description4: translations.description4,
+  description5: translations.description5,
   imgStart: true,
   skills: [
    'C++',

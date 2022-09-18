@@ -58,12 +58,13 @@
         "topLine": "Mis Habilidades",
         "description": "Desde que comencé a desarrollar, hace casi 5 años, he trabajado y aprendido muchas tecnologías y metodologías, comenzando con Visual Basic en IPLUSB S.A., mi primer trabajo.",
         "description2": "Luego como co-analista, desarrollador y tester en ALTOCOM S.R.L. He trabajado con Oracle APEX, Oracle Database y PL/SQL. Por último, pero no menos importante, aprendí JavaScript por mi cuenta para lograr satisfacer las necesidades del cliente.",
-        "description3": "Actualmente en VTEX he tenido el mayor reto hasta el momento, aprender TypeScript, React with Hooks, GraphQL y NodeJS para poder desarrollar aplicaciones, dar soporte a clientes y a partners. Como líder tuve que mejorar la gestión de mi equipo implementando Scrum como metodología ágil y definiendo flujos de trabajo con los otros equipos que apoyamos.",
-        "description4": "Al mismo tiempo, estudio desde 2016 en la Universidad Nacional de Avellaneda para ser Ingeniero en Informática."
+        "description3": "En VTEX he tenido uno de mis mayores retos, aprender TypeScript, React with Hooks, GraphQL y NodeJS para poder desarrollar aplicaciones, dar soporte a clientes y a partners. Como líder tuve que mejorar la gestión de mi equipo implementando Scrum como metodología ágil y definiendo flujos de trabajo con los otros equipos que apoyamos.",
+        "description4": "Actualmente en VALTECH me encuentro con un desafío que me emociona afrontar, volver a poner manos en el código, aplicar lo aprendido como desarrollador en VTEX y aprender muchísimo más aún para crear soluciones innovadoras.",
+        "description5": "Al mismo tiempo, estudio desde 2016 en la Universidad Nacional de Avellaneda para ser Ingeniero en Informática."
     },
     "Trainings": {
         "topLine": "Capacitaciones",
-        "heading": "Aquí puedes ver las capacitaciones que realice...y pronto habrá más",
+        "heading": "Aquí puedes ver las capacitaciones que realice...y las que seguiré realizando",
         "description": "Dar capacitaciones es una de las cosas que más disfruto y donde puedo interiorizar conocimientos ayudando a otros a ser mejores en el proceso."
     }
 }
