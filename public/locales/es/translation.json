@@ -1,23 +1,4 @@
 {
-    "Contact": {
-        "nameError": "Nombre es requerido",
-        "emailError": "Email es requerido",
-        "emailNotValid": "Email no es valido",
-        "messageError": "Mensaje es requerido",
-        "wait": "Por favor espere...",
-        "success": "Exito! 😊",
-        "error": "Error, intente de nuevo mas tarde 🙁",
-        "statusSend": "Enviar",
-        "statusSending": "Enviando...",
-        "name": "Tu nombre",
-        "placeholderName": "nombre",
-        "email": "Tu email",
-        "placeholderEmail": "email",
-        "message": "Tu mensaje",
-        "placeholderMessage": "mensaje",
-        "heading": "Contacto",
-        "subheading": "Ponte en"
-    },
     "Section": {
         "about": "Sobre mi",
         "skills": "Habilidades",
@@ -30,18 +11,6 @@
         "heading": "Hola, soy",
         "name": "Germán Bonacchi",
         "subheading": "Desarrollador Frontend Senior de Commerce en Valtech"
-    },
-    "VideoSlider": {
-        "title1": "Ciclo de Vida de las Apps",
-        "subtitle1": "de la idea al App Store",
-        "title2": "Tech Training LATAM",
-        "subtitle2": "Bloque 1 - Sesión 1",
-        "title3": "Tech Training LATAM",
-        "subtitle3": "Bloque 1 - Sesión 2",
-        "title4": "Tech Training LATAM",
-        "subtitle4": "Bloque 2 - Sesión 1",
-        "title5": "Tech Training LATAM",
-        "subtitle5": "Bloque 2 - Sesión 2"
     },
     "About": {
         "topLine": "Sobre mi",
@@ -66,5 +35,38 @@
         "topLine": "Capacitaciones",
         "heading": "Aquí puedes ver las capacitaciones que realice...y las que seguiré realizando",
         "description": "Dar capacitaciones es una de las cosas que más disfruto y donde puedo interiorizar conocimientos ayudando a otros a ser mejores en el proceso."
+    },
+    "VideoSlider": {
+        "title0": "Ciclo de Vida de las Apps",
+        "subtitle0": "de la idea al App Store",
+        "title1": "Tech Training LATAM",
+        "subtitle1": "Bloque 1 - Sesión 1",
+        "title2": "Tech Training LATAM",
+        "subtitle2": "Bloque 1 - Sesión 2",
+        "title3": "Tech Training LATAM",
+        "subtitle3": "Bloque 2 - Sesión 1",
+        "title4": "Tech Training LATAM",
+        "subtitle4": "Bloque 2 - Sesión 2",
+        "title5": "Tech Training LATAM",
+        "subtitle5": "Bloque 2 - Sesión 3"
+    },
+    "Contact": {
+        "nameError": "Nombre es requerido",
+        "emailError": "Email es requerido",
+        "emailNotValid": "Email no es valido",
+        "messageError": "Mensaje es requerido",
+        "wait": "Por favor espere...",
+        "success": "Exito! 😊",
+        "error": "Error, intente de nuevo mas tarde 🙁",
+        "statusSend": "Enviar",
+        "statusSending": "Enviando...",
+        "name": "Tu nombre",
+        "placeholderName": "nombre",
+        "email": "Tu email",
+        "placeholderEmail": "email",
+        "message": "Tu mensaje",
+        "placeholderMessage": "mensaje",
+        "heading": "Contacto",
+        "subheading": "Ponte en"
     }
 }
