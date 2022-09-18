@@ -45,13 +45,14 @@
     },
     "About": {
         "topLine": "Sobre mi",
-        "description": "Lidero un equipo cuyo objetivo es analizar y resolver problemas conocidos dentro de LATAM mediante el desarrollo de soluciones innovadoras y brindando capacitaciones de VTEX IO.",
+        "description": "Diseño y construyo soluciones web de alta calidad, funcionales y orientadas al usuario, aplicando conceptos de accesibilidad, capacidad de respuesta y diseño estético.",
         "heading1": "Mi nombre es Germán y soy ",
-        "heading2": "Apps Engineer",
-        "heading3": " del ",
-        "heading4": "Regional Product Team LATAM",
-        "heading5": " de ",
-        "heading6": "VTEX"
+        "heading2": "Desarrollador Frontend Senior",
+        "heading3": " de ",
+        "heading4": "Commerce Technology",
+        "heading5": " en ",
+        "heading6": "valtech",
+        "heading7": "-"
     },
     "Skills": {
         "topLine": "Mis Habilidades",
