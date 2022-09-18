@@ -73,6 +73,8 @@ const Skills = () => {
    'NodeJS',
    'git',
    'Scrum',
+   'VTEX',
+   'VTEX IO',
   ],
   buttonLabel: '',
   primary: false,
