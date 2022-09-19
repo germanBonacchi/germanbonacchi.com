@@ -86,9 +86,6 @@ export const AboutSection = ({
  description,
  img,
  alt,
- buttonLabel,
- primary,
- dark,
  heading1,
  heading2,
  heading3,
@@ -158,15 +155,20 @@ export const SkillSection = ({
  description4,
  description5,
  skills,
- buttonLabel,
- primary,
- dark,
 }) => {
+ const mobileDevice = () => {
+  const mobileCondition =
+   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+   )
+  return mobileCondition
+ }
  useEffect(() => {
   const TagCloud = require('TagCloud')
+  const radius = mobileDevice() ? 250 : 300
 
   TagCloud('#skillsSphere', skills, {
-   radius: 300,
+   radius,
    maxSpeed: 'fast',
    initSpeed: 'fast',
    direction: 100,
@@ -227,9 +229,6 @@ export const TrainingsSection = ({
  topLine,
  heading,
  lightDesc,
- buttonLabel,
- primary,
- dark,
 }) => {
  const [videoTitle, setVideoTitle] = useState([])
  const [videoSubTitle, setVideoSubTitle] = useState([])
