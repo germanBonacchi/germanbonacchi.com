@@ -1,14 +1,14 @@
 /**
  * Skills as a learning graph: edges follow how knowledge actually stacked.
- * Pulses travel along those paths (foundations → platform → commerce).
+ * Pulses travel along those paths (foundations → platform → commerce → AI tooling).
  */
 
-export type SkillEra = 0 | 1 | 2 | 3 | 4;
+export type SkillEra = 0 | 1 | 2 | 3 | 4 | 5;
 
 export interface SkillNode {
   id: string;
   label: string;
-  /** Learning generation: 0 earliest → 4 current commerce depth */
+  /** Learning generation: 0 earliest → 5 current AI tooling */
   era: SkillEra;
   /** Relative weight for node size (1–3) */
   weight: number;
@@ -36,6 +36,7 @@ export const skillNodes: SkillNode[] = [
   { id: "vtex", label: "VTEX", era: 3, weight: 3 },
   { id: "vtex-io", label: "VTEX IO", era: 3, weight: 3 },
   { id: "faststore", label: "FastStore", era: 4, weight: 3 },
+  { id: "nextjs", label: "Next.js", era: 4, weight: 2 },
   { id: "checkout", label: "Checkout", era: 4, weight: 2 },
   { id: "payments", label: "Payments", era: 4, weight: 2 },
   { id: "logistics", label: "Logistics", era: 4, weight: 2 },
@@ -43,6 +44,10 @@ export const skillNodes: SkillNode[] = [
   { id: "integrations", label: "Integrations", era: 4, weight: 2 },
   { id: "middleware", label: "Middleware", era: 4, weight: 2 },
   { id: "performance", label: "Performance", era: 4, weight: 2 },
+  { id: "llms", label: "LLMs", era: 5, weight: 2 },
+  { id: "claude", label: "Claude", era: 5, weight: 2 },
+  { id: "cursor", label: "Cursor", era: 5, weight: 2 },
+  { id: "copilot", label: "Copilot", era: 5, weight: 1 },
 ];
 
 /** Directed learning paths: from earlier skill → what it unlocked */
@@ -65,6 +70,8 @@ export const skillEdges: SkillEdge[] = [
   { from: "graphql", to: "vtex" },
   { from: "vtex", to: "faststore" },
   { from: "react", to: "faststore" },
+  { from: "react", to: "nextjs" },
+  { from: "faststore", to: "nextjs" },
   { from: "vtex", to: "checkout" },
   { from: "checkout", to: "payments" },
   { from: "vtex", to: "logistics" },
@@ -74,8 +81,16 @@ export const skillEdges: SkillEdge[] = [
   { from: "vtex", to: "integrations" },
   { from: "react", to: "performance" },
   { from: "faststore", to: "performance" },
+  { from: "nextjs", to: "performance" },
   { from: "git", to: "typescript" },
   { from: "scrum", to: "vtex" },
+  { from: "typescript", to: "llms" },
+  { from: "llms", to: "claude" },
+  { from: "llms", to: "cursor" },
+  { from: "llms", to: "copilot" },
+  { from: "claude", to: "cursor" },
+  { from: "nextjs", to: "cursor" },
+  { from: "vtex", to: "cursor" },
 ];
 
 export const skillNodeById = Object.fromEntries(
