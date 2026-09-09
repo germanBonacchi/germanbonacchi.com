@@ -68,6 +68,20 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--color-bg-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
 img,
 svg {
   max-width: 100%;

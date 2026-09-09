@@ -4,13 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/content/site";
 import { useLocale } from "@/lib/locale";
+import { localizedHref } from "@/lib/paths";
 import { ParticlesBackground } from "@/components/ui/ParticlesBackground";
 import { useSectionView } from "@/lib/useSectionView";
 import { track } from "@/lib/analytics";
 import styles from "./Hero.module.css";
 
 export function Hero() {
-  const { t, l } = useLocale();
+  const { t, l, locale } = useLocale();
   const sectionRef = useSectionView("home", "hero");
 
   return (
@@ -43,7 +44,7 @@ export function Hero() {
       </div>
 
       <Link
-        href="/#about"
+        href={localizedHref(locale, "/#about")}
         className={styles.scrollDown}
         aria-label={t.hero.scrollDown}
         onClick={() => track("nav_section", { section: "about" })}

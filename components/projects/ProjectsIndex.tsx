@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { getFeaturedProjects } from "@/content/projects";
 import { useLocale } from "@/lib/locale";
+import { localizedHref } from "@/lib/paths";
 import { track } from "@/lib/analytics";
 import styles from "./ProjectsIndex.module.css";
 
 export function ProjectsIndex() {
-  const { t, l } = useLocale();
+  const { t, l, locale } = useLocale();
   const projects = getFeaturedProjects();
 
   return (
@@ -20,7 +21,10 @@ export function ProjectsIndex() {
         </header>
         <ul className={styles.list}>
           {projects.map((project) => {
-            const caseHref = `/projects/${project.slug}?from=projects`;
+            const caseHref = localizedHref(
+              locale,
+              `/projects/${project.slug}?from=projects`,
+            );
             return (
               <li key={project.slug} className={styles.item}>
                 <article className={styles.card}>

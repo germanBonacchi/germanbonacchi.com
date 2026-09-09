@@ -4,6 +4,7 @@ import Link from "next/link";
 import { entitySeoBlocks } from "@/content/seo";
 import type { Localized } from "@/content/types";
 import { useLocale } from "@/lib/locale";
+import { localizedHref } from "@/lib/paths";
 import styles from "./EntitySeoContent.module.css";
 
 /**
@@ -11,7 +12,7 @@ import styles from "./EntitySeoContent.module.css";
  * (one language at a time). Structured data for crawlers lives in JSON-LD.
  */
 export function EntitySeoContent() {
-  const { t, l } = useLocale();
+  const { t, l, locale } = useLocale();
 
   return (
     <section
@@ -37,10 +38,19 @@ export function EntitySeoContent() {
 
         <p className={styles.footerNote}>
           {l(expertiseIntro.relatedLabel)}{" "}
-          <Link href="/projects/carrefour?from=home">Carrefour Argentina</Link>,{" "}
-          <Link href="/projects/cetrogar?from=home">Cetrogar</Link>,{" "}
-          <Link href="/projects/medis?from=home">Médis Marketplace</Link>,{" "}
-          <Link href="/projects/rouge?from=home">
+          <Link href={localizedHref(locale, "/projects/carrefour?from=home")}>
+            Carrefour Argentina
+          </Link>
+          ,{" "}
+          <Link href={localizedHref(locale, "/projects/cetrogar?from=home")}>
+            Cetrogar
+          </Link>
+          ,{" "}
+          <Link href={localizedHref(locale, "/projects/medis?from=home")}>
+            Médis Marketplace
+          </Link>
+          ,{" "}
+          <Link href={localizedHref(locale, "/projects/rouge?from=home")}>
             {l(expertiseIntro.rougeLabel)}
           </Link>
           .

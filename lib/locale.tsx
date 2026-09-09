@@ -6,21 +6,19 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
   type ReactNode,
 } from "react";
-import {
-  DEFAULT_LOCALE,
-  getLanguageMeta,
-  isLocale,
-} from "@/content/languages";
+import { useRouter } from "next/navigation";
+import { DEFAULT_LOCALE } from "@/content/languages";
 import { ui, type UiCopy } from "@/content/ui";
 import type { Locale, Localized } from "@/content/types";
 import { track } from "@/lib/analytics";
 import { localize } from "@/lib/localize";
+import { localizedHref, stripLocalePrefix } from "@/lib/paths";
 
 interface LocaleContextValue {
   locale: Locale;
+  /** Navigates to the same page under `locale`'s URL (real navigation, not just a state flip). */
   setLocale: (locale: Locale) => void;
   t: UiCopy;
   /** Resolve localized content with fallbacks */
@@ -31,15 +29,6 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 
 const STORAGE_KEY = "gb-locale";
 
-function readStoredLocale(): Locale | null {
-  if (typeof window === "undefined") return null;
-  const stored = window.localStorage.getItem(STORAGE_KEY);
-  if (!stored) return null;
-  // Legacy Portugal code → Brazilian Portuguese
-  if (stored === "pt") return "pt-BR";
-  return isLocale(stored) ? stored : null;
-}
-
 export function LocaleProvider({
   children,
   initialLocale = DEFAULT_LOCALE,
@@ -47,25 +36,24 @@ export function LocaleProvider({
   children: ReactNode;
   initialLocale?: Locale;
 }) {
-  const [locale, setLocaleState] = useState<Locale>(initialLocale);
+  const router = useRouter();
+  const locale = initialLocale;
 
   useEffect(() => {
-    const stored = readStoredLocale();
-    if (stored && stored !== locale) {
-      setLocaleState(stored);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- hydrate once from storage
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.lang = getLanguageMeta(locale).htmlLang;
     window.localStorage.setItem(STORAGE_KEY, locale);
   }, [locale]);
 
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    track("language_switch", { locale: next });
-  }, []);
+  const setLocale = useCallback(
+    (next: Locale) => {
+      track("language_switch", { locale: next });
+      const currentPath =
+        stripLocalePrefix(window.location.pathname) +
+        window.location.search +
+        window.location.hash;
+      router.push(localizedHref(next, currentPath));
+    },
+    [router],
+  );
 
   const l = useCallback(
     <T,>(value: Localized<T>) => localize(value, locale),

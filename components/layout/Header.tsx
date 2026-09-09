@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { NAV_SECTIONS, navHref, navLabel } from "@/content/nav";
 import { useLocale } from "@/lib/locale";
+import { localizedHref } from "@/lib/paths";
 import { track } from "@/lib/analytics";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { LogoD20 } from "@/components/ui/LogoD20";
@@ -12,7 +13,7 @@ import { SocialIcons } from "@/components/ui/SocialIcons";
 import styles from "./Header.module.css";
 
 export function Header() {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -49,7 +50,7 @@ export function Header() {
       <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
         <div className={styles.inner}>
           <Link
-            href="/#home"
+            href={localizedHref(locale, "/#home")}
             className={styles.logo}
             aria-label={t.nav.home}
             onClick={() => handleNav("home")}
@@ -62,7 +63,7 @@ export function Header() {
               {NAV_SECTIONS.map((id) => (
                 <Link
                   key={id}
-                  href={navHref(id)}
+                  href={navHref(locale, id)}
                   className={styles.navLink}
                   onClick={() => handleNav(id)}
                 >
@@ -98,7 +99,7 @@ export function Header() {
           {NAV_SECTIONS.map((id) => (
             <Link
               key={id}
-              href={navHref(id)}
+              href={navHref(locale, id)}
               className={styles.drawerLink}
               onClick={() => handleNav(id)}
             >
