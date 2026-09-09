@@ -14,11 +14,11 @@ Personal portfolio of **Germán Bonacchi**, Technical Lead for VTEX and ecommerc
 ## Scripts
 
 ```bash
-npm install
-npm run dev
-npm run lint
-npm run typecheck
-npm run build
+yarn
+yarn dev
+yarn lint
+yarn typecheck
+yarn build
 ```
 
 ## Environment
