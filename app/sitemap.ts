@@ -2,9 +2,19 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/content/site";
 import { projects } from "@/content/projects";
 import { LOCALE_CODES } from "@/content/languages";
-import { localizedHref } from "@/lib/paths";
+import { hreflangAlternates, localizedHref } from "@/lib/paths";
 
 const lastModified = new Date();
+
+/** Absolute hreflang map — same keys as page metadata (`es-AR`, `x-default`, …). */
+function absoluteHreflang(path: string): Record<string, string> {
+  return Object.fromEntries(
+    Object.entries(hreflangAlternates(path)).map(([lang, href]) => [
+      lang,
+      `${siteConfig.url}${href}`,
+    ]),
+  );
+}
 
 /** One sitemap entry per locale for `path`, each advertising the others via hreflang alternates. */
 function localizedEntries(
@@ -12,12 +22,7 @@ function localizedEntries(
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"],
   priority: number,
 ): MetadataRoute.Sitemap {
-  const languages = Object.fromEntries(
-    LOCALE_CODES.map((locale) => [
-      locale,
-      `${siteConfig.url}${localizedHref(locale, path)}`,
-    ]),
-  );
+  const languages = absoluteHreflang(path);
 
   return LOCALE_CODES.map((locale) => ({
     url: `${siteConfig.url}${localizedHref(locale, path)}`,

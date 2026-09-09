@@ -2,6 +2,9 @@
 """
 Submit sitemap URLs to IndexNow (Bing/Yandex).
 
+Covers all locales (es unprefixed, en / pt-br / it) plus llms.txt —
+aligned with app/sitemap.ts.
+
 Usage:
   python scripts/submit_indexnow.py --dry-run
   python scripts/submit_indexnow.py
@@ -19,15 +22,34 @@ SITE_URL = os.environ.get(
 ).rstrip("/")
 INDEXNOW_KEY = "a32eff713dgb0nacchi9e2b1d84"
 
-URLS = [
-    f"{SITE_URL}/",
-    f"{SITE_URL}/projects",
-    f"{SITE_URL}/projects/carrefour",
-    f"{SITE_URL}/projects/cetrogar",
-    f"{SITE_URL}/projects/medis",
-    f"{SITE_URL}/projects/rouge",
-    f"{SITE_URL}/llms.txt",
-]
+# URL prefixes matching lib/paths.ts LOCALE_URL_SLUGS (es = no prefix).
+LOCALE_PREFIXES = ("", "/en", "/pt-br", "/it")
+
+# Paths without locale prefix (same set as app/sitemap.ts + llms.txt).
+CONTENT_PATHS = (
+    "/",
+    "/projects",
+    "/projects/carrefour",
+    "/projects/cetrogar",
+    "/projects/medis",
+    "/projects/rouge",
+)
+
+
+def localized_url(prefix: str, path: str) -> str:
+    if path == "/":
+        return f"{SITE_URL}{prefix}/" if not prefix else f"{SITE_URL}{prefix}"
+    return f"{SITE_URL}{prefix}{path}"
+
+
+def build_url_list() -> list[str]:
+    urls = [
+        localized_url(prefix, path)
+        for path in CONTENT_PATHS
+        for prefix in LOCALE_PREFIXES
+    ]
+    urls.append(f"{SITE_URL}/llms.txt")
+    return urls
 
 
 def main() -> None:
@@ -39,14 +61,16 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    urls = build_url_list()
     payload = {
         "host": SITE_URL.replace("https://", "").replace("http://", ""),
         "key": INDEXNOW_KEY,
         "keyLocation": f"{SITE_URL}/{INDEXNOW_KEY}.txt",
-        "urlList": URLS,
+        "urlList": urls,
     }
 
     print(json.dumps(payload, indent=2))
+    print(f"\n{len(urls)} URLs", file=sys.stderr)
     if args.dry_run:
         print("\n[dry-run] No request sent.")
         return

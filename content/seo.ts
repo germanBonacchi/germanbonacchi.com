@@ -50,7 +50,7 @@ export const projectsPageSeo: Localized<{ title: string; description: string }> 
   es: {
     title: "Proyectos VTEX & Ecommerce | Carrefour, Cetrogar, Médis, Rouge",
     description:
-      "Proyectos seleccionados de Germán Bonacchi, líder técnico VTEX en Valtech: Carrefour Argentina, Cetrogar FastStore, Médis Marketplace y el ecosistema Rouge (Perfumerías Rouge, Beauty24, Rouge Maison).",
+      "Proyectos destacados de Germán Bonacchi, líder técnico VTEX en Valtech: Carrefour Argentina, Cetrogar FastStore, Médis Marketplace y el ecosistema Rouge (Perfumerías Rouge, Beauty24, Rouge Maison).",
   },
   en: {
     title: "VTEX & Ecommerce Projects | Carrefour, Cetrogar, Médis, Rouge",

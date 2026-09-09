@@ -238,7 +238,7 @@ export const ui: Record<Locale, UiCopy> = {
     },
     hero: {
       greeting: "Hola, soy",
-      ctaProjects: "Proyectos seleccionados",
+      ctaProjects: "Proyectos destacados",
       ctaContact: "Contacto",
       scrollDown: "Ver más",
       photoAlt: "Retrato de Germán Bonacchi",
@@ -263,7 +263,7 @@ export const ui: Record<Locale, UiCopy> = {
       educationLabel: "Formación",
     },
     projects: {
-      topLine: "Proyectos seleccionados",
+      topLine: "Proyectos destacados",
       heading: "Plataformas commerce en las que trabajé.",
       intro:
         "Trabajo en proyectos VTEX grandes: liderazgo técnico en Carrefour, FastStore en Cetrogar, integraciones y diseño de soluciones.",
