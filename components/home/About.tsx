@@ -54,8 +54,8 @@ export function About() {
           <Image
             src="/images/about-vtex.jpg"
             alt={t.about.photoAlt}
-            width={768}
-            height={1024}
+            width={960}
+            height={1280}
             sizes="(max-width: 899px) 100vw, 400px"
             className={styles.photo}
           />
