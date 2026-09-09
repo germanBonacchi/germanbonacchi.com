@@ -1,0 +1,56 @@
+.section {
+  background: var(--color-bg-light);
+  color: var(--color-text-dark);
+  padding: 4.5rem 1.5rem;
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.copy {
+  max-width: 34rem;
+}
+
+.top {
+  margin: 0 0 1rem;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin: 0 0 1rem;
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  line-height: 1.2;
+}
+
+.intro,
+.networkNote {
+  margin: 0;
+  color: rgba(1, 6, 6, 0.78);
+}
+
+.networkNote {
+  margin-top: 1rem;
+  color: rgba(1, 6, 6, 0.62);
+  font-size: 0.95rem;
+}
+
+.visual {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 960px) {
+  .inner {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+    gap: 2.5rem;
+  }
+}

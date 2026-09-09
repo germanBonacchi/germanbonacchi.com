@@ -1,0 +1,22 @@
+.button {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 90;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: rgba(30, 30, 30, 0.92);
+  color: var(--color-text-white);
+  font-size: 1.25rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.button:hover,
+.button:focus-visible {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}

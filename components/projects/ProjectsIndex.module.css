@@ -1,0 +1,127 @@
+.page {
+  background: var(--color-bg-black);
+  padding: 3rem 1.5rem 5rem;
+  min-height: 70vh;
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 42rem;
+  margin-bottom: 2.5rem;
+}
+
+.top {
+  margin: 0 0 1rem;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin: 0 0 1rem;
+  color: var(--color-text-white);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.intro {
+  margin: 0;
+  color: rgba(247, 248, 250, 0.78);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgba(30, 30, 30, 0.7);
+}
+
+.client {
+  margin: 0;
+  color: var(--color-accent-cyan);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card h2 {
+  margin: 0.4rem 0;
+  color: var(--color-text-white);
+  font-size: 1.35rem;
+}
+
+.role {
+  margin: 0 0 0.75rem;
+  color: rgba(247, 248, 250, 0.7);
+  font-weight: 600;
+}
+
+.card p:last-of-type {
+  color: rgba(247, 248, 250, 0.85);
+}
+
+.sites {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.sites a {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 200, 255, 0.35);
+  color: var(--color-accent-cyan);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.sites a:hover,
+.sites a:focus-visible {
+  text-decoration: underline;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.actions a {
+  color: var(--color-accent-cyan);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.actions a:hover,
+.actions a:focus-visible {
+  text-decoration: underline;
+}
+
+@media (min-width: 800px) {
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,42 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.compact {
+  display: none;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: transparent;
+  border-radius: 0;
+  transition: color var(--transition);
+}
+
+.link:hover,
+.link:focus-visible {
+  color: #a32eff;
+  background: transparent;
+  transform: none;
+}
+
+.link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@media (min-width: 960px) {
+  .compact {
+    display: flex;
+  }
+}

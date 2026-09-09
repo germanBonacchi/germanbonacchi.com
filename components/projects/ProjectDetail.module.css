@@ -1,0 +1,196 @@
+.article {
+  background: var(--color-bg-black);
+  padding: 3rem 1.5rem 5rem;
+  min-height: 70vh;
+}
+
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.back {
+  margin: 0 0 1.5rem;
+}
+
+.back a {
+  color: var(--color-accent-cyan);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.back a:hover,
+.back a:focus-visible {
+  text-decoration: underline;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+}
+
+.client {
+  margin: 0 0 0.5rem;
+  color: var(--color-accent-cyan);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 0.75rem;
+  color: var(--color-text-white);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: 1.15;
+}
+
+.role {
+  margin: 0 0 1rem;
+  color: rgba(247, 248, 250, 0.85);
+  font-size: 1.05rem;
+}
+
+.role span {
+  color: rgba(247, 248, 250, 0.55);
+}
+
+.summary {
+  margin: 0 0 1.5rem;
+  color: rgba(247, 248, 250, 0.88);
+  font-size: 1.1rem;
+  line-height: 1.55;
+}
+
+.sites {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.sites a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 200, 255, 0.35);
+  color: var(--color-accent-cyan);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.sites a:hover,
+.sites a:focus-visible {
+  background: rgba(0, 200, 255, 0.1);
+  border-color: var(--color-accent-cyan);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.primary {
+  background: var(--color-accent);
+  color: var(--color-text-white);
+}
+
+.secondary {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-text-light);
+}
+
+.primary:hover,
+.primary:focus-visible {
+  background: #8c1fe0;
+}
+
+.secondary:hover,
+.secondary:focus-visible {
+  border-color: var(--color-accent-cyan);
+  color: var(--color-accent-cyan);
+}
+
+.callout {
+  margin: 0 0 2.5rem;
+  padding: 1.25rem 1.35rem;
+  border-left: 3px solid var(--color-accent-cyan);
+  background: rgba(0, 200, 255, 0.08);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.callout p {
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-white);
+}
+
+.callout ul {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: rgba(247, 248, 250, 0.85);
+}
+
+.callout li {
+  margin-bottom: 0.4rem;
+}
+
+.block {
+  margin-bottom: 2rem;
+}
+
+.block h2 {
+  margin: 0 0 0.85rem;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.block p,
+.block li {
+  color: rgba(247, 248, 250, 0.88);
+}
+
+.block ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.block li {
+  margin-bottom: 0.45rem;
+}
+
+.tags {
+  list-style: none;
+  margin: 0;
+  padding: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tags li {
+  margin: 0 !important;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  font-size: 0.85rem;
+  font-weight: 600;
+}

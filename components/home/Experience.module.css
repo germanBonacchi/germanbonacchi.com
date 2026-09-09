@@ -1,0 +1,163 @@
+.section {
+  background: var(--color-bg-light);
+  color: var(--color-text-dark);
+  padding: 4.5rem 1.5rem;
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+  max-width: 40rem;
+}
+
+.top {
+  margin: 0 0 1rem;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  line-height: 1.2;
+  color: var(--color-text-dark);
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.75rem;
+}
+
+.item {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--color-border-dark);
+}
+
+.item:last-of-type {
+  border-bottom: 1px solid var(--color-border-dark);
+}
+
+.current {
+  position: relative;
+}
+
+.current::before {
+  content: "";
+  position: absolute;
+  left: -1.5rem;
+  top: 1.75rem;
+  bottom: 1.75rem;
+  width: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.dates {
+  margin: 0 0 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.role {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.company {
+  margin: 0;
+  font-weight: 600;
+}
+
+.company a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.company a:hover,
+.company a:focus-visible {
+  color: var(--color-accent);
+}
+
+.body p {
+  margin: 0 0 0.75rem;
+}
+
+.body ul {
+  margin: 0 0 1rem;
+  padding-left: 1.15rem;
+}
+
+.body li {
+  margin-bottom: 0.4rem;
+}
+
+.tech {
+  list-style: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech li {
+  margin: 0 !important;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(163, 46, 255, 0.1);
+  color: #5b1294;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.education {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  border-left: 3px solid var(--color-accent-cyan);
+  background: rgba(0, 200, 255, 0.06);
+}
+
+.education h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #067a99;
+}
+
+.education p {
+  margin: 0 0 0.35rem;
+}
+
+@media (min-width: 860px) {
+  .item {
+    grid-template-columns: 0.85fr 1.35fr;
+    gap: 2rem;
+  }
+
+  .current::before {
+    left: -1.25rem;
+  }
+}
+
+@media (max-width: 859px) {
+  .current::before {
+    display: none;
+  }
+}
