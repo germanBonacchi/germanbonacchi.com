@@ -1,0 +1,68 @@
+.footer {
+  background: var(--color-bg-dark);
+  border-top: 1px solid var(--color-border);
+  padding: 3rem 1.5rem 2rem;
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+.brand {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.name {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-white);
+}
+
+.role {
+  margin: 0;
+  color: rgba(247, 248, 250, 0.72);
+  font-size: 0.95rem;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--color-accent);
+}
+
+.copy {
+  max-width: var(--content-max);
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  color: rgba(247, 248, 250, 0.55);
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    grid-template-columns: 1.1fr 1.6fr auto;
+    align-items: start;
+  }
+
+  .nav {
+    gap: 0.75rem 1.25rem;
+  }
+}

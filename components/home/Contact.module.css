@@ -1,0 +1,153 @@
+.section {
+  background: var(--color-bg-black);
+  color: var(--color-text-light);
+  padding: 4.5rem 1.5rem;
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 42rem;
+  margin-bottom: 2.5rem;
+}
+
+.top {
+  margin: 0 0 1rem;
+  color: var(--color-accent-on-dark);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin: 0 0 1rem;
+  color: var(--color-text-white);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.25;
+}
+
+.intro {
+  margin: 0;
+  color: rgba(247, 248, 250, 0.78);
+}
+
+.actions {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cardItem {
+  display: contents;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 0.9rem;
+  row-gap: 0.2rem;
+  align-items: center;
+  padding: 1.15rem 1.25rem;
+  min-height: 88px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: rgba(30, 30, 30, 0.7);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color var(--transition),
+    transform var(--transition),
+    background var(--transition);
+}
+
+.card svg {
+  grid-row: 1 / span 2;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: rgba(247, 248, 250, 0.65);
+}
+
+.cardLabel {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-text-white);
+}
+
+.cardHint {
+  font-size: 0.9rem;
+  color: rgba(247, 248, 250, 0.62);
+  word-break: break-word;
+}
+
+.card:hover,
+.card:focus-visible {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  background: rgba(40, 40, 40, 0.85);
+}
+
+.card:hover svg,
+.card:focus-visible svg {
+  color: var(--color-accent);
+}
+
+.primary {
+  background: linear-gradient(
+    135deg,
+    rgba(163, 46, 255, 0.18),
+    rgba(0, 200, 255, 0.1)
+  );
+  border-color: rgba(163, 46, 255, 0.45);
+}
+
+.primary svg {
+  color: #25d366;
+}
+
+.primary:hover svg,
+.primary:focus-visible svg {
+  color: #1ebe57;
+}
+
+.meta {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+.location {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: rgba(247, 248, 250, 0.7);
+  font-weight: 600;
+}
+
+.location svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--color-accent-cyan);
+}
+
+@media (min-width: 720px) {
+  .actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover,
+  .card:focus-visible {
+    transform: none;
+  }
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 8 50 72" fill="none">
+  <defs>
+    <radialGradient id="medisA" cx="6.2646" cy="81.6921" r="54.1708" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000080"/>
+      <stop offset="0.1147" stop-color="#000886"/>
+      <stop offset="0.2911" stop-color="#001D96"/>
+      <stop offset="0.5072" stop-color="#0040B0"/>
+      <stop offset="0.7536" stop-color="#0071D5"/>
+      <stop offset="1" stop-color="#00A9FF"/>
+    </radialGradient>
+    <radialGradient id="medisB" cx="24.4314" cy="56.6489" r="43.8944" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000080"/>
+      <stop offset="0.1147" stop-color="#000886"/>
+      <stop offset="0.2911" stop-color="#001D96"/>
+      <stop offset="0.5072" stop-color="#0040B0"/>
+      <stop offset="0.7536" stop-color="#0071D5"/>
+      <stop offset="1" stop-color="#00A9FF"/>
+    </radialGradient>
+    <radialGradient id="medisC" cx="23.0916" cy="62.0128" r="51.3274" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000080"/>
+      <stop offset="1" stop-color="#1FFFAE"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#medisA)" d="M22.9,27C36.8,27,48,38.2,48,52.1S36.8,77.3,22.9,77.3V27z"/>
+  <path fill="#FFFFFF" d="M44.6,32.4c0,6.6-4.3,10.6-8,12.6c-2.8,1.5-6.3,4.4-6.3,9.9l0,12.4h-7.4l0-13.2V23.3c0-7.9,9.5-11.9,15.2-6.4c0,0,0.1,0.1,0.1,0.1C42.1,20.9,44.6,26.4,44.6,32.4z"/>
+  <path fill="url(#medisB)" d="M22.9,67.3c-12.2,0-22.1-9.9-22.1-22.1s9.9-22.1,22.1-22.1V67.3z"/>
+  <path fill="url(#medisC)" d="M37.7,35.4c-7.2,6.4-13.1,4.8-14.8,14.6V10.7c6,0,11.4,2.4,15.3,6.3C44.1,22.9,42.9,30.8,37.7,35.4z"/>
+  <path fill="#FFFFFF" d="M22.9,23.1v14.8c4.1,0,7.4-3.3,7.4-7.4C30.3,26.4,27,23.1,22.9,23.1z"/>
+  <path fill="#FFFFFF" d="M22.9,50L22.9,50c0-4.9-4-8.9-8.9-8.9H4.9V50v0.2H23V50H22.9z"/>
+</svg>

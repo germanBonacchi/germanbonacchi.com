@@ -1,0 +1,160 @@
+.hero {
+  position: relative;
+  /* Full initial viewport below sticky nav (Improtango-style) */
+  min-height: calc(100vh - var(--nav-height));
+  min-height: calc(100dvh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+  background: #0b3d5c;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 50% 36%,
+      rgba(11, 61, 92, 0.15) 0%,
+      rgba(7, 38, 58, 0.55) 58%,
+      rgba(5, 28, 44, 0.78) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(7, 38, 58, 0.2) 0%,
+      rgba(7, 38, 58, 0.65) 100%
+    );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--hero-max);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8px 24px 64px;
+}
+
+.greeting {
+  margin: 0;
+  color: rgba(186, 230, 253, 0.85);
+  font-size: 24px;
+}
+
+.name {
+  margin: 0;
+  color: #f0f9ff;
+  font-size: 48px;
+  line-height: 1.15;
+  font-weight: 700;
+  text-shadow: 0 2px 24px rgba(7, 38, 58, 0.45);
+}
+
+.photoWrap {
+  margin-top: 24px;
+  width: 10em;
+  height: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(125, 211, 252, 0.55);
+  object-fit: cover;
+  box-shadow:
+    0 0 0 6px rgba(11, 61, 92, 0.45),
+    0 12px 40px rgba(0, 0, 0, 0.28);
+}
+
+.role {
+  margin-top: 24px;
+  color: rgba(224, 242, 254, 0.9);
+  font-size: 24px;
+  font-weight: 400;
+  max-width: 768px;
+}
+
+.scrollDown {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(186, 230, 253, 0.55);
+  text-decoration: none;
+  transform: translateX(-50%);
+  transition: color 0.3s ease;
+  animation: heroBounce 1.8s ease-in-out infinite;
+}
+
+.scrollDown:hover,
+.scrollDown:focus-visible {
+  color: rgba(224, 242, 254, 0.95);
+}
+
+.scrollIcon {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+@keyframes heroBounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(8px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .name {
+    font-size: 40px;
+  }
+
+  .greeting,
+  .role {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .name {
+    font-size: 32px;
+  }
+
+  .greeting,
+  .role {
+    font-size: 18px;
+  }
+
+  .scrollDown {
+    bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollDown {
+    animation: none;
+  }
+}

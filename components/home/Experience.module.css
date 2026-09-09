@@ -1,0 +1,265 @@
+.section {
+  background: var(--color-bg-light);
+  color: var(--color-text-dark);
+  padding: 4.5rem 1.5rem;
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2.5rem;
+  max-width: 40rem;
+}
+
+.top {
+  margin: 0 0 1rem;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  line-height: 1.2;
+  color: var(--color-text-dark);
+}
+
+.timeline {
+  --rail-gap: 2.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  gap: 1rem 1.25rem;
+  padding: 0;
+  margin: 0 0 var(--rail-gap);
+  scroll-margin-top: var(--nav-height);
+}
+
+.item:last-of-type {
+  margin-bottom: 0;
+}
+
+.itemRail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+}
+
+.itemDot {
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: 0.15rem;
+  border-radius: 50%;
+  border: 3px solid rgba(1, 6, 6, 0.22);
+  background: #fff;
+  box-shadow: 0 0 0 4px var(--color-bg-light);
+  flex-shrink: 0;
+  z-index: 2;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+/* Track spans from this dot through the gap into the next item */
+.itemLine {
+  position: absolute;
+  top: calc(0.15rem + 1.35rem);
+  bottom: calc(-1 * var(--rail-gap));
+  left: 50%;
+  width: 3px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(1, 6, 6, 0.12);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.itemLineFill {
+  position: absolute;
+  inset: 0;
+  transform-origin: top center;
+  transform: scaleY(0);
+  border-radius: inherit;
+  background: var(--color-accent);
+  will-change: transform;
+}
+
+/* Past / reached dots */
+.itemPast .itemDot,
+.itemActive .itemDot {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+}
+
+.itemActive .itemDot {
+  transform: scale(1.22);
+  box-shadow:
+    0 0 0 4px var(--color-bg-light),
+    0 0 0 9px rgba(163, 46, 255, 0.18);
+}
+
+.content {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+  padding-top: 0.05rem;
+  opacity: 0.72;
+  transition: opacity 180ms ease;
+}
+
+.itemActive .content,
+.itemPast .content {
+  opacity: 1;
+}
+
+.meta {
+  min-width: 0;
+}
+
+.dates {
+  margin: 0 0 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.role {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+.company {
+  margin: 0;
+  font-weight: 600;
+}
+
+.company a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.company a:hover,
+.company a:focus-visible {
+  color: var(--color-accent);
+}
+
+.body p {
+  margin: 0 0 0.75rem;
+}
+
+.body ul {
+  margin: 0 0 1rem;
+  padding-left: 1.15rem;
+}
+
+.body li {
+  margin-bottom: 0.4rem;
+}
+
+.tech {
+  list-style: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech li {
+  margin: 0 !important;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(163, 46, 255, 0.1);
+  color: #5b1294;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.education {
+  margin-top: 2.5rem;
+  padding: 1.5rem;
+  border-left: 3px solid var(--color-accent-cyan);
+  background: rgba(0, 200, 255, 0.06);
+}
+
+.education h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-cyan-on-light);
+}
+
+.education p {
+  margin: 0 0 0.35rem;
+}
+
+@media (min-width: 900px) {
+  .item {
+    grid-template-columns: 2rem 0.9fr 1.3fr;
+    gap: 1.5rem 2rem;
+  }
+
+  .itemRail {
+    grid-row: 1;
+  }
+
+  .content {
+    display: contents;
+  }
+
+  .meta {
+    grid-column: 2;
+  }
+
+  .body {
+    grid-column: 3;
+  }
+
+  .itemActive .meta,
+  .itemActive .body,
+  .itemPast .meta,
+  .itemPast .body {
+    opacity: 1;
+  }
+
+  .meta,
+  .body {
+    opacity: 0.72;
+    transition: opacity 180ms ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .itemDot,
+  .content,
+  .meta,
+  .body {
+    transition: none;
+  }
+
+  .itemLineFill {
+    transition: none;
+  }
+}

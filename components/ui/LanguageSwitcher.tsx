@@ -1,0 +1,206 @@
+"use client";
+
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { LANGUAGES } from "@/content/languages";
+import type { Locale } from "@/content/types";
+import { useLocale } from "@/lib/locale";
+import styles from "./LanguageSwitcher.module.css";
+
+export function LanguageSwitcher() {
+  const { locale, setLocale, t } = useLocale();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isAnimated, setIsAnimated] = useState(false);
+  const [menuPos, setMenuPos] = useState({ top: 0, left: 0, width: 0 });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  const current = LANGUAGES.find((lang) => lang.code === locale) ?? LANGUAGES[0];
+
+  const updateMenuPosition = () => {
+    const trigger = triggerRef.current;
+    if (!trigger) return;
+    const rect = trigger.getBoundingClientRect();
+    setMenuPos({
+      top: rect.bottom + 6,
+      left: rect.right,
+      width: Math.max(rect.width, 176),
+    });
+  };
+
+  const closeDropdown = () => {
+    setIsOpen(false);
+    setIsAnimated(false);
+  };
+
+  const openDropdown = () => {
+    setIsAnimated(false);
+    setIsOpen(true);
+  };
+
+  const toggleDropdown = () => {
+    if (isOpen) closeDropdown();
+    else openDropdown();
+  };
+
+  useLayoutEffect(() => {
+    if (!isOpen) return;
+    updateMenuPosition();
+    const frame = requestAnimationFrame(() => setIsAnimated(true));
+    window.addEventListener("resize", updateMenuPosition);
+    window.addEventListener("scroll", updateMenuPosition, true);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", updateMenuPosition);
+      window.removeEventListener("scroll", updateMenuPosition, true);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as Node;
+      if (
+        containerRef.current?.contains(target) ||
+        document.getElementById("language-selector-menu")?.contains(target)
+      ) {
+        return;
+      }
+      closeDropdown();
+    };
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeDropdown();
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [isOpen]);
+
+  const handleSelect = (code: Locale) => {
+    setLocale(code);
+    closeDropdown();
+  };
+
+  const dropdown =
+    isOpen && typeof document !== "undefined"
+      ? createPortal(
+          <div
+            id="language-selector-menu"
+            className={styles.menu}
+            style={{
+              top: menuPos.top,
+              left: menuPos.left,
+              width: menuPos.width,
+            }}
+            data-open={isAnimated ? "true" : "false"}
+          >
+            <ul
+              role="listbox"
+              aria-label={t.language.label}
+              className={styles.list}
+            >
+              {LANGUAGES.map(({ code, label, name }, index) => {
+                const isActive = code === locale;
+                return (
+                  <li
+                    key={code}
+                    role="option"
+                    aria-selected={isActive}
+                    className={styles.item}
+                    data-open={isAnimated ? "true" : "false"}
+                    style={{
+                      transitionDelay: isAnimated
+                        ? `${80 + index * 45}ms`
+                        : "0ms",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      className={`${styles.option} ${isActive ? styles.optionActive : ""}`}
+                      onClick={() => handleSelect(code)}
+                    >
+                      <span
+                        className={`${styles.pill} ${isActive ? styles.pillActive : ""}`}
+                      >
+                        {label}
+                      </span>
+                      <span className={styles.name}>{name}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>,
+          document.body,
+        )
+      : null;
+
+  return (
+    <div ref={containerRef} className={styles.wrap}>
+      <button
+        ref={triggerRef}
+        type="button"
+        className={`${styles.trigger} ${isOpen ? styles.triggerOpen : ""}`}
+        onClick={toggleDropdown}
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
+        aria-label={`${t.language.selectLabel} (${current.label})`}
+      >
+        <GlobeIcon />
+        <span>{current.label}</span>
+        <ChevronIcon open={isOpen} />
+      </button>
+      {dropdown}
+    </div>
+  );
+}
+
+function GlobeIcon() {
+  return (
+    <svg
+      className={styles.icon}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      aria-hidden
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 21a9 9 0 100-18 9 9 0 000 18z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M3.6 9h16.8M3.6 15h16.8"
+      />
+    </svg>
+  );
+}
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      className={`${styles.chevron} ${open ? styles.chevronOpen : ""}`}
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      aria-hidden
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2.5}
+        d="M19 9l-7 7-7-7"
+      />
+    </svg>
+  );
+}

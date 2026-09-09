@@ -1,0 +1,54 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  height: min(68vh, 620px);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(163, 46, 255, 0.12), transparent 45%),
+    radial-gradient(circle at 70% 65%, rgba(0, 200, 255, 0.1), transparent 40%),
+    #121212;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.caption,
+.hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.75rem;
+  margin: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
+.caption {
+  color: #00c8ff;
+  font-weight: 700;
+}
+
+.hint {
+  color: rgba(247, 248, 250, 0.45);
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    min-height: 400px;
+    height: 480px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrap {
+    background: #121212;
+  }
+}

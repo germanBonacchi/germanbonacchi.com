@@ -1,0 +1,108 @@
+:root {
+  --color-accent: #a32eff;
+  --color-accent-cyan: #00c8ff;
+  /* AA-compliant (WCAG 4.5:1) variants for small text, kept on-brand hue */
+  --color-accent-on-dark: #b455ff;
+  --color-accent-cyan-on-light: #00789a;
+  --color-bg-dark: #1e1e1e;
+  --color-bg-black: #010606;
+  --color-bg-light: #f9f9f9;
+  --color-text-light: #f7f8fa;
+  --color-text-white: #ffffff;
+  --color-text-dark: #010606;
+  --color-muted: #363636;
+  --color-muted-2: #151515;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-dark: rgba(1, 6, 6, 0.12);
+  --color-error: #d32f2f;
+  --font-sans: var(--font-encode), "Encode Sans Expanded", system-ui, sans-serif;
+  --nav-height: 80px;
+  --content-max: 1100px;
+  --hero-max: 1200px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --focus-ring: 0 0 0 3px rgba(163, 46, 255, 0.55);
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --transition: 180ms ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Flush under sticky header — extra offset left a strip of the previous section */
+  scroll-padding-top: var(--nav-height);
+  overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-bg-black);
+  color: var(--color-text-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 1000;
+  background: var(--color-accent);
+  color: var(--color-text-white);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
