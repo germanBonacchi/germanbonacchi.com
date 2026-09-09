@@ -3,14 +3,15 @@
 import Link from "next/link";
 import { getFeaturedProjects } from "@/content/projects";
 import { technologyById } from "@/content/technologies";
-import type { Project } from "@/content/types";
+import type { Locale, Project } from "@/content/types";
 import { useLocale } from "@/lib/locale";
+import { localizedHref } from "@/lib/paths";
 import { track } from "@/lib/analytics";
 import { useSectionView } from "@/lib/useSectionView";
 import styles from "./Projects.module.css";
 
 export function Projects() {
-  const { t, l } = useLocale();
+  const { t, l, locale } = useLocale();
   const projects = getFeaturedProjects();
   const sectionRef = useSectionView("projects");
 
@@ -35,6 +36,7 @@ export function Projects() {
             <ProjectCard
               key={project.slug}
               project={project}
+              locale={locale}
               role={l(project.role)}
               summary={l(project.summary)}
               labels={{
@@ -48,7 +50,9 @@ export function Projects() {
         </div>
 
         <p className={styles.all}>
-          <Link href="/projects">{t.projects.allProjects}</Link>
+          <Link href={localizedHref(locale, "/projects")}>
+            {t.projects.allProjects}
+          </Link>
         </p>
       </div>
     </section>
@@ -57,11 +61,13 @@ export function Projects() {
 
 function ProjectCard({
   project,
+  locale,
   role,
   summary,
   labels,
 }: {
   project: Project;
+  locale: Locale;
   role: string;
   summary: string;
   labels: {
@@ -86,7 +92,10 @@ function ProjectCard({
           : project.slug === "rouge"
             ? styles.brandRouge
             : "";
-  const caseHref = `/projects/${project.slug}?from=home`;
+  const caseHref = localizedHref(
+    locale,
+    `/projects/${project.slug}?from=home`,
+  );
   const caseLabel = project.caseStudy ? labels.viewCase : labels.viewProject;
 
   return (

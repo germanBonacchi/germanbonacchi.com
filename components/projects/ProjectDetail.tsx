@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { HiArrowLeft } from "react-icons/hi";
 import { technologyById } from "@/content/technologies";
-import type { Localized, Project } from "@/content/types";
+import type { Locale, Localized, Project } from "@/content/types";
 import { useLocale } from "@/lib/locale";
+import { localizedHref } from "@/lib/paths";
 import { track } from "@/lib/analytics";
 import styles from "./ProjectDetail.module.css";
 
@@ -63,9 +64,9 @@ const AREA_LABELS: Record<Project["areas"][number], Localized> = {
   },
 };
 
-function backHrefFrom(from?: string): string {
-  if (from === "home") return "/#projects";
-  return "/projects";
+function backHrefFrom(locale: Locale, from?: string): string {
+  if (from === "home") return localizedHref(locale, "/#projects");
+  return localizedHref(locale, "/projects");
 }
 
 export function ProjectDetail({
@@ -75,8 +76,8 @@ export function ProjectDetail({
   project: Project;
   from?: string;
 }) {
-  const { t, l } = useLocale();
-  const backHref = backHrefFrom(from);
+  const { t, l, locale } = useLocale();
+  const backHref = backHrefFrom(locale, from);
   const isCetrogar = project.slug === "cetrogar";
   const isCarrefour = project.slug === "carrefour";
   const highlightFacts = isCarrefour

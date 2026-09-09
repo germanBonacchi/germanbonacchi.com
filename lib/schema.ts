@@ -139,18 +139,16 @@ export function projectJsonLd(project: Project, locale: Locale = "es") {
   };
 }
 
-export function homeGraphJsonLd() {
+export function homeGraphJsonLd(locale: Locale = "es") {
   const featured = getFeaturedProjects();
   return {
     "@context": "https://schema.org",
     "@graph": [
-      personJsonLd("es"),
-      websiteJsonLd("es"),
-      profilePageJsonLd("es"),
-      faqPageJsonLd("es"),
-      faqPageJsonLd("en"),
-      faqPageJsonLd("pt-BR"),
-      ...featured.map((project) => projectJsonLd(project, "es")),
+      personJsonLd(locale),
+      websiteJsonLd(locale),
+      profilePageJsonLd(locale),
+      faqPageJsonLd(locale),
+      ...featured.map((project) => projectJsonLd(project, locale)),
     ],
   };
 }

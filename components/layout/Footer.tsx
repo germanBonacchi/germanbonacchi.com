@@ -8,7 +8,7 @@ import { SocialIcons } from "@/components/ui/SocialIcons";
 import styles from "./Footer.module.css";
 
 export function Footer() {
-  const { t, l } = useLocale();
+  const { t, l, locale } = useLocale();
   const year = new Date().getFullYear();
 
   return (
@@ -20,7 +20,7 @@ export function Footer() {
         </div>
         <nav className={styles.nav} aria-label="Footer">
           {NAV_SECTIONS.map((id) => (
-            <Link key={id} href={navHref(id)}>
+            <Link key={id} href={navHref(locale, id)}>
               {navLabel(t, id)}
             </Link>
           ))}
