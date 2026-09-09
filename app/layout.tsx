@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Encode_Sans_Expanded } from "next/font/google";
+import { Architects_Daughter, Encode_Sans_Expanded } from "next/font/google";
 import { LocaleProvider } from "@/lib/locale";
 import { siteConfig } from "@/content/site";
 import { seoDescription, seoKeywords, seoTitle } from "@/content/seo";
@@ -13,6 +13,13 @@ const encode = Encode_Sans_Expanded({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-encode",
+  display: "swap",
+});
+
+const pencil = Architects_Daughter({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-pencil",
   display: "swap",
 });
 
@@ -91,7 +98,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={encode.variable}>
+    <html lang="es" className={`${encode.variable} ${pencil.variable}`}>
       <body>
         <LocaleProvider initialLocale="es">
           <a href="#main" className="skip-link">

@@ -11,7 +11,6 @@ import { contactInfo, socialLinks } from "@/content/site";
 import { useLocale } from "@/lib/locale";
 import { track } from "@/lib/analytics";
 import { useSectionView } from "@/lib/useSectionView";
-import { CvDownload } from "@/components/ui/CvDownload";
 import styles from "./Contact.module.css";
 
 type ContactChannel = "whatsapp" | "linkedin" | "email" | "github";
@@ -111,7 +110,6 @@ export function Contact() {
             <MdLocationOn aria-hidden="true" />
             <span>{l(contactInfo.location)}</span>
           </p>
-          <CvDownload source="contact" />
         </div>
       </div>
     </section>

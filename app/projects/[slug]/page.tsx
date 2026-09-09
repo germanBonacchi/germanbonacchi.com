@@ -12,6 +12,7 @@ import {
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ from?: string }>;
 }
 
 export function generateStaticParams() {
@@ -46,8 +47,12 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage({
+  params,
+  searchParams,
+}: ProjectPageProps) {
   const { slug } = await params;
+  const { from } = await searchParams;
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
@@ -70,7 +75,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           ],
         }}
       />
-      <ProjectDetail project={project} />
+      <ProjectDetail project={project} from={from} />
     </>
   );
 }

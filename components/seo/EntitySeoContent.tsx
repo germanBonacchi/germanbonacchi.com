@@ -37,10 +37,10 @@ export function EntitySeoContent() {
 
         <p className={styles.footerNote}>
           {l(expertiseIntro.relatedLabel)}{" "}
-          <Link href="/projects/carrefour">Carrefour Argentina</Link>,{" "}
-          <Link href="/projects/cetrogar">Cetrogar</Link>,{" "}
-          <Link href="/projects/medis">Médis Marketplace</Link>,{" "}
-          <Link href="/projects/rouge">
+          <Link href="/projects/carrefour?from=home">Carrefour Argentina</Link>,{" "}
+          <Link href="/projects/cetrogar?from=home">Cetrogar</Link>,{" "}
+          <Link href="/projects/medis?from=home">Médis Marketplace</Link>,{" "}
+          <Link href="/projects/rouge?from=home">
             {l(expertiseIntro.rougeLabel)}
           </Link>
           .
@@ -71,10 +71,10 @@ const expertiseIntro = {
     it: "Progetti correlati:",
   },
   rougeLabel: {
-    es: "Ecosistema Rouge (Perfumerías Rouge, Beauty24, Rouge Maison)",
-    en: "Rouge ecosystem (Perfumerías Rouge, Beauty24, Rouge Maison)",
-    "pt-BR": "Ecossistema Rouge (Perfumerías Rouge, Beauty24, Rouge Maison)",
-    it: "Ecosistema Rouge (Perfumerías Rouge, Beauty24, Rouge Maison)",
+    es: "Ecosistema Rouge",
+    en: "Rouge ecosystem",
+    "pt-BR": "Ecossistema Rouge",
+    it: "Ecosistema Rouge",
   },
 } satisfies {
   heading: Localized;

@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: center;
   padding: 0 30px;
-  background: var(--color-bg-dark);
+  background: #0b3d5c;
   overflow: hidden;
   z-index: 1;
 }
@@ -22,9 +22,19 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
+    radial-gradient(
+      ellipse at 50% 36%,
+      rgba(11, 61, 92, 0.15) 0%,
+      rgba(7, 38, 58, 0.55) 58%,
+      rgba(5, 28, 44, 0.78) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(7, 38, 58, 0.2) 0%,
+      rgba(7, 38, 58, 0.65) 100%
+    );
   z-index: 1;
+  pointer-events: none;
 }
 
 .content {
@@ -41,16 +51,17 @@
 
 .greeting {
   margin: 0;
-  color: #fff;
+  color: rgba(186, 230, 253, 0.85);
   font-size: 24px;
 }
 
 .name {
   margin: 0;
-  color: #fff;
+  color: #f0f9ff;
   font-size: 48px;
   line-height: 1.15;
   font-weight: 700;
+  text-shadow: 0 2px 24px rgba(7, 38, 58, 0.45);
 }
 
 .photoWrap {
@@ -66,13 +77,16 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 2px solid #fff;
+  border: 2px solid rgba(125, 211, 252, 0.55);
   object-fit: cover;
+  box-shadow:
+    0 0 0 6px rgba(11, 61, 92, 0.45),
+    0 12px 40px rgba(0, 0, 0, 0.28);
 }
 
 .role {
   margin-top: 24px;
-  color: #fff;
+  color: rgba(224, 242, 254, 0.9);
   font-size: 24px;
   font-weight: 400;
   max-width: 768px;
@@ -86,7 +100,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(186, 230, 253, 0.55);
   text-decoration: none;
   transform: translateX(-50%);
   transition: color 0.3s ease;
@@ -95,7 +109,7 @@
 
 .scrollDown:hover,
 .scrollDown:focus-visible {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(224, 242, 254, 0.95);
 }
 
 .scrollIcon {

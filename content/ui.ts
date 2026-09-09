@@ -42,6 +42,7 @@ export interface UiCopy {
     viewProject: string;
     viewCase: string;
     visitSite: string;
+    visitStore: string;
     backToProjects: string;
     allProjects: string;
     roleLabel: string;
@@ -95,9 +96,6 @@ export interface UiCopy {
     label: string;
     selectLabel: string;
   };
-  cv: {
-    download: string;
-  };
   scrollToTop: string;
 }
 
@@ -125,8 +123,7 @@ export const ui: Record<Locale, UiCopy> = {
     },
     about: {
       topLine: "About",
-      heading:
-        "Technical Lead in VTEX and ecommerce architecture.",
+      heading: "Technical Lead in VTEX and ecommerce architecture.",
       body: [
         "I design and lead technical solutions for digital commerce platforms: architecture, integrations, and coding when the complexity needs it.",
         "At Valtech I work across VTEX IO, FastStore, checkout, payments, logistics, search, APIs, and middleware, coordinating with teams and stakeholders while staying close to the code.",
@@ -150,8 +147,9 @@ export const ui: Record<Locale, UiCopy> = {
         "Work on large VTEX projects, with deepest focus on Carrefour Argentina and Cetrogar: technical leadership, FastStore, integrations and solution design.",
       viewProject: "View project",
       viewCase: "View case study",
-      visitSite: "Visit live site",
-      backToProjects: "Back to projects",
+      visitSite: "Visit store",
+      visitStore: "Visit store",
+      backToProjects: "Back",
       allProjects: "All selected projects",
       roleLabel: "Role",
       techLabel: "Technologies",
@@ -165,11 +163,11 @@ export const ui: Record<Locale, UiCopy> = {
       carrefourFacts: [
         "High-traffic omnichannel supermarket ecommerce on VTEX IO (grocery, home & appliances, marketplace sellers).",
         "Key deliveries: Mega Menu, modern regionalizer (home delivery / Drive / quick commerce), and cart split by commerce segment.",
-        "Current Technical Lead role: architecture, custom VTEX IO apps, checkout and logistics coordination across teams.",
+        "Current role as Technical Lead & Architect: architecture, custom VTEX IO apps, checkout and logistics coordination across teams.",
       ],
       cetrogarFacts: [
         "National electronics and home-appliance retailer; digital channel connected to a large physical-store network.",
-        "Public go-live highlighted by VTEX as a FastStore implementation at scale, delivered in about 90 days with Grupo Cetrogar, Valtech, and VTEX.",
+        "Public go-live highlighted by VTEX as a FastStore implementation at scale, delivered in about 90 days.",
         "FastStore / Next.js storefront with custom modules, preparing the platform for Marketplace expansion.",
       ],
     },
@@ -180,7 +178,7 @@ export const ui: Record<Locale, UiCopy> = {
         "Main stack: VTEX, React, TypeScript and Node.js, plus the commerce pieces that keep platforms alive in production.",
       networkNote:
         "The graph on the right is how those skills connected over time. Pulses follow the path from early tools to VTEX and commerce.",
-      dragHint: "Drag a node. Pulses follow how skills unlocked each other.",
+      dragHint: "Drag a node. Pulses show how each skill unlocked the next.",
     },
     trainings: {
       topLine: "Trainings",
@@ -192,15 +190,13 @@ export const ui: Record<Locale, UiCopy> = {
     faq: {
       topLine: "FAQ",
       heading: "Questions about my role, VTEX and projects.",
-      intro:
-        "Short answers based on what is public on this site.",
+      intro: "Short answers based on what is public on this site.",
     },
     contact: {
       topLine: "Contact",
       heading:
         "Let's talk about VTEX, architecture or your next commerce project.",
-      intro:
-        "WhatsApp, LinkedIn or email. No forms.",
+      intro: "WhatsApp, LinkedIn or email. No forms.",
       whatsapp: "WhatsApp",
       whatsappHint: "Fastest way to reach me",
       whatsappMessage:
@@ -220,9 +216,6 @@ export const ui: Record<Locale, UiCopy> = {
     language: {
       label: "Language",
       selectLabel: "Select language",
-    },
-    cv: {
-      download: "Download CV",
     },
     scrollToTop: "Back to top",
   },
@@ -249,8 +242,7 @@ export const ui: Record<Locale, UiCopy> = {
     },
     about: {
       topLine: "Sobre mí",
-      heading:
-        "Technical Lead en VTEX y arquitectura ecommerce.",
+      heading: "Technical Lead en VTEX y arquitectura ecommerce.",
       body: [
         "Diseño y lidereo soluciones técnicas para plataformas de commerce: arquitectura, integraciones, y código cuando la complejidad lo pide.",
         "En Valtech trabajo sobre VTEX IO, FastStore, checkout, pagos, logística, búsqueda, APIs y middleware, coordinando con equipos y stakeholders sin alejarme del código.",
@@ -273,9 +265,10 @@ export const ui: Record<Locale, UiCopy> = {
       intro:
         "Trabajo en proyectos VTEX grandes: liderazgo técnico en Carrefour, FastStore en Cetrogar, integraciones y diseño de soluciones.",
       viewProject: "Ver proyecto",
-      viewCase: "Ver case study",
-      visitSite: "Visitar sitio",
-      backToProjects: "Volver a proyectos",
+      viewCase: "Ver caso",
+      visitSite: "Ver tienda",
+      visitStore: "Ver tienda",
+      backToProjects: "Volver",
       allProjects: "Todos los proyectos seleccionados",
       roleLabel: "Rol",
       techLabel: "Tecnologías",
@@ -289,22 +282,24 @@ export const ui: Record<Locale, UiCopy> = {
       carrefourFacts: [
         "Ecommerce omnicanal de supermercado de alto tráfico sobre VTEX IO (grocery, hogar y electro, sellers de marketplace).",
         "Hitos clave: Mega Menu, regionalizador moderno (envío a domicilio / Drive / entrega inmediata) y split de carritos por segmento.",
-        "Rol actual como Technical Lead: arquitectura, apps VTEX IO custom, checkout y coordinación de logística entre equipos.",
+        "Rol actual como Technical Lead & Architect: arquitectura, apps VTEX IO custom, checkout y coordinación de logística entre equipos.",
       ],
       cetrogarFacts: [
         "Retailer nacional de electrodomésticos y tecnología; canal digital conectado a una red amplia de sucursales.",
-        "Go-live público destacado por VTEX como implementación FastStore a gran escala, entregado en alrededor de 90 días con Grupo Cetrogar, Valtech y VTEX.",
+        "Go-live público destacado por VTEX como implementación FastStore a gran escala, entregado en alrededor de 90 días.",
         "Storefront FastStore / Next.js con módulos custom, preparando la plataforma para expansión de Marketplace.",
       ],
     },
     skills: {
       topLine: "Skills",
-      heading: "Plataformas, lenguajes y dominios commerce con los que trabajo.",
+      heading:
+        "Plataformas, lenguajes y dominios commerce con los que trabajo.",
       intro:
         "Stack principal: VTEX, React, TypeScript y Node.js, más lo de commerce que hace que las plataformas vivan en producción.",
       networkNote:
         "El grafo de la derecha es cómo se fueron conectando esas skills con el tiempo. Los pulsos siguen el camino desde las primeras herramientas hasta VTEX y commerce.",
-      dragHint: "Arrastrá un nodo. Los pulsos siguen cómo una skill habilitó la siguiente.",
+      dragHint:
+        "Arrastrá un nodo. Los pulsos muestran cómo cada skill abrió paso a la siguiente.",
     },
     trainings: {
       topLine: "Capacitaciones",
@@ -316,15 +311,13 @@ export const ui: Record<Locale, UiCopy> = {
     faq: {
       topLine: "FAQ",
       heading: "Preguntas sobre mi rol, VTEX y proyectos.",
-      intro:
-        "Respuestas cortas, con info pública de este sitio.",
+      intro: "Respuestas cortas, con info pública de este sitio.",
     },
     contact: {
       topLine: "Contacto",
       heading:
         "Hablemos de VTEX, arquitectura o tu próximo proyecto de commerce.",
-      intro:
-        "WhatsApp, LinkedIn o email. Sin formularios.",
+      intro: "WhatsApp, LinkedIn o email. Sin formularios.",
       whatsapp: "WhatsApp",
       whatsappHint: "La forma más rápida de contactarme",
       whatsappMessage:
@@ -344,9 +337,6 @@ export const ui: Record<Locale, UiCopy> = {
     language: {
       label: "Idioma",
       selectLabel: "Seleccionar idioma",
-    },
-    cv: {
-      download: "Descargar CV",
     },
     scrollToTop: "Volver arriba",
   },
@@ -373,8 +363,7 @@ export const ui: Record<Locale, UiCopy> = {
     },
     about: {
       topLine: "Sobre mim",
-      heading:
-        "Technical Lead em VTEX e arquitetura de ecommerce.",
+      heading: "Technical Lead em VTEX e arquitetura de ecommerce.",
       body: [
         "Desenho e lidero soluções técnicas para plataformas de commerce: arquitetura, integrações, e código quando a complexidade pede.",
         "Na Valtech atuo em VTEX IO, FastStore, checkout, pagamentos, logística, busca, APIs e middleware, coordenando times e stakeholders sem me afastar do código.",
@@ -397,9 +386,10 @@ export const ui: Record<Locale, UiCopy> = {
       intro:
         "Trabalho em projetos VTEX grandes, com foco principal em Carrefour Argentina e Cetrogar: liderança técnica, FastStore, integrações e desenho de soluções.",
       viewProject: "Ver projeto",
-      viewCase: "Ver case study",
-      visitSite: "Visitar site",
-      backToProjects: "Voltar aos projetos",
+      viewCase: "Ver caso",
+      visitSite: "Ver loja",
+      visitStore: "Ver loja",
+      backToProjects: "Voltar",
       allProjects: "Todos os projetos selecionados",
       roleLabel: "Papel",
       techLabel: "Tecnologias",
@@ -413,22 +403,24 @@ export const ui: Record<Locale, UiCopy> = {
       carrefourFacts: [
         "Ecommerce omnichannel de supermercados de alto tráfego em VTEX IO (supermercado, casa e eletro, sellers de marketplace).",
         "Entregas-chave: Mega Menu, regionalizador moderno (entrega em casa / Drive / entrega imediata) e split de carrinhos por segmento.",
-        "Papel atual como Technical Lead: arquitetura, apps VTEX IO custom, checkout e coordenação logística entre times.",
+        "Papel atual como Technical Lead & Architect: arquitetura, apps VTEX IO custom, checkout e coordenação logística entre times.",
       ],
       cetrogarFacts: [
         "Varejista nacional de eletrodomésticos e tecnologia; canal digital conectado a uma ampla rede de lojas físicas.",
-        "Go-live público destacado pela VTEX como implementação FastStore em grande escala, entregue em cerca de 90 dias com Grupo Cetrogar, Valtech e VTEX.",
+        "Go-live público destacado pela VTEX como implementação FastStore em grande escala, entregue em cerca de 90 dias.",
         "Storefront FastStore / Next.js com módulos custom, preparando a plataforma para expansão de Marketplace.",
       ],
     },
     skills: {
       topLine: "Skills",
-      heading: "Plataformas, linguagens e domínios commerce com os quais trabalho.",
+      heading:
+        "Plataformas, linguagens e domínios commerce com os quais trabalho.",
       intro:
         "Stack principal: VTEX, React, TypeScript e Node.js, mais o que de commerce faz as plataformas viverem em produção.",
       networkNote:
         "O grafo à direita é como essas skills foram se conectando no tempo. Os pulsos seguem o caminho das primeiras ferramentas até VTEX e commerce.",
-      dragHint: "Arraste um nó. Os pulsos seguem como uma skill destravou a seguinte.",
+      dragHint:
+        "Arraste um nó. Os pulsos mostram como cada skill abriu caminho para a seguinte.",
     },
     trainings: {
       topLine: "Treinamentos",
@@ -440,15 +432,13 @@ export const ui: Record<Locale, UiCopy> = {
     faq: {
       topLine: "FAQ",
       heading: "Perguntas sobre meu papel, VTEX e projetos.",
-      intro:
-        "Respostas curtas, com info pública deste site.",
+      intro: "Respostas curtas, com info pública deste site.",
     },
     contact: {
       topLine: "Contato",
       heading:
         "Vamos falar de VTEX, arquitetura ou do seu próximo projeto de commerce.",
-      intro:
-        "WhatsApp, LinkedIn ou email. Sem formulários.",
+      intro: "WhatsApp, LinkedIn ou email. Sem formulários.",
       whatsapp: "WhatsApp",
       whatsappHint: "A forma mais rápida de me contatar",
       whatsappMessage:
@@ -468,9 +458,6 @@ export const ui: Record<Locale, UiCopy> = {
     language: {
       label: "Idioma",
       selectLabel: "Selecionar idioma",
-    },
-    cv: {
-      download: "Baixar CV",
     },
     scrollToTop: "Voltar ao topo",
   },
@@ -497,8 +484,7 @@ export const ui: Record<Locale, UiCopy> = {
     },
     about: {
       topLine: "Chi sono",
-      heading:
-        "Technical Lead in VTEX e architettura ecommerce.",
+      heading: "Technical Lead in VTEX e architettura ecommerce.",
       body: [
         "Progetto e guido soluzioni tecniche per piattaforme di commerce: architettura, integrazioni, e codice quando serve.",
         "In Valtech lavoro su VTEX IO, FastStore, checkout, pagamenti, logistics, search, API e middleware, coordinando team e stakeholder senza allontanarmi dal codice.",
@@ -521,9 +507,10 @@ export const ui: Record<Locale, UiCopy> = {
       intro:
         "Lavoro su grandi progetti VTEX, con focus principale su Carrefour Argentina e Cetrogar: leadership tecnica, FastStore, integrazioni e solution design.",
       viewProject: "Vedi progetto",
-      viewCase: "Vedi case study",
-      visitSite: "Visita il sito",
-      backToProjects: "Torna ai progetti",
+      viewCase: "Vedi caso",
+      visitSite: "Vedi il negozio",
+      visitStore: "Vedi il negozio",
+      backToProjects: "Torna",
       allProjects: "Tutti i progetti selezionati",
       roleLabel: "Ruolo",
       techLabel: "Tecnologie",
@@ -537,11 +524,11 @@ export const ui: Record<Locale, UiCopy> = {
       carrefourFacts: [
         "Ecommerce omnicanale di supermercati ad alto traffico su VTEX IO (supermercato, casa ed elettro, seller di marketplace).",
         "Consegne chiave: Mega Menu, regionalizzatore moderno (consegna a domicilio / Drive / consegna immediata) e split dei carrelli per segmento.",
-        "Ruolo attuale come Technical Lead: architettura, app VTEX IO custom, checkout e coordinamento logistico tra team.",
+        "Ruolo attuale come Technical Lead & Architect: architettura, app VTEX IO custom, checkout e coordinamento logistico tra team.",
       ],
       cetrogarFacts: [
         "Retailer nazionale di elettrodomestici e tecnologia; canale digitale collegato a una ampia rete di negozi fisici.",
-        "Go-live pubblico evidenziato da VTEX come implementazione FastStore su larga scala, consegnato in circa 90 giorni con Grupo Cetrogar, Valtech e VTEX.",
+        "Go-live pubblico evidenziato da VTEX come implementazione FastStore su larga scala, consegnato in circa 90 giorni.",
         "Storefront FastStore / Next.js con moduli custom, preparando la piattaforma all'espansione Marketplace.",
       ],
     },
@@ -552,7 +539,8 @@ export const ui: Record<Locale, UiCopy> = {
         "Stack principale: VTEX, React, TypeScript e Node.js, più ciò che di commerce tiene le piattaforme vive in produzione.",
       networkNote:
         "Il grafo a destra è come queste skill si sono collegate nel tempo. I pulsi seguono il percorso dai primi strumenti fino a VTEX e commerce.",
-      dragHint: "Trascina un nodo. I pulsi seguono come una skill ha sbloccato la successiva.",
+      dragHint:
+        "Trascina un nodo. I pulsi mostrano come ogni skill ha aperto la successiva.",
     },
     trainings: {
       topLine: "Formazioni",
@@ -564,15 +552,13 @@ export const ui: Record<Locale, UiCopy> = {
     faq: {
       topLine: "FAQ",
       heading: "Domande sul mio ruolo, VTEX e progetti.",
-      intro:
-        "Risposte brevi, con info pubblica di questo sito.",
+      intro: "Risposte brevi, con info pubblica di questo sito.",
     },
     contact: {
       topLine: "Contatti",
       heading:
         "Parliamo di VTEX, architettura o del tuo prossimo progetto di commerce.",
-      intro:
-        "WhatsApp, LinkedIn o email. Niente form.",
+      intro: "WhatsApp, LinkedIn o email. Niente form.",
       whatsapp: "WhatsApp",
       whatsappHint: "Il modo più veloce per raggiungermi",
       whatsappMessage:
@@ -592,9 +578,6 @@ export const ui: Record<Locale, UiCopy> = {
     language: {
       label: "Lingua",
       selectLabel: "Seleziona lingua",
-    },
-    cv: {
-      download: "Scarica CV",
     },
     scrollToTop: "Torna su",
   },

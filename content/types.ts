@@ -86,6 +86,7 @@ export interface ProjectExternalRef {
 export interface ProjectSite {
   name: string;
   url: string;
+  logo?: string;
 }
 
 export interface Project {
@@ -93,6 +94,10 @@ export interface Project {
   client: string;
   product: string;
   url: string;
+  /** Brand / store logo under public/ */
+  logo?: string;
+  /** Isotype / on-dark mark when the full logo includes wordmark or is black-only */
+  logoMark?: string;
   /** Related storefronts in the same brand/ecosystem */
   sites?: ProjectSite[];
   role: Localized;

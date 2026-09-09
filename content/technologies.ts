@@ -10,6 +10,7 @@ export const technologies: Technology[] = [
     featured: true,
   },
   { id: "react", name: "React", category: "frontend", featured: true },
+  { id: "nextjs", name: "Next.js", category: "frontend", featured: true },
   {
     id: "typescript",
     name: "TypeScript",

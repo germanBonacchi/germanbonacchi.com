@@ -48,9 +48,6 @@ export function About() {
             >
               {t.about.valtechLinkLabel}
             </a>
-            <span className={styles.cursor} aria-hidden="true">
-              |
-            </span>
           </p>
         </div>
         <div className={styles.media}>

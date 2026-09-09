@@ -41,7 +41,7 @@ export function Projects() {
                 role: t.projects.roleLabel,
                 viewCase: t.projects.viewCase,
                 viewProject: t.projects.viewProject,
-                visitSite: t.projects.visitSite,
+                visitStore: t.projects.visitStore,
               }}
             />
           ))}
@@ -68,18 +68,56 @@ function ProjectCard({
     role: string;
     viewCase: string;
     viewProject: string;
-    visitSite: string;
+    visitStore: string;
   };
 }) {
-  const isFeaturedCase = project.slug === "cetrogar";
+  const isBrandHero =
+    project.slug === "carrefour" ||
+    project.slug === "cetrogar" ||
+    project.slug === "medis" ||
+    project.slug === "rouge";
+  const brandClass =
+    project.slug === "carrefour"
+      ? styles.brandCarrefour
+      : project.slug === "cetrogar"
+        ? styles.brandCetrogar
+        : project.slug === "medis"
+          ? styles.brandMedis
+          : project.slug === "rouge"
+            ? styles.brandRouge
+            : "";
+  const caseHref = `/projects/${project.slug}?from=home`;
+  const caseLabel = project.caseStudy ? labels.viewCase : labels.viewProject;
 
   return (
-    <article
-      className={`${styles.card} ${isFeaturedCase ? styles.featured : ""}`}
-    >
+    <article className={`${styles.card} ${brandClass}`.trim()}>
+      {isBrandHero && (project.logoMark || project.logo) ? (
+        <div className={styles.brandMark} aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={project.logoMark ?? project.logo} alt="" />
+        </div>
+      ) : null}
       <div className={styles.cardTop}>
-        <p className={styles.client}>{project.client}</p>
-        <h3 className={styles.title}>{project.product}</h3>
+        <div className={styles.brandRow}>
+          {!isBrandHero && project.logo ? (
+            <span className={styles.brandLogo}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={project.logo} alt="" />
+            </span>
+          ) : null}
+          <p className={styles.client}>{project.client}</p>
+        </div>
+        <h3 className={styles.title}>
+          <Link
+            href={caseHref}
+            className={styles.titleLink}
+            onClick={() =>
+              track("project_click", { slug: project.slug, source: "home" })
+            }
+          >
+            {project.product}
+          </Link>
+        </h3>
         <p className={styles.role}>
           <span className={styles.roleLabel}>{labels.role}:</span> {role}
         </p>
@@ -88,7 +126,13 @@ function ProjectCard({
       {project.sites && project.sites.length > 0 ? (
         <ul className={styles.sites}>
           {project.sites.map((site) => (
-            <li key={site.url}>{site.name}</li>
+            <li key={site.url}>
+              {site.logo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={site.logo} alt="" className={styles.siteLogo} />
+              ) : null}
+              {site.name}
+            </li>
           ))}
         </ul>
       ) : null}
@@ -99,30 +143,28 @@ function ProjectCard({
       </ul>
       <div className={styles.actions}>
         <Link
-          href={`/projects/${project.slug}`}
+          href={caseHref}
           className={styles.primary}
           onClick={() =>
             track("project_click", { slug: project.slug, source: "home" })
           }
         >
-          {project.caseStudy ? labels.viewCase : labels.viewProject}
+          {caseLabel}
         </Link>
-        {!project.sites?.length ? (
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-            onClick={() =>
-              track("project_external", {
-                slug: project.slug,
-                href: project.url,
-              })
-            }
-          >
-            {labels.visitSite}
-          </a>
-        ) : null}
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.secondary}
+          onClick={() =>
+            track("project_external", {
+              slug: project.slug,
+              href: project.url,
+            })
+          }
+        >
+          {labels.visitStore}
+        </a>
       </div>
     </article>
   );

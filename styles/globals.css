@@ -36,6 +36,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Sticky header offset for in-page anchors (#about, #experience, …) */
+  scroll-padding-top: calc(var(--nav-height) + 0.75rem);
 }
 
 @media (prefers-reduced-motion: reduce) {

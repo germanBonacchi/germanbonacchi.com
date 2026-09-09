@@ -41,8 +41,11 @@ const COLORS = {
 };
 
 function layoutNodes(width: number, height: number): SimNode[] {
-  const cx = width * 0.52;
+  const cx = width * 0.5;
   const cy = height * 0.5;
+  const minDim = Math.min(width, height);
+  const pad = Math.max(36, minDim * 0.08);
+
   const byEra: Record<number, SkillNode[]> = {
     0: [],
     1: [],
@@ -52,26 +55,34 @@ function layoutNodes(width: number, height: number): SimNode[] {
   };
   for (const n of skillNodes) byEra[n.era]?.push(n);
 
+  // Bloom outward: early skills near center-mid, commerce domains on the outer ring
+  // so the densest era is never crushed in the middle.
   const radii = [
-    Math.min(width, height) * 0.42,
-    Math.min(width, height) * 0.34,
-    Math.min(width, height) * 0.24,
-    Math.min(width, height) * 0.14,
-    Math.min(width, height) * 0.05,
+    minDim * 0.16,
+    minDim * 0.28,
+    minDim * 0.4,
+    minDim * 0.22,
+    minDim * 0.48,
   ];
 
   const out: SimNode[] = [];
   for (let era = 0; era <= 4; era += 1) {
     const group = byEra[era] ?? [];
-    const radius = radii[era] ?? 40;
+    const count = Math.max(group.length, 1);
+    // Extra ring scale when a ring is crowded
+    const crowd = 1 + Math.max(0, count - 4) * 0.06;
+    const radius = (radii[era] ?? 40) * crowd;
+
     group.forEach((node, i) => {
+      const slice = (Math.PI * 2) / count;
       const angle =
         -Math.PI / 2 +
-        (i / Math.max(group.length, 1)) * Math.PI * 2 +
-        era * 0.22;
-      const jitter = (i % 2 === 0 ? 1 : -1) * radius * 0.04;
-      const x = cx + Math.cos(angle) * (radius + jitter);
-      const y = cy + Math.sin(angle) * (radius + jitter) * 0.92;
+        i * slice +
+        era * 0.18 +
+        (i % 2 === 0 ? -0.08 : 0.08);
+      const wobble = ((i % 3) - 1) * radius * 0.05;
+      const x = cx + Math.cos(angle) * (radius + wobble);
+      const y = cy + Math.sin(angle) * (radius + wobble) * 0.88;
       out.push({
         ...node,
         x,
@@ -80,11 +91,55 @@ function layoutNodes(width: number, height: number): SimNode[] {
         baseY: y,
         vx: 0,
         vy: 0,
-        r: 10 + node.weight * 5,
+        r: 7 + node.weight * 3.2,
       });
     });
   }
+
+  // Soft collision so labels/nodes don't stack
+  const iterations = 64;
+  for (let iter = 0; iter < iterations; iter += 1) {
+    for (let i = 0; i < out.length; i += 1) {
+      const a = out[i];
+      if (!a) continue;
+      for (let j = i + 1; j < out.length; j += 1) {
+        const b = out[j];
+        if (!b) continue;
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        const dist = Math.hypot(dx, dy) || 0.01;
+        // Extra gap for label room under nodes
+        const minDist = a.r + b.r + 28;
+        if (dist >= minDist) continue;
+        const push = ((minDist - dist) / dist) * 0.5;
+        const ox = dx * push * 0.5;
+        const oy = dy * push * 0.5;
+        a.x -= ox;
+        a.y -= oy;
+        b.x += ox;
+        b.y += oy;
+      }
+    }
+
+    for (const n of out) {
+      n.x = Math.min(width - pad, Math.max(pad, n.x));
+      n.y = Math.min(height - pad - 18, Math.max(pad, n.y));
+    }
+  }
+
+  for (const n of out) {
+    n.baseX = n.x;
+    n.baseY = n.y;
+  }
+
   return out;
+}
+
+function clampNode(n: SimNode, width: number, height: number) {
+  const padX = n.r + 8;
+  const padY = n.r + 22; // room for label under the node
+  n.x = Math.min(width - padX, Math.max(padX, n.x));
+  n.y = Math.min(height - padY, Math.max(padX, n.y));
 }
 
 function hitTest(nodes: SimNode[], p: Point): SimNode | null {
@@ -135,10 +190,23 @@ export function SkillsNetwork() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       const prev = new Map(nodes.map((n) => [n.id, n]));
       nodes = layoutNodes(width, height).map((n) => {
-        const old = prev.get(n.id);
-        return old
-          ? { ...n, x: old.x, y: old.y, vx: old.vx, vy: old.vy }
-          : n;
+        // Keep drag position if that node is being dragged; otherwise reflow
+        if (dragId && dragId === n.id) {
+          const old = prev.get(n.id);
+          if (!old) return n;
+          const kept = {
+            ...n,
+            x: old.x,
+            y: old.y,
+            baseX: old.baseX,
+            baseY: old.baseY,
+          };
+          clampNode(kept, width, height);
+          kept.baseX = kept.x;
+          kept.baseY = kept.y;
+          return kept;
+        }
+        return n;
       });
     };
 
@@ -181,6 +249,7 @@ export function SkillsNetwork() {
               Math.cos(tick * 0.6 + n.era + n.y * 0.01) * 3 -
               n.y) *
             0.04;
+          clampNode(n, width, height);
         }
       }
 
@@ -240,12 +309,12 @@ export function SkillsNetwork() {
         ctx.fill();
         ctx.stroke();
 
-        if (isHot || n.weight >= 3) {
+        if (isHot || n.weight >= 2) {
           ctx.fillStyle = COLORS.text;
-          ctx.font = `${isHot ? 700 : 600} ${Math.max(10, Math.min(12, n.r * 0.7))}px "Encode Sans Expanded", system-ui, sans-serif`;
+          ctx.font = `${isHot ? 700 : 600} ${Math.max(10, Math.min(12, n.r * 0.85))}px "Encode Sans Expanded", system-ui, sans-serif`;
           ctx.textAlign = "center";
           ctx.textBaseline = "middle";
-          ctx.fillText(n.label, n.x, n.y + n.r + 12);
+          ctx.fillText(n.label, n.x, n.y + n.r + 11);
         }
       }
 
@@ -264,8 +333,9 @@ export function SkillsNetwork() {
         if (n) {
           n.x = p.x;
           n.y = p.y;
-          n.baseX = p.x;
-          n.baseY = p.y;
+          clampNode(n, canvas.clientWidth, canvas.clientHeight);
+          n.baseX = n.x;
+          n.baseY = n.y;
         }
         return;
       }
@@ -287,6 +357,14 @@ export function SkillsNetwork() {
     };
 
     const onPointerUp = (e: PointerEvent) => {
+      if (dragId) {
+        const n = nodes.find((node) => node.id === dragId);
+        if (n) {
+          clampNode(n, canvas.clientWidth, canvas.clientHeight);
+          n.baseX = n.x;
+          n.baseY = n.y;
+        }
+      }
       dragId = null;
       canvas.style.cursor = hoverId ? "grab" : "default";
       try {

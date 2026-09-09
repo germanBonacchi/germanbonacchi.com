@@ -97,10 +97,10 @@ export const contactInfo: ContactInfo = {
  phone: "+54 11 5836-2197",
  whatsapp: "5491158362197",
  location: {
- en: "Avellaneda, Buenos Aires, Argentina",
- es: "Avellaneda, Buenos Aires, Argentina",
- "pt-BR": "Avellaneda, Buenos Aires, Argentina",
- it: "Avellaneda, Buenos Aires, Argentina",
+ en: "Buenos Aires, Argentina",
+ es: "Buenos Aires, Argentina",
+ "pt-BR": "Buenos Aires, Argentina",
+ it: "Buenos Aires, Argentina",
  },
 };
 

@@ -19,53 +19,26 @@ export function ProjectsIndex() {
           <p className={styles.intro}>{t.projects.intro}</p>
         </header>
         <ul className={styles.list}>
-          {projects.map((project) => (
-            <li key={project.slug}>
-              <article className={styles.card}>
-                <p className={styles.client}>{project.client}</p>
-                <h2>{project.product}</h2>
-                <p className={styles.role}>{l(project.role)}</p>
-                <p>{l(project.summary)}</p>
-                {project.sites && project.sites.length > 0 ? (
-                  <ul className={styles.sites}>
-                    {project.sites.map((site) => (
-                      <li key={site.url}>
-                        <a
-                          href={site.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() =>
-                            track("project_external", {
-                              slug: project.slug,
-                              href: site.url,
-                            })
-                          }
-                        >
-                          {site.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-                <div className={styles.actions}>
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    onClick={() =>
-                      track("project_click", {
-                        slug: project.slug,
-                        source: "projects",
-                      })
-                    }
-                  >
-                    {project.caseStudy
-                      ? t.projects.viewCase
-                      : t.projects.viewProject}
-                  </Link>
-                  {!project.sites?.length ? (
+          {projects.map((project) => {
+            const caseHref = `/projects/${project.slug}?from=projects`;
+            return (
+              <li key={project.slug} className={styles.item}>
+                <article className={styles.card}>
+                  <div className={styles.brandRow}>
+                    {project.logo ? (
+                      <span className={styles.brandLogo}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={project.logo} alt="" />
+                      </span>
+                    ) : null}
+                    <p className={styles.client}>{project.client}</p>
+                  </div>
+                  <h2>
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className={styles.titleLink}
                       onClick={() =>
                         track("project_external", {
                           slug: project.slug,
@@ -73,13 +46,74 @@ export function ProjectsIndex() {
                         })
                       }
                     >
-                      {t.projects.visitSite}
+                      {project.product}
                     </a>
+                  </h2>
+                  <p className={styles.role}>{l(project.role)}</p>
+                  <p className={styles.summary}>{l(project.summary)}</p>
+                  {project.sites && project.sites.length > 0 ? (
+                    <ul className={styles.sites}>
+                      {project.sites.map((site) => (
+                        <li key={site.url}>
+                          <a
+                            href={site.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() =>
+                              track("project_external", {
+                                slug: project.slug,
+                                href: site.url,
+                              })
+                            }
+                          >
+                            {site.logo ? (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img
+                                src={site.logo}
+                                alt=""
+                                className={styles.siteLogo}
+                              />
+                            ) : null}
+                            {site.name}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
                   ) : null}
-                </div>
-              </article>
-            </li>
-          ))}
+                  <div className={styles.actions}>
+                    <Link
+                      href={caseHref}
+                      className={styles.primary}
+                      onClick={() =>
+                        track("project_click", {
+                          slug: project.slug,
+                          source: "projects",
+                        })
+                      }
+                    >
+                      {project.caseStudy
+                        ? t.projects.viewCase
+                        : t.projects.viewProject}
+                    </Link>
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.secondary}
+                      onClick={() =>
+                        track("project_external", {
+                          slug: project.slug,
+                          href: project.url,
+                        })
+                      }
+                    >
+                      {t.projects.visitStore}
+                    </a>
+                  </div>
+                </article>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>

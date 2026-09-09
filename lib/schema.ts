@@ -52,8 +52,7 @@ export function personJsonLd(locale: Locale = "es") {
     },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Avellaneda",
-      addressRegion: "Buenos Aires",
+      addressLocality: "Buenos Aires",
       addressCountry: "AR",
     },
   };
