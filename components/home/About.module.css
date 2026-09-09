@@ -36,34 +36,15 @@
   max-width: 38rem;
 }
 
-.body a,
-.valtech {
+.body a {
   color: var(--color-accent-cyan-on-light);
   text-decoration: none;
   font-weight: 700;
 }
 
 .body a:hover,
-.valtech:hover,
-.body a:focus-visible,
-.valtech:focus-visible {
+.body a:focus-visible {
   text-decoration: underline;
-}
-
-.highlight {
-  margin: 1.5rem 0 0;
-  font-size: clamp(1.15rem, 2.5vw, 1.5rem);
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--color-text-dark);
-}
-
-.accent {
-  color: var(--color-accent);
-}
-
-.cyan {
-  color: var(--color-accent-cyan-on-light);
 }
 
 .media {

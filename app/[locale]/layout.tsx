@@ -16,6 +16,7 @@ import { OG_LOCALE } from "@/content/languages";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
+import { ScrollRestoration } from "@/components/ui/ScrollRestoration";
 import { AnalyticsProviders } from "@/components/analytics/AnalyticsProviders";
 import "@/styles/globals.css";
 
@@ -142,6 +143,7 @@ export default async function LocaleLayout({
     >
       <body>
         <LocaleProvider initialLocale={locale}>
+          <ScrollRestoration />
           <a href="#main" className="skip-link">
             {SKIP_LINK_LABEL[locale] ?? SKIP_LINK_LABEL.es}
           </a>

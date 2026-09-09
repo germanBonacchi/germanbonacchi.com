@@ -1,0 +1,87 @@
+.page {
+  background: var(--color-bg-black);
+  padding: 3rem 1.5rem 5rem;
+  min-height: 70vh;
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.bar {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+.top {
+  width: 100px;
+  height: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  width: min(60%, 380px);
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  width: min(80%, 480px);
+  height: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: rgba(30, 30, 30, 0.7);
+}
+
+.client {
+  width: 120px;
+  height: 0.8rem;
+}
+
+.cardTitle {
+  width: 80%;
+  height: 1.15rem;
+  margin-bottom: 0.25rem;
+}
+
+.cardLine {
+  width: 100%;
+  height: 0.8rem;
+}
+
+.cardLine.short {
+  width: 60%;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    animation: none;
+    opacity: 0.8;
+  }
+}

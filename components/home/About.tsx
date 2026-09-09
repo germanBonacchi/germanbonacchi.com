@@ -35,20 +35,6 @@ export function About() {
               )}
             </p>
           ))}
-          <p className={styles.highlight}>
-            <span className={styles.accent}>Technical Lead</span>
-            {" · "}
-            <span className={styles.cyan}>VTEX & Commerce Architecture</span>
-            {" · "}
-            <a
-              href={VALTECH_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.valtech}
-            >
-              {t.about.valtechLinkLabel}
-            </a>
-          </p>
         </div>
         <div className={styles.media}>
           <Image
