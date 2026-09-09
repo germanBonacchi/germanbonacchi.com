@@ -1,6 +1,9 @@
 :root {
   --color-accent: #a32eff;
   --color-accent-cyan: #00c8ff;
+  /* AA-compliant (WCAG 4.5:1) variants for small text, kept on-brand hue */
+  --color-accent-on-dark: #b455ff;
+  --color-accent-cyan-on-light: #00789a;
   --color-bg-dark: #1e1e1e;
   --color-bg-black: #010606;
   --color-bg-light: #f9f9f9;
@@ -36,8 +39,9 @@
 
 html {
   scroll-behavior: smooth;
-  /* Sticky header offset for in-page anchors (#about, #experience, …) */
-  scroll-padding-top: calc(var(--nav-height) + 0.75rem);
+  /* Flush under sticky header — extra offset left a strip of the previous section */
+  scroll-padding-top: var(--nav-height);
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -101,18 +105,4 @@ textarea {
 
 .skip-link:focus {
   top: 1rem;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-  background-color: var(--color-bg-black);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--color-accent);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #a8bbbf;
 }

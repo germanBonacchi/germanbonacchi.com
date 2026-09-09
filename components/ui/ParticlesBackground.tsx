@@ -18,6 +18,8 @@ interface Seg {
   delay: number;
   hold: number;
   phase: "in" | "hold" | "out";
+  /** Only chain hops between architecture pieces; no filler ambient edges */
+  role: "ambient" | "chain";
 }
 
 interface Callout {
@@ -69,7 +71,10 @@ type GlyphKind =
   | "bubble"
   | "elev"
   | "section"
-  | "bracket";
+  | "bracket"
+  | "hatch"
+  | "arrow"
+  | "leader";
 
 interface Glyph {
   kind: GlyphKind;
@@ -136,6 +141,9 @@ const GLYPH_LABELS: Record<GlyphKind, string[]> = {
   elev: ["+0.00", "+1.0", "v2", "rev"],
   section: ["A-A", "B-B", "CUT"],
   bracket: ["scope", "bound", "limit"],
+  hatch: ["zone", "mesh", "grid"],
+  arrow: ["N", "flow", "out"],
+  leader: ["note", "see", "ref"],
 };
 
 type ChainStep =
@@ -216,6 +224,10 @@ export function ParticlesBackground() {
 
     let frame = 0;
     let running = true;
+    let gridCache: HTMLCanvasElement | null = null;
+    let bgGradient: CanvasGradient | null = null;
+    let lastFrameTime = 0;
+    const FRAME_INTERVAL = 1000 / 30;
     let nodes: Node[] = [];
     let segs: Seg[] = [];
     let callouts: Callout[] = [];
@@ -348,9 +360,9 @@ export function ParticlesBackground() {
       const e = era();
       return {
         flows: reduceMotion ? 4 : 7 + e * 2,
-        notes: reduceMotion ? 5 : 10 + e * 3,
-        glyphs: reduceMotion ? 4 : 8 + e * 3,
-        segsExtra: e,
+        notes: reduceMotion ? 5 : 12 + e * 3,
+        // Extra glyphs replace former ambient construction lines
+        glyphs: reduceMotion ? 6 : 14 + e * 3,
       };
     };
 
@@ -367,14 +379,14 @@ export function ParticlesBackground() {
       let cx = forced?.x;
       let cy = forced?.y;
       if (cx == null || cy == null) {
-        const spot = findSpot(Math.max(w, h) * 0.48);
+        const spot = findSpot(Math.max(w, h) * 0.52);
         if (!spot) return null;
         cx = spot.x;
         cy = spot.y;
-      } else if (overlaps(cx, cy, Math.max(w, h) * 0.42)) {
+      } else if (overlaps(cx, cy, Math.max(w, h) * 0.48)) {
         return null;
       }
-      claim(cx, cy, Math.max(w, h) * 0.48);
+      claim(cx, cy, Math.max(w, h) * 0.52);
       const box: FlowBox = {
         x: cx - w / 2,
         y: cy - h / 2,
@@ -407,14 +419,14 @@ export function ParticlesBackground() {
       let x = forced?.x;
       let y = forced?.y;
       if (x == null || y == null) {
-        const spot = findSpot(size * 1.7);
+        const spot = findSpot(size * 1.75);
         if (!spot) return false;
         x = spot.x;
         y = spot.y;
-      } else if (overlaps(x, y, size * 1.4)) {
+      } else if (overlaps(x, y, size * 1.5)) {
         return false;
       }
-      claim(x, y, size * 1.7);
+      claim(x, y, size * 1.75);
       notes.push({
         text,
         x,
@@ -445,16 +457,21 @@ export function ParticlesBackground() {
         hold?: number;
       },
     ) => {
+      // Prefer annotation marks (cotas / glifos sueltos) over architecture icons
       const kinds: GlyphKind[] = [
-        "db",
-        "layers",
-        "cloud",
-        "hex",
         "dim",
-        "bubble",
+        "dim",
         "elev",
         "section",
         "bracket",
+        "hatch",
+        "arrow",
+        "leader",
+        "bubble",
+        "hex",
+        "db",
+        "layers",
+        "cloud",
       ];
       const kind =
         forced?.kind ??
@@ -464,14 +481,14 @@ export function ParticlesBackground() {
       let x = forced?.x;
       let y = forced?.y;
       if (x == null || y == null) {
-        const spot = findSpot(s * 0.7);
+        const spot = findSpot(s * 0.78);
         if (!spot) return null;
         x = spot.x;
         y = spot.y;
-      } else if (overlaps(x, y, s * 0.6)) {
+      } else if (overlaps(x, y, s * 0.68)) {
         return null;
       }
-      claim(x, y, s * 0.7);
+      claim(x, y, s * 0.78);
       const g: Glyph = {
         kind,
         x,
@@ -490,7 +507,29 @@ export function ParticlesBackground() {
       return g;
     };
 
-    const linkElbow = (
+    const pushSeg = (
+      a: number,
+      b: number,
+      delay: number,
+      hold: number,
+      role: "ambient" | "chain",
+      speed = 0.012,
+    ) => {
+      segs.push({
+        a,
+        b,
+        drawn: reduceMotion && role === "ambient" ? 1 : 0,
+        fade: 1,
+        speed,
+        delay,
+        hold,
+        phase: "in",
+        role,
+      });
+    };
+
+    /** Route between two ports: straight, L, S or U-detour. */
+    const linkSnake = (
       x1: number,
       y1: number,
       x2: number,
@@ -498,105 +537,292 @@ export function ParticlesBackground() {
       delay: number,
       hold: number,
     ) => {
-      const mid: Node = { x: snap((x1 + x2) / 2), y: snap(y1), kind: "mark" };
-      const mid2: Node = { x: mid.x, y: snap(y2), kind: "mark" };
-      const i0 = nodes.length;
-      nodes.push(mid, mid2);
-      const from: Node = { x: x1, y: y1, kind: "joint" };
-      const to: Node = { x: x2, y: y2, kind: "hub" };
-      const iFrom = nodes.length;
-      nodes.push(from, to);
-      segs.push(
-        {
-          a: iFrom,
-          b: i0,
-          drawn: 0,
-          fade: 1,
-          speed: 0.012,
-          delay,
-          hold,
-          phase: "in",
-        },
-        {
-          a: i0,
-          b: i0 + 1,
-          drawn: 0,
-          fade: 1,
-          speed: 0.012,
-          delay: delay + 18,
-          hold,
-          phase: "in",
-        },
-        {
-          a: i0 + 1,
-          b: iFrom + 1,
-          drawn: 0,
-          fade: 1,
-          speed: 0.012,
-          delay: delay + 36,
-          hold,
-          phase: "in",
-        },
-      );
+      const pushNode = (x: number, y: number, kind: Node["kind"] = "mark") => {
+        const i = nodes.length;
+        nodes.push({ x: snap(x), y: snap(y), kind });
+        return i;
+      };
+
+      const iFrom = pushNode(x1, y1, "joint");
+      const iTo = pushNode(x2, y2, "hub");
+
+      const dx = x2 - x1;
+      const dy = y2 - y1;
+      const nearH = Math.abs(dy) < grid * 0.55;
+      const nearV = Math.abs(dx) < grid * 0.55;
+      if (nearH || nearV) {
+        pushSeg(iFrom, iTo, delay, hold, "chain", 0.014);
+        return;
+      }
+
+      const dist = Math.hypot(dx, dy);
+      const roll = Math.random();
+      // Prefer more bends on longer hops
+      const style =
+        dist > grid * 5.5
+          ? roll < 0.35
+            ? "S"
+            : roll < 0.7
+              ? "U"
+              : "L"
+          : roll < 0.45
+            ? "L"
+            : roll < 0.75
+              ? "S"
+              : "U";
+
+      if (style === "L") {
+        const hvFirst = Math.random() > 0.5;
+        const iMid = pushNode(
+          hvFirst ? x2 : x1,
+          hvFirst ? y1 : y2,
+        );
+        pushSeg(iFrom, iMid, delay, hold, "chain", 0.014);
+        pushSeg(iMid, iTo, delay + 20, hold, "chain", 0.014);
+        return;
+      }
+
+      if (style === "S") {
+        const mx = (x1 + x2) / 2;
+        const iA = pushNode(mx, y1);
+        const iB = pushNode(mx, y2);
+        pushSeg(iFrom, iA, delay, hold, "chain", 0.014);
+        pushSeg(iA, iB, delay + 18, hold, "chain", 0.014);
+        pushSeg(iB, iTo, delay + 36, hold, "chain", 0.014);
+        return;
+      }
+
+      // U / C detour: go out perpendicular, across, then in
+      const outward = Math.random() > 0.5 ? 1 : -1;
+      const amp = grid * (1.6 + Math.random() * 2.2) * outward;
+      if (Math.abs(dx) >= Math.abs(dy)) {
+        const yy = (y1 + y2) / 2 + amp;
+        const iA = pushNode(x1, yy);
+        const iB = pushNode(x2, yy);
+        pushSeg(iFrom, iA, delay, hold, "chain", 0.014);
+        pushSeg(iA, iB, delay + 18, hold, "chain", 0.014);
+        pushSeg(iB, iTo, delay + 36, hold, "chain", 0.014);
+      } else {
+        const xx = (x1 + x2) / 2 + amp;
+        const iA = pushNode(xx, y1);
+        const iB = pushNode(xx, y2);
+        pushSeg(iFrom, iA, delay, hold, "chain", 0.014);
+        pushSeg(iA, iB, delay + 18, hold, "chain", 0.014);
+        pushSeg(iB, iTo, delay + 36, hold, "chain", 0.014);
+      }
     };
 
-    const connectFlows = () => {
-      if (flows.length < 2) return;
-      const a = flows[flows.length - 2];
-      const b = flows[flows.length - 1];
-      if (!a || !b) return;
-      const ax = a.x + a.w;
-      const ay = a.y + a.h / 2;
-      const bx = b.x;
-      const by = b.y + b.h / 2;
-      if (Math.hypot(ax - bx, ay - by) > grid * 10) return;
-      linkElbow(ax, ay, bx, by, 40, mediumHold());
+    /** Point on the rect/glyph bounds facing toward a neighbor. */
+    const portOnBounds = (
+      item: { x: number; y: number; hw: number; hh: number },
+      toward: { x: number; y: number },
+    ) => {
+      const dx = toward.x - item.x;
+      const dy = toward.y - item.y;
+      if (Math.abs(dx) < 0.001 && Math.abs(dy) < 0.001) {
+        return { x: item.x + item.hw, y: item.y };
+      }
+      const sx = dx === 0 ? Number.POSITIVE_INFINITY : item.hw / Math.abs(dx);
+      const sy = dy === 0 ? Number.POSITIVE_INFINITY : item.hh / Math.abs(dy);
+      const t = Math.min(sx, sy);
+      const nx = item.x + dx * t;
+      const ny = item.y + dy * t;
+      const len = Math.hypot(dx, dy) || 1;
+      return {
+        x: nx + (dx / len) * 3,
+        y: ny + (dy / len) * 3,
+      };
     };
 
-    /** Places a front → mid → back chain; satellites orbit the middle. */
+    /** Manhattan snake waypoints for N stations (not only horizontal). */
+    const snakeWaypoints = (n: number) => {
+      const step = grid * (3.4 + Math.random() * 1.4);
+      const patterns = [
+        "hSnake",
+        "vSnake",
+        "stairs",
+        "uTurn",
+        "spiral",
+        "zigzag",
+      ] as const;
+      const pattern =
+        patterns[Math.floor(Math.random() * patterns.length)] ?? "hSnake";
+
+      let x =
+        pad +
+        grid * 2 +
+        Math.random() * Math.max(grid, canvasW - pad * 4 - step * 2);
+      let y =
+        pad +
+        grid * 2 +
+        Math.random() * Math.max(grid, canvasH - pad * 4 - step * 2);
+      if (inSafeCenter(x, y)) {
+        y = y < canvasH * 0.5 ? canvasH * 0.72 : canvasH * 0.2;
+        x = x < canvasW * 0.5 ? canvasW * 0.18 : canvasW * 0.78;
+      }
+
+      const clamp = (px: number, py: number) => ({
+        x: snap(
+          Math.min(canvasW - pad - grid, Math.max(pad + grid, px)),
+        ),
+        y: snap(
+          Math.min(canvasH - pad - grid, Math.max(pad + grid, py)),
+        ),
+      });
+
+      const pts: Array<{ x: number; y: number }> = [];
+      let dir = Math.floor(Math.random() * 4); // 0 E, 1 S, 2 W, 3 N
+      const turn = () => {
+        dir = (dir + (Math.random() > 0.5 ? 1 : 3)) % 4;
+      };
+      const advance = (dist: number) => {
+        if (dir === 0) x += dist;
+        else if (dir === 1) y += dist;
+        else if (dir === 2) x -= dist;
+        else y -= dist;
+      };
+
+      for (let i = 0; i < n; i += 1) {
+        const p = clamp(x, y);
+        // Skip safe center — nudge outward
+        if (inSafeCenter(p.x, p.y)) {
+          p.y = snap(p.y < canvasH * 0.5 ? canvasH * 0.7 : canvasH * 0.22);
+          p.x = snap(p.x < canvasW * 0.5 ? canvasW * 0.2 : canvasW * 0.8);
+          x = p.x;
+          y = p.y;
+        }
+        pts.push(p);
+
+        if (i === n - 1) break;
+
+        if (pattern === "hSnake") {
+          if (i > 0 && i % 2 === 1) {
+            dir = i % 4 === 1 ? 1 : 3;
+            advance(step * (0.9 + Math.random() * 0.5));
+            turn();
+            if (dir === 1 || dir === 3) dir = Math.random() > 0.5 ? 0 : 2;
+          } else {
+            dir = pts.length <= 1 || pts[0]!.x < canvasW * 0.5 ? 0 : 2;
+            advance(step);
+          }
+        } else if (pattern === "vSnake") {
+          if (i > 0 && i % 2 === 1) {
+            dir = Math.random() > 0.5 ? 0 : 2;
+            advance(step * (0.9 + Math.random() * 0.5));
+            dir = pts[0]!.y < canvasH * 0.5 ? 1 : 3;
+          } else {
+            dir = pts.length <= 1 || pts[0]!.y < canvasH * 0.5 ? 1 : 3;
+            advance(step);
+          }
+        } else if (pattern === "stairs") {
+          dir = i % 2 === 0 ? 0 : 1;
+          if (Math.random() > 0.5 && i % 2 === 0) dir = 2;
+          if (Math.random() > 0.5 && i % 2 === 1) dir = 3;
+          advance(step * (0.85 + Math.random() * 0.4));
+        } else if (pattern === "uTurn") {
+          if (i === Math.floor(n / 2) - 1) {
+            dir = Math.random() > 0.5 ? 1 : 3;
+            advance(step * 1.2);
+            dir = (dir + 2) % 4; // will reverse horizontal next
+          } else if (i >= Math.floor(n / 2)) {
+            dir = 2;
+            advance(step);
+          } else {
+            dir = 0;
+            advance(step);
+          }
+        } else if (pattern === "spiral") {
+          dir = i % 4;
+          advance(step * (0.8 + i * 0.12));
+        } else {
+          // zigzag: alternate axis each hop with random sign
+          dir = i % 2 === 0 ? (Math.random() > 0.5 ? 0 : 2) : Math.random() > 0.5 ? 1 : 3;
+          advance(step * (0.9 + Math.random() * 0.55));
+          if (Math.random() > 0.65) turn();
+        }
+
+        // Bounce off edges
+        if (x < pad + grid * 2 || x > canvasW - pad - grid * 2) {
+          dir = x < canvasW * 0.5 ? 0 : 2;
+          advance(step);
+        }
+        if (y < pad + grid * 2 || y > canvasH - pad - grid * 2) {
+          dir = y < canvasH * 0.5 ? 1 : 3;
+          advance(step);
+        }
+      }
+
+      return pts;
+    };
+
+    /** Places a front → mid → back chain along a snake path. */
     const addArchChain = (baseDelay = 0) => {
       if (reduceMotion) return false;
       const recipe =
         ARCH_CHAINS[Math.floor(Math.random() * ARCH_CHAINS.length)];
       if (!recipe) return false;
 
-      const stepGap = grid * (3.6 + Math.random() * 1.2);
-      const chainW = stepGap * (recipe.steps.length - 1);
-      const startX = snap(
-        pad + grid * 2 + Math.random() * Math.max(grid, canvasW - pad * 2 - chainW - grid * 4),
-      );
-      let startY = snap(
-        pad + grid * 2 + Math.random() * Math.max(grid, canvasH - pad * 4),
-      );
-      if (inSafeCenter(startX + chainW / 2, startY)) {
-        startY = snap(startY < canvasH * 0.5 ? canvasH * 0.72 : canvasH * 0.22);
-      }
-
+      const waypoints = snakeWaypoints(recipe.steps.length);
       const hold = longHold() + 180;
-      const centers: Array<{ x: number; y: number }> = [];
+      const centers: Array<{
+        x: number;
+        y: number;
+        hw: number;
+        hh: number;
+      }> = [];
 
       for (let i = 0; i < recipe.steps.length; i += 1) {
         const step = recipe.steps[i];
-        if (!step) continue;
-        const x = snap(startX + i * stepGap);
-        const y = snap(startY + ((i % 2) * 2 - 1) * grid * (0.35 + Math.random() * 0.5));
+        const wp = waypoints[i];
+        if (!step || !wp) continue;
         const delay = baseDelay + i * 35;
 
-        if (step.type === "flow") {
-          const box = addFlow(delay, { x, y, title: step.title, hold });
-          if (!box) continue;
-          centers.push({ x: box.x + box.w / 2, y: box.y + box.h / 2 });
-        } else {
+        // Try waypoint, then a few nearby offsets if occupied
+        let placedItem:
+          | { x: number; y: number; hw: number; hh: number }
+          | null = null;
+        const tries = [
+          wp,
+          { x: snap(wp.x + grid), y: snap(wp.y) },
+          { x: snap(wp.x), y: snap(wp.y + grid) },
+          { x: snap(wp.x - grid), y: snap(wp.y) },
+          { x: snap(wp.x), y: snap(wp.y - grid) },
+        ];
+        for (const t of tries) {
+          if (inSafeCenter(t.x, t.y)) continue;
+          if (step.type === "flow") {
+            const box = addFlow(delay, {
+              x: t.x,
+              y: t.y,
+              title: step.title,
+              hold,
+            });
+            if (!box) continue;
+            placedItem = {
+              x: box.x + box.w / 2,
+              y: box.y + box.h / 2,
+              hw: box.w / 2,
+              hh: box.h / 2,
+            };
+            break;
+          }
           const g = addGlyph(delay, {
-            x,
-            y,
+            x: t.x,
+            y: t.y,
             kind: step.kind,
             label: step.label,
             hold,
           });
           if (!g) continue;
-          centers.push({ x: g.x, y: g.y });
+          placedItem = {
+            x: g.x,
+            y: g.y,
+            hw: g.s * 0.42,
+            hh: g.s * 0.42,
+          };
+          break;
         }
+        if (placedItem) centers.push(placedItem);
       }
 
       if (centers.length < 2) return false;
@@ -605,43 +831,28 @@ export function ParticlesBackground() {
         const a = centers[i];
         const b = centers[i + 1];
         if (!a || !b) continue;
-        linkElbow(
-          a.x,
-          a.y,
-          b.x,
-          b.y,
-          baseDelay + 50 + i * 40,
-          hold,
-        );
+        const outA = portOnBounds(a, b);
+        const inB = portOnBounds(b, a);
+        linkSnake(outA.x, outA.y, inB.x, inB.y, baseDelay + 50 + i * 40, hold);
       }
 
-      // Blueprint “halo” around the middle hop(s)
       const mid = centers[Math.floor(centers.length / 2)];
       if (mid) {
+        const sats = recipe.satellites.slice(0, 2);
         const ring = [
-          { dx: -grid * 1.6, dy: -grid * 1.4 },
-          { dx: grid * 1.7, dy: -grid * 1.2 },
-          { dx: -grid * 1.8, dy: grid * 1.3 },
-          { dx: grid * 1.5, dy: grid * 1.5 },
+          { dx: -grid * 1.8, dy: -grid * 1.6 },
+          { dx: grid * 1.8, dy: grid * 1.5 },
         ];
-        for (let i = 0; i < recipe.satellites.length; i += 1) {
-          const off = ring[i % ring.length];
+        for (let i = 0; i < sats.length; i += 1) {
+          const off = ring[i];
           if (!off) continue;
           addNote(baseDelay + 90 + i * 28, {
             x: snap(mid.x + off.dx),
             y: snap(mid.y + off.dy),
-            text: recipe.satellites[i] ?? "ARQ",
+            text: sats[i] ?? "ARQ",
             hold,
           });
         }
-        // small bracket / dim around the mid tier
-        addGlyph(baseDelay + 110, {
-          x: snap(mid.x),
-          y: snap(mid.y - grid * 2.2),
-          kind: Math.random() > 0.5 ? "bracket" : "dim",
-          label: Math.random() > 0.5 ? "scope" : "p95",
-          hold,
-        });
       }
 
       return true;
@@ -660,14 +871,15 @@ export function ParticlesBackground() {
       glyphs = [];
       placed = [];
       tick = 0;
-      spawnCooldown = 20;
-      chainCooldown = 160;
+      spawnCooldown = 16;
+      chainCooldown = 120;
 
       const cols = Math.floor((width - pad * 2) / grid);
       const rows = Math.floor((height - pad * 2) / grid);
+      // Sparse survey marks only — no ambient “connect everything” graph
       const count = reduceMotion
-        ? 18
-        : Math.min(52, Math.max(28, Math.floor((cols * rows) / 22)));
+        ? 8
+        : Math.min(16, Math.max(9, Math.floor((cols * rows) / 55)));
 
       const used = new Set<string>();
       let guard = 0;
@@ -685,62 +897,19 @@ export function ParticlesBackground() {
         nodes.push({
           x,
           y,
-          kind: roll > 0.86 ? "hub" : roll > 0.6 ? "mark" : "joint",
+          kind: roll > 0.9 ? "hub" : roll > 0.4 ? "mark" : "joint",
         });
       }
 
-      for (let i = 0; i < nodes.length; i += 1) {
-        const a = nodes[i];
-        if (!a) continue;
-        const near: Array<{ j: number; d: number }> = [];
-        for (let j = 0; j < nodes.length; j += 1) {
-          if (i === j) continue;
-          const b = nodes[j];
-          if (!b) continue;
-          const dx = Math.abs(a.x - b.x);
-          const dy = Math.abs(a.y - b.y);
-          const aligned =
-            dx < grid * 0.25 ||
-            dy < grid * 0.25 ||
-            Math.abs(dx - dy) < grid * 0.4;
-          if (!aligned) continue;
-          const d = Math.hypot(dx, dy);
-          if (d > grid * 6.5 || d < grid * 0.75) continue;
-          near.push({ j, d });
-        }
-        near.sort((u, v) => u.d - v.d);
-        const links = a.kind === "hub" ? 3 : 2;
-        for (const n of near.slice(0, links)) {
-          const exists = segs.some(
-            (s) =>
-              (s.a === i && s.b === n.j) || (s.a === n.j && s.b === i),
-          );
-          if (exists) continue;
-          segs.push({
-            a: i,
-            b: n.j,
-            drawn: reduceMotion ? 1 : 0,
-            fade: 1,
-            speed: 0.01 + Math.random() * 0.012,
-            delay: Math.floor(Math.random() * 80),
-            hold: mediumHold(),
-            phase: "in",
-          });
-        }
-      }
-
-      // Architecture chains first (front → mid → back), then loose pieces
       addArchChain(20);
-      if (!reduceMotion && Math.random() > 0.35) addArchChain(140);
+      if (!reduceMotion && Math.random() > 0.4) addArchChain(150);
 
-      const startFlows = reduceMotion ? 3 : 4;
-      const startNotes = reduceMotion ? 4 : 5;
-      const startGlyphs = reduceMotion ? 3 : 4;
-      for (let i = 0; i < startFlows; i += 1) {
-        if (addFlow(80 + i * 30)) connectFlows();
-      }
-      for (let i = 0; i < startNotes; i += 1) addNote(100 + i * 28);
-      for (let i = 0; i < startGlyphs; i += 1) addGlyph(110 + i * 32);
+      const startFlows = reduceMotion ? 3 : 5;
+      const startNotes = reduceMotion ? 4 : 8;
+      const startGlyphs = reduceMotion ? 5 : 11;
+      for (let i = 0; i < startFlows; i += 1) addFlow(60 + i * 24);
+      for (let i = 0; i < startNotes; i += 1) addNote(70 + i * 22);
+      for (let i = 0; i < startGlyphs; i += 1) addGlyph(80 + i * 22);
     };
 
     const advanceLife = (item: {
@@ -783,69 +952,90 @@ export function ParticlesBackground() {
       chainCooldown -= 1;
 
       if (chainCooldown <= 0) {
-        chainCooldown = 220 + Math.floor(Math.random() * 180);
+        chainCooldown = 200 + Math.floor(Math.random() * 160);
         if (Math.random() < 0.55) addArchChain(0);
       }
 
       if (spawnCooldown > 0) return;
-      spawnCooldown = 28 + Math.floor(Math.random() * 40);
+      spawnCooldown = 20 + Math.floor(Math.random() * 28);
       const c = caps();
-      const bursts = Math.random() < 0.55 ? 3 : 2;
+      const bursts = Math.random() < 0.6 ? 3 : 2;
       for (let b = 0; b < bursts; b += 1) {
         const roll = Math.random();
-        if (roll < 0.34 && flows.length < c.flows) {
-          if (addFlow(0)) connectFlows();
-        } else if (roll < 0.62 && notes.length < c.notes) {
+        // Bias toward glyphs/notes so density comes from symbols, not lines
+        if (roll < 0.42 && glyphs.length < c.glyphs) {
+          addGlyph(0);
+        } else if (roll < 0.68 && notes.length < c.notes) {
           addNote(0);
+        } else if (roll < 0.9 && flows.length < c.flows) {
+          addFlow(0);
         } else if (glyphs.length < c.glyphs) {
           addGlyph(0);
         } else if (notes.length < c.notes) {
           addNote(0);
         } else if (flows.length < c.flows) {
-          if (addFlow(0)) connectFlows();
+          addFlow(0);
         }
       }
     };
 
-    const drawGrid = (width: number, height: number) => {
+    /**
+     * The grid/frame/corner marks never change between resizes, so they are
+     * rendered once into an offscreen canvas instead of re-stroking dozens
+     * of lines every animation frame (this was the main TBT cost).
+     */
+    const buildGridCache = (width: number, height: number) => {
+      const off = document.createElement("canvas");
+      off.width = Math.max(1, Math.floor(width));
+      off.height = Math.max(1, Math.floor(height));
+      const gctx = off.getContext("2d");
+      if (!gctx) return null;
+
       for (let x = 0; x <= width; x += grid) {
         const major = Math.round(x / grid) % 5 === 0;
-        ctx.beginPath();
-        ctx.strokeStyle = major
+        gctx.beginPath();
+        gctx.strokeStyle = major
           ? "rgba(125, 211, 252, 0.13)"
           : "rgba(125, 211, 252, 0.05)";
-        ctx.lineWidth = major ? 1 : 0.5;
-        ctx.moveTo(x + 0.5, 0);
-        ctx.lineTo(x + 0.5, height);
-        ctx.stroke();
+        gctx.lineWidth = major ? 1 : 0.5;
+        gctx.moveTo(x + 0.5, 0);
+        gctx.lineTo(x + 0.5, height);
+        gctx.stroke();
       }
       for (let y = 0; y <= height; y += grid) {
         const major = Math.round(y / grid) % 5 === 0;
-        ctx.beginPath();
-        ctx.strokeStyle = major
+        gctx.beginPath();
+        gctx.strokeStyle = major
           ? "rgba(125, 211, 252, 0.13)"
           : "rgba(125, 211, 252, 0.05)";
-        ctx.lineWidth = major ? 1 : 0.5;
-        ctx.moveTo(0, y + 0.5);
-        ctx.lineTo(width, y + 0.5);
-        ctx.stroke();
+        gctx.lineWidth = major ? 1 : 0.5;
+        gctx.moveTo(0, y + 0.5);
+        gctx.lineTo(width, y + 0.5);
+        gctx.stroke();
       }
 
       // Sheet frame + corner marks
       const m = grid * 0.7;
-      ctx.strokeStyle = "rgba(186, 230, 253, 0.18)";
-      ctx.lineWidth = 1;
-      ctx.strokeRect(m, m, width - m * 2, height - m * 2);
+      gctx.strokeStyle = "rgba(186, 230, 253, 0.18)";
+      gctx.lineWidth = 1;
+      gctx.strokeRect(m, m, width - m * 2, height - m * 2);
       const corners = [
         [m, m],
         [width - m, m],
         [m, height - m],
         [width - m, height - m],
       ] as const;
+      gctx.strokeStyle = "rgba(210, 235, 250, 0.28)";
+      gctx.lineWidth = 1;
       for (const [cx, cy] of corners) {
-        sketchLine(cx - 8, cy, cx + 8, cy, cx * 0.01, 0.28, 1);
-        sketchLine(cx, cy - 8, cx, cy + 8, cy * 0.01, 0.28, 1);
+        gctx.beginPath();
+        gctx.moveTo(cx - 8, cy);
+        gctx.lineTo(cx + 8, cy);
+        gctx.moveTo(cx, cy - 8);
+        gctx.lineTo(cx, cy + 8);
+        gctx.stroke();
       }
+      return off;
     };
 
     const drawCross = (x: number, y: number, size: number, alpha: number) => {
@@ -922,25 +1112,32 @@ export function ParticlesBackground() {
         ctx.stroke();
       } else if (kind === "dim") {
         const len = s * 1.2 * u;
-        sketchLine(x - len / 2, y, x + len / 2, y, seed, a, 0.95);
-        sketchLine(
-          x - len / 2,
-          y - 5,
-          x - len / 2,
-          y + 5,
-          seed + 1,
-          a,
-          0.9,
-        );
-        sketchLine(
-          x + len / 2,
-          y - 5,
-          x + len / 2,
-          y + 5,
-          seed + 2,
-          a,
-          0.9,
-        );
+        const vert = Math.floor(seed) % 2 === 0;
+        if (vert) {
+          sketchLine(x, y - len / 2, x, y + len / 2, seed, a, 0.95);
+          sketchLine(x - 5, y - len / 2, x + 5, y - len / 2, seed + 1, a, 0.9);
+          sketchLine(x - 5, y + len / 2, x + 5, y + len / 2, seed + 2, a, 0.9);
+        } else {
+          sketchLine(x - len / 2, y, x + len / 2, y, seed, a, 0.95);
+          sketchLine(
+            x - len / 2,
+            y - 5,
+            x - len / 2,
+            y + 5,
+            seed + 1,
+            a,
+            0.9,
+          );
+          sketchLine(
+            x + len / 2,
+            y - 5,
+            x + len / 2,
+            y + 5,
+            seed + 2,
+            a,
+            0.9,
+          );
+        }
       } else if (kind === "bubble") {
         const r = s * 0.28 * u;
         ctx.beginPath();
@@ -988,6 +1185,63 @@ export function ParticlesBackground() {
         sketchLine(x + w / 2, y - h / 2, x + w / 2 - 8, y - h / 2, seed + 3, a);
         sketchLine(x + w / 2, y - h / 2, x + w / 2, y + h / 2, seed + 4, a);
         sketchLine(x + w / 2, y + h / 2, x + w / 2 - 8, y + h / 2, seed + 5, a);
+      } else if (kind === "hatch") {
+        const w = s * 0.7 * u;
+        const h = s * 0.55 * u;
+        sketchLine(x - w / 2, y - h / 2, x + w / 2, y - h / 2, seed, a * 0.85);
+        sketchLine(x + w / 2, y - h / 2, x + w / 2, y + h / 2, seed + 1, a * 0.85);
+        sketchLine(x + w / 2, y + h / 2, x - w / 2, y + h / 2, seed + 2, a * 0.85);
+        sketchLine(x - w / 2, y + h / 2, x - w / 2, y - h / 2, seed + 3, a * 0.85);
+        for (let i = -2; i <= 2; i += 1) {
+          const ox = i * (w / 5);
+          sketchLine(
+            x + ox - w * 0.15,
+            y - h / 2,
+            x + ox + w * 0.15,
+            y + h / 2,
+            seed + 4 + i,
+            a * 0.55,
+            0.75,
+          );
+        }
+      } else if (kind === "arrow") {
+        const len = s * 0.55 * u;
+        sketchLine(x, y + len * 0.45, x, y - len * 0.45, seed, a, 1.05);
+        sketchLine(
+          x,
+          y - len * 0.45,
+          x - len * 0.22,
+          y - len * 0.15,
+          seed + 1,
+          a,
+          1,
+        );
+        sketchLine(
+          x,
+          y - len * 0.45,
+          x + len * 0.22,
+          y - len * 0.15,
+          seed + 2,
+          a,
+          1,
+        );
+        sketchLine(
+          x - len * 0.2,
+          y + len * 0.45,
+          x + len * 0.2,
+          y + len * 0.45,
+          seed + 3,
+          a,
+          0.9,
+        );
+      } else if (kind === "leader") {
+        const len = s * 0.7 * u;
+        const ang = ((seed % 10) / 10) * Math.PI * 0.5 - Math.PI * 0.25;
+        const x2 = x + Math.cos(ang) * len;
+        const y2 = y + Math.sin(ang) * len;
+        sketchLine(x, y, x2, y2, seed, a, 0.95);
+        sketchLine(x2, y2, x2 + 10, y2, seed + 1, a, 0.9);
+        drawCross(x, y, 2.2, a * 0.7);
       }
 
       if (g.drawn > 0.55 && kind !== "bubble") {
@@ -1033,17 +1287,8 @@ export function ParticlesBackground() {
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       seed(width, height);
-    };
-
-    const draw = () => {
-      if (!running) return;
-      const width = canvas.clientWidth || 1;
-      const height = canvas.clientHeight || 1;
-      tick += 1;
-
-      ctx.fillStyle = "#0b3d5c";
-      ctx.fillRect(0, 0, width, height);
-      const wash = ctx.createRadialGradient(
+      gridCache = buildGridCache(width, height);
+      bgGradient = ctx.createRadialGradient(
         width * 0.5,
         height * 0.4,
         40,
@@ -1051,12 +1296,29 @@ export function ParticlesBackground() {
         height * 0.45,
         Math.max(width, height) * 0.72,
       );
-      wash.addColorStop(0, "rgba(14, 74, 110, 0.5)");
-      wash.addColorStop(1, "rgba(7, 38, 58, 0.92)");
-      ctx.fillStyle = wash;
-      ctx.fillRect(0, 0, width, height);
+      bgGradient.addColorStop(0, "rgba(14, 74, 110, 0.5)");
+      bgGradient.addColorStop(1, "rgba(7, 38, 58, 0.92)");
+    };
 
-      drawGrid(width, height);
+    const draw = (time: number = 0) => {
+      if (!running) return;
+      if (time - lastFrameTime < FRAME_INTERVAL) {
+        frame = window.requestAnimationFrame(draw);
+        return;
+      }
+      lastFrameTime = time;
+      const width = canvas.clientWidth || 1;
+      const height = canvas.clientHeight || 1;
+      tick += 1;
+
+      ctx.fillStyle = "#0b3d5c";
+      ctx.fillRect(0, 0, width, height);
+      if (bgGradient) {
+        ctx.fillStyle = bgGradient;
+        ctx.fillRect(0, 0, width, height);
+      }
+
+      if (gridCache) ctx.drawImage(gridCache, 0, 0, width, height);
       maybeSpawn();
 
       for (const s of segs) {
@@ -1069,6 +1331,32 @@ export function ParticlesBackground() {
           s.hold = mediumHold();
         }
       }
+
+      // Draw helper for meaningful chain hops only (no ambient filler lines)
+      const drawSeg = (s: Seg) => {
+        const a = nodes[s.a];
+        const b = nodes[s.b];
+        if (!a || !b || s.drawn <= 0 || s.fade <= 0) return;
+        if (s.role !== "chain") return;
+        const x = a.x + (b.x - a.x) * s.drawn;
+        const y = a.y + (b.y - a.y) * s.drawn;
+        const base = s.drawn < 1 ? 0.82 : 0.55;
+        sketchLine(
+          a.x,
+          a.y,
+          x,
+          y,
+          a.x * 0.01 + b.y * 0.02,
+          base * s.fade,
+          s.drawn < 1 ? 1.5 : 1.2,
+        );
+        if (s.drawn < 1) {
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(224, 242, 254, ${0.9 * s.fade})`;
+          ctx.arc(x, y, 2.2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      };
 
       for (let i = flows.length - 1; i >= 0; i -= 1) {
         const box = flows[i];
@@ -1086,7 +1374,7 @@ export function ParticlesBackground() {
         }
         const st = advanceLife(box);
         if (st === "done") {
-          releaseNear(box.x + box.w / 2, box.y + box.h / 2, Math.max(box.w, box.h) * 0.48);
+          releaseNear(box.x + box.w / 2, box.y + box.h / 2, Math.max(box.w, box.h) * 0.52);
           flows.splice(i, 1);
           continue;
         }
@@ -1139,35 +1427,12 @@ export function ParticlesBackground() {
         }
       }
 
-      for (const s of segs) {
-        const a = nodes[s.a];
-        const b = nodes[s.b];
-        if (!a || !b || s.drawn <= 0 || s.fade <= 0) continue;
-        const x = a.x + (b.x - a.x) * s.drawn;
-        const y = a.y + (b.y - a.y) * s.drawn;
-        sketchLine(
-          a.x,
-          a.y,
-          x,
-          y,
-          a.x * 0.01 + b.y * 0.02,
-          (s.drawn < 1 ? 0.6 : 0.2) * s.fade,
-          s.drawn < 1 ? 1.25 : 0.9,
-        );
-        if (s.drawn < 1) {
-          ctx.beginPath();
-          ctx.fillStyle = `rgba(224, 242, 254, ${0.85 * s.fade})`;
-          ctx.arc(x, y, 2, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-
       for (let i = glyphs.length - 1; i >= 0; i -= 1) {
         const g = glyphs[i];
         if (!g) continue;
         const st = advanceLife(g);
         if (st === "done") {
-          releaseNear(g.x, g.y, g.s * 0.7);
+          releaseNear(g.x, g.y, g.s * 0.78);
           glyphs.splice(i, 1);
           continue;
         }
@@ -1185,7 +1450,7 @@ export function ParticlesBackground() {
           }
         }
         if (st === "done") {
-          releaseNear(note.x, note.y, note.size * 1.7);
+          releaseNear(note.x, note.y, note.size * 1.75);
           notes.splice(i, 1);
           continue;
         }
@@ -1220,6 +1485,11 @@ export function ParticlesBackground() {
         ctx.restore();
       }
 
+      // Chain hops on top of boxes/glyphs so links read as connectors
+      for (const s of segs) {
+        if (s.role === "chain") drawSeg(s);
+      }
+
       if (!reduceMotion) maybeCallout();
 
       for (let i = callouts.length - 1; i >= 0; i -= 1) {
@@ -1252,23 +1522,23 @@ export function ParticlesBackground() {
 
       for (const n of nodes) {
         if (n.kind === "mark") {
-          drawCross(n.x, n.y, 3, 0.24);
+          drawCross(n.x, n.y, 2.4, 0.14);
           continue;
         }
         if (n.kind === "hub") {
           ctx.beginPath();
-          ctx.strokeStyle = "rgba(125, 211, 252, 0.4)";
+          ctx.strokeStyle = "rgba(125, 211, 252, 0.32)";
           ctx.lineWidth = 1;
-          ctx.arc(n.x, n.y, 4.5, 0, Math.PI * 2);
+          ctx.arc(n.x, n.y, 4, 0, Math.PI * 2);
           ctx.stroke();
-          ctx.beginPath();
-          ctx.fillStyle = "rgba(186, 230, 253, 0.75)";
-          ctx.arc(n.x, n.y, 1.7, 0, Math.PI * 2);
-          ctx.fill();
-        } else {
           ctx.beginPath();
           ctx.fillStyle = "rgba(186, 230, 253, 0.55)";
           ctx.arc(n.x, n.y, 1.5, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          ctx.beginPath();
+          ctx.fillStyle = "rgba(186, 230, 253, 0.35)";
+          ctx.arc(n.x, n.y, 1.3, 0, Math.PI * 2);
           ctx.fill();
         }
       }
@@ -1293,10 +1563,22 @@ export function ParticlesBackground() {
     if (canvas.parentElement) ro.observe(canvas.parentElement);
     window.addEventListener("resize", resize);
 
+    const onVisibility = () => {
+      if (document.hidden) {
+        running = false;
+        window.cancelAnimationFrame(frame);
+      } else if (!running) {
+        running = true;
+        frame = window.requestAnimationFrame(draw);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
     return () => {
       running = false;
       window.cancelAnimationFrame(frame);
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisibility);
       ro.disconnect();
     };
   }, []);

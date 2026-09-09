@@ -49,61 +49,67 @@ export function Contact() {
           <p className={styles.intro}>{t.contact.intro}</p>
         </header>
 
-        <div className={styles.actions} role="list">
-          <a
-            role="listitem"
-            className={`${styles.card} ${styles.primary}`}
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => onChannel("whatsapp")}
-          >
-            <FaWhatsapp aria-hidden="true" focusable="false" />
-            <span className={styles.cardLabel}>{t.contact.whatsapp}</span>
-            <span className={styles.cardHint}>{t.contact.whatsappHint}</span>
-          </a>
+        <ul className={styles.actions}>
+          <li className={styles.cardItem}>
+            <a
+              className={`${styles.card} ${styles.primary}`}
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => onChannel("whatsapp")}
+            >
+              <FaWhatsapp aria-hidden="true" focusable="false" />
+              <span className={styles.cardLabel}>{t.contact.whatsapp}</span>
+              <span className={styles.cardHint}>{t.contact.whatsappHint}</span>
+            </a>
+          </li>
 
           {linkedin ? (
-            <a
-              role="listitem"
-              className={styles.card}
-              href={linkedin.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => onChannel("linkedin")}
-            >
-              <FaLinkedin aria-hidden="true" focusable="false" />
-              <span className={styles.cardLabel}>{t.contact.linkedin}</span>
-              <span className={styles.cardHint}>{t.contact.linkedinHint}</span>
-            </a>
+            <li className={styles.cardItem}>
+              <a
+                className={styles.card}
+                href={linkedin.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => onChannel("linkedin")}
+              >
+                <FaLinkedin aria-hidden="true" focusable="false" />
+                <span className={styles.cardLabel}>{t.contact.linkedin}</span>
+                <span className={styles.cardHint}>
+                  {t.contact.linkedinHint}
+                </span>
+              </a>
+            </li>
           ) : null}
 
-          <a
-            role="listitem"
-            className={styles.card}
-            href={emailUrl}
-            onClick={() => onChannel("email")}
-          >
-            <FaEnvelope aria-hidden="true" focusable="false" />
-            <span className={styles.cardLabel}>{t.contact.email}</span>
-            <span className={styles.cardHint}>{contactInfo.email}</span>
-          </a>
+          <li className={styles.cardItem}>
+            <a
+              className={styles.card}
+              href={emailUrl}
+              onClick={() => onChannel("email")}
+            >
+              <FaEnvelope aria-hidden="true" focusable="false" />
+              <span className={styles.cardLabel}>{t.contact.email}</span>
+              <span className={styles.cardHint}>{contactInfo.email}</span>
+            </a>
+          </li>
 
           {github ? (
-            <a
-              role="listitem"
-              className={styles.card}
-              href={github.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => onChannel("github")}
-            >
-              <FaGithub aria-hidden="true" focusable="false" />
-              <span className={styles.cardLabel}>{t.contact.github}</span>
-              <span className={styles.cardHint}>{t.contact.githubHint}</span>
-            </a>
+            <li className={styles.cardItem}>
+              <a
+                className={styles.card}
+                href={github.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => onChannel("github")}
+              >
+                <FaGithub aria-hidden="true" focusable="false" />
+                <span className={styles.cardLabel}>{t.contact.github}</span>
+                <span className={styles.cardHint}>{t.contact.githubHint}</span>
+              </a>
+            </li>
           ) : null}
-        </div>
+        </ul>
 
         <div className={styles.meta}>
           <p className={styles.location}>

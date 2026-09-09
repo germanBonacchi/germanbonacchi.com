@@ -223,7 +223,7 @@
 
 .block h2 {
   margin: 0 0 0.85rem;
-  color: var(--color-accent);
+  color: var(--color-accent-on-dark);
   font-size: 0.95rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;

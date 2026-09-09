@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    // Adds a breakpoint near the About photo's fixed 400px display width so
+    // it doesn't jump straight to the 640 deviceSize (was ~60% oversized).
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 480],
   },
   async redirects() {
     return [
@@ -72,6 +75,16 @@ const nextConfig: NextConfig = {
           {
             key: "Cache-Control",
             value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        // Logos change often in design iteration — don't pin immutable year-long cache
+        source: "/images/logos/(.*)\\.svg",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=0, must-revalidate",
           },
         ],
       },

@@ -20,6 +20,7 @@ export interface UiCopy {
     ctaProjects: string;
     ctaContact: string;
     scrollDown: string;
+    photoAlt: string;
   };
   about: {
     topLine: string;
@@ -120,6 +121,7 @@ export const ui: Record<Locale, UiCopy> = {
       ctaProjects: "Selected projects",
       ctaContact: "Get in touch",
       scrollDown: "Scroll down",
+      photoAlt: "Germán Bonacchi portrait",
     },
     about: {
       topLine: "About",
@@ -239,6 +241,7 @@ export const ui: Record<Locale, UiCopy> = {
       ctaProjects: "Proyectos seleccionados",
       ctaContact: "Contacto",
       scrollDown: "Ver más",
+      photoAlt: "Retrato de Germán Bonacchi",
     },
     about: {
       topLine: "Sobre mí",
@@ -360,6 +363,7 @@ export const ui: Record<Locale, UiCopy> = {
       ctaProjects: "Projetos selecionados",
       ctaContact: "Contato",
       scrollDown: "Ver mais",
+      photoAlt: "Retrato de Germán Bonacchi",
     },
     about: {
       topLine: "Sobre mim",
@@ -481,6 +485,7 @@ export const ui: Record<Locale, UiCopy> = {
       ctaProjects: "Progetti selezionati",
       ctaContact: "Contatti",
       scrollDown: "Scopri di più",
+      photoAlt: "Ritratto di Germán Bonacchi",
     },
     about: {
       topLine: "Chi sono",

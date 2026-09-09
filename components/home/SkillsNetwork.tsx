@@ -52,21 +52,22 @@ function layoutNodes(width: number, height: number): SimNode[] {
     2: [],
     3: [],
     4: [],
+    5: [],
   };
   for (const n of skillNodes) byEra[n.era]?.push(n);
 
-  // Bloom outward: early skills near center-mid, commerce domains on the outer ring
-  // so the densest era is never crushed in the middle.
+  // Bloom outward: early skills near center-mid, commerce then AI on outer rings
   const radii = [
-    minDim * 0.16,
-    minDim * 0.28,
-    minDim * 0.4,
-    minDim * 0.22,
-    minDim * 0.48,
+    minDim * 0.14,
+    minDim * 0.26,
+    minDim * 0.36,
+    minDim * 0.2,
+    minDim * 0.44,
+    minDim * 0.54,
   ];
 
   const out: SimNode[] = [];
-  for (let era = 0; era <= 4; era += 1) {
+  for (let era = 0; era <= 5; era += 1) {
     const group = byEra[era] ?? [];
     const count = Math.max(group.length, 1);
     // Extra ring scale when a ring is crowded

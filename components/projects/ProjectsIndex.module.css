@@ -16,7 +16,7 @@
 
 .top {
   margin: 0 0 1rem;
-  color: var(--color-accent);
+  color: var(--color-accent-on-dark);
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.1em;

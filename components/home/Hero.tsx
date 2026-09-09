@@ -32,7 +32,7 @@ export function Hero() {
         <div className={styles.photoWrap}>
           <Image
             src="/images/profile.jpg"
-            alt={`${siteConfig.name} portrait`}
+            alt={t.hero.photoAlt}
             width={160}
             height={160}
             priority

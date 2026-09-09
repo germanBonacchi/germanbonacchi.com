@@ -28,5 +28,11 @@
     "eslint-config-next": "^15.3.3",
     "playwright": "^1.63.0",
     "typescript": "^5.8.3"
-  }
+  },
+  "browserslist": [
+    "chrome >= 84",
+    "edge >= 84",
+    "firefox >= 78",
+    "safari >= 14"
+  ]
 }

@@ -150,7 +150,7 @@ export function LanguageSwitcher() {
         onClick={toggleDropdown}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
-        aria-label={t.language.selectLabel}
+        aria-label={`${t.language.selectLabel} (${current.label})`}
       >
         <GlobeIcon />
         <span>{current.label}</span>

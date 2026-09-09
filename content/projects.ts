@@ -84,7 +84,7 @@ export const projects: Project[] = [
  client: "Cetrogar",
  product: "cetrogar.com.ar",
  url: "https://www.cetrogar.com.ar/",
- logo: "/images/logos/cetrogar-mark.svg",
+ logo: "/images/logos/cetrogar-mark.svg?v=8",
  role: {
  en: "Technical Lead",
  es: "Technical Lead",

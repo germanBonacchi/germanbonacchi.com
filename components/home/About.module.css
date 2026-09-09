@@ -38,7 +38,7 @@
 
 .body a,
 .valtech {
-  color: var(--color-accent-cyan);
+  color: var(--color-accent-cyan-on-light);
   text-decoration: none;
   font-weight: 700;
 }
@@ -63,7 +63,7 @@
 }
 
 .cyan {
-  color: var(--color-accent-cyan);
+  color: var(--color-accent-cyan-on-light);
 }
 
 .media {

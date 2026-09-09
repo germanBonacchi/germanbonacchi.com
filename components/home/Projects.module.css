@@ -15,7 +15,7 @@
 
 .top {
   margin: 0 0 1rem;
-  color: var(--color-accent);
+  color: var(--color-accent-on-dark);
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -102,10 +102,16 @@
 }
 
 .brandCetrogar .brandMark {
-  opacity: 0.58;
-  right: -0.25rem;
-  bottom: -0.35rem;
-  width: min(34%, 190px);
+  /* Original mark; crop earlier so the white outer contour stays outside the card */
+  opacity: 0.92;
+  right: -1.35rem;
+  bottom: -1.1rem;
+  width: min(42%, 230px);
+}
+
+.brandCetrogar .brandMark img {
+  object-position: 70% 65%;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.55));
 }
 
 .brandCarrefour:hover .brandMark,
@@ -115,7 +121,7 @@
 
 .brandCetrogar:hover .brandMark,
 .brandCetrogar:focus-within .brandMark {
-  opacity: 0.72;
+  opacity: 1;
 }
 
 .brandMedis .brandMark {
@@ -223,15 +229,15 @@
       transparent 55%
     ),
     radial-gradient(
-      100% 80% at 100% 100%,
-      rgba(214, 135, 32, 0.32) 0%,
-      transparent 50%
+      90% 70% at 100% 100%,
+      rgba(214, 135, 32, 0.16) 0%,
+      transparent 48%
     ),
     linear-gradient(
       165deg,
       rgba(0, 60, 140, 0.12) 0%,
       rgba(18, 18, 22, 0.92) 42%,
-      rgba(214, 135, 32, 0.12) 100%
+      rgba(214, 135, 32, 0.08) 100%
     );
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
@@ -250,15 +256,15 @@
       transparent 55%
     ),
     radial-gradient(
-      100% 80% at 100% 100%,
-      rgba(214, 135, 32, 0.4) 0%,
-      transparent 50%
+      90% 70% at 100% 100%,
+      rgba(214, 135, 32, 0.22) 0%,
+      transparent 48%
     ),
     linear-gradient(
       165deg,
       rgba(0, 60, 140, 0.16) 0%,
       rgba(18, 18, 22, 0.92) 42%,
-      rgba(214, 135, 32, 0.16) 100%
+      rgba(214, 135, 32, 0.1) 100%
     );
 }
 
