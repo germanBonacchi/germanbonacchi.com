@@ -24,11 +24,20 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0.75rem;
+  bottom: 0;
+  z-index: 2;
   margin: 0;
+  padding: 1.35rem 0.85rem 0.7rem;
   text-align: center;
   font-size: 0.8rem;
+  line-height: 1.35;
   pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(18, 18, 18, 0.96) 45%,
+    rgba(18, 18, 18, 0.72) 75%,
+    transparent
+  );
 }
 
 .caption {
@@ -37,13 +46,19 @@
 }
 
 .hint {
-  color: rgba(247, 248, 250, 0.45);
+  color: rgba(247, 248, 250, 0.72);
 }
 
 @media (max-width: 768px) {
   .wrap {
     min-height: 400px;
     height: 480px;
+  }
+
+  .caption,
+  .hint {
+    padding: 1.5rem 0.75rem 0.65rem;
+    font-size: 0.78rem;
   }
 }
 
