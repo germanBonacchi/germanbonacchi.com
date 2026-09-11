@@ -165,6 +165,8 @@ export const experiences: ExperienceItem[] = [
 
 export const education = {
   institution: "Universidad Nacional de Avellaneda",
+  url: "https://undav.edu.ar/index.php",
+  logo: "/images/logos/undav.png?v=2",
   program: {
     en: "Software Engineering (Ingeniería en Informática)",
     es: "Ingeniería en Informática",
