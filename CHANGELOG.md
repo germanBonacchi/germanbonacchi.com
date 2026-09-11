@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Hero positioning: VTEX Solution Architect / Technical Lead; credentials and trust line (Ex-VTEX · Valtech; years on VTEX)
+- Hero positioning: VTEX Technical Lead & Architect; credentials and trust line (Ex-VTEX · Valtech; years on VTEX)
 - Skills: core expertise first, skills graph secondary; graph note hidden on small screens
 - Trainings: stronger play CTA and “Ver en YouTube” impulse
 - FAQ oriented to potential clients

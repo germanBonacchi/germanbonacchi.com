@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/content/site";
 
-export const alt = `${siteConfig.name} | Technical Lead | VTEX & Commerce Architecture`;
+export const alt = `${siteConfig.name} | VTEX Technical Lead & Architect`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

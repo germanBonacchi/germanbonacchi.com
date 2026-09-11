@@ -6,7 +6,7 @@ import type { Localized } from "./types";
 export const seoKeywords = [
   "Germán Bonacchi",
   "German Bonacchi",
-  "VTEX Solution Architect",
+  "VTEX Technical Lead & Architect",
   "VTEX Architect",
   "Technical Lead VTEX",
   "líder técnico VTEX",
@@ -32,18 +32,18 @@ export const seoKeywords = [
 
 export const seoTitle: Record<"default" | "home", Localized> = {
   default: {
-    es: "Germán Bonacchi | VTEX Solution Architect & Technical Lead | Valtech",
-    en: "Germán Bonacchi | VTEX Solution Architect & Technical Lead | Valtech",
+    es: "Germán Bonacchi | VTEX Technical Lead & Architect | Valtech",
+    en: "Germán Bonacchi | VTEX Technical Lead & Architect | Valtech",
     "pt-BR":
-      "Germán Bonacchi | VTEX Solution Architect & Technical Lead | Valtech",
-    it: "Germán Bonacchi | VTEX Solution Architect & Technical Lead | Valtech",
+      "Germán Bonacchi | VTEX Technical Lead & Architect | Valtech",
+    it: "Germán Bonacchi | VTEX Technical Lead & Architect | Valtech",
   },
   home: {
-    es: "Germán Bonacchi | Ex-VTEX · Solution Architect & Technical Lead | FastStore, IO y arquitectura ecommerce",
-    en: "Germán Bonacchi | Ex-VTEX · Solution Architect & Technical Lead | FastStore, IO & Ecommerce Architecture",
+    es: "Germán Bonacchi | Ex-VTEX · Technical Lead & Architect | FastStore, IO y arquitectura ecommerce",
+    en: "Germán Bonacchi | Ex-VTEX · Technical Lead & Architect | FastStore, IO & Ecommerce Architecture",
     "pt-BR":
-      "Germán Bonacchi | Ex-VTEX · Solution Architect & Technical Lead | FastStore, IO e Arquitetura Ecommerce",
-    it: "Germán Bonacchi | Ex-VTEX · Solution Architect & Technical Lead | FastStore, IO e Architettura Ecommerce",
+      "Germán Bonacchi | Ex-VTEX · Technical Lead & Architect | FastStore, IO e Arquitetura Ecommerce",
+    it: "Germán Bonacchi | Ex-VTEX · Technical Lead & Architect | FastStore, IO e Architettura Ecommerce",
   },
 };
 
@@ -189,11 +189,11 @@ export const faqPageSeo: Localized<{ title: string; description: string }> = {
 };
 
 export const seoDescription: Localized = {
-  en: "Ex-VTEX Solution Architect & Technical Lead at Valtech. Enterprise ecommerce on VTEX IO and FastStore: architecture, checkout, integrations. Projects: Carrefour, Cetrogar, Médis, Rouge.",
-  es: "Ex-VTEX, Solution Architect & Technical Lead en Valtech. Ecommerce enterprise sobre VTEX IO y FastStore: arquitectura, checkout, integraciones. Proyectos: Carrefour, Cetrogar, Médis, Rouge.",
+  en: "Ex-VTEX Technical Lead & Architect at Valtech. Enterprise ecommerce on VTEX IO and FastStore: architecture, checkout, integrations. Projects: Carrefour, Cetrogar, Médis, Rouge.",
+  es: "Ex-VTEX, Technical Lead & Architect en Valtech. Ecommerce enterprise sobre VTEX IO y FastStore: arquitectura, checkout, integraciones. Proyectos: Carrefour, Cetrogar, Médis, Rouge.",
   "pt-BR":
-    "Ex-VTEX, Solution Architect & Technical Lead na Valtech. Ecommerce enterprise em VTEX IO e FastStore: arquitetura, checkout, integrações. Projetos: Carrefour, Cetrogar, Médis, Rouge.",
-  it: "Ex-VTEX, Solution Architect & Technical Lead in Valtech. Ecommerce enterprise su VTEX IO e FastStore: architettura, checkout, integrazioni. Progetti: Carrefour, Cetrogar, Médis, Rouge.",
+    "Ex-VTEX, Technical Lead & Architect na Valtech. Ecommerce enterprise em VTEX IO e FastStore: arquitetura, checkout, integrações. Projetos: Carrefour, Cetrogar, Médis, Rouge.",
+  it: "Ex-VTEX, Technical Lead & Architect in Valtech. Ecommerce enterprise su VTEX IO e FastStore: architettura, checkout, integrazioni. Progetti: Carrefour, Cetrogar, Médis, Rouge.",
 };
 
 export interface SeoBlock {

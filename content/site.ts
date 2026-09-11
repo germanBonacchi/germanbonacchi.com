@@ -10,10 +10,10 @@ export const siteConfig: SiteConfig = {
  url: SITE_URL,
  email: "bonacchigerman@gmail.com",
  jobTitle: {
- en: "VTEX Solution Architect & Technical Lead",
- es: "VTEX Solution Architect & Technical Lead",
- "pt-BR": "VTEX Solution Architect & Technical Lead",
- it: "VTEX Solution Architect & Technical Lead",
+ en: "VTEX Technical Lead & Architect",
+ es: "VTEX Technical Lead & Architect",
+ "pt-BR": "VTEX Technical Lead & Architect",
+ it: "VTEX Technical Lead & Architect",
  },
  tagline: {
  en: "I define and lead VTEX architectures on IO and FastStore: integrations, checkout, performance and scale.",
@@ -23,11 +23,11 @@ export const siteConfig: SiteConfig = {
  it: "Definisco e guido architetture VTEX su IO e FastStore: integrazioni, checkout, performance e scala.",
  },
   description: {
-    en: "Germán Bonacchi. Ex-VTEX, VTEX Solution Architect & Technical Lead at Valtech. Enterprise ecommerce on VTEX IO and FastStore: Carrefour, Cetrogar, Médis and Rouge.",
-    es: "Germán Bonacchi. Ex-VTEX, VTEX Solution Architect & Technical Lead en Valtech. Ecommerce enterprise sobre VTEX IO y FastStore: Carrefour, Cetrogar, Médis y Rouge.",
+    en: "Germán Bonacchi. Ex-VTEX, VTEX Technical Lead & Architect at Valtech. Enterprise ecommerce on VTEX IO and FastStore: Carrefour, Cetrogar, Médis and Rouge.",
+    es: "Germán Bonacchi. Ex-VTEX, VTEX Technical Lead & Architect en Valtech. Ecommerce enterprise sobre VTEX IO y FastStore: Carrefour, Cetrogar, Médis y Rouge.",
     "pt-BR":
-      "Germán Bonacchi. Ex-VTEX, VTEX Solution Architect & Technical Lead na Valtech. Ecommerce enterprise em VTEX IO e FastStore: Carrefour, Cetrogar, Médis e Rouge.",
-    it: "Germán Bonacchi. Ex-VTEX, VTEX Solution Architect & Technical Lead in Valtech. Ecommerce enterprise su VTEX IO e FastStore: Carrefour, Cetrogar, Médis e Rouge.",
+      "Germán Bonacchi. Ex-VTEX, VTEX Technical Lead & Architect na Valtech. Ecommerce enterprise em VTEX IO e FastStore: Carrefour, Cetrogar, Médis e Rouge.",
+    it: "Germán Bonacchi. Ex-VTEX, VTEX Technical Lead & Architect in Valtech. Ecommerce enterprise su VTEX IO e FastStore: Carrefour, Cetrogar, Médis e Rouge.",
   },
  localeDefault: "es",
  sameAs: [
@@ -38,7 +38,7 @@ export const siteConfig: SiteConfig = {
  "VTEX",
  "VTEX IO",
  "VTEX FastStore",
- "VTEX Solution Architect",
+ "VTEX Technical Lead & Architect",
  "Ecommerce Architecture",
  "Arquitectura ecommerce",
  "Technical Leadership",

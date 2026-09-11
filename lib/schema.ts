@@ -22,7 +22,7 @@ export function personJsonLd(locale: Locale = "es") {
     jobTitle: [
       siteConfig.jobTitle.en,
       siteConfig.jobTitle.es,
-      "VTEX Solution Architect",
+      "VTEX Architect",
       "Ex-VTEX",
       "Líder técnico VTEX",
       "VTEX Technical Lead",
@@ -35,7 +35,7 @@ export function personJsonLd(locale: Locale = "es") {
     },
     hasOccupation: {
       "@type": "Occupation",
-      name: "VTEX Solution Architect & Technical Lead",
+      name: "VTEX Technical Lead & Architect",
       occupationLocation: {
         "@type": "Country",
         name: "Argentina",
