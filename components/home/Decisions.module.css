@@ -1,7 +1,9 @@
 .section {
-  background: var(--color-bg-light);
-  color: var(--color-text-dark);
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
   padding: 4.5rem 1.5rem;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .inner {
@@ -16,7 +18,7 @@
 
 .top {
   margin: 0 0 1rem;
-  color: var(--color-accent);
+  color: var(--color-accent-on-dark);
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -27,11 +29,12 @@
   margin: 0 0 1rem;
   font-size: clamp(1.45rem, 3vw, 2rem);
   line-height: 1.25;
+  color: var(--color-text-white);
 }
 
 .lead {
   margin: 0;
-  color: rgba(1, 6, 6, 0.72);
+  color: rgba(247, 248, 250, 0.75);
 }
 
 .list {
@@ -41,7 +44,7 @@
 
 .item {
   padding: 1.35rem 0;
-  border-top: 1px solid var(--color-border-dark);
+  border-top: 1px solid var(--color-border);
   scroll-margin-top: 5.5rem;
 }
 
@@ -54,12 +57,13 @@
   margin: 0 0 0.65rem;
   font-size: 1.1rem;
   line-height: 1.35;
+  color: var(--color-text-white);
 }
 
 .answer {
   margin: 0;
   max-width: 48rem;
-  color: rgba(1, 6, 6, 0.75);
+  color: rgba(247, 248, 250, 0.75);
 }
 
 .cta {
@@ -69,14 +73,14 @@
 .cta a {
   display: inline-flex;
   align-items: center;
-  color: var(--color-text-dark);
+  color: var(--color-text-light);
   font-weight: 700;
   text-decoration: none;
-  border-bottom: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-accent-on-dark);
   padding-bottom: 2px;
 }
 
 .cta a:hover,
 .cta a:focus-visible {
-  color: var(--color-accent);
+  color: var(--color-accent-on-dark);
 }
