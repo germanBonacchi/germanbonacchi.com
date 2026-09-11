@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
  },
  tagline: {
  en: "I define and lead VTEX architectures on IO and FastStore: integrations, checkout, performance and scale.",
- es: "Defino y lidereo arquitecturas VTEX sobre IO y FastStore: integraciones, checkout, performance y escala.",
+ es: "Defino y lidero arquitecturas VTEX sobre IO y FastStore: integraciones, checkout, performance y escala.",
  "pt-BR":
  "Defino e lidero arquiteturas VTEX em IO e FastStore: integrações, checkout, performance e escala.",
  it: "Definisco e guido architetture VTEX su IO e FastStore: integrazioni, checkout, performance e scala.",

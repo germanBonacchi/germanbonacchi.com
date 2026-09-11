@@ -286,7 +286,7 @@ export const ui: Record<Locale, UiCopy> = {
     hero: {
       greeting: "Hola, soy",
       tagline:
-        "Defino y lidereo arquitecturas VTEX sobre IO y FastStore: integraciones, checkout, performance y escala.",
+        "Defino y lidero arquitecturas VTEX sobre IO y FastStore: integraciones, checkout, performance y escala.",
       credentials: "Ex-VTEX · Valtech",
       trustLine: "Ex-VTEX · Valtech",
       companies: "8+ años en software · 5+ años construyendo sobre VTEX",
@@ -303,7 +303,7 @@ export const ui: Record<Locale, UiCopy> = {
       topLine: "Sobre mí",
       heading: "Ayudo a retailers a tomar decisiones técnicas difíciles alrededor de VTEX.",
       body: [
-        "En Valtech lidereo arquitectura y entrega sobre VTEX IO, FastStore, checkout, pagos, logística, búsqueda, APIs y middleware, cerca del código y de los stakeholders.",
+        "En Valtech lidero arquitectura y entrega sobre VTEX IO, FastStore, checkout, pagos, logística, búsqueda, APIs y middleware, cerca del código y de los stakeholders.",
         "Pasar por VTEX y por sistemas enterprise me enseñó a traducir arquitectura a soluciones que se usan de verdad.",
       ],
       questions: [
