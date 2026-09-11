@@ -27,47 +27,33 @@ export function Header() {
   useEffect(() => {
     if (!open) return;
 
-    const scrollY = window.scrollY;
-    const { style } = document.body;
-    const prev = {
-      overflow: style.overflow,
-      position: style.position,
-      top: style.top,
-      left: style.left,
-      right: style.right,
-      width: style.width,
-    };
-
-    style.overflow = "hidden";
-    style.position = "fixed";
-    style.top = `-${scrollY}px`;
-    style.left = "0";
-    style.right = "0";
-    style.width = "100%";
-
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
 
+    const allowScroll = (target: EventTarget | null) => {
+      const el = target as HTMLElement | null;
+      return Boolean(el?.closest(`.${styles.drawerNav}`));
+    };
+
     const onTouchMove = (e: TouchEvent) => {
-      const target = e.target as HTMLElement | null;
-      if (target?.closest(`.${styles.drawerNav}`)) return;
+      if (allowScroll(e.target)) return;
+      e.preventDefault();
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      if (allowScroll(e.target)) return;
       e.preventDefault();
     };
 
     document.addEventListener("keydown", onKeyDown);
     document.addEventListener("touchmove", onTouchMove, { passive: false });
+    document.addEventListener("wheel", onWheel, { passive: false });
 
     return () => {
-      style.overflow = prev.overflow;
-      style.position = prev.position;
-      style.top = prev.top;
-      style.left = prev.left;
-      style.right = prev.right;
-      style.width = prev.width;
-      window.scrollTo(0, scrollY);
       document.removeEventListener("keydown", onKeyDown);
       document.removeEventListener("touchmove", onTouchMove);
+      document.removeEventListener("wheel", onWheel);
     };
   }, [open]);
 

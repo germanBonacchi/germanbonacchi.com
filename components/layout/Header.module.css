@@ -1,7 +1,7 @@
 .header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 130;
   height: var(--nav-height);
   background: #1e1e1e;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -174,7 +174,7 @@
 
 .backdrop {
   position: fixed;
-  inset: 0;
+  inset: var(--nav-height) 0 0 0;
   border: 0;
   background: rgba(0, 0, 0, 0.45);
   z-index: 110;
