@@ -39,11 +39,11 @@ export const seoTitle: Record<"default" | "home", Localized> = {
     it: "Germán Bonacchi | VTEX Technical Lead & Architect | Valtech",
   },
   home: {
-    es: "Germán Bonacchi | Ex-VTEX · Technical Lead & Architect | FastStore, IO y arquitectura ecommerce",
-    en: "Germán Bonacchi | Ex-VTEX · Technical Lead & Architect | FastStore, IO & Ecommerce Architecture",
+    es: "Germán Bonacchi | Ex-VTEX | Technical Lead & Architect | FastStore, IO y arquitectura ecommerce",
+    en: "Germán Bonacchi | Ex-VTEX | Technical Lead & Architect | FastStore, IO & Ecommerce Architecture",
     "pt-BR":
-      "Germán Bonacchi | Ex-VTEX · Technical Lead & Architect | FastStore, IO e Arquitetura Ecommerce",
-    it: "Germán Bonacchi | Ex-VTEX · Technical Lead & Architect | FastStore, IO e Architettura Ecommerce",
+      "Germán Bonacchi | Ex-VTEX | Technical Lead & Architect | FastStore, IO e Arquitetura Ecommerce",
+    it: "Germán Bonacchi | Ex-VTEX | Technical Lead & Architect | FastStore, IO e Architettura Ecommerce",
   },
 };
 
@@ -144,22 +144,22 @@ export const testimonialsPageSeo: Localized<{
   description: string;
 }> = {
   es: {
-    title: "Recomendaciones | Germán Bonacchi · VTEX Technical Lead",
+    title: "Recomendaciones | Germán Bonacchi | VTEX Technical Lead",
     description:
       "Recomendaciones de colegas y stakeholders sobre liderazgo técnico, arquitectura VTEX y delivery en proyectos enterprise.",
   },
   en: {
-    title: "Testimonials | Germán Bonacchi · VTEX Technical Lead",
+    title: "Testimonials | Germán Bonacchi | VTEX Technical Lead",
     description:
       "Recommendations from colleagues and stakeholders on technical leadership, VTEX architecture and enterprise delivery.",
   },
   "pt-BR": {
-    title: "Recomendações | Germán Bonacchi · VTEX Technical Lead",
+    title: "Recomendações | Germán Bonacchi | VTEX Technical Lead",
     description:
       "Recomendações de colegas e stakeholders sobre liderança técnica, arquitetura VTEX e delivery em projetos enterprise.",
   },
   it: {
-    title: "Raccomandazioni | Germán Bonacchi · VTEX Technical Lead",
+    title: "Raccomandazioni | Germán Bonacchi | VTEX Technical Lead",
     description:
       "Raccomandazioni di colleghi e stakeholder su leadership tecnica, architettura VTEX e delivery enterprise.",
   },
