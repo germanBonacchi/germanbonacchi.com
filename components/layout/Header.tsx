@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import { FOOTER_SECTIONS, NAV_SECTIONS, navHref, navLabel } from "@/content/nav";
+import { NAV_SECTIONS, navHref, navLabel } from "@/content/nav";
 import { useLocale } from "@/lib/locale";
 import { localizedHref } from "@/lib/paths";
 import { track } from "@/lib/analytics";
@@ -115,7 +115,7 @@ export function Header() {
         hidden={!open}
       >
         <nav className={styles.drawerNav} aria-label="Mobile">
-          {FOOTER_SECTIONS.map((id) => (
+          {NAV_SECTIONS.map((id) => (
             <Link
               key={id}
               href={navHref(locale, id)}

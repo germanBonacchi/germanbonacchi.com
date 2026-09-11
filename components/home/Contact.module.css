@@ -2,7 +2,8 @@
   background: var(--color-bg-black);
   color: var(--color-text-light);
   padding: 4.5rem 1.5rem;
-  scroll-margin-top: var(--nav-height);
+  /* Offset comes from html { scroll-padding-top } — do not also set
+     scroll-margin here or hash jumps land ~2× nav-height too high. */
 }
 
 .inner {

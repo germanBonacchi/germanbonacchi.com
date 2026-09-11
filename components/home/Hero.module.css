@@ -1,6 +1,8 @@
 .hero {
   position: relative;
-  /* Full initial viewport below sticky nav (Improtango-style) */
+  /* Full initial viewport below sticky nav.
+     Prefer svh on small screens (see mobile query): dvh/lvh can still
+     overshoot the visible fold when iOS browser chrome is expanded. */
   min-height: calc(100vh - var(--nav-height));
   min-height: calc(100dvh - var(--nav-height));
   display: flex;
@@ -22,17 +24,13 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(
-      ellipse at 50% 36%,
+    radial-gradient(ellipse at 50% 36%,
       rgba(11, 61, 92, 0.15) 0%,
       rgba(7, 38, 58, 0.55) 58%,
-      rgba(5, 28, 44, 0.78) 100%
-    ),
-    linear-gradient(
-      180deg,
+      rgba(5, 28, 44, 0.78) 100%),
+    linear-gradient(180deg,
       rgba(7, 38, 58, 0.2) 0%,
-      rgba(7, 38, 58, 0.65) 100%
-    );
+      rgba(7, 38, 58, 0.65) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -217,16 +215,30 @@
 }
 
 @keyframes heroBounce {
+
   0%,
   100% {
     transform: translateX(-50%) translateY(0);
   }
+
   50% {
     transform: translateX(-50%) translateY(8px);
   }
 }
 
 @media screen and (max-width: 768px) {
+  .hero {
+    /* svh = viewport with chrome fully visible (initial load on iPhone) */
+    min-height: calc(100svh - var(--nav-height));
+    min-height: calc(100svh - var(--nav-height) - env(safe-area-inset-bottom, 0px));
+    align-items: center;
+    padding: 1rem 20px calc(2.75rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .content {
+    padding: 0.5rem 0 1rem;
+  }
+
   .name {
     font-size: 40px;
   }
@@ -235,27 +247,45 @@
     font-size: 22px;
   }
 
+  .photoWrap {
+    margin-top: 1.35rem;
+    width: 7.5em;
+    height: 7.5em;
+  }
+
   .role {
+    margin-top: 1.35rem;
     font-size: 1.2rem;
   }
 
   .tagline {
+    margin-top: 0.9rem;
     font-size: 1rem;
   }
 
+  .proof {
+    margin-top: 1.15rem;
+    gap: 0.45rem;
+  }
+
   .ctas {
+    margin-top: 1.65rem;
+    gap: 0.9rem;
     flex-direction: column;
     width: 100%;
     max-width: 22rem;
   }
 
+  .ctaSecondary {
+    display: none;
+  }
+
   .ctaPrimary,
-  .ctaSecondary,
   .ctaGhost {
     width: 100%;
     white-space: nowrap;
     font-size: 0.88rem;
-    padding: 0.65rem 0.85rem;
+    padding: 0.7rem 0.85rem;
   }
 
   .ctaLabelDesktop {
@@ -265,9 +295,17 @@
   .ctaLabelMobile {
     display: inline;
   }
+
+  .scrollDown {
+    bottom: calc(0.65rem + 5px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 @media screen and (max-width: 480px) {
+  .hero {
+    padding-top: 0.75rem;
+  }
+
   .name {
     font-size: 32px;
   }
@@ -276,8 +314,23 @@
     font-size: 18px;
   }
 
+  .photoWrap {
+    margin-top: 1.1rem;
+    width: 6.75em;
+    height: 6.75em;
+  }
+
   .role {
+    margin-top: 1.1rem;
     font-size: 1.05rem;
+  }
+
+  .tagline {
+    margin-top: 0.75rem;
+  }
+
+  .proof {
+    margin-top: 1rem;
   }
 
   .credentials {
@@ -288,8 +341,19 @@
     font-size: 0.85rem;
   }
 
+  .ctas {
+    margin-top: 1.35rem;
+    gap: 0.75rem;
+  }
+
+  .ctaPrimary,
+  .ctaGhost {
+    min-height: 2.5rem;
+    padding: 0.6rem 0.75rem;
+  }
+
   .scrollDown {
-    bottom: 1rem;
+    bottom: calc(0.55rem + 3px + env(safe-area-inset-bottom, 0px));
   }
 }
 
