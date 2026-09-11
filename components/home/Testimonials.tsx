@@ -1,13 +1,15 @@
 "use client";
 
 import { testimonials, testimonialsIntro } from "@/content/testimonials";
+import { LandingBack } from "@/components/landings/LandingBack";
 import { useLocale } from "@/lib/locale";
 import { useSectionView } from "@/lib/useSectionView";
 import styles from "./Testimonials.module.css";
 
-export function Testimonials() {
+export function Testimonials({ isPage = false }: { isPage?: boolean }) {
   const { l } = useLocale();
   const sectionRef = useSectionView("testimonials");
+  const Heading = isPage ? "h1" : "h2";
 
   return (
     <section
@@ -17,11 +19,12 @@ export function Testimonials() {
       aria-labelledby="testimonials-heading"
     >
       <div className={styles.inner}>
+        {isPage ? <LandingBack /> : null}
         <header className={styles.header}>
           <p className={styles.top}>{l(testimonialsIntro.topLine)}</p>
-          <h2 id="testimonials-heading" className={styles.heading}>
+          <Heading id="testimonials-heading" className={styles.heading}>
             {l(testimonialsIntro.heading)}
-          </h2>
+          </Heading>
         </header>
 
         <ul className={styles.list}>

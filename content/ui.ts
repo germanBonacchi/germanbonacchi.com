@@ -109,6 +109,20 @@ export interface UiCopy {
   footer: {
     rights: string;
   };
+  landings: {
+    toDecisions: string;
+    toPhilosophy: string;
+    toContact: string;
+    toServices: string;
+    toTestimonials: string;
+    toFaq: string;
+    fromProblems: string;
+    fromFaq: string;
+    fromCarrefour: string;
+    back: string;
+    relatedLabel: string;
+    fromProblemsCard: string;
+  };
   language: {
     label: string;
     selectLabel: string;
@@ -258,6 +272,20 @@ export const ui: Record<Locale, UiCopy> = {
     footer: {
       rights: "All rights reserved.",
     },
+    landings: {
+      toDecisions: "Architecture decisions",
+      toPhilosophy: "Architecture philosophy",
+      toContact: "Start a conversation",
+      toServices: "How I can help",
+      toTestimonials: "Recommendations",
+      toFaq: "FAQ",
+      fromProblems: "See architecture decisions",
+      fromFaq: "IO vs FastStore in more detail",
+      fromCarrefour: "More VTEX architecture decisions",
+      back: "Back",
+      relatedLabel: "Go deeper",
+      fromProblemsCard: "Learn more",
+    },
     language: {
       label: "Language",
       selectLabel: "Select language",
@@ -406,6 +434,20 @@ export const ui: Record<Locale, UiCopy> = {
     },
     footer: {
       rights: "Todos los derechos reservados.",
+    },
+    landings: {
+      toDecisions: "Decisiones de arquitectura",
+      toPhilosophy: "Filosofía de arquitectura",
+      toContact: "Empezar una conversación",
+      toServices: "Cómo puedo ayudarte",
+      toTestimonials: "Recomendaciones",
+      toFaq: "FAQ",
+      fromProblems: "Ver decisiones de arquitectura",
+      fromFaq: "IO vs FastStore en más detalle",
+      fromCarrefour: "Más decisiones de arquitectura VTEX",
+      back: "Volver",
+      relatedLabel: "Ir más profundo",
+      fromProblemsCard: "Ver más",
     },
     language: {
       label: "Idioma",
@@ -558,6 +600,20 @@ export const ui: Record<Locale, UiCopy> = {
     footer: {
       rights: "Todos os direitos reservados.",
     },
+    landings: {
+      toDecisions: "Decisões de arquitetura",
+      toPhilosophy: "Filosofia de arquitetura",
+      toContact: "Começar uma conversa",
+      toServices: "Como posso ajudar",
+      toTestimonials: "Recomendações",
+      toFaq: "FAQ",
+      fromProblems: "Ver decisões de arquitetura",
+      fromFaq: "IO vs FastStore com mais detalhe",
+      fromCarrefour: "Mais decisões de arquitetura VTEX",
+      back: "Voltar",
+      relatedLabel: "Ir mais fundo",
+      fromProblemsCard: "Ver mais",
+    },
     language: {
       label: "Idioma",
       selectLabel: "Selecionar idioma",
@@ -708,6 +764,20 @@ export const ui: Record<Locale, UiCopy> = {
     },
     footer: {
       rights: "Tutti i diritti riservati.",
+    },
+    landings: {
+      toDecisions: "Decisioni di architettura",
+      toPhilosophy: "Filosofia di architettura",
+      toContact: "Inizia una conversazione",
+      toServices: "Come posso aiutarti",
+      toTestimonials: "Raccomandazioni",
+      toFaq: "FAQ",
+      fromProblems: "Vedi decisioni di architettura",
+      fromFaq: "IO vs FastStore in più dettaglio",
+      fromCarrefour: "Altre decisioni di architettura VTEX",
+      back: "Torna",
+      relatedLabel: "Approfondisci",
+      fromProblemsCard: "Scopri di più",
     },
     language: {
       label: "Lingua",

@@ -6,6 +6,7 @@ import { getFeaturedProjects } from "@/content/projects";
 import { seoDescription } from "@/content/seo";
 import type { Locale, Project } from "@/content/types";
 import { localize } from "@/lib/localize";
+import { localizedHref } from "@/lib/paths";
 
 const PERSON_ID = `${siteConfig.url}/#person`;
 
@@ -94,7 +95,7 @@ export function faqPageJsonLd(locale: Locale = "es") {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "@id": `${siteConfig.url}/#faq-${locale}`,
+    "@id": `${siteConfig.url}${localizedHref(locale, "/faq")}#faq`,
     inLanguage: getLanguageMeta(locale).htmlLang,
     mainEntity: faqs.map((item) => ({
       "@type": "Question",
@@ -150,7 +151,6 @@ export function homeGraphJsonLd(locale: Locale = "es") {
       personJsonLd(locale),
       websiteJsonLd(locale),
       profilePageJsonLd(locale),
-      faqPageJsonLd(locale),
       ...featured.map((project) => projectJsonLd(project, locale)),
     ],
   };

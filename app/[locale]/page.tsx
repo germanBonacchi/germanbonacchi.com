@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { About } from "@/components/home/About";
 import { Problems } from "@/components/home/Problems";
-import { Services } from "@/components/home/Services";
+// import { Services } from "@/components/home/Services";
 import { Experience } from "@/components/home/Experience";
 import { Projects } from "@/components/home/Projects";
-import { Decisions } from "@/components/home/Decisions";
-import { Philosophy } from "@/components/home/Philosophy";
+// Landings: /decisions · /philosophy (kept out of the home scroll)
+// import { Decisions } from "@/components/home/Decisions";
+// import { Philosophy } from "@/components/home/Philosophy";
 import { Skills } from "@/components/home/Skills";
 import { Trainings } from "@/components/home/Trainings";
-import { Testimonials } from "@/components/home/Testimonials";
-import { Faq } from "@/components/home/Faq";
+// import { Testimonials } from "@/components/home/Testimonials";
+// import { Faq } from "@/components/home/Faq";
 import { Contact } from "@/components/home/Contact";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { homeGraphJsonLd } from "@/lib/schema";
@@ -72,13 +73,14 @@ export default async function HomePage({ params }: HomePageProps) {
       <Problems />
       <Experience />
       <Projects />
-      <Decisions />
-      <Philosophy />
+      {/* <Decisions /> */}
+      {/* <Philosophy /> */}
       <Skills />
       <Trainings />
-      <Services />
-      <Testimonials />
-      <Faq />
+      {/* Engagement landings: /services · /testimonials · /faq */}
+      {/* <Services /> */}
+      {/* <Testimonials /> */}
+      {/* <Faq /> */}
       <Contact />
     </>
   );

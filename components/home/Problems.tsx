@@ -1,12 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { problems, problemsIntro } from "@/content/problems";
 import { useLocale } from "@/lib/locale";
+import { localizedHref } from "@/lib/paths";
 import { useSectionView } from "@/lib/useSectionView";
 import styles from "./Problems.module.css";
 
 export function Problems() {
-  const { l } = useLocale();
+  const { t, l, locale } = useLocale();
   const sectionRef = useSectionView("expertise", "problems");
 
   return (
@@ -27,9 +29,15 @@ export function Problems() {
 
         <ul className={styles.grid}>
           {problems.map((item) => (
-            <li key={item.id} className={styles.item}>
-              <h3 className={styles.title}>{l(item.title)}</h3>
-              <p className={styles.body}>{l(item.body)}</p>
+            <li key={item.id}>
+              <Link
+                href={localizedHref(locale, `/problems/${item.id}`)}
+                className={styles.item}
+              >
+                <h3 className={styles.title}>{l(item.title)}</h3>
+                <p className={styles.body}>{l(item.body)}</p>
+                <span className={styles.more}>{t.landings.fromProblemsCard}</span>
+              </Link>
             </li>
           ))}
         </ul>

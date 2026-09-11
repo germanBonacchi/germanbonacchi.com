@@ -10,8 +10,6 @@ export const NAV_SECTIONS = [
   "projects",
   "skills",
   "trainings",
-  "services",
-  "faq",
   "contact",
 ] as const;
 
@@ -41,9 +39,20 @@ export function navLabel(
   return t.nav[id];
 }
 
+/** Footer/drawer entries that are real pages, not home hash anchors. */
+const PAGE_HREFS: Partial<Record<FooterSectionId, string>> = {
+  decisions: "/decisions",
+  philosophy: "/philosophy",
+  services: "/services",
+  testimonials: "/testimonials",
+  faq: "/faq",
+};
+
 export function navHref(
   locale: Locale,
   id: NavSectionId | FooterSectionId,
 ): string {
+  const pagePath = PAGE_HREFS[id as FooterSectionId];
+  if (pagePath) return localizedHref(locale, pagePath);
   return localizedHref(locale, `/#${id}`);
 }

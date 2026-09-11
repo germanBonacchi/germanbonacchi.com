@@ -251,6 +251,11 @@ export function ProjectDetail({
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              <p className={styles.moreLink}>
+                <Link href={localizedHref(locale, "/decisions")}>
+                  {t.landings.fromCarrefour}
+                </Link>
+              </p>
             </section>
 
             <section

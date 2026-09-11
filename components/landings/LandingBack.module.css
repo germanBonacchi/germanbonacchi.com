@@ -1,0 +1,23 @@
+.back {
+  margin: 0 0 1.5rem;
+}
+
+.back a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-accent-cyan);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.back a svg {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+}
+
+.back a:hover,
+.back a:focus-visible {
+  text-decoration: underline;
+}

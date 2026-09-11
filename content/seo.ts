@@ -70,6 +70,124 @@ export const projectsPageSeo: Localized<{ title: string; description: string }> 
   },
 };
 
+export const decisionsPageSeo: Localized<{ title: string; description: string }> = {
+  es: {
+    title: "Decisiones de arquitectura VTEX | IO vs FastStore, apps e integraciones",
+    description:
+      "Preguntas reales de proyectos VTEX enterprise: cuándo IO o FastStore, cuándo construir una app o externalizar, integraciones async con ERP y gaps de checkout.",
+  },
+  en: {
+    title: "VTEX architecture decisions | IO vs FastStore, apps & integrations",
+    description:
+      "Real questions from enterprise VTEX projects: when IO or FastStore, when to build an app vs externalize, async ERP integrations and checkout gaps.",
+  },
+  "pt-BR": {
+    title: "Decisões de arquitetura VTEX | IO vs FastStore, apps e integrações",
+    description:
+      "Perguntas reais de projetos VTEX enterprise: quando IO ou FastStore, quando construir uma app ou externalizar, integrações async com ERP e gaps de checkout.",
+  },
+  it: {
+    title: "Decisioni di architettura VTEX | IO vs FastStore, app e integrazioni",
+    description:
+      "Domande reali da progetti VTEX enterprise: quando IO o FastStore, quando costruire un'app o esternalizzare, integrazioni async con ERP e gap di checkout.",
+  },
+};
+
+export const philosophyPageSeo: Localized<{ title: string; description: string }> = {
+  es: {
+    title: "Filosofía de arquitectura VTEX | Criterios de diseño",
+    description:
+      "Cómo pienso la arquitectura en VTEX: menos customización, bajo acoplamiento, observabilidad, performance como requisito y decisiones explicables.",
+  },
+  en: {
+    title: "VTEX architecture philosophy | Design principles",
+    description:
+      "How I think about architecture on VTEX: less customization, loose coupling, observability, performance as a requirement and explainable decisions.",
+  },
+  "pt-BR": {
+    title: "Filosofia de arquitetura VTEX | Critérios de design",
+    description:
+      "Como penso a arquitetura na VTEX: menos customização, baixo acoplamento, observabilidade, performance como requisito e decisões explicáveis.",
+  },
+  it: {
+    title: "Filosofia di architettura VTEX | Criteri di design",
+    description:
+      "Come penso l'architettura su VTEX: meno customizzazione, basso accoppiamento, osservabilità, performance come requisito e decisioni spiegabili.",
+  },
+};
+
+export const servicesPageSeo: Localized<{ title: string; description: string }> = {
+  es: {
+    title: "Cómo puedo ayudarte | Architecture Review, migraciones y liderazgo VTEX",
+    description:
+      "Architecture review, solution architecture, migración, performance, troubleshooting y liderazgo técnico de equipos VTEX.",
+  },
+  en: {
+    title: "How I can help | Architecture Review, migrations & VTEX leadership",
+    description:
+      "Architecture review, solution architecture, migration, performance, troubleshooting and technical leadership of VTEX teams.",
+  },
+  "pt-BR": {
+    title: "Como posso ajudar | Architecture Review, migrações e liderança VTEX",
+    description:
+      "Architecture review, solution architecture, migração, performance, troubleshooting e liderança técnica de times VTEX.",
+  },
+  it: {
+    title: "Come posso aiutarti | Architecture Review, migrazioni e leadership VTEX",
+    description:
+      "Architecture review, solution architecture, migrazione, performance, troubleshooting e leadership tecnica di team VTEX.",
+  },
+};
+
+export const testimonialsPageSeo: Localized<{
+  title: string;
+  description: string;
+}> = {
+  es: {
+    title: "Recomendaciones | Germán Bonacchi · VTEX Technical Lead",
+    description:
+      "Recomendaciones de colegas y stakeholders sobre liderazgo técnico, arquitectura VTEX y delivery en proyectos enterprise.",
+  },
+  en: {
+    title: "Testimonials | Germán Bonacchi · VTEX Technical Lead",
+    description:
+      "Recommendations from colleagues and stakeholders on technical leadership, VTEX architecture and enterprise delivery.",
+  },
+  "pt-BR": {
+    title: "Recomendações | Germán Bonacchi · VTEX Technical Lead",
+    description:
+      "Recomendações de colegas e stakeholders sobre liderança técnica, arquitetura VTEX e delivery em projetos enterprise.",
+  },
+  it: {
+    title: "Raccomandazioni | Germán Bonacchi · VTEX Technical Lead",
+    description:
+      "Raccomandazioni di colleghi e stakeholder su leadership tecnica, architettura VTEX e delivery enterprise.",
+  },
+};
+
+export const faqPageSeo: Localized<{ title: string; description: string }> = {
+  es: {
+    title: "FAQ | VTEX architecture, FastStore, reviews y engagement",
+    description:
+      "Preguntas frecuentes: cuándo FastStore, architecture review, proyectos existentes vs greenfield, liderazgo de equipos y cómo empezar.",
+  },
+  en: {
+    title: "FAQ | VTEX architecture, FastStore, reviews & engagement",
+    description:
+      "Common questions: when FastStore, architecture review, existing vs greenfield, leading teams and how to start a conversation.",
+  },
+  "pt-BR": {
+    title: "FAQ | Arquitetura VTEX, FastStore, reviews e engagement",
+    description:
+      "Perguntas frequentes: quando FastStore, architecture review, projetos existentes vs greenfield, liderança de times e como começar.",
+  },
+  it: {
+    title: "FAQ | Architettura VTEX, FastStore, review e engagement",
+    description:
+      "Domande frequenti: quando FastStore, architecture review, progetti esistenti vs greenfield, leadership di team e come iniziare.",
+  },
+};
+
 export const seoDescription: Localized = {
   en: "Ex-VTEX Solution Architect & Technical Lead at Valtech. Enterprise ecommerce on VTEX IO and FastStore: architecture, checkout, integrations. Projects: Carrefour, Cetrogar, Médis, Rouge.",
   es: "Ex-VTEX, Solution Architect & Technical Lead en Valtech. Ecommerce enterprise sobre VTEX IO y FastStore: arquitectura, checkout, integraciones. Proyectos: Carrefour, Cetrogar, Médis, Rouge.",

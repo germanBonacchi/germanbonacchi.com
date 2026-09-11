@@ -59,7 +59,7 @@ export function Hero() {
             <span className={styles.ctaLabelMobile}>{t.hero.ctaHire}</span>
           </Link>
           <Link
-            href={localizedHref(locale, "/#services")}
+            href={localizedHref(locale, "/services")}
             className={styles.ctaSecondary}
             onClick={() => track("nav_section", { section: "services" })}
           >

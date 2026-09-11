@@ -1,16 +1,16 @@
 "use client";
 
 import { services, servicesIntro } from "@/content/services";
+import { LandingBack } from "@/components/landings/LandingBack";
 import { useLocale } from "@/lib/locale";
-import { localizedHref } from "@/lib/paths";
-import { track } from "@/lib/analytics";
 import { useSectionView } from "@/lib/useSectionView";
-import Link from "next/link";
 import styles from "./Services.module.css";
 
-export function Services() {
-  const { l, locale, t } = useLocale();
+export function Services({ isPage = false }: { isPage?: boolean }) {
+  const { l } = useLocale();
   const sectionRef = useSectionView("services");
+  const Heading = isPage ? "h1" : "h2";
+  const ItemHeading = isPage ? "h2" : "h3";
 
   return (
     <section
@@ -20,31 +20,23 @@ export function Services() {
       aria-labelledby="services-heading"
     >
       <div className={styles.inner}>
+        {isPage ? <LandingBack /> : null}
         <header className={styles.header}>
           <p className={styles.top}>{l(servicesIntro.topLine)}</p>
-          <h2 id="services-heading" className={styles.heading}>
+          <Heading id="services-heading" className={styles.heading}>
             {l(servicesIntro.heading)}
-          </h2>
+          </Heading>
           <p className={styles.lead}>{l(servicesIntro.lead)}</p>
         </header>
 
         <ul className={styles.list}>
           {services.map((item) => (
             <li key={item.id} className={styles.item}>
-              <h3 className={styles.title}>{l(item.title)}</h3>
+              <ItemHeading className={styles.title}>{l(item.title)}</ItemHeading>
               <p className={styles.body}>{l(item.body)}</p>
             </li>
           ))}
         </ul>
-
-        <p className={styles.cta}>
-          <Link
-            href={localizedHref(locale, "/#contact")}
-            onClick={() => track("nav_section", { section: "contact" })}
-          >
-            {t.hero.ctaHire}
-          </Link>
-        </p>
       </div>
     </section>
   );

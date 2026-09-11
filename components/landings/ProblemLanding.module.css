@@ -1,0 +1,101 @@
+.page {
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding: 3rem 1.5rem 4.5rem;
+  min-height: 70vh;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+  max-width: 42rem;
+}
+
+.top {
+  margin: 0 0 0.75rem;
+  color: var(--color-accent-on-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin: 0 0 1rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+  line-height: 1.2;
+  color: var(--color-text-white);
+}
+
+.lead {
+  margin: 0;
+  color: rgba(247, 248, 250, 0.85);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.points {
+  margin: 0 0 2.25rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+  max-width: 40rem;
+}
+
+.points li {
+  position: relative;
+  padding-left: 1.15rem;
+  color: rgba(247, 248, 250, 0.8);
+}
+
+.points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--color-accent-cyan);
+}
+
+.related {
+  margin-bottom: 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.relatedLabel {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(247, 248, 250, 0.55);
+}
+
+.related ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.related a {
+  color: var(--color-accent-cyan);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.related a:hover,
+.related a:focus-visible {
+  text-decoration: underline;
+}
