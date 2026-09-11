@@ -120,7 +120,12 @@ export function Header() {
               key={id}
               href={navHref(locale, id)}
               className={styles.drawerLink}
-              onClick={() => handleNav(id)}
+              onClick={(e) => {
+                // Same-page hash: ScrollRestoration (capture) owns scrolling.
+                // Still close the drawer here; blur avoids iOS focus-scroll.
+                e.currentTarget.blur();
+                handleNav(id);
+              }}
             >
               {navLabel(t, id)}
             </Link>
