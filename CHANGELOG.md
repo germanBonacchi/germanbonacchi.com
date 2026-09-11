@@ -10,8 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Home sections: **Problems**, **Services**, **Decisions**, **Philosophy**, **Testimonials**
-- Content modules: `problems`, `services`, `decisions`, `philosophy`, `testimonials`, `coreExpertise`, `carrefourCase`
+- Content modules: `problems`, `services`, `decisions`, `philosophy`, `testimonials`, `coreExpertise`, `carrefourCase`, `cetrogarCase`
 - Carrefour architecture diagram (`ArchitectureDiagram`) in the project detail
+- Cetrogar architecture diagram (`CetrogarArchitectureDiagram`) and deep case sections (modules, decisions, trade-offs)
+- Localized labels on Carrefour and Cetrogar architecture diagrams (es / en / pt-BR / it)
 - Locale-scoped `not-found` page under `app/[locale]`
 - Hero CTAs with distinct desktop / mobile labels
 - Mobile drawer: full section list (`FOOTER_SECTIONS`), sticky footer with socials + language switcher

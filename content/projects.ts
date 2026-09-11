@@ -100,8 +100,8 @@ export const projects: Project[] = [
  featuredWeight: 2,
  caseStudy: true,
  summary: {
- en: "National electronics and home-appliance retailer relaunched on VTEX FastStore: Next.js storefront, custom modules and a performance-oriented architecture.",
- es: "Retailer nacional de electrodomésticos y tecnología relanzado sobre VTEX FastStore: storefront Next.js, módulos custom y arquitectura orientada a performance.",
+ en: "National electronics retailer on VTEX FastStore: Next.js storefront, loyalty points, Magento migration, badge and payment-matrix admin modules.",
+ es: "Retailer nacional de electro sobre VTEX FastStore: storefront Next.js, puntos loyalty, migración Magento, admin de cucardas y matrices de pago.",
  },
  context: {
  en: "Grupo Cetrogar is a major Argentine retail chain for technology, home appliances and related categories, with a nationwide store network and a digital channel that is a meaningful share of billing. The VTEX FastStore relaunch went live in about 90 days and was publicly highlighted by VTEX as a large-scale FastStore go-live.",
@@ -109,30 +109,30 @@ export const projects: Project[] = [
  },
  challenges: {
  en: [
- "Migrating a high-visibility national electro retailer onto a modern FastStore / Next.js architecture under a short delivery window.",
- "Custom modules and commerce flows beyond a default FastStore template.",
- "Performance and scalability expectations for a multi-store retail operation with national coverage.",
- "Integrating VTEX platform capabilities while preparing the digital channel for marketplace expansion.",
+ "Migrating a high-visibility national electro retailer onto FastStore / Next.js under a short delivery window (~90 days).",
+ "Custom loyalty (points), Magento→VTEX migration of customers/addresses/points, badge admin and payment matrices beyond a default FastStore template.",
+ "Performance and scalability for a multi-store retail operation with national coverage.",
+ "Integrating VTEX capabilities while preparing the digital channel for marketplace expansion.",
  ],
  es: [
- "Migrar un retailer nacional de electro de alta visibilidad a una arquitectura moderna FastStore / Next.js en una ventana corta de entrega.",
- "Módulos custom y flujos commerce más allá de un template FastStore por defecto.",
- "Expectativas de performance y escalabilidad para una operación multi-tienda con cobertura nacional.",
- "Integrar capacidades de la plataforma VTEX preparando el canal digital para expansión de Marketplace.",
+ "Migrar un retailer nacional de electro de alta visibilidad a FastStore / Next.js en una ventana corta (~90 días).",
+ "Loyalty de puntos, migración Magento→VTEX de clientes/direcciones/puntos, admin de cucardas y matrices de pago más allá de un template FastStore.",
+ "Performance y escalabilidad para una operación multi-tienda con cobertura nacional.",
+ "Integrar capacidades VTEX preparando el canal digital para expansión de Marketplace.",
  ],
  },
  contributions: {
  en: [
- "Participated in the FastStore implementation and custom module development on the Next.js storefront.",
- "Helped solve complex storefront and commerce requirements for a national electro retail catalog.",
- "Worked on integrations with VTEX capabilities and solution design for non-trivial flows.",
- "Contributed to a delivery that connects the digital channel with a broad physical-store network.",
+ "Technical leadership on FastStore / Next.js and VTEX IO custom modules.",
+ "Designed and shipped Cetrogar Points (loyalty ledger, checkout redemption, OMS accrual/refund).",
+ "Built Magento→VTEX migration pipelines for customers, addresses and points with balance reconciliation.",
+ "Delivered Admin Cucardas and Payment Matrices for operable catalog/payment rules consumed by FastStore and Payments.",
  ],
  es: [
- "Participé en la implementación FastStore y el desarrollo de módulos custom sobre el storefront Next.js.",
- "Ayudé a resolver requerimientos complejos de storefront y commerce para un catálogo retail de electro a escala nacional.",
- "Trabajé en integraciones con capacidades VTEX y diseño de soluciones para flujos no triviales.",
- "Contribuí a una entrega que conecta el canal digital con una red amplia de tiendas físicas.",
+ "Liderazgo técnico en FastStore / Next.js y módulos custom VTEX IO.",
+ "Diseñé y llevé a producción Puntos Cetrogar (ledger de loyalty, canje en checkout, acreditación/refund OMS).",
+ "Armé pipelines de migración Magento→VTEX de clientes, direcciones y puntos con reconciliación de saldos.",
+ "Entregué Admin Cucardas y Matrices de Pago para reglas de catálogo/pagos operables por negocio, consumidas por FastStore y Payments.",
  ],
  },
  technologies: [
@@ -145,6 +145,7 @@ export const projects: Project[] = [
  "graphql",
  "integrations",
  "performance",
+ "payments",
  ],
  areas: [
  "faststore",
@@ -152,6 +153,7 @@ export const projects: Project[] = [
  "solution-design",
  "integrations",
  "performance",
+ "payments",
  ],
  externalRefs: [
  {

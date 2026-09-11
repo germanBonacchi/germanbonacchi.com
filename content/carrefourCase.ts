@@ -16,6 +16,27 @@ export const carrefourCase: {
   resultsTitle: Localized;
   results: Localized<string[]>;
   confidentiality: Localized;
+  diagram: {
+    ariaLabel: Localized;
+    webStorefront: Localized;
+    webStorefrontSub: Localized;
+    webStorefrontDetail: Localized;
+    mobileApp: Localized;
+    mobileAppSub: Localized;
+    mobileAppDetail: Localized;
+    vtexPlatform: Localized;
+    vtexPlatformDetail: Localized;
+    middleware: Localized;
+    middlewareDetail: Localized;
+    connector: Localized;
+    ioBffs: Localized;
+    ioBffsDetail: Localized;
+    sharedDomain: Localized;
+    sharedDomainLine1: Localized;
+    sharedDomainLine2: Localized;
+    sharedDomainTiny: Localized;
+    decision: Localized;
+  };
 } = {
   eyebrow: {
     es: "Arquitectura VTEX IO para retail multi-vertical",
@@ -152,5 +173,118 @@ export const carrefourCase: {
     "pt-BR":
       "Por razões de confidencialidade, alguns componentes e métricas foram simplificados ou omitidos.",
     it: "Per motivi di riservatezza, alcuni componenti e metriche sono stati semplificati o omessi.",
+  },
+  diagram: {
+    ariaLabel: {
+      es: "Diagrama de arquitectura VTEX de Carrefour",
+      en: "Carrefour VTEX architecture diagram",
+      "pt-BR": "Diagrama de arquitetura VTEX do Carrefour",
+      it: "Diagramma di architettura VTEX di Carrefour",
+    },
+    webStorefront: {
+      es: "Storefront web",
+      en: "Web storefront",
+      "pt-BR": "Storefront web",
+      it: "Storefront web",
+    },
+    webStorefrontSub: {
+      es: "VTEX IO Store Framework",
+      en: "VTEX IO Store Framework",
+    },
+    webStorefrontDetail: {
+      es: "Theme · apps custom · Checkout 6",
+      en: "Theme · custom apps · Checkout 6",
+      "pt-BR": "Theme · apps custom · Checkout 6",
+      it: "Theme · app custom · Checkout 6",
+    },
+    mobileApp: {
+      es: "App móvil",
+      en: "Mobile app",
+      "pt-BR": "App mobile",
+      it: "App mobile",
+    },
+    mobileAppSub: {
+      es: "React Native",
+      en: "React Native",
+    },
+    mobileAppDetail: {
+      es: "Catálogo · carrito · pantallas de checkout",
+      en: "Catalog · cart · checkout screens",
+      "pt-BR": "Catálogo · carrinho · telas de checkout",
+      it: "Catalogo · carrello · schermate checkout",
+    },
+    vtexPlatform: {
+      es: "Plataforma VTEX",
+      en: "VTEX platform",
+      "pt-BR": "Plataforma VTEX",
+      it: "Piattaforma VTEX",
+    },
+    vtexPlatformDetail: {
+      es: "Catálogo · Sessions · OMS · Master Data",
+      en: "Catalog · Sessions · OMS · Master Data",
+      "pt-BR": "Catálogo · Sessions · OMS · Master Data",
+      it: "Catalogo · Sessions · OMS · Master Data",
+    },
+    middleware: {
+      es: "Middleware Carrefour",
+      en: "Carrefour middleware",
+      "pt-BR": "Middleware Carrefour",
+      it: "Middleware Carrefour",
+    },
+    middlewareDetail: {
+      es: "Catálogo · Checkout · Logística · Pagos",
+      en: "Catalog · Checkout · Logistics · Payments",
+      "pt-BR": "Catálogo · Checkout · Logística · Pagamentos",
+      it: "Catalogo · Checkout · Logistica · Pagamenti",
+    },
+    connector: {
+      es: "connector",
+      en: "connector",
+      "pt-BR": "connector",
+      it: "connector",
+    },
+    ioBffs: {
+      es: "BFFs IO / servicios Node",
+      en: "IO BFFs / Node services",
+      "pt-BR": "BFFs IO / serviços Node",
+      it: "BFF IO / servizi Node",
+    },
+    ioBffsDetail: {
+      es: "regionalizador · checkout · sync de carrito",
+      en: "regionalizer · checkout · cart sync",
+      "pt-BR": "regionalizador · checkout · sync do carrinho",
+      it: "regionalizzatore · checkout · sync carrello",
+    },
+    sharedDomain: {
+      es: "Dominio commerce compartido",
+      en: "Shared commerce domain",
+      "pt-BR": "Domínio commerce compartilhado",
+      it: "Dominio commerce condiviso",
+    },
+    sharedDomainLine1: {
+      es: "Regionalizador · Split de carritos · Food / Non-food",
+      en: "Regionalizer · Split cart · Food / Non-food",
+      "pt-BR": "Regionalizador · Split de carrinhos · Food / Non-food",
+      it: "Regionalizzatore · Split carrelli · Food / Non-food",
+    },
+    sharedDomainLine2: {
+      es: "Drive · Quick Commerce · Reglas de incompatibilidad",
+      en: "Drive · Quick Commerce · Incompatibility rules",
+      "pt-BR": "Drive · Quick Commerce · Regras de incompatibilidade",
+      it: "Drive · Quick Commerce · Regole di incompatibilità",
+    },
+    sharedDomainTiny: {
+      es: "Mismas reglas, implementaciones distintas por canal",
+      en: "Same rules, different channel implementations",
+      "pt-BR": "Mesmas regras, implementações distintas por canal",
+      it: "Stesse regole, implementazioni diverse per canale",
+    },
+    decision: {
+      es: "Decisión: UIs de canal separadas; alinear reglas de dominio entre web y app",
+      en: "Decision: keep channel UIs separate; align domain rules across web and app",
+      "pt-BR":
+        "Decisão: UIs de canal separadas; alinhar regras de domínio entre web e app",
+      it: "Decisione: UI di canale separate; allineare le regole di dominio tra web e app",
+    },
   },
 };

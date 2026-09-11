@@ -1,5 +1,7 @@
 "use client";
 
+import { carrefourCase } from "@/content/carrefourCase";
+import { useLocale } from "@/lib/locale";
 import styles from "./ArchitectureDiagram.module.css";
 
 /**
@@ -7,13 +9,16 @@ import styles from "./ArchitectureDiagram.module.css";
  * Web Store Framework + Checkout 6 | VTEX | Middleware | React Native app
  */
 export function ArchitectureDiagram({ caption }: { caption?: string }) {
+  const { l } = useLocale();
+  const d = carrefourCase.diagram;
+
   return (
     <figure className={styles.figure}>
       <svg
         className={styles.svg}
         viewBox="0 0 720 420"
         role="img"
-        aria-label={caption ?? "Carrefour VTEX architecture diagram"}
+        aria-label={caption ?? l(d.ariaLabel)}
       >
         <defs>
           <marker
@@ -30,82 +35,152 @@ export function ArchitectureDiagram({ caption }: { caption?: string }) {
         </defs>
 
         {/* Channels */}
-        <rect x="40" y="24" width="280" height="88" rx="8" className={styles.boxPrimary} />
+        <rect
+          x="40"
+          y="24"
+          width="280"
+          height="88"
+          rx="8"
+          className={styles.boxPrimary}
+        />
         <text x="180" y="48" textAnchor="middle" className={styles.labelStrong}>
-          Web storefront
+          {l(d.webStorefront)}
         </text>
         <text x="180" y="68" textAnchor="middle" className={styles.labelMuted}>
-          VTEX IO Store Framework
+          {l(d.webStorefrontSub)}
         </text>
         <text x="180" y="88" textAnchor="middle" className={styles.labelMuted}>
-          Theme · custom apps · Checkout 6
+          {l(d.webStorefrontDetail)}
         </text>
 
-        <rect x="400" y="24" width="280" height="88" rx="8" className={styles.boxPrimary} />
+        <rect
+          x="400"
+          y="24"
+          width="280"
+          height="88"
+          rx="8"
+          className={styles.boxPrimary}
+        />
         <text x="540" y="48" textAnchor="middle" className={styles.labelStrong}>
-          Mobile app
+          {l(d.mobileApp)}
         </text>
         <text x="540" y="68" textAnchor="middle" className={styles.labelMuted}>
-          React Native
+          {l(d.mobileAppSub)}
         </text>
         <text x="540" y="88" textAnchor="middle" className={styles.labelMuted}>
-          Catalog · cart · checkout screens
+          {l(d.mobileAppDetail)}
         </text>
 
         {/* Arrows down */}
-        <line x1="180" y1="112" x2="180" y2="148" className={styles.line} markerEnd="url(#arrow)" />
-        <line x1="540" y1="112" x2="540" y2="148" className={styles.line} markerEnd="url(#arrow)" />
+        <line
+          x1="180"
+          y1="112"
+          x2="180"
+          y2="148"
+          className={styles.line}
+          markerEnd="url(#arrow)"
+        />
+        <line
+          x1="540"
+          y1="112"
+          x2="540"
+          y2="148"
+          className={styles.line}
+          markerEnd="url(#arrow)"
+        />
 
         {/* Middle layer */}
-        <rect x="40" y="152" width="280" height="72" rx="8" className={styles.boxAccent} />
+        <rect
+          x="40"
+          y="152"
+          width="280"
+          height="72"
+          rx="8"
+          className={styles.boxAccent}
+        />
         <text x="180" y="178" textAnchor="middle" className={styles.labelStrong}>
-          VTEX platform
+          {l(d.vtexPlatform)}
         </text>
         <text x="180" y="198" textAnchor="middle" className={styles.labelMuted}>
-          Catalog · Sessions · OMS · Master Data
+          {l(d.vtexPlatformDetail)}
         </text>
 
-        <rect x="400" y="152" width="280" height="72" rx="8" className={styles.boxSecondary} />
+        <rect
+          x="400"
+          y="152"
+          width="280"
+          height="72"
+          rx="8"
+          className={styles.boxSecondary}
+        />
         <text x="540" y="178" textAnchor="middle" className={styles.labelStrong}>
-          Carrefour middleware
+          {l(d.middleware)}
         </text>
         <text x="540" y="198" textAnchor="middle" className={styles.labelMuted}>
-          Catalog · Checkout · Logistics · Payments
+          {l(d.middlewareDetail)}
         </text>
 
         {/* Cross link */}
-        <line x1="320" y1="188" x2="400" y2="188" className={styles.line} markerEnd="url(#arrow)" />
+        <line
+          x1="320"
+          y1="188"
+          x2="400"
+          y2="188"
+          className={styles.line}
+          markerEnd="url(#arrow)"
+        />
         <text x="360" y="178" textAnchor="middle" className={styles.labelTiny}>
-          connector
+          {l(d.connector)}
         </text>
 
         {/* IO BFFs */}
-        <line x1="180" y1="224" x2="180" y2="256" className={styles.line} markerEnd="url(#arrow)" />
-        <rect x="70" y="260" width="220" height="48" rx="8" className={styles.boxMuted} />
+        <line
+          x1="180"
+          y1="224"
+          x2="180"
+          y2="256"
+          className={styles.line}
+          markerEnd="url(#arrow)"
+        />
+        <rect
+          x="70"
+          y="260"
+          width="220"
+          height="48"
+          rx="8"
+          className={styles.boxMuted}
+        />
         <text x="180" y="282" textAnchor="middle" className={styles.labelStrong}>
-          IO BFFs / Node services
+          {l(d.ioBffs)}
         </text>
         <text x="180" y="298" textAnchor="middle" className={styles.labelTiny}>
-          regionalizer · checkout · cart sync
+          {l(d.ioBffsDetail)}
         </text>
 
         {/* Domain callouts */}
-        <rect x="360" y="260" width="320" height="100" rx="8" className={styles.boxMuted} />
+        <rect
+          x="360"
+          y="260"
+          width="320"
+          height="100"
+          rx="8"
+          className={styles.boxMuted}
+        />
         <text x="520" y="286" textAnchor="middle" className={styles.labelStrong}>
-          Shared commerce domain
+          {l(d.sharedDomain)}
         </text>
         <text x="520" y="308" textAnchor="middle" className={styles.labelMuted}>
-          Regionalizer · Split cart · Food / Non-food
+          {l(d.sharedDomainLine1)}
         </text>
         <text x="520" y="328" textAnchor="middle" className={styles.labelMuted}>
-          Drive · Quick Commerce · Incompatibility rules
+          {l(d.sharedDomainLine2)}
         </text>
         <text x="520" y="348" textAnchor="middle" className={styles.labelTiny}>
-          Same rules, different channel implementations
+          {l(d.sharedDomainTiny)}
         </text>
 
         <text x="360" y="400" textAnchor="middle" className={styles.caption}>
-          Decision: keep channel UIs separate; align domain rules across web and app
+          {l(d.decision)}
         </text>
       </svg>
       {caption ? (

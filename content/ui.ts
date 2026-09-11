@@ -219,7 +219,7 @@ export const ui: Record<Locale, UiCopy> = {
       cetrogarFacts: [
         "National electronics and home-appliance retailer; digital channel connected to a large physical-store network.",
         "Public go-live highlighted by VTEX as a FastStore implementation at scale, delivered in about 90 days.",
-        "FastStore / Next.js storefront with custom modules, preparing the platform for Marketplace expansion.",
+        "Key customs: Cetrogar Points, Magento→VTEX migration (customers, addresses, points), Admin Cucardas and Payment Matrices.",
       ],
     },
     skills: {
@@ -380,7 +380,7 @@ export const ui: Record<Locale, UiCopy> = {
       cetrogarFacts: [
         "Retailer nacional de electrodomésticos y tecnología; canal digital conectado a una red amplia de sucursales.",
         "Go-live público destacado por VTEX como implementación FastStore a gran escala, entregado en alrededor de 90 días.",
-        "Storefront FastStore / Next.js con módulos custom, preparando la plataforma para expansión de Marketplace.",
+        "Customs clave: Puntos Cetrogar, migración Magento→VTEX (clientes, direcciones, puntos), Admin Cucardas y Matrices de Pago.",
       ],
     },
     skills: {
@@ -544,7 +544,7 @@ export const ui: Record<Locale, UiCopy> = {
       cetrogarFacts: [
         "Varejista nacional de eletrodomésticos e tecnologia; canal digital conectado a uma ampla rede de lojas físicas.",
         "Go-live público destacado pela VTEX como implementação FastStore em grande escala, entregue em cerca de 90 dias.",
-        "Storefront FastStore / Next.js com módulos custom, preparando a plataforma para expansão de Marketplace.",
+        "Customs-chave: Pontos Cetrogar, migração Magento→VTEX (clientes, endereços, pontos), Admin Cucardas e Matrizes de Pagamento.",
       ],
     },
     skills: {
@@ -709,7 +709,7 @@ export const ui: Record<Locale, UiCopy> = {
       cetrogarFacts: [
         "Retailer nazionale di elettrodomestici e tecnologia; canale digitale collegato a una ampia rete di negozi fisici.",
         "Go-live pubblico evidenziato da VTEX come implementazione FastStore su larga scala, consegnato in circa 90 giorni.",
-        "Storefront FastStore / Next.js con moduli custom, preparando la piattaforma all'espansione Marketplace.",
+        "Custom chiave: Punti Cetrogar, migrazione Magento→VTEX (clienti, indirizzi, punti), Admin Cucardas e Matrici di Pagamento.",
       ],
     },
     skills: {
