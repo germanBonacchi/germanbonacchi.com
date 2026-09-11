@@ -1,12 +1,9 @@
 import type { ExperienceItem } from "./types";
 
 /**
- * Career timeline sourced from existing portfolio content,
- * reorganized to weight the current Valtech Technical Lead stage.
- *
- * Exact employment months/years were not present in the original
- * repository content, so date fields stay intentionally coarse
- * (or omitted) rather than inventing a precise chronology.
+ * Career timeline from LinkedIn (company tenure).
+ * Dates as YYYY-MM; endDate "present" when current.
+ * https://www.linkedin.com/in/germanbonacchi/
  */
 export const experiences: ExperienceItem[] = [
   {
@@ -21,7 +18,7 @@ export const experiences: ExperienceItem[] = [
       en: "Argentina",
       es: "Argentina",
     },
-    startDate: "",
+    startDate: "2022-09",
     endDate: "present",
     current: true,
     summary: {
@@ -73,8 +70,8 @@ export const experiences: ExperienceItem[] = [
       en: "Argentina",
       es: "Argentina",
     },
-    startDate: "",
-    endDate: "",
+    startDate: "2021-03",
+    endDate: "2022-09",
     summary: {
       en: "Built and supported VTEX applications for customers and partners. Grew into technical leadership responsibilities across delivery workflows and team coordination.",
       es: "Desarrollé y di soporte a aplicaciones VTEX para clientes y partners. Evolucioné hacia responsabilidades de liderazgo técnico en workflows de entrega y coordinación de equipos.",
@@ -115,8 +112,8 @@ export const experiences: ExperienceItem[] = [
       en: "Argentina",
       es: "Argentina",
     },
-    startDate: "",
-    endDate: "",
+    startDate: "2017-09",
+    endDate: "2021-01",
     summary: {
       en: "Worked across analysis, development, and testing on Oracle-based systems, expanding into JavaScript to meet customer needs.",
       es: "Trabajé en análisis, desarrollo y testing sobre sistemas Oracle, ampliando hacia JavaScript para cubrir necesidades de clientes.",
@@ -146,8 +143,8 @@ export const experiences: ExperienceItem[] = [
       en: "Argentina",
       es: "Argentina",
     },
-    startDate: "",
-    endDate: "",
+    startDate: "2016-04",
+    endDate: "2017-09",
     summary: {
       en: "First professional role. Started building software with Visual Basic.",
       es: "Primer rol profesional. Comencé a construir software con Visual Basic.",

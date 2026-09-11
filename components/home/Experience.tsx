@@ -3,9 +3,52 @@
 import { useEffect, useRef, useState } from "react";
 import { education, experiences } from "@/content/experience";
 import { technologyById } from "@/content/technologies";
+import type { Locale } from "@/content/types";
 import { useLocale } from "@/lib/locale";
 import { useSectionView } from "@/lib/useSectionView";
 import styles from "./Experience.module.css";
+
+const DATE_LOCALE: Record<Locale, string> = {
+  es: "es-AR",
+  en: "en-US",
+  "pt-BR": "pt-BR",
+  it: "it-IT",
+};
+
+/** Formats YYYY or YYYY-MM for the active locale (e.g. "sept. 2022"). */
+function formatMonthYear(value: string, locale: Locale) {
+  const match = /^(\d{4})(?:-(\d{2}))?$/.exec(value);
+  if (!match) return value;
+  const year = Number(match[1]);
+  const month = match[2] ? Number(match[2]) : null;
+  if (!month) return String(year);
+  const formatted = new Intl.DateTimeFormat(DATE_LOCALE[locale], {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(Date.UTC(year, month - 1, 1)));
+  return formatted
+    .replace(/\./g, "")
+    .replace(/\s+de\s+/i, " ")
+    .replace(/^./, (c) => c.toUpperCase());
+}
+
+function formatDateRange(
+  startDate: string,
+  endDate: string,
+  presentLabel: string,
+  locale: Locale,
+) {
+  const start = startDate ? formatMonthYear(startDate, locale) : "";
+  const end =
+    endDate === "present"
+      ? presentLabel
+      : endDate
+        ? formatMonthYear(endDate, locale)
+        : "";
+  if (start && end) return `${start} — ${end}`;
+  return start || end;
+}
 
 /** Viewport Y used as the “read head” that drives fill (below sticky nav). */
 function readingLineY() {
@@ -17,7 +60,7 @@ function readingLineY() {
 }
 
 export function Experience() {
-  const { t, l } = useLocale();
+  const { t, l, locale } = useLocale();
   const sectionRef = useSectionView("experience");
   const itemRefs = useRef<Map<string, HTMLElement>>(new Map());
   /** Continuous progress along the rail: 0 = first dot, n-1 = last dot */
@@ -111,6 +154,12 @@ export function Experience() {
             const isPast = progress > index + 0.02;
             const isActive = index === activeIndex;
             const lineFill = Math.min(1, Math.max(0, progress - index));
+            const yearRange = formatDateRange(
+              item.startDate,
+              item.endDate,
+              t.experience.present,
+              locale,
+            );
 
             return (
               <li
@@ -142,11 +191,9 @@ export function Experience() {
 
                 <div className={styles.content}>
                   <div className={styles.meta}>
-                    <p className={styles.dates}>
-                      {item.current || item.endDate === "present"
-                        ? t.experience.present
-                        : t.experience.previous}
-                    </p>
+                    {yearRange ? (
+                      <p className={styles.dates}>{yearRange}</p>
+                    ) : null}
                     <h3 className={styles.role}>{l(item.role)}</h3>
                     <p className={styles.company}>
                       {item.companyUrl ? (

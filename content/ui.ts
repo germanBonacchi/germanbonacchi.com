@@ -33,7 +33,6 @@ export interface UiCopy {
     topLine: string;
     heading: string;
     present: string;
-    previous: string;
     educationLabel: string;
   };
   projects: {
@@ -139,7 +138,6 @@ export const ui: Record<Locale, UiCopy> = {
       topLine: "Experience",
       heading: "From engineering to technical leadership.",
       present: "Present",
-      previous: "Previous",
       educationLabel: "Education",
     },
     projects: {
@@ -259,7 +257,6 @@ export const ui: Record<Locale, UiCopy> = {
       topLine: "Experiencia",
       heading: "De ingeniería a liderazgo técnico.",
       present: "Actualidad",
-      previous: "Anterior",
       educationLabel: "Formación",
     },
     projects: {
@@ -381,7 +378,6 @@ export const ui: Record<Locale, UiCopy> = {
       topLine: "Experiência",
       heading: "Da engenharia à liderança técnica.",
       present: "Atual",
-      previous: "Anterior",
       educationLabel: "Formação",
     },
     projects: {
@@ -503,7 +499,6 @@ export const ui: Record<Locale, UiCopy> = {
       topLine: "Esperienza",
       heading: "Dall'ingegneria alla leadership tecnica.",
       present: "Attuale",
-      previous: "Precedente",
       educationLabel: "Formazione",
     },
     projects: {
