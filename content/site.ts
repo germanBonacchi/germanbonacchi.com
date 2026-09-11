@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = {
   },
  localeDefault: "es",
  sameAs: [
- "https://www.linkedin.com/in/germ%C3%A1n-bonacchi-91b59a123/",
+ "https://www.linkedin.com/in/germanbonacchi/",
  "https://github.com/germanBonacchi",
  ],
  knowsAbout: [
@@ -60,7 +60,7 @@ export const socialLinks: SocialLink[] = [
  {
  id: "linkedin",
  label: "LinkedIn",
- href: "https://www.linkedin.com/in/germ%C3%A1n-bonacchi-91b59a123/",
+ href: "https://www.linkedin.com/in/germanbonacchi/",
  ariaLabel: {
  en: "Germán Bonacchi on LinkedIn",
  es: "Germán Bonacchi en LinkedIn",

@@ -11,7 +11,7 @@
 - Previous company (platform): VTEX
 - Location: Buenos Aires, Argentina
 - Site: https://germanbonacchi.vercel.app/
-- LinkedIn: https://www.linkedin.com/in/germ%C3%A1n-bonacchi-91b59a123/
+- LinkedIn: https://www.linkedin.com/in/germanbonacchi/
 - GitHub: https://github.com/germanBonacchi
 - Email: bonacchigerman@gmail.com
 - CV (EN): https://germanbonacchi.vercel.app/cv-en.pdf
