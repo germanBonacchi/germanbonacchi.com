@@ -7,64 +7,100 @@ export interface FaqItem {
 }
 
 /**
- * Visible FAQ + FAQPage JSON-LD.
- * Keep short: avoid repeating the Valtech / VTEX Technical Lead pitch.
- * Spanish questions still cover search intents (experto VTEX, Valtech, FastStore).
+ * FAQ oriented to potential clients (engagement, scope, problems).
+ * Also feeds FAQPage JSON-LD.
  */
 export const faqs: FaqItem[] = [
   {
-    id: "who",
+    id: "faststore-when",
     question: {
-      en: "Who is Germán Bonacchi?",
-      es: "¿Quién es Germán Bonacchi?",
+      en: "When does FastStore make sense?",
+      es: "¿Cuándo conviene usar FastStore?",
+      "pt-BR": "Quando faz sentido usar FastStore?",
+      it: "Quando ha senso usare FastStore?",
     },
     answer: {
-      en: "Technical Lead for VTEX ecommerce at Valtech. Previously Apps Engineer at VTEX. Stack centered on VTEX IO, FastStore, React, TypeScript, Node.js, checkout, integrations and platform architecture.",
-      es: "Technical Lead de ecommerce VTEX en Valtech. Antes Apps Engineer en VTEX. Stack centrado en VTEX IO, FastStore, React, TypeScript, Node.js, checkout, integraciones y arquitectura de plataforma.",
+      en: "When you need stronger frontend control, headless performance and a modern GraphQL BFF — and the team can own a Next.js storefront. VTEX IO remains a strong fit for deep block ecosystems and mature checkout customizations. I help choose based on constraints, not hype.",
+      es: "Cuando necesitás más control de frontend, performance headless y un BFF GraphQL moderno — y el equipo puede ownership de un storefront Next.js. VTEX IO sigue siendo fuerte para ecosistemas de bloques y customizaciones maduras de checkout. Ayudo a elegir por constraints, no por moda.",
     },
   },
   {
-    id: "vtex-valtech",
+    id: "architecture-review",
     question: {
-      en: "Is he a VTEX expert, and how does Valtech fit in?",
-      es: "¿Es un experto / líder técnico VTEX, y qué relación tiene con Valtech?",
+      en: "Can you review an existing VTEX architecture?",
+      es: "¿Podés revisar una arquitectura VTEX existente?",
+      "pt-BR": "Você pode revisar uma arquitetura VTEX existente?",
+      it: "Puoi revisionare un'architettura VTEX esistente?",
     },
     answer: {
-      en: "Yes: he worked inside VTEX building apps and supporting customers and partners, and now leads technical work on retailer platforms at Valtech.",
-      es: "Sí: trabajó dentro de VTEX armando apps y dando soporte a clientes y partners, y ahora lidera el trabajo técnico en plataformas de retailers en Valtech.",
+      en: "Yes. Typical scope: platform boundaries, coupling risks, checkout/integration hotspots, customization debt and a prioritized remediation roadmap.",
+      es: "Sí. Alcance típico: límites de plataforma, riesgos de acoplamiento, hotspots de checkout/integraciones, deuda de customización y un roadmap priorizado de remediación.",
     },
   },
   {
-    id: "projects",
+    id: "existing-vs-new",
     question: {
-      en: "What ecommerce projects has he worked on?",
-      es: "¿En qué proyectos ecommerce trabajó?",
+      en: "Do you work on existing implementations or only greenfield?",
+      es: "¿Trabajás sobre implementaciones existentes o solo proyectos nuevos?",
+      "pt-BR":
+        "Você trabalha em implementações existentes ou só em projetos novos?",
+      it: "Lavori su implementazioni esistenti o solo su progetti nuovi?",
     },
     answer: {
-      en: "Main focus: Carrefour Argentina (Technical Lead & Architect on VTEX IO) and Cetrogar (successful FastStore migration in record time, publicly highlighted by VTEX). Also Médis in Portugal and the Rouge beauty ecosystem.",
-      es: "Foco principal: Carrefour Argentina (Technical Lead & Architect sobre VTEX IO) y Cetrogar (migración FastStore con éxito en tiempo récord, destacada públicamente por VTEX). También Médis en Portugal y el ecosistema beauty Rouge.",
+      en: "Both. Most of my recent work is evolving large production platforms (e.g. Carrefour on VTEX IO) and migrations (e.g. Cetrogar to FastStore in ~90 days).",
+      es: "Ambos. Gran parte de mi trabajo reciente es evolucionar plataformas grandes en producción (p. ej. Carrefour sobre VTEX IO) y migraciones (p. ej. Cetrogar a FastStore en ~90 días).",
     },
   },
   {
-    id: "argentina",
+    id: "internal-teams",
     question: {
-      en: "Where does he live?",
-      es: "¿Dónde reside?",
+      en: "Can you work with internal teams?",
+      es: "¿Podés trabajar con equipos internos?",
+      "pt-BR": "Você pode trabalhar com times internos?",
+      it: "Puoi lavorare con team interni?",
     },
     answer: {
-      en: "Buenos Aires, Argentina.",
-      es: "Buenos Aires, Argentina.",
+      en: "Yes — that's the default in agency delivery. I define technical direction, review architecture/code, mentor and coordinate with product, partners and stakeholders.",
+      es: "Sí — es el modo default en delivery de agencia. Defino dirección técnica, reviso arquitectura/código, mentoreo y coordino con producto, partners y stakeholders.",
     },
   },
   {
-    id: "hire-or-contact",
+    id: "performance",
     question: {
-      en: "How can I contact him?",
-      es: "¿Cómo contactarlo?",
+      en: "What kind of performance problems do you solve?",
+      es: "¿Qué tipo de problemas de performance resolvés?",
+      "pt-BR": "Que tipo de problemas de performance você resolve?",
+      it: "Che tipo di problemi di performance risolvi?",
     },
     answer: {
-      en: "From the contact section on this site (WhatsApp, LinkedIn or email), or via LinkedIn and GitHub.",
-      es: "Desde la sección de contacto de este sitio (WhatsApp, LinkedIn o email), o por LinkedIn y GitHub.",
+      en: "Storefront bottlenecks (IO / FastStore), API and integration latency, checkout friction and architectural choices that quietly kill conversion under load.",
+      es: "Cuellos de botella de storefront (IO / FastStore), latencia de APIs e integraciones, fricción de checkout y decisiones arquitectónicas que silenciosamente matan conversión bajo carga.",
+    },
+  },
+  {
+    id: "lead-team",
+    question: {
+      en: "Can you lead a team of VTEX developers?",
+      es: "¿Podés liderar un equipo de developers VTEX?",
+      "pt-BR": "Você pode liderar um time de developers VTEX?",
+      it: "Puoi guidare un team di developer VTEX?",
+    },
+    answer: {
+      en: "Yes. That's my current role at Valtech: technical leadership plus hands-on delivery when complexity demands it. Previously Apps Engineer at VTEX with LATAM technical training.",
+      es: "Sí. Es mi rol actual en Valtech: liderazgo técnico más delivery hands-on cuando la complejidad lo pide. Antes Apps Engineer en VTEX con formación técnica LATAM.",
+    },
+  },
+  {
+    id: "contact",
+    question: {
+      en: "How can I start a conversation?",
+      es: "¿Cómo empezamos una conversación?",
+      "pt-BR": "Como começamos uma conversa?",
+      it: "Come iniziamo una conversazione?",
+    },
+    answer: {
+      en: "WhatsApp, LinkedIn or email from the contact section — no forms. A 30-minute architecture conversation is usually enough to see if there's fit.",
+      es: "WhatsApp, LinkedIn o email desde la sección de contacto — sin formularios. Una conversación de arquitectura de 30 minutos suele alcanzar para ver si hay fit.",
     },
   },
 ];

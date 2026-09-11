@@ -30,6 +30,34 @@
   line-height: 1.2;
 }
 
+.questions {
+  margin: 0 0 1.35rem;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.questions li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: rgba(1, 6, 6, 0.82);
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.questions li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
 .body {
   margin: 0 0 1rem;
   color: rgba(1, 6, 6, 0.78);

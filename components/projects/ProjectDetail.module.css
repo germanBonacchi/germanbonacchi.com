@@ -73,6 +73,13 @@
   text-transform: uppercase;
 }
 
+.eyebrow {
+  margin: 0 0 0.5rem;
+  color: rgba(247, 248, 250, 0.7);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 .title {
   margin: 0 0 0.75rem;
   color: var(--color-text-white);
@@ -259,4 +266,15 @@
   border: 1px solid var(--color-border);
   font-size: 0.85rem;
   font-weight: 600;
+}
+
+.diagram {
+  margin-top: 1.25rem;
+}
+
+.note {
+  margin: 1rem 0 0 !important;
+  font-size: 0.9rem;
+  color: rgba(247, 248, 250, 0.55) !important;
+  font-style: italic;
 }

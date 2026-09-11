@@ -37,8 +37,48 @@
   color: rgba(1, 6, 6, 0.78);
 }
 
+.core {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.coreGroup {
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--color-border-dark);
+}
+
+.coreGroup:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.coreTitle {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.coreItems {
+  margin: 0;
+  color: rgba(1, 6, 6, 0.82);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.explore {
+  margin: 1.5rem 0 0;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  font-size: 0.98rem;
+}
+
 .networkNote {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   color: rgba(1, 6, 6, 0.62);
   font-size: 0.95rem;
 }

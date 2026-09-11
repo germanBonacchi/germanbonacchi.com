@@ -23,6 +23,11 @@ export function About() {
           <h2 id="about-heading" className={styles.heading}>
             {t.about.heading}
           </h2>
+          <ul className={styles.questions}>
+            {t.about.questions.map((q) => (
+              <li key={q}>{q}</li>
+            ))}
+          </ul>
           {t.about.body.map((paragraph) => (
             <p key={paragraph.slice(0, 24)} className={styles.body}>
               {paragraph.includes("Valtech") ? (

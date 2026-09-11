@@ -208,6 +208,11 @@ export function Experience() {
                       ) : (
                         item.company
                       )}
+                      {item.id === "vtex" ? (
+                        <span className={styles.exVtex}>
+                          {t.experience.exVtexBadge}
+                        </span>
+                      ) : null}
                     </p>
                   </div>
                   <div className={styles.body}>

@@ -6,6 +6,7 @@ import { localizedHref } from "@/lib/paths";
 export const NAV_SECTIONS = [
   "about",
   "expertise",
+  "services",
   "experience",
   "projects",
   "skills",

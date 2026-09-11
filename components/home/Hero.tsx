@@ -41,6 +41,32 @@ export function Hero() {
           />
         </div>
         <p className={styles.role}>{l(siteConfig.jobTitle)}</p>
+        <p className={styles.tagline}>{t.hero.tagline}</p>
+        <p className={styles.credentials}>{t.hero.credentials}</p>
+
+        <div className={styles.ctas}>
+          <Link
+            href={localizedHref(locale, "/#contact")}
+            className={styles.ctaPrimary}
+            onClick={() => track("nav_section", { section: "contact" })}
+          >
+            {t.hero.ctaArchitecture}
+          </Link>
+          <Link
+            href={localizedHref(locale, "/#services")}
+            className={styles.ctaSecondary}
+            onClick={() => track("nav_section", { section: "services" })}
+          >
+            {t.hero.ctaHire}
+          </Link>
+          <Link
+            href={localizedHref(locale, "/#projects")}
+            className={styles.ctaGhost}
+            onClick={() => track("nav_section", { section: "projects" })}
+          >
+            {t.hero.ctaProjects}
+          </Link>
+        </div>
       </div>
 
       <Link

@@ -16,8 +16,8 @@ export const projects: Project[] = [
  featuredWeight: 1,
  caseStudy: true,
  summary: {
- en: "Technical Lead & Architect on Carrefour Argentina's ecommerce on VTEX IO: multi-vertical retail at production scale, pushing the full capabilities of the platform.",
- es: "Technical Lead & Architect en el ecommerce de Carrefour Argentina sobre VTEX IO: retail multi-vertical a escala de producción, explotando las capacidades de la plataforma.",
+ en: "Technical Lead & Architect on Carrefour Argentina's ecommerce on VTEX IO: multi-vertical retail architecture at production scale — regionalizer, cart split, Mega Menu and platform evolution under high traffic.",
+ es: "Technical Lead & Architect en el ecommerce de Carrefour Argentina sobre VTEX IO: arquitectura retail multi-vertical a escala de producción — regionalizador, split de carritos, Mega Menu y evolución de plataforma bajo alto tráfico.",
  },
  context: {
  en: "Carrefour Argentina is one of the country's leading supermarket chains, with a high-traffic omnichannel ecommerce on VTEX IO. Public reporting around its digital channel has cited millions of monthly visits and a large order volume across hypermarkets, supermarkets, express, wholesale, pickup and marketplace. Inside Valtech I lead technical work on this platform: theme, custom VTEX IO apps, checkout, logistics and the commerce capabilities that keep grocery and non-food selling together.",

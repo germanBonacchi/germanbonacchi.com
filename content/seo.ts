@@ -6,10 +6,12 @@ import type { Localized } from "./types";
 export const seoKeywords = [
   "Germán Bonacchi",
   "German Bonacchi",
+  "VTEX Solution Architect",
+  "VTEX Architect",
   "Technical Lead VTEX",
   "líder técnico VTEX",
+  "Ex-VTEX",
   "experto VTEX",
-  "expertos en VTEX",
   "especialista VTEX Argentina",
   "Valtech VTEX",
   "Valtech Technical Lead",
@@ -17,7 +19,7 @@ export const seoKeywords = [
   "VTEX FastStore",
   "arquitectura ecommerce",
   "ecommerce architecture",
-  "líder técnico ecommerce",
+  "VTEX checkout architecture",
   "Carrefour VTEX",
   "Cetrogar FastStore",
   "Médis Saúde360 VTEX",
@@ -25,24 +27,23 @@ export const seoKeywords = [
   "Perfumerías Rouge VTEX",
   "Beauty24 VTEX",
   "Rouge Maison VTEX",
-  "ecosistema Rouge",
   "React TypeScript Node.js VTEX",
 ];
 
 export const seoTitle: Record<"default" | "home", Localized> = {
   default: {
-    es: "Germán Bonacchi | Líder técnico VTEX & Technical Lead Commerce | Valtech",
-    en: "Germán Bonacchi | VTEX Technical Lead & Commerce Architecture | Valtech",
+    es: "Germán Bonacchi | VTEX Solution Architect & Technical Lead | Valtech",
+    en: "Germán Bonacchi | VTEX Solution Architect & Technical Lead | Valtech",
     "pt-BR":
-      "Germán Bonacchi | Líder Técnico VTEX & Technical Lead Commerce | Valtech",
-    it: "Germán Bonacchi | Technical Lead VTEX & Commerce Architecture | Valtech",
+      "Germán Bonacchi | VTEX Solution Architect & Technical Lead | Valtech",
+    it: "Germán Bonacchi | VTEX Solution Architect & Technical Lead | Valtech",
   },
   home: {
-    es: "Germán Bonacchi | Líder técnico VTEX en Valtech | FastStore, IO y arquitectura ecommerce",
-    en: "Germán Bonacchi | VTEX Technical Lead at Valtech | FastStore, IO & Ecommerce Architecture",
+    es: "Germán Bonacchi | Ex-VTEX · Solution Architect & Technical Lead | FastStore, IO y arquitectura ecommerce",
+    en: "Germán Bonacchi | Ex-VTEX · Solution Architect & Technical Lead | FastStore, IO & Ecommerce Architecture",
     "pt-BR":
-      "Germán Bonacchi | Líder Técnico VTEX na Valtech | FastStore, IO e Arquitetura Ecommerce",
-    it: "Germán Bonacchi | Technical Lead VTEX in Valtech | FastStore, IO e Architettura Ecommerce",
+      "Germán Bonacchi | Ex-VTEX · Solution Architect & Technical Lead | FastStore, IO e Arquitetura Ecommerce",
+    it: "Germán Bonacchi | Ex-VTEX · Solution Architect & Technical Lead | FastStore, IO e Architettura Ecommerce",
   },
 };
 
@@ -70,11 +71,11 @@ export const projectsPageSeo: Localized<{ title: string; description: string }> 
 };
 
 export const seoDescription: Localized = {
-  en: "I'm Germán Bonacchi, Technical Lead for VTEX at Valtech. I work with VTEX IO, FastStore, ecommerce architecture, checkout and integrations on projects like Carrefour, Cetrogar, Médis and Rouge.",
-  es: "Soy Germán Bonacchi, líder técnico VTEX en Valtech. Trabajo con VTEX IO, FastStore, arquitectura ecommerce, checkout e integraciones en proyectos como Carrefour, Cetrogar, Médis y Rouge.",
+  en: "Ex-VTEX Solution Architect & Technical Lead at Valtech. Enterprise ecommerce on VTEX IO and FastStore: architecture, checkout, integrations — Carrefour, Cetrogar, Médis, Rouge.",
+  es: "Ex-VTEX, Solution Architect & Technical Lead en Valtech. Ecommerce enterprise sobre VTEX IO y FastStore: arquitectura, checkout, integraciones — Carrefour, Cetrogar, Médis, Rouge.",
   "pt-BR":
-    "Sou Germán Bonacchi, Technical Lead de VTEX na Valtech. Trabalho com VTEX IO, FastStore, arquitetura ecommerce, checkout e integrações em projetos como Carrefour, Cetrogar, Médis e Rouge.",
-  it: "Sono Germán Bonacchi, Technical Lead VTEX in Valtech. Lavoro con VTEX IO, FastStore, architettura ecommerce, checkout e integrazioni su progetti come Carrefour, Cetrogar, Médis e Rouge.",
+    "Ex-VTEX, Solution Architect & Technical Lead na Valtech. Ecommerce enterprise em VTEX IO e FastStore: arquitetura, checkout, integrações — Carrefour, Cetrogar, Médis, Rouge.",
+  it: "Ex-VTEX, Solution Architect & Technical Lead in Valtech. Ecommerce enterprise su VTEX IO e FastStore: architettura, checkout, integrazioni — Carrefour, Cetrogar, Médis, Rouge.",
 };
 
 export interface SeoBlock {
@@ -149,19 +150,19 @@ export const entitySeoBlocks: SeoBlock[] = [
     paragraphs: {
       en: [
         "I started at IPLUSB and ALTOCOM building and shipping software. At VTEX I built apps with TypeScript, React, GraphQL and Node.js, supported customers and partners, and later led technical work and LATAM trainings.",
-        "At Valtech I lead and ship on large retailer platforms: Carrefour Argentina on VTEX IO, pushing the full capabilities of the framework; Cetrogar, a successful VTEX FastStore migration in record time; the Médis health and wellness commerce channel in Portugal; and the Rouge beauty ecosystem.",
+        "At Valtech I lead and ship on large retailer platforms: Carrefour Argentina on VTEX IO; Cetrogar, a VTEX FastStore migration delivered in about 90 days and publicly highlighted by VTEX; the Médis health and wellness commerce channel in Portugal; and the Rouge beauty ecosystem.",
       ],
       es: [
         "Empecé en IPLUSB y ALTOCOM construyendo y entregando software. En VTEX armé apps con TypeScript, React, GraphQL y Node.js, di soporte a clientes y partners, y después lideré trabajo técnico y capacitaciones LATAM.",
-        "En Valtech lidero y entrego sobre plataformas de retailers grandes: Carrefour Argentina sobre VTEX IO, explotando las capacidades del framework; Cetrogar, una migración a VTEX FastStore con éxito en tiempo récord; el canal de commerce de salud y bienestar de Médis en Portugal; y el ecosistema beauty Rouge.",
+        "En Valtech lidero y entrego sobre plataformas de retailers grandes: Carrefour Argentina sobre VTEX IO; Cetrogar, migración a VTEX FastStore en alrededor de 90 días (destacada públicamente por VTEX); el canal de commerce de salud y bienestar de Médis en Portugal; y el ecosistema beauty Rouge.",
       ],
       "pt-BR": [
         "Comecei na IPLUSB e ALTOCOM construindo e entregando software. Na VTEX montei apps com TypeScript, React, GraphQL e Node.js, dei suporte a clientes e partners, e depois liderei trabalho técnico e treinamentos LATAM.",
-        "Na Valtech lidero e entrego em plataformas de grandes varejistas: Carrefour Argentina em VTEX IO, explorando as capacidades do framework; Cetrogar, uma migração para VTEX FastStore com sucesso em tempo recorde; o canal de commerce de saúde e bem-estar da Médis em Portugal; e o ecossistema beauty Rouge.",
+        "Na Valtech lidero e entrego em plataformas de grandes varejistas: Carrefour Argentina em VTEX IO; Cetrogar, migração para VTEX FastStore em cerca de 90 dias (destacada publicamente pela VTEX); o canal de commerce de saúde e bem-estar da Médis em Portugal; e o ecossistema beauty Rouge.",
       ],
       it: [
         "Ho iniziato in IPLUSB e ALTOCOM costruendo e rilasciando software. In VTEX ho costruito app con TypeScript, React, GraphQL e Node.js, supportato clienti e partner, e poi ho guidato lavoro tecnico e formazioni LATAM.",
-        "In Valtech guido e consegno su piattaforme di grandi retailer: Carrefour Argentina su VTEX IO, sfruttando le capacità del framework; Cetrogar, una migrazione a VTEX FastStore riuscita in tempo record; il canale commerce salute e benessere di Médis in Portogallo; e l'ecosistema beauty Rouge.",
+        "In Valtech guido e consegno su piattaforme di grandi retailer: Carrefour Argentina su VTEX IO; Cetrogar, migrazione a VTEX FastStore in circa 90 giorni (evidenziata pubblicamente da VTEX); il canale commerce salute e benessere di Médis in Portogallo; e l'ecosistema beauty Rouge.",
       ],
     },
   },

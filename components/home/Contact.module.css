@@ -35,6 +35,57 @@
   color: rgba(247, 248, 250, 0.78);
 }
 
+.offer {
+  margin-top: 1.5rem;
+}
+
+.offerHeading {
+  margin: 0 0 0.65rem;
+  font-weight: 700;
+  color: var(--color-text-white);
+}
+
+.offerList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.offerList li {
+  position: relative;
+  padding-left: 1rem;
+  color: rgba(247, 248, 250, 0.78);
+  font-size: 0.95rem;
+}
+
+.offerList li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent-cyan);
+}
+
+.schedule {
+  margin: 0 0 1.75rem;
+}
+
+.schedule a {
+  display: inline-flex;
+  color: var(--color-accent-cyan);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 200, 255, 0.45);
+  padding-bottom: 2px;
+}
+
+.schedule a:hover,
+.schedule a:focus-visible {
+  color: #7dd3fc;
+  border-bottom-color: #7dd3fc;
+}
+
 .actions {
   display: grid;
   gap: 1rem;

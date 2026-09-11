@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { HiArrowLeft } from "react-icons/hi";
+import { carrefourCase } from "@/content/carrefourCase";
 import { technologyById } from "@/content/technologies";
 import type { Locale, Localized, Project } from "@/content/types";
+import { ArchitectureDiagram } from "@/components/ui/ArchitectureDiagram";
 import { useLocale } from "@/lib/locale";
 import { localizedHref } from "@/lib/paths";
 import { track } from "@/lib/analytics";
@@ -106,6 +108,9 @@ export function ProjectDetail({
             ) : null}
             <p className={styles.client}>{project.client}</p>
           </div>
+          {isCarrefour ? (
+            <p className={styles.eyebrow}>{l(carrefourCase.eyebrow)}</p>
+          ) : null}
           <h1 className={styles.title}>
             <a
               href={project.url}
@@ -204,6 +209,87 @@ export function ProjectDetail({
           <h2 id="context-heading">{t.projects.contextLabel}</h2>
           <p>{l(project.context)}</p>
         </section>
+
+        {isCarrefour ? (
+          <>
+            <section
+              className={styles.block}
+              aria-labelledby="responsibility-heading"
+            >
+              <h2 id="responsibility-heading">
+                {l(carrefourCase.responsibilitiesTitle)}
+              </h2>
+              <ul className={styles.tags}>
+                {l(carrefourCase.responsibilities).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section
+              className={styles.block}
+              aria-labelledby="architecture-heading"
+            >
+              <h2 id="architecture-heading">
+                {l(carrefourCase.architectureTitle)}
+              </h2>
+              <p>{l(carrefourCase.architectureNote)}</p>
+              <div className={styles.diagram}>
+                <ArchitectureDiagram
+                  caption={l(carrefourCase.confidentiality)}
+                />
+              </div>
+            </section>
+
+            <section
+              className={styles.block}
+              aria-labelledby="decisions-heading"
+            >
+              <h2 id="decisions-heading">{l(carrefourCase.decisionsTitle)}</h2>
+              <ul>
+                {l(carrefourCase.decisions).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section
+              className={styles.block}
+              aria-labelledby="complexity-heading"
+            >
+              <h2 id="complexity-heading">
+                {l(carrefourCase.complexityTitle)}
+              </h2>
+              <ul>
+                {l(carrefourCase.complexity).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section
+              className={styles.block}
+              aria-labelledby="tradeoffs-heading"
+            >
+              <h2 id="tradeoffs-heading">{l(carrefourCase.tradeoffsTitle)}</h2>
+              <ul>
+                {l(carrefourCase.tradeoffs).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className={styles.block} aria-labelledby="results-heading">
+              <h2 id="results-heading">{l(carrefourCase.resultsTitle)}</h2>
+              <ul>
+                {l(carrefourCase.results).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p className={styles.note}>{l(carrefourCase.confidentiality)}</p>
+            </section>
+          </>
+        ) : null}
 
         <section className={styles.block} aria-labelledby="challenges-heading">
           <h2 id="challenges-heading">{t.projects.challengesLabel}</h2>

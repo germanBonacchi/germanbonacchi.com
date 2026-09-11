@@ -1,0 +1,46 @@
+.bar {
+  position: relative;
+  z-index: 2;
+  background: #07263a;
+  color: #e0f2fe;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.18);
+  padding: 1.35rem 1.5rem;
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  text-align: center;
+}
+
+.stats {
+  margin: 0;
+  font-size: clamp(0.92rem, 2.2vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #f0f9ff;
+}
+
+.companies {
+  margin: 0;
+  font-size: 0.92rem;
+  color: rgba(186, 230, 253, 0.78);
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 800px) {
+  .inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    gap: 1.5rem;
+  }
+
+  .companies {
+    text-align: right;
+  }
+}
