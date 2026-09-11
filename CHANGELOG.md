@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.0] — 2026-09-11
+
 ### Added
 
 - Home sections: **Problems**, **Services**, **Decisions**, **Philosophy**, **Testimonials**
@@ -89,7 +91,8 @@ Major rebuild of the personal portfolio on **Next.js 15** (App Router) + **React
 
 - First public version of the portfolio site (CRA-era stack)
 
-[Unreleased]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v1.1.1...v2.0.0
 [1.1.1]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v1.1.0...v1.1.1
 [1.1.0]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v1.0.0...v1.1.0
