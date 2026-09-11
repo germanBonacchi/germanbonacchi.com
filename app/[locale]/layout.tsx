@@ -140,6 +140,7 @@ export default async function LocaleLayout({
     <html
       lang={getLanguageMeta(locale).htmlLang}
       className={`${encode.variable} ${pencil.variable}`}
+      data-scroll-behavior="smooth"
     >
       <body>
         <LocaleProvider initialLocale={locale}>

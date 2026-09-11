@@ -47,7 +47,26 @@ export function Contact() {
             {t.contact.heading}
           </h2>
           <p className={styles.intro}>{t.contact.intro}</p>
+          <div className={styles.offer}>
+            <p className={styles.offerHeading}>{t.contact.offerHeading}</p>
+            <ul className={styles.offerList}>
+              {t.contact.offerItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </header>
+
+        <p className={styles.schedule}>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => onChannel("whatsapp")}
+          >
+            {t.contact.scheduleCta} →
+          </a>
+        </p>
 
         <ul className={styles.actions}>
           <li className={styles.cardItem}>

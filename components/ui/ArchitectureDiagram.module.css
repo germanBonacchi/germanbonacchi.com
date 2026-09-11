@@ -1,0 +1,116 @@
+.figure {
+  margin: 0;
+  width: 100%;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 640px;
+  margin: 0 auto;
+  color: rgba(247, 248, 250, 0.55);
+  background: rgba(1, 6, 6, 0.35);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+}
+
+.boxPrimary {
+  fill: rgba(0, 200, 255, 0.12);
+  stroke: rgba(0, 200, 255, 0.55);
+  stroke-width: 1.5;
+}
+
+.boxAccent {
+  fill: rgba(163, 46, 255, 0.14);
+  stroke: rgba(180, 85, 255, 0.65);
+  stroke-width: 1.5;
+}
+
+.boxSecondary {
+  fill: rgba(247, 248, 250, 0.06);
+  stroke: rgba(247, 248, 250, 0.35);
+  stroke-width: 1.5;
+}
+
+.boxMuted {
+  fill: rgba(247, 248, 250, 0.04);
+  stroke: rgba(247, 248, 250, 0.28);
+  stroke-width: 1.25;
+}
+
+.line {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.labelStrong {
+  fill: var(--color-text-white);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+}
+
+.labelMuted {
+  fill: rgba(247, 248, 250, 0.65);
+  font-size: 11px;
+  font-family: var(--font-sans);
+}
+
+.labelTiny {
+  fill: rgba(247, 248, 250, 0.5);
+  font-size: 10px;
+  font-family: var(--font-sans);
+}
+
+.caption {
+  fill: rgba(247, 248, 250, 0.55);
+  font-size: 11px;
+  font-family: var(--font-sans);
+}
+
+.figcaption {
+  margin: 0.75rem 0 0;
+  color: rgba(1, 6, 6, 0.65);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Light-surface variant when parent is on light bg */
+:global(.diagramOnLight) .svg {
+  background: #fff;
+  border-color: var(--color-border-dark);
+  color: rgba(1, 6, 6, 0.35);
+}
+
+:global(.diagramOnLight) .labelStrong {
+  fill: var(--color-text-dark);
+}
+
+:global(.diagramOnLight) .labelMuted,
+:global(.diagramOnLight) .labelTiny,
+:global(.diagramOnLight) .caption {
+  fill: rgba(1, 6, 6, 0.55);
+}
+
+:global(.diagramOnLight) .boxPrimary {
+  fill: rgba(0, 120, 154, 0.08);
+  stroke: rgba(0, 120, 154, 0.55);
+}
+
+:global(.diagramOnLight) .boxAccent {
+  fill: rgba(163, 46, 255, 0.08);
+  stroke: rgba(163, 46, 255, 0.45);
+}
+
+:global(.diagramOnLight) .boxSecondary,
+:global(.diagramOnLight) .boxMuted {
+  fill: rgba(1, 6, 6, 0.03);
+  stroke: rgba(1, 6, 6, 0.2);
+}
+
+:global(.diagramOnLight) .figcaption {
+  color: rgba(1, 6, 6, 0.65);
+}

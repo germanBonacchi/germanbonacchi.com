@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { NAV_SECTIONS, navHref, navLabel } from "@/content/nav";
+import { FOOTER_SECTIONS, navHref, navLabel } from "@/content/nav";
 import { siteConfig } from "@/content/site";
 import { useLocale } from "@/lib/locale";
 import { SocialIcons } from "@/components/ui/SocialIcons";
@@ -19,7 +19,7 @@ export function Footer() {
           <p className={styles.role}>{l(siteConfig.jobTitle)}</p>
         </div>
         <nav className={styles.nav} aria-label="Footer">
-          {NAV_SECTIONS.map((id) => (
+          {FOOTER_SECTIONS.map((id) => (
             <Link key={id} href={navHref(locale, id)}>
               {navLabel(t, id)}
             </Link>

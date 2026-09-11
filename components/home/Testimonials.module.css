@@ -1,0 +1,131 @@
+.section {
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding: 3.5rem 1.5rem 4rem;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 1.75rem;
+  max-width: 36rem;
+}
+
+.top {
+  margin: 0 0 0.75rem;
+  color: var(--color-accent-on-dark);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.heading {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+  color: var(--color-text-white);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  max-width: 34rem;
+}
+
+.card {
+  position: relative;
+  margin: 0;
+  padding: 1.5rem 1.25rem 1.25rem;
+  background: rgba(1, 6, 6, 0.25);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.mark {
+  position: absolute;
+  top: 0.25rem;
+  left: 0.85rem;
+  font-size: 2.75rem;
+  line-height: 1;
+  color: var(--color-accent-cyan);
+  opacity: 0.4;
+  font-family: Georgia, "Times New Roman", serif;
+  pointer-events: none;
+  user-select: none;
+}
+
+.quote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.quote p {
+  margin: 0;
+  color: rgba(247, 248, 250, 0.88);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.meta {
+  margin-top: 1.1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--color-border);
+  position: relative;
+  z-index: 1;
+}
+
+.name {
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-text-white);
+  font-style: normal;
+  font-size: 0.98rem;
+}
+
+.name a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.name a:hover,
+.name a:focus-visible {
+  color: var(--color-accent-cyan);
+  text-decoration: underline;
+}
+
+.role,
+.relationship {
+  margin: 0.2rem 0 0;
+  color: rgba(247, 248, 250, 0.6);
+  font-size: 0.82rem;
+  font-style: normal;
+  line-height: 1.4;
+}
+
+.source {
+  display: inline-block;
+  margin-top: 0.65rem;
+  color: var(--color-accent-cyan);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  font-style: normal;
+}
+
+a.source:hover,
+a.source:focus-visible {
+  text-decoration: underline;
+}

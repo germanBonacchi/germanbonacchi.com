@@ -86,10 +86,109 @@
 
 .role {
   margin-top: 24px;
-  color: rgba(224, 242, 254, 0.9);
-  font-size: 24px;
-  font-weight: 400;
+  color: rgba(224, 242, 254, 0.95);
+  font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+  font-weight: 700;
   max-width: 768px;
+}
+
+.tagline {
+  margin: 0.85rem 0 0;
+  color: rgba(186, 230, 253, 0.88);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  line-height: 1.45;
+  max-width: 36rem;
+}
+
+.credentials {
+  margin: 0;
+  color: #7dd3fc;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.proof {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.years {
+  margin: 0;
+  color: rgba(186, 230, 253, 0.88);
+  font-size: 0.95rem;
+}
+
+.ctas {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.ctaPrimary,
+.ctaSecondary,
+.ctaGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.15rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ctaPrimary {
+  background: #7dd3fc;
+  color: #07263a;
+}
+
+.ctaPrimary:hover,
+.ctaPrimary:focus-visible {
+  background: #bae6fd;
+}
+
+.ctaSecondary {
+  background: transparent;
+  color: #e0f2fe;
+  border: 1.5px solid rgba(125, 211, 252, 0.55);
+}
+
+.ctaSecondary:hover,
+.ctaSecondary:focus-visible {
+  border-color: #bae6fd;
+  color: #fff;
+}
+
+.ctaGhost {
+  background: transparent;
+  color: rgba(186, 230, 253, 0.85);
+  border: 1px solid transparent;
+}
+
+.ctaGhost:hover,
+.ctaGhost:focus-visible {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.ctaLabelDesktop {
+  display: inline;
+}
+
+.ctaLabelMobile {
+  display: none;
 }
 
 .scrollDown {
@@ -132,9 +231,39 @@
     font-size: 40px;
   }
 
-  .greeting,
+  .greeting {
+    font-size: 22px;
+  }
+
   .role {
-    font-size: 24px;
+    font-size: 1.2rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .ctas {
+    flex-direction: column;
+    width: 100%;
+    max-width: 22rem;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary,
+  .ctaGhost {
+    width: 100%;
+    white-space: nowrap;
+    font-size: 0.88rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .ctaLabelDesktop {
+    display: none;
+  }
+
+  .ctaLabelMobile {
+    display: inline;
   }
 }
 
@@ -143,9 +272,20 @@
     font-size: 32px;
   }
 
-  .greeting,
-  .role {
+  .greeting {
     font-size: 18px;
+  }
+
+  .role {
+    font-size: 1.05rem;
+  }
+
+  .credentials {
+    font-size: 0.8rem;
+  }
+
+  .years {
+    font-size: 0.85rem;
   }
 
   .scrollDown {

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/content/site";
 import { projects } from "@/content/projects";
+import { problemSlugs } from "@/content/problemPages";
 import { LOCALE_CODES } from "@/content/languages";
 import { hreflangAlternates, localizedHref } from "@/lib/paths";
 
@@ -37,6 +38,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...localizedEntries("/", "monthly", 1),
     ...localizedEntries("/projects", "monthly", 0.9),
+    ...localizedEntries("/decisions", "monthly", 0.75),
+    ...localizedEntries("/philosophy", "monthly", 0.6),
+    ...localizedEntries("/services", "monthly", 0.8),
+    ...localizedEntries("/testimonials", "monthly", 0.65),
+    ...localizedEntries("/faq", "monthly", 0.7),
+    ...problemSlugs.flatMap((slug) =>
+      localizedEntries(`/problems/${slug}`, "monthly", 0.7),
+    ),
     ...projects.flatMap((project) =>
       localizedEntries(
         `/projects/${project.slug}`,

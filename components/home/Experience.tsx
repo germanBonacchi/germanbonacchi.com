@@ -47,7 +47,7 @@ function formatDateRange(
       : endDate
         ? formatMonthYear(endDate, locale)
         : "";
-  if (start && end) return `${start} — ${end}`;
+  if (start && end) return `${start} – ${end}`;
   return start || end;
 }
 

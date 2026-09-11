@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import { NAV_SECTIONS, navHref, navLabel } from "@/content/nav";
+import { FOOTER_SECTIONS, NAV_SECTIONS, navHref, navLabel } from "@/content/nav";
 import { useLocale } from "@/lib/locale";
 import { localizedHref } from "@/lib/paths";
 import { track } from "@/lib/analytics";
@@ -25,19 +25,36 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
-  useEffect(() => {
     if (!open) return;
+
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
+
+    const allowScroll = (target: EventTarget | null) => {
+      const el = target as HTMLElement | null;
+      return Boolean(el?.closest(`.${styles.drawerNav}`));
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (allowScroll(e.target)) return;
+      e.preventDefault();
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      if (allowScroll(e.target)) return;
+      e.preventDefault();
+    };
+
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
+    document.addEventListener("touchmove", onTouchMove, { passive: false });
+    document.addEventListener("wheel", onWheel, { passive: false });
+
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("touchmove", onTouchMove);
+      document.removeEventListener("wheel", onWheel);
+    };
   }, [open]);
 
   const handleNav = (section: string) => {
@@ -74,7 +91,9 @@ export function Header() {
 
             <div className={styles.actions}>
               <SocialIcons compact />
-              <LanguageSwitcher />
+              <div className={styles.headerLang}>
+                <LanguageSwitcher />
+              </div>
               <button
                 type="button"
                 className={styles.menuBtn}
@@ -96,7 +115,7 @@ export function Header() {
         hidden={!open}
       >
         <nav className={styles.drawerNav} aria-label="Mobile">
-          {NAV_SECTIONS.map((id) => (
+          {FOOTER_SECTIONS.map((id) => (
             <Link
               key={id}
               href={navHref(locale, id)}
@@ -109,7 +128,7 @@ export function Header() {
         </nav>
         <div className={styles.drawerFooter}>
           <SocialIcons />
-          <LanguageSwitcher />
+          <LanguageSwitcher mode="inline" />
         </div>
       </div>
       {open ? (

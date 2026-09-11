@@ -63,8 +63,8 @@ export const experiences: ExperienceItem[] = [
     company: "VTEX",
     companyUrl: "https://vtex.com/",
     role: {
-      en: "Apps Engineer / Technical Leadership",
-      es: "Apps Engineer / Liderazgo técnico",
+      en: "Apps Engineer → Technical Leadership",
+      es: "Apps Engineer → Liderazgo técnico",
     },
     location: {
       en: "Argentina",
@@ -73,21 +73,21 @@ export const experiences: ExperienceItem[] = [
     startDate: "2021-03",
     endDate: "2022-09",
     summary: {
-      en: "Built and supported VTEX applications for customers and partners. Grew into technical leadership responsibilities across delivery workflows and team coordination.",
-      es: "Desarrollé y di soporte a aplicaciones VTEX para clientes y partners. Evolucioné hacia responsabilidades de liderazgo técnico en workflows de entrega y coordinación de equipos.",
+      en: "Apps · TypeScript · React · GraphQL · Node. Clients · Partners · LATAM Technical Training.",
+      es: "Apps · TypeScript · React · GraphQL · Node. Clientes · Partners · Formación técnica LATAM.",
     },
     highlights: {
       en: [
-        "Developed VTEX applications using TypeScript, React (Hooks), GraphQL, and Node.js.",
-        "Supported customers and partners with platform capabilities and application lifecycle.",
-        "As a technical leader, improved team management with Scrum and clearer cross-team workflows.",
-        "Delivered technical trainings on app lifecycle and platform practices across LATAM.",
+        "Developed VTEX apps (TypeScript, React, GraphQL, Node.js) for customers and partners.",
+        "Supported platform capabilities and application lifecycle.",
+        "Grew into technical leadership: Scrum, clearer cross-team workflows.",
+        "Delivered LATAM technical trainings on app lifecycle and platform practices.",
       ],
       es: [
-        "Desarrollé aplicaciones VTEX con TypeScript, React (Hooks), GraphQL y Node.js.",
-        "Di soporte a clientes y partners sobre capacidades de plataforma y ciclo de vida de aplicaciones.",
-        "Como líder técnico, mejoré la gestión del equipo con Scrum y flujos de trabajo más claros entre equipos.",
-        "Dicté capacitaciones técnicas sobre ciclo de vida de apps y prácticas de plataforma en LATAM.",
+        "Desarrollé apps VTEX (TypeScript, React, GraphQL, Node.js) para clientes y partners.",
+        "Soporte de capacidades de plataforma y ciclo de vida de aplicaciones.",
+        "Evolucioné a liderazgo técnico: Scrum y flujos más claros entre equipos.",
+        "Capacitaciones técnicas LATAM sobre lifecycle de apps y prácticas de plataforma.",
       ],
     },
     technologies: [

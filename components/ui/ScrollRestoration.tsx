@@ -10,9 +10,12 @@ import { stripLocalePrefix } from "@/lib/paths";
  * navigation — the browser animates it instead of jumping instantly, and if
  * that animation gets interrupted by the new page's content mounting, the
  * scroll position is left wherever the interrupted animation stopped. This
- * forces an instant jump to top on every real route change (hash-only
- * anchor nav on the same page doesn't touch `pathname`, so it still scrolls
- * smoothly) and restores smooth scrolling right after.
+ * forces an instant jump on every real route change (hash-only anchor nav
+ * on the same page doesn't touch `pathname`, so it still scrolls smoothly)
+ * and restores smooth scrolling right after.
+ *
+ * When the new URL has a hash (e.g. /services → /#contact), jump to that
+ * element instead of the top — after the destination page has mounted.
  *
  * Switching language changes the URL (locale prefix) without changing the
  * actual page, so it must NOT reset scroll — only a change to the
@@ -37,17 +40,36 @@ export function ScrollRestoration() {
     if (samePage) return;
 
     const html = document.documentElement;
-    const jumpToTop = () => {
+    const hash = window.location.hash.replace(/^#/, "");
+
+    const jump = () => {
       const previous = html.style.scrollBehavior;
       html.style.scrollBehavior = "auto";
-      window.scrollTo(0, 0);
+      if (hash) {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView();
+          html.style.scrollBehavior = previous;
+          return true;
+        }
+      } else {
+        window.scrollTo(0, 0);
+      }
       html.style.scrollBehavior = previous;
+      return !hash;
     };
-    jumpToTop();
-    // Next's own router scroll handling can run a tick after this effect;
-    // re-assert the jump once more after that settles.
-    const raf = requestAnimationFrame(jumpToTop);
-    return () => cancelAnimationFrame(raf);
+
+    jump();
+    // Next's router scroll + page content can settle a tick later.
+    const raf = requestAnimationFrame(jump);
+    const timers = hash
+      ? [50, 150, 400].map((ms) => window.setTimeout(jump, ms))
+      : [];
+
+    return () => {
+      cancelAnimationFrame(raf);
+      timers.forEach(clearTimeout);
+    };
   }, [normalizedPath]);
 
   return null;

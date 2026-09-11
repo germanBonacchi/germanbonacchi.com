@@ -40,10 +40,14 @@ const COLORS = {
   cyan: "#00c8ff",
 };
 
+/** Bottom band reserved for drag hint / caption (keeps nodes clear of the copy). */
+const HINT_BAND = 52;
+
 function layoutNodes(width: number, height: number): SimNode[] {
+  const usableH = Math.max(160, height - HINT_BAND);
   const cx = width * 0.5;
-  const cy = height * 0.5;
-  const minDim = Math.min(width, height);
+  const cy = usableH * 0.5;
+  const minDim = Math.min(width, usableH);
   const pad = Math.max(36, minDim * 0.08);
 
   const byEra: Record<number, SkillNode[]> = {
@@ -124,7 +128,7 @@ function layoutNodes(width: number, height: number): SimNode[] {
 
     for (const n of out) {
       n.x = Math.min(width - pad, Math.max(pad, n.x));
-      n.y = Math.min(height - pad - 18, Math.max(pad, n.y));
+      n.y = Math.min(usableH - pad - 18, Math.max(pad, n.y));
     }
   }
 
@@ -139,8 +143,9 @@ function layoutNodes(width: number, height: number): SimNode[] {
 function clampNode(n: SimNode, width: number, height: number) {
   const padX = n.r + 8;
   const padY = n.r + 22; // room for label under the node
+  const maxY = height - HINT_BAND - padY;
   n.x = Math.min(width - padX, Math.max(padX, n.x));
-  n.y = Math.min(height - padY, Math.max(padX, n.y));
+  n.y = Math.min(maxY, Math.max(padX, n.y));
 }
 
 function hitTest(nodes: SimNode[], p: Point): SimNode | null {
