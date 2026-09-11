@@ -183,6 +183,14 @@
   text-decoration: underline;
 }
 
+.ctaLabelDesktop {
+  display: inline;
+}
+
+.ctaLabelMobile {
+  display: none;
+}
+
 .scrollDown {
   position: absolute;
   bottom: 1.5rem;
@@ -245,6 +253,17 @@
   .ctaSecondary,
   .ctaGhost {
     width: 100%;
+    white-space: nowrap;
+    font-size: 0.88rem;
+    padding: 0.65rem 0.85rem;
+  }
+
+  .ctaLabelDesktop {
+    display: none;
+  }
+
+  .ctaLabelMobile {
+    display: inline;
   }
 }
 

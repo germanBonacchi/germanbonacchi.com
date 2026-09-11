@@ -29,6 +29,7 @@ export interface UiCopy {
     ctaProjects: string;
     ctaContact: string;
     ctaArchitecture: string;
+    ctaArchitectureShort: string;
     ctaHire: string;
     scrollDown: string;
     photoAlt: string;
@@ -145,7 +146,8 @@ export const ui: Record<Locale, UiCopy> = {
       authorityLabel: "Professional credentials",
       ctaProjects: "See experience",
       ctaContact: "Get in touch",
-      ctaArchitecture: "I need VTEX architecture help",
+      ctaArchitecture: "I need help with VTEX architecture",
+      ctaArchitectureShort: "VTEX Architecture",
       ctaHire: "Let's talk about a project",
       scrollDown: "Scroll down",
       photoAlt: "Germán Bonacchi portrait",
@@ -292,6 +294,7 @@ export const ui: Record<Locale, UiCopy> = {
       ctaProjects: "Ver experiencia",
       ctaContact: "Contacto",
       ctaArchitecture: "Necesito ayuda con arquitectura VTEX",
+      ctaArchitectureShort: "Arquitectura VTEX",
       ctaHire: "Hablemos de un proyecto",
       scrollDown: "Ver más",
       photoAlt: "Retrato de Germán Bonacchi",
@@ -440,6 +443,7 @@ export const ui: Record<Locale, UiCopy> = {
       ctaProjects: "Ver experiência",
       ctaContact: "Contato",
       ctaArchitecture: "Preciso de ajuda com arquitetura VTEX",
+      ctaArchitectureShort: "Arquitetura VTEX",
       ctaHire: "Vamos falar de um projeto",
       scrollDown: "Ver mais",
       photoAlt: "Retrato de Germán Bonacchi",
@@ -589,7 +593,8 @@ export const ui: Record<Locale, UiCopy> = {
       authorityLabel: "Credenziali professionali",
       ctaProjects: "Vedi esperienza",
       ctaContact: "Contatti",
-      ctaArchitecture: "Mi serve aiuto con architettura VTEX",
+      ctaArchitecture: "Ho bisogno di aiuto con l'architettura VTEX",
+      ctaArchitectureShort: "Architettura VTEX",
       ctaHire: "Parliamo di un progetto",
       scrollDown: "Scopri di più",
       photoAlt: "Ritratto di Germán Bonacchi",

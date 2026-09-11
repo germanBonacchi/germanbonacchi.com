@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
-import { NAV_SECTIONS, navHref, navLabel } from "@/content/nav";
+import { FOOTER_SECTIONS, NAV_SECTIONS, navHref, navLabel } from "@/content/nav";
 import { useLocale } from "@/lib/locale";
 import { localizedHref } from "@/lib/paths";
 import { track } from "@/lib/analytics";
@@ -25,19 +25,50 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [open]);
-
-  useEffect(() => {
     if (!open) return;
+
+    const scrollY = window.scrollY;
+    const { style } = document.body;
+    const prev = {
+      overflow: style.overflow,
+      position: style.position,
+      top: style.top,
+      left: style.left,
+      right: style.right,
+      width: style.width,
+    };
+
+    style.overflow = "hidden";
+    style.position = "fixed";
+    style.top = `-${scrollY}px`;
+    style.left = "0";
+    style.right = "0";
+    style.width = "100%";
+
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
+
+    const onTouchMove = (e: TouchEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target?.closest(`.${styles.drawerNav}`)) return;
+      e.preventDefault();
+    };
+
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
+    document.addEventListener("touchmove", onTouchMove, { passive: false });
+
+    return () => {
+      style.overflow = prev.overflow;
+      style.position = prev.position;
+      style.top = prev.top;
+      style.left = prev.left;
+      style.right = prev.right;
+      style.width = prev.width;
+      window.scrollTo(0, scrollY);
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("touchmove", onTouchMove);
+    };
   }, [open]);
 
   const handleNav = (section: string) => {
@@ -74,7 +105,9 @@ export function Header() {
 
             <div className={styles.actions}>
               <SocialIcons compact />
-              <LanguageSwitcher />
+              <div className={styles.headerLang}>
+                <LanguageSwitcher />
+              </div>
               <button
                 type="button"
                 className={styles.menuBtn}
@@ -96,7 +129,7 @@ export function Header() {
         hidden={!open}
       >
         <nav className={styles.drawerNav} aria-label="Mobile">
-          {NAV_SECTIONS.map((id) => (
+          {FOOTER_SECTIONS.map((id) => (
             <Link
               key={id}
               href={navHref(locale, id)}
@@ -109,7 +142,7 @@ export function Header() {
         </nav>
         <div className={styles.drawerFooter}>
           <SocialIcons />
-          <LanguageSwitcher />
+          <LanguageSwitcher mode="inline" />
         </div>
       </div>
       {open ? (

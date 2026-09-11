@@ -88,6 +88,12 @@
   min-width: 0;
 }
 
+@media (max-width: 959px) {
+  .networkNote {
+    display: none;
+  }
+}
+
 @media (min-width: 960px) {
   .inner {
     grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);

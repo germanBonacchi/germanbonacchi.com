@@ -53,14 +53,20 @@ export function Hero() {
             className={styles.ctaPrimary}
             onClick={() => track("nav_section", { section: "contact" })}
           >
-            {t.hero.ctaArchitecture}
+            <span className={styles.ctaLabelDesktop}>
+              {t.hero.ctaArchitecture}
+            </span>
+            <span className={styles.ctaLabelMobile}>{t.hero.ctaHire}</span>
           </Link>
           <Link
             href={localizedHref(locale, "/#services")}
             className={styles.ctaSecondary}
             onClick={() => track("nav_section", { section: "services" })}
           >
-            {t.hero.ctaHire}
+            <span className={styles.ctaLabelDesktop}>{t.hero.ctaHire}</span>
+            <span className={styles.ctaLabelMobile}>
+              {t.hero.ctaArchitectureShort}
+            </span>
           </Link>
           <Link
             href={localizedHref(locale, "/#projects")}

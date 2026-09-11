@@ -42,7 +42,7 @@ export function Services() {
             href={localizedHref(locale, "/#contact")}
             onClick={() => track("nav_section", { section: "contact" })}
           >
-            {t.hero.ctaArchitecture}
+            {t.hero.ctaHire}
           </Link>
         </p>
       </div>
