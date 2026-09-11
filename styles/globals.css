@@ -3,6 +3,7 @@
   --color-accent-cyan: #00c8ff;
   /* AA-compliant (WCAG 4.5:1) variants for small text, kept on-brand hue */
   --color-accent-on-dark: #b455ff;
+  --color-accent-on-light: #6b14ad;
   --color-accent-cyan-on-light: #00789a;
   --color-bg-dark: #1e1e1e;
   --color-bg-black: #010606;

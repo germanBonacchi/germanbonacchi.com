@@ -154,6 +154,7 @@ function ProjectCard({
         <Link
           href={caseHref}
           className={styles.primary}
+          aria-label={`${caseLabel}: ${project.client}`}
           onClick={() =>
             track("project_click", { slug: project.slug, source: "home" })
           }
@@ -165,6 +166,7 @@ function ProjectCard({
           target="_blank"
           rel="noopener noreferrer"
           className={styles.secondary}
+          aria-label={`${labels.visitStore}: ${project.client}`}
           onClick={() =>
             track("project_external", {
               slug: project.slug,

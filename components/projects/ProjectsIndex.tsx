@@ -88,6 +88,11 @@ export function ProjectsIndex() {
                     <Link
                       href={caseHref}
                       className={styles.primary}
+                      aria-label={`${
+                        project.caseStudy
+                          ? t.projects.viewCase
+                          : t.projects.viewProject
+                      }: ${project.client}`}
                       onClick={() =>
                         track("project_click", {
                           slug: project.slug,
@@ -104,6 +109,7 @@ export function ProjectsIndex() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.secondary}
+                      aria-label={`${t.projects.visitStore}: ${project.client}`}
                       onClick={() =>
                         track("project_external", {
                           slug: project.slug,

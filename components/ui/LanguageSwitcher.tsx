@@ -11,11 +11,7 @@ const MENU_ESTIMATE_HEIGHT = 220;
 
 type PlacementMode = "auto" | "inline";
 
-export function LanguageSwitcher({
-  mode = "auto",
-}: {
-  mode?: PlacementMode;
-}) {
+export function LanguageSwitcher({ mode = "auto" }: { mode?: PlacementMode }) {
   const { locale, setLocale, t } = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimated, setIsAnimated] = useState(false);
@@ -28,7 +24,8 @@ export function LanguageSwitcher({
   const containerRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
-  const current = LANGUAGES.find((lang) => lang.code === locale) ?? LANGUAGES[0];
+  const current =
+    LANGUAGES.find((lang) => lang.code === locale) ?? LANGUAGES[0];
   const inline = mode === "inline";
 
   const updateMenuPosition = () => {
@@ -38,8 +35,7 @@ export function LanguageSwitcher({
     const rect = trigger.getBoundingClientRect();
     const width = Math.max(rect.width, 176);
     const spaceBelow = window.innerHeight - rect.bottom;
-    const placement =
-      spaceBelow < MENU_ESTIMATE_HEIGHT + 12 ? "top" : "bottom";
+    const placement = spaceBelow < MENU_ESTIMATE_HEIGHT + 12 ? "top" : "bottom";
 
     let left = rect.right - width;
     left = Math.max(8, Math.min(left, window.innerWidth - width - 8));
@@ -80,6 +76,7 @@ export function LanguageSwitcher({
         window.removeEventListener("scroll", updateMenuPosition, true);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, inline]);
 
   useEffect(() => {

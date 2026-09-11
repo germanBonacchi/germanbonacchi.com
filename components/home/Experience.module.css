@@ -16,7 +16,7 @@
 
 .top {
   margin: 0 0 1rem;
-  color: var(--color-accent);
+  color: var(--color-accent-on-light);
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -121,13 +121,14 @@
   gap: 1rem;
   min-width: 0;
   padding-top: 0.05rem;
-  opacity: 0.72;
-  transition: opacity 180ms ease;
+  /* Mute with color (not opacity) so text keeps WCAG AA contrast */
+  color: #595f5f;
+  transition: color 180ms ease;
 }
 
 .itemActive .content,
 .itemPast .content {
-  opacity: 1;
+  color: var(--color-text-dark);
 }
 
 .meta {
@@ -140,7 +141,7 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-on-light);
 }
 
 .role {
@@ -164,7 +165,7 @@
   padding: 0.15rem 0.5rem;
   border: 1px solid rgba(163, 46, 255, 0.45);
   border-radius: 4px;
-  color: var(--color-accent);
+  color: var(--color-accent-on-light);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -336,17 +337,17 @@
     grid-column: 3;
   }
 
+  .meta,
+  .body {
+    color: #595f5f;
+    transition: color 180ms ease;
+  }
+
   .itemActive .meta,
   .itemActive .body,
   .itemPast .meta,
   .itemPast .body {
-    opacity: 1;
-  }
-
-  .meta,
-  .body {
-    opacity: 0.72;
-    transition: opacity 180ms ease;
+    color: var(--color-text-dark);
   }
 }
 
