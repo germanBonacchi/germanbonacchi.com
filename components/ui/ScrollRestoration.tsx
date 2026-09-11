@@ -4,18 +4,63 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { stripLocalePrefix } from "@/lib/paths";
 
+/** Matches Header.module.css drawer transform transition. */
+const DRAWER_CLOSE_MS = 220;
+
 function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
+function navOffsetPx(): number {
+  const raw = getComputedStyle(document.documentElement)
+    .getPropertyValue("--nav-height")
+    .trim();
+  const parsed = Number.parseFloat(raw);
+  return Number.isFinite(parsed) ? parsed : 80;
+}
+
+/**
+ * Explicit top scroll — more reliable than scrollIntoView on iOS after the
+ * mobile drawer closes (first smooth scroll often undershoots).
+ */
 function scrollToHash(behavior: ScrollBehavior = "smooth"): boolean {
   const id = window.location.hash.replace(/^#/, "");
   if (!id) return false;
   const el = document.getElementById(id);
   if (!el) return false;
+  const top = Math.max(
+    0,
+    el.getBoundingClientRect().top + window.scrollY - navOffsetPx(),
+  );
   const resolved = prefersReducedMotion() ? "auto" : behavior;
-  el.scrollIntoView({ behavior: resolved, block: "start" });
+  if (resolved === "auto") {
+    const html = document.documentElement;
+    const previous = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
+    window.scrollTo({ top, behavior: "auto" });
+    html.style.scrollBehavior = previous;
+  } else {
+    window.scrollTo({ top, behavior: resolved });
+  }
   return true;
+}
+
+function scheduleHashScroll(fromDrawer: boolean) {
+  const start = () => {
+    // After the drawer, land instantly — smooth scroll from the top of the
+    // page is what undershoots on the first iOS attempt.
+    scrollToHash(fromDrawer ? "auto" : "smooth");
+    if (!fromDrawer) return;
+    // One layout settle pass (safe-area / chrome / sticky header).
+    window.setTimeout(() => scrollToHash("auto"), 50);
+  };
+
+  if (!fromDrawer) {
+    start();
+    return;
+  }
+
+  window.setTimeout(start, DRAWER_CLOSE_MS + 30);
 }
 
 /**
@@ -31,7 +76,8 @@ function scrollToHash(behavior: ScrollBehavior = "smooth"): boolean {
  * element instead of the top — after the destination page has mounted.
  *
  * Same-page hash links (`/#contact` while already on `/`) are handled via a
- * document click capture: Next.js Link often updates the URL without scrolling.
+ * document click listener: Next.js Link often updates the URL without scrolling.
+ * Clicks from the mobile drawer wait for the close animation before scrolling.
  *
  * Switching language changes the URL (locale prefix) without changing the
  * actual page, so it must NOT reset scroll — only a change to the
@@ -78,14 +124,19 @@ export function ScrollRestoration() {
 
       e.preventDefault();
       const next = `${url.pathname}${url.search}${url.hash}`;
-      if (`${window.location.pathname}${window.location.search}${window.location.hash}` !== next) {
+      if (
+        `${window.location.pathname}${window.location.search}${window.location.hash}` !==
+        next
+      ) {
         history.pushState(null, "", next);
       }
-      scrollToHash("smooth");
+
+      const fromDrawer = Boolean(a.closest("#mobile-nav"));
+      scheduleHashScroll(fromDrawer);
     };
 
     const onHashChange = () => {
-      scrollToHash("smooth");
+      scheduleHashScroll(false);
     };
 
     document.addEventListener("click", onClick);
@@ -108,17 +159,12 @@ export function ScrollRestoration() {
       const previous = html.style.scrollBehavior;
       html.style.scrollBehavior = "auto";
       if (hash) {
-        const el = document.getElementById(hash);
-        if (el) {
-          el.scrollIntoView();
-          html.style.scrollBehavior = previous;
-          return true;
-        }
+        scrollToHash("auto");
       } else {
         window.scrollTo(0, 0);
       }
       html.style.scrollBehavior = previous;
-      return !hash;
+      return !hash || Boolean(document.getElementById(hash));
     };
 
     jump();
