@@ -42,6 +42,7 @@ export function personJsonLd(locale: Locale = "es") {
     alumniOf: {
       "@type": "CollegeOrUniversity",
       name: education.institution,
+      url: education.url,
     },
     knowsAbout: siteConfig.knowsAbout,
     sameAs: siteConfig.sameAs,

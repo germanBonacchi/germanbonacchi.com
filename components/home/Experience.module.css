@@ -198,21 +198,104 @@
 
 .education {
   margin-top: 2.5rem;
-  padding: 1.5rem;
+  padding: 1.15rem 1.15rem 1.15rem 1.25rem;
   border-left: 3px solid var(--color-accent-cyan);
   background: rgba(0, 200, 255, 0.06);
 }
 
 .education h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1rem;
+  margin: 0 0 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--color-accent-cyan-on-light);
 }
 
-.education p {
-  margin: 0 0 0.35rem;
+.educationBody {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.educationLogo {
+  display: block;
+  flex-shrink: 0;
+  line-height: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: opacity 180ms ease;
+}
+
+.educationLogo:hover,
+.educationLogo:focus-visible {
+  opacity: 0.88;
+}
+
+.educationLogo img {
+  display: block;
+  width: auto;
+  height: 5.75rem;
+}
+
+.educationCopy {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.educationCopy p {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+
+.educationProgram {
+  color: rgba(1, 6, 6, 0.78);
+}
+
+.educationCopy p:last-child {
+  margin-bottom: 0;
+  color: rgba(1, 6, 6, 0.72);
+  font-size: 0.88rem;
+}
+
+.educationCopy a {
+  color: var(--color-text-dark);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.educationCopy a:hover,
+.educationCopy a:focus-visible {
+  text-decoration: underline;
+}
+
+@media (min-width: 600px) {
+  .education {
+    padding: 1.5rem;
+  }
+
+  .education h3 {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+  }
+
+  .educationBody {
+    gap: 1.35rem;
+  }
+
+  .educationLogo img {
+    height: 7.25rem;
+  }
+
+  .educationCopy p {
+    margin: 0 0 0.3rem;
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+
+  .educationCopy p:last-child {
+    font-size: 0.95rem;
+  }
 }
 
 @media (min-width: 900px) {

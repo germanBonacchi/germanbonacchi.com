@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { education, experiences } from "@/content/experience";
 import { technologyById } from "@/content/technologies";
@@ -233,10 +234,35 @@ export function Experience() {
           aria-label={t.experience.educationLabel}
         >
           <h3>{t.experience.educationLabel}</h3>
-          <p>
-            <strong>{education.institution}</strong>, {l(education.program)}
-          </p>
-          <p>{l(education.note)}</p>
+          <div className={styles.educationBody}>
+            <a
+              href={education.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.educationLogo}
+            >
+              <Image
+                src={education.logo}
+                alt={education.institution}
+                width={240}
+                height={295}
+                sizes="(max-width: 599px) 77px, 97px"
+              />
+            </a>
+            <div className={styles.educationCopy}>
+              <p>
+                <a
+                  href={education.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {education.institution}
+                </a>
+              </p>
+              <p className={styles.educationProgram}>{l(education.program)}</p>
+              <p>{l(education.note)}</p>
+            </div>
+          </div>
         </aside>
       </div>
     </section>
