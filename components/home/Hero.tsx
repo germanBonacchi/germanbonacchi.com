@@ -65,7 +65,7 @@ export function Hero() {
           >
             <span className={styles.ctaLabelDesktop}>{t.hero.ctaHire}</span>
             <span className={styles.ctaLabelMobile}>
-              {t.hero.ctaArchitectureShort}
+              {t.hero.ctaServices}
             </span>
           </Link>
           <Link
