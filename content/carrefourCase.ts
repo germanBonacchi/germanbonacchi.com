@@ -1,6 +1,6 @@
 import type { Localized } from "./types";
 
-/** Deep case-study extras for Carrefour (home of the flagship story). */
+/** Deep case-study extras for Carrefour (flagship story). */
 export const carrefourCase: {
   eyebrow: Localized;
   architectureTitle: Localized;
@@ -24,17 +24,17 @@ export const carrefourCase: {
     it: "Architettura VTEX IO per retail multi-verticale",
   },
   architectureTitle: {
-    es: "Arquitectura (simplificada)",
-    en: "Architecture (simplified)",
-    "pt-BR": "Arquitetura (simplificada)",
-    it: "Architettura (semplificata)",
+    es: "Arquitectura (vista realista)",
+    en: "Architecture (realistic view)",
+    "pt-BR": "Arquitetura (visão realista)",
+    it: "Architettura (vista realistica)",
   },
   architectureNote: {
-    es: "Vista de alto nivel: storefront IO + apps custom, checkout/logística, y sistemas externos detrás de una capa de integración.",
-    en: "High-level view: IO storefront + custom apps, checkout/logistics, and external systems behind an integration layer.",
+    es: "Web sobre VTEX IO Store Framework + checkout custom; app React Native sobre middleware Carrefour (VTEX-backed). Misma lógica de negocio, backends distintos.",
+    en: "Web on VTEX IO Store Framework + custom checkout; React Native app on Carrefour middleware (VTEX-backed). Same business domain, different backends.",
     "pt-BR":
-      "Visão de alto nível: storefront IO + apps custom, checkout/logística, e sistemas externos atrás de uma camada de integração.",
-    it: "Vista ad alto livello: storefront IO + app custom, checkout/logistica, e sistemi esterni dietro un layer di integrazione.",
+      "Web em VTEX IO Store Framework + checkout custom; app React Native sobre middleware Carrefour (VTEX-backed). Mesma lógica de negócio, backends distintos.",
+    it: "Web su VTEX IO Store Framework + checkout custom; app React Native sul middleware Carrefour (VTEX-backed). Stessa logica di business, backend diversi.",
   },
   decisionsTitle: {
     es: "Decisiones clave",
@@ -44,16 +44,18 @@ export const carrefourCase: {
   },
   decisions: {
     es: [
-      "Separar minicart por segmento (supermercado / hogar-electro / sellers) para respetar mínimos, simulación de envío y políticas incompatibles.",
-      "Hacer que el regionalizador fije región, seller y sales channel antes de navegar — no después del carrito.",
-      "Mantener Mega Menu administrable desde Admin con visibilidad por segmento food / non-food.",
-      "Evolucionar theme + apps sin big-bang: cambios incrementales sobre una operación diaria de alto tráfico.",
+      "Separar el minicart por segmento (supermercado / hogar-electro / sellers) para respetar mínimos, simulación de envío y políticas incompatibles.",
+      "Hacer que el regionalizador fije método de entrega, región, seller y sales channel antes de navegar, no después del carrito.",
+      "Mantener el mega menú administrable desde Admin con visibilidad por segmento food / non-food (y config distinta web vs app).",
+      "Tratar Quick Commerce y compra programada como sales channels distintos: un OrderForm no puede ser ambos a la vez.",
+      "Evolucionar theme + 60+ apps custom sin big-bang sobre una operación diaria de alto tráfico.",
     ],
     en: [
       "Split the minicart by segment (supermarket / home-appliances / sellers) to respect minimums, shipping simulation and incompatible policies.",
-      "Make the regionalizer set region, seller and sales channel before browsing — not after the cart.",
-      "Keep Mega Menu Admin-managed with food / non-food segment visibility.",
-      "Evolve theme + apps without a big-bang: incremental changes on a high-traffic daily operation.",
+      "Make the regionalizer set delivery method, region, seller and sales channel before browsing, not after the cart.",
+      "Keep the mega menu Admin-managed with food / non-food segment visibility (and different web vs app config).",
+      "Treat Quick Commerce and scheduled purchase as separate sales channels: one OrderForm cannot be both at once.",
+      "Evolve the theme + 60+ custom apps without a big-bang on a high-traffic daily operation.",
     ],
   },
   tradeoffsTitle: {
@@ -62,14 +64,16 @@ export const carrefourCase: {
   },
   tradeoffs: {
     es: [
-      "Un solo storefront multi-vertical vs. sitios separados: se gana experiencia unificada y se paga complejidad de reglas de carrito/logística.",
-      "Customizaciones profundas en IO vs. capacidades nativas: se priorizó lo nativo donde alcanzaba; lo custom quedó con ownership claro.",
-      "Velocidad de entrega vs. deuda: features críticas se hicieron hands-on; el resto se coordinó con equipos y partners.",
+      "Un solo storefront multi-vertical vs. sitios separados: experiencia unificada a costa de reglas de carrito/logística más complejas.",
+      "Checkout web = Checkout 6 nativo + custom profundo; App = React Native sobre middleware: misma dominio, dos implementaciones. Convergencia headless en curso.",
+      "Customizaciones profundas en IO vs. capacidades nativas: nativo primero donde alcanza; lo custom con ownership claro.",
+      "Velocidad de entrega vs. deuda: features críticas hands-on; el resto coordinado con equipos y partners.",
     ],
     en: [
       "One multi-vertical storefront vs. separate sites: unified experience at the cost of cart/logistics rule complexity.",
-      "Deep IO customizations vs. native capabilities: native first where enough; customs kept with clear ownership.",
-      "Delivery speed vs. debt: critical features were hands-on; the rest coordinated with teams and partners.",
+      "Web checkout = native Checkout 6 + deep custom; App = React Native on middleware: same domain, two implementations. Headless convergence in progress.",
+      "Deep IO customizations vs. native capabilities: native first where enough; customs with clear ownership.",
+      "Delivery speed vs. debt: critical features hands-on; the rest coordinated with teams and partners.",
     ],
   },
   complexityTitle: {
@@ -81,16 +85,18 @@ export const carrefourCase: {
   complexity: {
     es: [
       "Catálogo multi-vertical (grocery, hogar y electro, marketplace)",
-      "Checkout y promociones con reglas por segmento",
-      "Logística omnicanal (domicilio, Drive, entrega inmediata)",
-      "Integraciones y middleware de operación diaria",
+      "Regionalización multi-método (domicilio, Drive, Quick Commerce)",
+      "Multi-carrito food / electro / sellers + reglas de incompatibilidad",
+      "Checkout web custom + checkout app vía middleware",
+      "Integraciones (pagos, logística, loyalty, personalización, analytics)",
       "Performance de storefront bajo tráfico alto",
     ],
     en: [
       "Multi-vertical catalog (grocery, home & appliances, marketplace)",
-      "Checkout and promotions with per-segment rules",
-      "Omnichannel logistics (home delivery, Drive, quick commerce)",
-      "Integrations and middleware for daily operations",
+      "Multi-fulfillment regionalization (home delivery, Drive, Quick Commerce)",
+      "Split cart food / electronics / sellers + incompatibility rules",
+      "Custom web checkout + app checkout via middleware",
+      "Integrations (payments, logistics, loyalty, personalization, analytics)",
       "Storefront performance under high traffic",
     ],
   },
@@ -105,8 +111,9 @@ export const carrefourCase: {
       "Architecture & solution design",
       "Technical decisions y trade-offs",
       "Code & architecture reviews",
-      "Desarrollo VTEX IO (theme y apps)",
+      "Desarrollo VTEX IO (theme, apps y BFFs)",
       "Diseño de integraciones",
+      "Coordinación con el equipo mobile (app React Native)",
       "Coordinación de equipos y stakeholders",
       "Troubleshooting y support de producción",
     ],
@@ -114,8 +121,9 @@ export const carrefourCase: {
       "Architecture & solution design",
       "Technical decisions and trade-offs",
       "Code & architecture reviews",
-      "VTEX IO development (theme and apps)",
+      "VTEX IO development (theme, apps and BFFs)",
       "Integration design",
+      "Coordination with the mobile team (React Native app)",
       "Team and stakeholder coordination",
       "Troubleshooting and production support",
     ],
@@ -128,14 +136,14 @@ export const carrefourCase: {
   },
   results: {
     es: [
-      "Plataforma omnicanal en producción continua sobre VTEX IO.",
+      "Plataforma omnicanal en producción continua sobre VTEX IO Store Framework.",
       "Comunicaciones públicas del canal digital han citado millones de visitas mensuales y alto volumen de pedidos.",
-      "Entregas clave en producción: Mega Menu, regionalizador moderno y split de carritos por segmento.",
+      "Hitos en producción: regionalizador multi-método, split de carritos, mega menú, checkout custom e integración con la app React Native.",
     ],
     en: [
-      "Omnichannel platform in continuous production on VTEX IO.",
+      "Omnichannel platform in continuous production on VTEX IO Store Framework.",
       "Public reporting on the digital channel has cited millions of monthly visits and high order volume.",
-      "Key production deliveries: Mega Menu, modern regionalizer and cart split by segment.",
+      "Production milestones: multi-method regionalizer, cart split, mega menu, custom checkout and React Native app integration.",
     ],
   },
   confidentiality: {

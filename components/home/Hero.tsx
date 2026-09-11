@@ -42,7 +42,10 @@ export function Hero() {
         </div>
         <p className={styles.role}>{l(siteConfig.jobTitle)}</p>
         <p className={styles.tagline}>{t.hero.tagline}</p>
-        <p className={styles.credentials}>{t.hero.credentials}</p>
+        <div className={styles.proof}>
+          <p className={styles.credentials}>{t.hero.trustLine}</p>
+          <p className={styles.years}>{t.hero.companies}</p>
+        </div>
 
         <div className={styles.ctas}>
           <Link

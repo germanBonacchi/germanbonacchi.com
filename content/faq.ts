@@ -20,8 +20,8 @@ export const faqs: FaqItem[] = [
       it: "Quando ha senso usare FastStore?",
     },
     answer: {
-      en: "When you need stronger frontend control, headless performance and a modern GraphQL BFF — and the team can own a Next.js storefront. VTEX IO remains a strong fit for deep block ecosystems and mature checkout customizations. I help choose based on constraints, not hype.",
-      es: "Cuando necesitás más control de frontend, performance headless y un BFF GraphQL moderno — y el equipo puede ownership de un storefront Next.js. VTEX IO sigue siendo fuerte para ecosistemas de bloques y customizaciones maduras de checkout. Ayudo a elegir por constraints, no por moda.",
+      en: "When you need more frontend control, headless performance and a modern GraphQL BFF, and the team can own a Next.js storefront. VTEX IO is still a strong fit for deep block ecosystems and mature checkout customizations. I help choose based on the project's real constraints, not trends.",
+      es: "Cuando necesitás más control de frontend, performance headless y un BFF GraphQL moderno, y el equipo puede hacerse cargo de un storefront Next.js. VTEX IO sigue siendo fuerte para ecosistemas de bloques y customizaciones maduras de checkout. Ayudo a elegir según las constraints reales del proyecto, no por moda.",
     },
   },
   {
@@ -60,8 +60,8 @@ export const faqs: FaqItem[] = [
       it: "Puoi lavorare con team interni?",
     },
     answer: {
-      en: "Yes — that's the default in agency delivery. I define technical direction, review architecture/code, mentor and coordinate with product, partners and stakeholders.",
-      es: "Sí — es el modo default en delivery de agencia. Defino dirección técnica, reviso arquitectura/código, mentoreo y coordino con producto, partners y stakeholders.",
+      en: "Yes. That's the default in agency delivery. I define technical direction, review architecture and code, mentor, and coordinate with product, partners and stakeholders.",
+      es: "Sí. Es lo habitual en delivery de agencia. Defino dirección técnica, reviso arquitectura y código, mentoreo y coordino con producto, partners y stakeholders.",
     },
   },
   {
@@ -73,8 +73,8 @@ export const faqs: FaqItem[] = [
       it: "Che tipo di problemi di performance risolvi?",
     },
     answer: {
-      en: "Storefront bottlenecks (IO / FastStore), API and integration latency, checkout friction and architectural choices that quietly kill conversion under load.",
-      es: "Cuellos de botella de storefront (IO / FastStore), latencia de APIs e integraciones, fricción de checkout y decisiones arquitectónicas que silenciosamente matan conversión bajo carga.",
+      en: "Storefront bottlenecks (IO / FastStore), API and integration latency, checkout friction, and architecture choices that hurt conversion under load.",
+      es: "Cuellos de botella de storefront (IO / FastStore), latencia de APIs e integraciones, fricción de checkout, y decisiones de arquitectura que pegan en la conversión bajo carga.",
     },
   },
   {
@@ -86,8 +86,8 @@ export const faqs: FaqItem[] = [
       it: "Puoi guidare un team di developer VTEX?",
     },
     answer: {
-      en: "Yes. That's my current role at Valtech: technical leadership plus hands-on delivery when complexity demands it. Previously Apps Engineer at VTEX with LATAM technical training.",
-      es: "Sí. Es mi rol actual en Valtech: liderazgo técnico más delivery hands-on cuando la complejidad lo pide. Antes Apps Engineer en VTEX con formación técnica LATAM.",
+      en: "Yes. That's my current role at Valtech: technical leadership plus hands-on delivery when complexity demands it.",
+      es: "Sí. Es mi rol actual en Valtech: liderazgo técnico más delivery hands-on cuando la complejidad lo pide.",
     },
   },
   {
@@ -99,8 +99,8 @@ export const faqs: FaqItem[] = [
       it: "Come iniziamo una conversazione?",
     },
     answer: {
-      en: "WhatsApp, LinkedIn or email from the contact section — no forms. A 30-minute architecture conversation is usually enough to see if there's fit.",
-      es: "WhatsApp, LinkedIn o email desde la sección de contacto — sin formularios. Una conversación de arquitectura de 30 minutos suele alcanzar para ver si hay fit.",
+      en: "WhatsApp, LinkedIn or email from the contact section. A 30-minute architecture conversation is usually enough to see if there's fit.",
+      es: "WhatsApp, LinkedIn o email desde la sección de contacto. Una conversación de arquitectura de 30 minutos suele alcanzar para ver si hay fit.",
     },
   },
 ];

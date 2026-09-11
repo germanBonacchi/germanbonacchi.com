@@ -71,11 +71,11 @@ export const projectsPageSeo: Localized<{ title: string; description: string }> 
 };
 
 export const seoDescription: Localized = {
-  en: "Ex-VTEX Solution Architect & Technical Lead at Valtech. Enterprise ecommerce on VTEX IO and FastStore: architecture, checkout, integrations — Carrefour, Cetrogar, Médis, Rouge.",
-  es: "Ex-VTEX, Solution Architect & Technical Lead en Valtech. Ecommerce enterprise sobre VTEX IO y FastStore: arquitectura, checkout, integraciones — Carrefour, Cetrogar, Médis, Rouge.",
+  en: "Ex-VTEX Solution Architect & Technical Lead at Valtech. Enterprise ecommerce on VTEX IO and FastStore: architecture, checkout, integrations. Projects: Carrefour, Cetrogar, Médis, Rouge.",
+  es: "Ex-VTEX, Solution Architect & Technical Lead en Valtech. Ecommerce enterprise sobre VTEX IO y FastStore: arquitectura, checkout, integraciones. Proyectos: Carrefour, Cetrogar, Médis, Rouge.",
   "pt-BR":
-    "Ex-VTEX, Solution Architect & Technical Lead na Valtech. Ecommerce enterprise em VTEX IO e FastStore: arquitetura, checkout, integrações — Carrefour, Cetrogar, Médis, Rouge.",
-  it: "Ex-VTEX, Solution Architect & Technical Lead in Valtech. Ecommerce enterprise su VTEX IO e FastStore: architettura, checkout, integrazioni — Carrefour, Cetrogar, Médis, Rouge.",
+    "Ex-VTEX, Solution Architect & Technical Lead na Valtech. Ecommerce enterprise em VTEX IO e FastStore: arquitetura, checkout, integrações. Projetos: Carrefour, Cetrogar, Médis, Rouge.",
+  it: "Ex-VTEX, Solution Architect & Technical Lead in Valtech. Ecommerce enterprise su VTEX IO e FastStore: architettura, checkout, integrazioni. Progetti: Carrefour, Cetrogar, Médis, Rouge.",
 };
 
 export interface SeoBlock {

@@ -16,18 +16,18 @@ export const siteConfig: SiteConfig = {
  it: "VTEX Solution Architect & Technical Lead",
  },
  tagline: {
- en: "I design enterprise ecommerce architectures on VTEX IO and FastStore: integrations, checkout, performance and high-scale platforms.",
- es: "Diseño arquitecturas ecommerce enterprise sobre VTEX IO y FastStore: integraciones, checkout, performance y plataformas de alta escala.",
+ en: "I define and lead VTEX architectures on IO and FastStore: integrations, checkout, performance and scale.",
+ es: "Defino y lidereo arquitecturas VTEX sobre IO y FastStore: integraciones, checkout, performance y escala.",
  "pt-BR":
- "Desenho arquiteturas ecommerce enterprise em VTEX IO e FastStore: integrações, checkout, performance e plataformas de alta escala.",
- it: "Progetto architetture ecommerce enterprise su VTEX IO e FastStore: integrazioni, checkout, performance e piattaforme ad alta scala.",
+ "Defino e lidero arquiteturas VTEX em IO e FastStore: integrações, checkout, performance e escala.",
+ it: "Definisco e guido architetture VTEX su IO e FastStore: integrazioni, checkout, performance e scala.",
  },
   description: {
-    en: "Germán Bonacchi — Ex-VTEX, VTEX Solution Architect & Technical Lead at Valtech. Enterprise ecommerce on VTEX IO and FastStore: Carrefour, Cetrogar, Médis and Rouge.",
-    es: "Germán Bonacchi — Ex-VTEX, VTEX Solution Architect & Technical Lead en Valtech. Ecommerce enterprise sobre VTEX IO y FastStore: Carrefour, Cetrogar, Médis y Rouge.",
+    en: "Germán Bonacchi. Ex-VTEX, VTEX Solution Architect & Technical Lead at Valtech. Enterprise ecommerce on VTEX IO and FastStore: Carrefour, Cetrogar, Médis and Rouge.",
+    es: "Germán Bonacchi. Ex-VTEX, VTEX Solution Architect & Technical Lead en Valtech. Ecommerce enterprise sobre VTEX IO y FastStore: Carrefour, Cetrogar, Médis y Rouge.",
     "pt-BR":
-      "Germán Bonacchi — Ex-VTEX, VTEX Solution Architect & Technical Lead na Valtech. Ecommerce enterprise em VTEX IO e FastStore: Carrefour, Cetrogar, Médis e Rouge.",
-    it: "Germán Bonacchi — Ex-VTEX, VTEX Solution Architect & Technical Lead in Valtech. Ecommerce enterprise su VTEX IO e FastStore: Carrefour, Cetrogar, Médis e Rouge.",
+      "Germán Bonacchi. Ex-VTEX, VTEX Solution Architect & Technical Lead na Valtech. Ecommerce enterprise em VTEX IO e FastStore: Carrefour, Cetrogar, Médis e Rouge.",
+    it: "Germán Bonacchi. Ex-VTEX, VTEX Solution Architect & Technical Lead in Valtech. Ecommerce enterprise su VTEX IO e FastStore: Carrefour, Cetrogar, Médis e Rouge.",
   },
  localeDefault: "es",
  sameAs: [

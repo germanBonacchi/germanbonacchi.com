@@ -11,10 +11,10 @@ export const philosophyIntro: {
   heading: Localized;
 } = {
   topLine: {
-    es: "Architecture philosophy",
+    es: "Filosofía de arquitectura",
     en: "Architecture philosophy",
-    "pt-BR": "Architecture philosophy",
-    it: "Architecture philosophy",
+    "pt-BR": "Filosofia de arquitetura",
+    it: "Filosofia di architettura",
   },
   heading: {
     es: "Cómo pienso la arquitectura",

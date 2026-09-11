@@ -4,7 +4,7 @@
   background: #07263a;
   color: #e0f2fe;
   border-bottom: 1px solid rgba(125, 211, 252, 0.18);
-  padding: 1.35rem 1.5rem;
+  padding: 1.25rem 1.5rem;
 }
 
 .inner {
@@ -12,35 +12,22 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  align-items: center;
+  gap: 0.35rem;
   text-align: center;
 }
 
 .stats {
   margin: 0;
-  font-size: clamp(0.92rem, 2.2vw, 1.05rem);
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  color: #f0f9ff;
+  font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7dd3fc;
 }
 
-.companies {
+.years {
   margin: 0;
-  font-size: 0.92rem;
-  color: rgba(186, 230, 253, 0.78);
-  letter-spacing: 0.04em;
-}
-
-@media (min-width: 800px) {
-  .inner {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    gap: 1.5rem;
-  }
-
-  .companies {
-    text-align: right;
-  }
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: rgba(224, 242, 254, 0.88);
 }

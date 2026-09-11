@@ -10,7 +10,7 @@ export function AuthorityBar() {
     <aside className={styles.bar} aria-label={t.hero.authorityLabel}>
       <div className={styles.inner}>
         <p className={styles.stats}>{t.hero.trustLine}</p>
-        <p className={styles.companies}>{t.hero.companies}</p>
+        <p className={styles.years}>{t.hero.companies}</p>
       </div>
     </aside>
   );

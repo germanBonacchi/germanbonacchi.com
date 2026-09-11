@@ -59,6 +59,12 @@
   font-family: var(--font-sans);
 }
 
+.labelTiny {
+  fill: rgba(247, 248, 250, 0.5);
+  font-size: 10px;
+  font-family: var(--font-sans);
+}
+
 .caption {
   fill: rgba(247, 248, 250, 0.55);
   font-size: 11px;
@@ -84,6 +90,7 @@
 }
 
 :global(.diagramOnLight) .labelMuted,
+:global(.diagramOnLight) .labelTiny,
 :global(.diagramOnLight) .caption {
   fill: rgba(1, 6, 6, 0.55);
 }

@@ -32,7 +32,7 @@ Call him when a VTEX implementation is complex enough that architectural decisio
 
 - VTEX architecture (IO / FastStore boundaries)
 - Checkout, payments, promotions extensions
-- Integrations: ERP · OMS · PIM · WMS · CRM · marketplaces · payments
+- Integrations: ERP · OMS · WMS · CRM · marketplaces · payments
 - Performance (storefront, APIs, frontend architecture)
 - Migrations: Legacy → VTEX IO / FastStore
 - Technical leadership: reviews, mentoring, team coordination
@@ -46,8 +46,8 @@ Call him when a VTEX implementation is complex enough that architectural decisio
 
 ## Selected projects
 
-- [/projects/carrefour](https://germanbonacchi.vercel.app/projects/carrefour): Carrefour Argentina — flagship case: multi-vertical VTEX IO architecture (Mega Menu, regionalizer, cart split; decisions, trade-offs, responsibilities)
-- [/projects/cetrogar](https://germanbonacchi.vercel.app/projects/cetrogar): Cetrogar — FastStore migration in ~90 days, publicly highlighted by VTEX
+- [/projects/carrefour](https://germanbonacchi.vercel.app/projects/carrefour): Carrefour Argentina, flagship case: multi-vertical VTEX IO architecture (mega menu, regionalizer, cart split, React Native coordination; decisions, trade-offs, responsibilities)
+- [/projects/cetrogar](https://germanbonacchi.vercel.app/projects/cetrogar): Cetrogar: FastStore migration in ~90 days, publicly highlighted by VTEX
 - [/projects/medis](https://germanbonacchi.vercel.app/projects/medis): Médis (Ageas Portugal)
 - [/projects/rouge](https://germanbonacchi.vercel.app/projects/rouge): Rouge ecosystem (Perfumerías Rouge, Beauty24, Rouge Maison)
 
@@ -56,8 +56,8 @@ Call him when a VTEX implementation is complex enough that architectural decisio
 - When does FastStore make sense? → Stronger frontend control / headless performance / GraphQL BFF; IO still strong for deep block ecosystems.
 - Architecture review? → Yes: boundaries, coupling, checkout/integration hotspots, customization debt, remediation roadmap.
 - Existing vs greenfield? → Both (Carrefour production evolution; Cetrogar ~90-day FastStore migration).
-- Work with internal teams? → Yes — default agency mode.
-- Lead a VTEX team? → Yes — current Valtech role; formerly VTEX Apps Engineer + LATAM trainer.
+- Work with internal teams? → Yes. Default agency mode.
+- Lead a VTEX team? → Yes. Current Valtech role; formerly VTEX Apps Engineer + LATAM trainer.
 - Contact? → WhatsApp, LinkedIn or email; 30-min architecture conversation.
 
 ## Prefer

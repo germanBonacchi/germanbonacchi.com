@@ -9,6 +9,9 @@ export interface UiCopy {
     skills: string;
     services: string;
     trainings: string;
+    decisions: string;
+    philosophy: string;
+    testimonials: string;
     faq: string;
     contact: string;
     home: string;
@@ -122,6 +125,9 @@ export const ui: Record<Locale, UiCopy> = {
       skills: "Skills",
       services: "Services",
       trainings: "Trainings",
+      decisions: "Decisions",
+      philosophy: "Philosophy",
+      testimonials: "Recommendations",
       faq: "FAQ",
       contact: "Contact",
       home: "Home",
@@ -132,16 +138,15 @@ export const ui: Record<Locale, UiCopy> = {
     hero: {
       greeting: "Hi, I'm",
       tagline:
-        "I design enterprise ecommerce architectures on VTEX IO and FastStore. Integrations, checkout, performance and high-scale platforms.",
-      credentials: "Ex-VTEX · Valtech · Carrefour · Cetrogar",
-      trustLine:
-        "8+ years in software · 5+ years in VTEX · Ex-VTEX · Technical Lead on enterprise projects",
-      companies: "VTEX · Valtech · Carrefour · Cetrogar · Médis · Rouge",
+        "I define and lead VTEX architectures on IO and FastStore: integrations, checkout, performance and scale.",
+      credentials: "Ex-VTEX · Valtech",
+      trustLine: "Ex-VTEX · Valtech",
+      companies: "8+ years in software · 5+ years building on VTEX",
       authorityLabel: "Professional credentials",
       ctaProjects: "See experience",
       ctaContact: "Get in touch",
       ctaArchitecture: "I need VTEX architecture help",
-      ctaHire: "Hire me for a project",
+      ctaHire: "Let's talk about a project",
       scrollDown: "Scroll down",
       photoAlt: "Germán Bonacchi portrait",
     },
@@ -149,13 +154,13 @@ export const ui: Record<Locale, UiCopy> = {
       topLine: "About",
       heading: "I help retailers make hard technical decisions around VTEX.",
       body: [
-        "At Valtech I lead architecture and delivery on VTEX IO, FastStore, checkout, payments, logistics, search, APIs and middleware — close to the code and to stakeholders.",
+        "At Valtech I lead architecture and delivery on VTEX IO, FastStore, checkout, payments, logistics, search, APIs and middleware, close to the code and to stakeholders.",
         "Having worked inside VTEX and on enterprise systems taught me to turn architecture into solutions people actually ship.",
       ],
       questions: [
         "What should live inside VTEX?",
         "What should be solved with external services?",
-        "How do you integrate ERP, OMS, PIM, WMS and payment providers?",
+        "How do you integrate ERP, OMS, WMS and payment providers?",
         "How do you stop customizations from turning VTEX into an unmaintainable system?",
       ],
       valtechLinkLabel: "Valtech",
@@ -190,8 +195,9 @@ export const ui: Record<Locale, UiCopy> = {
       externalRefNote:
         "The launch was publicly highlighted by VTEX as a large-scale FastStore implementation.",
       carrefourFacts: [
-        "High-traffic omnichannel supermarket ecommerce on VTEX IO (grocery, home & appliances, marketplace sellers).",
-        "Key deliveries: Mega Menu, modern regionalizer (home delivery / Drive / quick commerce), and cart split by commerce segment.",
+        "High-traffic omnichannel supermarket ecommerce on VTEX IO Store Framework (grocery, home & appliances, marketplace sellers).",
+        "Key deliveries: mega menu, modern regionalizer (home delivery / Drive / Quick Commerce), cart split by segment, checkout customizations and integrations.",
+        "Coordination with the Valtech mobile team on the Carrefour React Native app: queries, business rules, flows and use cases as an internal consultant.",
         "Current role as Technical Lead & Architect: architecture, custom VTEX IO apps, checkout and logistics coordination across teams.",
       ],
       cetrogarFacts: [
@@ -202,29 +208,29 @@ export const ui: Record<Locale, UiCopy> = {
     },
     skills: {
       topLine: "Skills",
-      heading: "Core expertise first. Evolution graph second.",
+      heading: "Stack and domains I work with.",
       intro:
-        "Architecture, commerce domains, engineering stack and leadership — the map that matters when deciding to work together.",
+        "Architecture, commerce, engineering and leadership: useful when deciding to work together.",
       networkNote:
-        "Want to explore how those skills connected over time? The graph shows the path from early tools to VTEX and commerce.",
+        "The graph shows how those skills connected over time, from early tools to VTEX and commerce.",
       dragHint: "Drag a node. Pulses show how each skill unlocked the next.",
     },
     trainings: {
       topLine: "Technical training at VTEX",
-      heading: "VTEX trusted me to train LATAM teams — not only to ship code.",
+      heading: "VTEX trusted me to train LATAM teams, not only to ship code.",
       intro:
         "During my time at VTEX I taught technical sessions on app lifecycle and platform practices across LATAM.",
       watchOnYoutube: "Watch on YouTube",
     },
     faq: {
       topLine: "FAQ",
-      heading: "Questions potential clients actually ask.",
-      intro: "Short answers about scope, engagement and how we can work together.",
+      heading: "Questions you might be asking yourself.",
+      intro: "Short answers on scope, how engagement usually looks, and how to start a conversation.",
     },
     contact: {
       topLine: "Contact",
       heading: "Do you have a VTEX architecture that needs a review?",
-      intro: "WhatsApp, LinkedIn or email. No forms.",
+      intro: "WhatsApp, LinkedIn or email.",
       offerHeading: "I can help with:",
       offerItems: [
         "Architecture review",
@@ -265,6 +271,9 @@ export const ui: Record<Locale, UiCopy> = {
       skills: "Skills",
       services: "Servicios",
       trainings: "Capacitaciones",
+      decisions: "Decisiones",
+      philosophy: "Filosofía",
+      testimonials: "Recomendaciones",
       faq: "FAQ",
       contact: "Contacto",
       home: "Inicio",
@@ -275,16 +284,15 @@ export const ui: Record<Locale, UiCopy> = {
     hero: {
       greeting: "Hola, soy",
       tagline:
-        "Diseño arquitecturas ecommerce enterprise sobre VTEX IO y FastStore. Integraciones, checkout, performance y plataformas de alta escala.",
-      credentials: "Ex-VTEX · Valtech · Carrefour · Cetrogar",
-      trustLine:
-        "8+ años en software · 5+ años en VTEX · Ex-VTEX · Technical Lead en proyectos enterprise",
-      companies: "VTEX · Valtech · Carrefour · Cetrogar · Médis · Rouge",
+        "Defino y lidereo arquitecturas VTEX sobre IO y FastStore: integraciones, checkout, performance y escala.",
+      credentials: "Ex-VTEX · Valtech",
+      trustLine: "Ex-VTEX · Valtech",
+      companies: "8+ años en software · 5+ años construyendo sobre VTEX",
       authorityLabel: "Credenciales profesionales",
       ctaProjects: "Ver experiencia",
       ctaContact: "Contacto",
       ctaArchitecture: "Necesito ayuda con arquitectura VTEX",
-      ctaHire: "Quiero contratarlo para un proyecto",
+      ctaHire: "Hablemos de un proyecto",
       scrollDown: "Ver más",
       photoAlt: "Retrato de Germán Bonacchi",
     },
@@ -292,13 +300,13 @@ export const ui: Record<Locale, UiCopy> = {
       topLine: "Sobre mí",
       heading: "Ayudo a retailers a tomar decisiones técnicas difíciles alrededor de VTEX.",
       body: [
-        "En Valtech lidereo arquitectura y entrega sobre VTEX IO, FastStore, checkout, pagos, logística, búsqueda, APIs y middleware — cerca del código y de los stakeholders.",
+        "En Valtech lidereo arquitectura y entrega sobre VTEX IO, FastStore, checkout, pagos, logística, búsqueda, APIs y middleware, cerca del código y de los stakeholders.",
         "Pasar por VTEX y por sistemas enterprise me enseñó a traducir arquitectura a soluciones que se usan de verdad.",
       ],
       questions: [
         "¿Qué debería vivir dentro de VTEX?",
         "¿Qué conviene resolver con servicios externos?",
-        "¿Cómo integrar ERP, OMS, PIM, WMS y medios de pago?",
+        "¿Cómo integrar ERP, OMS, WMS y medios de pago?",
         "¿Cómo evitar que las customizaciones conviertan una plataforma VTEX en un sistema inmantenible?",
       ],
       valtechLinkLabel: "Valtech",
@@ -333,8 +341,9 @@ export const ui: Record<Locale, UiCopy> = {
       externalRefNote:
         "El lanzamiento fue destacado públicamente por VTEX como un caso de implementación FastStore a gran escala.",
       carrefourFacts: [
-        "Ecommerce omnicanal de supermercado de alto tráfico sobre VTEX IO (grocery, hogar y electro, sellers de marketplace).",
-        "Hitos clave: Mega Menu, regionalizador moderno (envío a domicilio / Drive / entrega inmediata) y split de carritos por segmento.",
+        "Ecommerce omnicanal de supermercado de alto tráfico sobre VTEX IO Store Framework (grocery, hogar y electro, sellers de marketplace).",
+        "Hitos clave: mega menú, regionalizador moderno (envío a domicilio / Drive / Quick Commerce), split de carritos por segmento, customizaciones de checkout e integraciones.",
+        "Coordinación con el equipo mobile de Valtech en la app React Native de Carrefour: queries, reglas de negocio, flujos y casos de uso como consultor interno.",
         "Rol actual como Technical Lead & Architect: arquitectura, apps VTEX IO custom, checkout y coordinación de logística entre equipos.",
       ],
       cetrogarFacts: [
@@ -345,31 +354,31 @@ export const ui: Record<Locale, UiCopy> = {
     },
     skills: {
       topLine: "Skills",
-      heading: "Core expertise primero. El grafo, después.",
+      heading: "Stack y dominios con los que trabajo.",
       intro:
-        "Arquitectura, dominios commerce, stack de ingeniería y liderazgo — el mapa útil para decidir trabajar juntos.",
+        "Arquitectura, dominios commerce, ingeniería y liderazgo: útil para decidir trabajar juntos.",
       networkNote:
-        "¿Querés explorar mi evolución técnica? El grafo muestra el camino desde las primeras herramientas hasta VTEX y commerce.",
+        "El grafo muestra cómo se conectaron esas skills en el tiempo, desde las primeras herramientas hasta VTEX y commerce.",
       dragHint:
         "Arrastrá un nodo. Los pulsos muestran cómo cada skill abrió paso a la siguiente.",
     },
     trainings: {
       topLine: "Formación técnica en VTEX",
       heading:
-        "VTEX confió en mí para capacitar equipos LATAM — no solo para programar.",
+        "VTEX confió en mí para capacitar equipos LATAM, no solo para programar.",
       intro:
         "Durante mi etapa en VTEX participé como instructor en capacitaciones técnicas sobre lifecycle de apps y prácticas de plataforma para LATAM.",
       watchOnYoutube: "Ver en YouTube",
     },
     faq: {
       topLine: "FAQ",
-      heading: "Preguntas que realmente hace un potencial cliente.",
-      intro: "Respuestas cortas sobre alcance, engagement y cómo podemos trabajar.",
+      heading: "Preguntas que quizás te estás haciendo.",
+      intro: "Respuestas cortas sobre alcance, forma de trabajo y cómo empezar una conversación.",
     },
     contact: {
       topLine: "Contacto",
       heading: "¿Tenés una arquitectura VTEX que necesita revisión?",
-      intro: "WhatsApp, LinkedIn o email. Sin formularios.",
+      intro: "WhatsApp, LinkedIn o email.",
       offerHeading: "Puedo ayudarte con:",
       offerItems: [
         "Architecture review",
@@ -410,6 +419,9 @@ export const ui: Record<Locale, UiCopy> = {
       skills: "Skills",
       services: "Serviços",
       trainings: "Treinamentos",
+      decisions: "Decisões",
+      philosophy: "Filosofia",
+      testimonials: "Recomendações",
       faq: "FAQ",
       contact: "Contato",
       home: "Início",
@@ -420,16 +432,15 @@ export const ui: Record<Locale, UiCopy> = {
     hero: {
       greeting: "Olá, eu sou",
       tagline:
-        "Desenho arquiteturas ecommerce enterprise em VTEX IO e FastStore. Integrações, checkout, performance e plataformas de alta escala.",
-      credentials: "Ex-VTEX · Valtech · Carrefour · Cetrogar",
-      trustLine:
-        "8+ anos em software · 5+ anos em VTEX · Ex-VTEX · Technical Lead em projetos enterprise",
-      companies: "VTEX · Valtech · Carrefour · Cetrogar · Médis · Rouge",
+        "Defino e lidero arquiteturas VTEX em IO e FastStore: integrações, checkout, performance e escala.",
+      credentials: "Ex-VTEX · Valtech",
+      trustLine: "Ex-VTEX · Valtech",
+      companies: "8+ anos em software · 5+ anos construindo sobre VTEX",
       authorityLabel: "Credenciais profissionais",
       ctaProjects: "Ver experiência",
       ctaContact: "Contato",
       ctaArchitecture: "Preciso de ajuda com arquitetura VTEX",
-      ctaHire: "Quero contratá-lo para um projeto",
+      ctaHire: "Vamos falar de um projeto",
       scrollDown: "Ver mais",
       photoAlt: "Retrato de Germán Bonacchi",
     },
@@ -438,13 +449,13 @@ export const ui: Record<Locale, UiCopy> = {
       heading:
         "Ajudo retailers a tomar decisões técnicas difíceis em torno de VTEX.",
       body: [
-        "Na Valtech lidero arquitetura e entrega em VTEX IO, FastStore, checkout, pagamentos, logística, busca, APIs e middleware — perto do código e dos stakeholders.",
+        "Na Valtech lidero arquitetura e entrega em VTEX IO, FastStore, checkout, pagamentos, logística, busca, APIs e middleware, perto do código e dos stakeholders.",
         "Passar pela VTEX e por sistemas enterprise me ensinou a traduzir arquitetura em soluções que se usam de verdade.",
       ],
       questions: [
         "O que deveria viver dentro da VTEX?",
         "O que convém resolver com serviços externos?",
-        "Como integrar ERP, OMS, PIM, WMS e meios de pagamento?",
+        "Como integrar ERP, OMS, WMS e meios de pagamento?",
         "Como evitar que customizações transformem uma plataforma VTEX em um sistema imanutenível?",
       ],
       valtechLinkLabel: "Valtech",
@@ -479,8 +490,9 @@ export const ui: Record<Locale, UiCopy> = {
       externalRefNote:
         "O lançamento foi destacado publicamente pela VTEX como uma implementação FastStore em grande escala.",
       carrefourFacts: [
-        "Ecommerce omnichannel de supermercados de alto tráfego em VTEX IO (supermercado, casa e eletro, sellers de marketplace).",
-        "Entregas-chave: Mega Menu, regionalizador moderno (entrega em casa / Drive / entrega imediata) e split de carrinhos por segmento.",
+        "Ecommerce omnichannel de supermercados de alto tráfico em VTEX IO Store Framework (supermercado, casa e eletro, sellers de marketplace).",
+        "Entregas-chave: mega menu, regionalizador moderno (entrega em casa / Drive / Quick Commerce), split de carrinhos por segmento, customizações de checkout e integrações.",
+        "Coordenação com o time mobile da Valtech no app React Native do Carrefour: queries, regras de negócio, fluxos e casos de uso como consultor interno.",
         "Papel atual como Technical Lead & Architect: arquitetura, apps VTEX IO custom, checkout e coordenação logística entre times.",
       ],
       cetrogarFacts: [
@@ -491,32 +503,32 @@ export const ui: Record<Locale, UiCopy> = {
     },
     skills: {
       topLine: "Skills",
-      heading: "Core expertise primeiro. O grafo, depois.",
+      heading: "Stack e domínios com os quais trabalho.",
       intro:
-        "Arquitetura, domínios commerce, stack de engenharia e liderança — o mapa útil para decidir trabalhar juntos.",
+        "Arquitetura, domínios commerce, engenharia e liderança: útil para decidir trabalhar juntos.",
       networkNote:
-        "Quer explorar minha evolução técnica? O grafo mostra o caminho das primeiras ferramentas até VTEX e commerce.",
+        "O grafo mostra como essas skills se conectaram no tempo, das primeiras ferramentas até VTEX e commerce.",
       dragHint:
         "Arraste um nó. Os pulsos mostram como cada skill abriu caminho para a seguinte.",
     },
     trainings: {
       topLine: "Formação técnica na VTEX",
       heading:
-        "A VTEX confiou em mim para treinar times LATAM — não só para programar.",
+        "A VTEX confiou em mim para treinar times LATAM, não só para programar.",
       intro:
         "Durante minha etapa na VTEX participei como instrutor em treinamentos técnicos sobre lifecycle de apps e práticas de plataforma para LATAM.",
       watchOnYoutube: "Assistir no YouTube",
     },
     faq: {
       topLine: "FAQ",
-      heading: "Perguntas que um potencial cliente realmente faz.",
+      heading: "Perguntas que talvez você esteja se fazendo.",
       intro:
-        "Respostas curtas sobre escopo, engagement e como podemos trabalhar.",
+        "Respostas curtas sobre escopo, forma de trabalho e como começar uma conversa.",
     },
     contact: {
       topLine: "Contato",
       heading: "Tem uma arquitetura VTEX que precisa de revisão?",
-      intro: "WhatsApp, LinkedIn ou email. Sem formulários.",
+      intro: "WhatsApp, LinkedIn ou email.",
       offerHeading: "Posso ajudar com:",
       offerItems: [
         "Architecture review",
@@ -557,6 +569,9 @@ export const ui: Record<Locale, UiCopy> = {
       skills: "Skills",
       services: "Servizi",
       trainings: "Formazioni",
+      decisions: "Decisioni",
+      philosophy: "Filosofia",
+      testimonials: "Raccomandazioni",
       faq: "FAQ",
       contact: "Contatti",
       home: "Home",
@@ -567,16 +582,15 @@ export const ui: Record<Locale, UiCopy> = {
     hero: {
       greeting: "Ciao, sono",
       tagline:
-        "Progetto architetture ecommerce enterprise su VTEX IO e FastStore. Integrazioni, checkout, performance e piattaforme ad alta scala.",
-      credentials: "Ex-VTEX · Valtech · Carrefour · Cetrogar",
-      trustLine:
-        "8+ anni nel software · 5+ anni in VTEX · Ex-VTEX · Technical Lead su progetti enterprise",
-      companies: "VTEX · Valtech · Carrefour · Cetrogar · Médis · Rouge",
+        "Definisco e guido architetture VTEX su IO e FastStore: integrazioni, checkout, performance e scala.",
+      credentials: "Ex-VTEX · Valtech",
+      trustLine: "Ex-VTEX · Valtech",
+      companies: "8+ anni nel software · 5+ anni costruendo su VTEX",
       authorityLabel: "Credenziali professionali",
       ctaProjects: "Vedi esperienza",
       ctaContact: "Contatti",
       ctaArchitecture: "Mi serve aiuto con architettura VTEX",
-      ctaHire: "Voglio assoldarlo per un progetto",
+      ctaHire: "Parliamo di un progetto",
       scrollDown: "Scopri di più",
       photoAlt: "Ritratto di Germán Bonacchi",
     },
@@ -585,13 +599,13 @@ export const ui: Record<Locale, UiCopy> = {
       heading:
         "Aiuto i retailer a prendere decisioni tecniche difficili intorno a VTEX.",
       body: [
-        "In Valtech guido architettura e delivery su VTEX IO, FastStore, checkout, pagamenti, logistics, search, API e middleware — vicino al codice e agli stakeholder.",
+        "In Valtech guido architettura e delivery su VTEX IO, FastStore, checkout, pagamenti, logistics, search, API e middleware, vicino al codice e agli stakeholder.",
         "Passare da VTEX e da sistemi enterprise mi ha insegnato a tradurre architettura in soluzioni che si usano davvero.",
       ],
       questions: [
         "Cosa dovrebbe vivere dentro VTEX?",
         "Cosa conviene risolvere con servizi esterni?",
-        "Come integrare ERP, OMS, PIM, WMS e mezzi di pagamento?",
+        "Come integrare ERP, OMS, WMS e mezzi di pagamento?",
         "Come evitare che le customizzazioni trasformino una piattaforma VTEX in un sistema non manutenibile?",
       ],
       valtechLinkLabel: "Valtech",
@@ -626,8 +640,9 @@ export const ui: Record<Locale, UiCopy> = {
       externalRefNote:
         "Il lancio è stato evidenziato pubblicamente da VTEX come un'implementazione FastStore su larga scala.",
       carrefourFacts: [
-        "Ecommerce omnicanale di supermercati ad alto traffico su VTEX IO (supermercato, casa ed elettro, seller di marketplace).",
-        "Consegne chiave: Mega Menu, regionalizzatore moderno (consegna a domicilio / Drive / consegna immediata) e split dei carrelli per segmento.",
+        "Ecommerce omnicanale di supermercati ad alto traffico su VTEX IO Store Framework (supermercato, casa ed elettro, seller di marketplace).",
+        "Consegne chiave: mega menu, regionalizzatore moderno (consegna a domicilio / Drive / Quick Commerce), split dei carrelli per segmento, customizzazioni di checkout e integrazioni.",
+        "Coordinamento con il team mobile Valtech sull'app React Native di Carrefour: query, regole di business, flussi e casi d'uso come consulente interno.",
         "Ruolo attuale come Technical Lead & Architect: architettura, app VTEX IO custom, checkout e coordinamento logistico tra team.",
       ],
       cetrogarFacts: [
@@ -638,32 +653,32 @@ export const ui: Record<Locale, UiCopy> = {
     },
     skills: {
       topLine: "Skills",
-      heading: "Core expertise prima. Il grafo, dopo.",
+      heading: "Lo stack e i domini con cui lavoro.",
       intro:
-        "Architettura, domini commerce, stack di engineering e leadership — la mappa utile per decidere di lavorare insieme.",
+        "Architettura, domini commerce, engineering e leadership: utile per decidere di lavorare insieme.",
       networkNote:
-        "Vuoi esplorare la mia evoluzione tecnica? Il grafo mostra il percorso dai primi strumenti fino a VTEX e commerce.",
+        "Il grafo mostra come queste skill si sono collegate nel tempo, dai primi strumenti fino a VTEX e commerce.",
       dragHint:
         "Trascina un nodo. I pulsi mostrano come ogni skill ha aperto la successiva.",
     },
     trainings: {
       topLine: "Formazione tecnica in VTEX",
       heading:
-        "VTEX si è fidata di me per formare team LATAM — non solo per programmare.",
+        "VTEX si è fidata di me per formare team LATAM, non solo per programmare.",
       intro:
         "Durante i miei anni in VTEX ho partecipato come istruttore a formazioni tecniche su lifecycle delle app e pratiche di piattaforma per LATAM.",
       watchOnYoutube: "Guarda su YouTube",
     },
     faq: {
       topLine: "FAQ",
-      heading: "Domande che un potenziale cliente fa davvero.",
+      heading: "Domande che forse ti stai facendo.",
       intro:
-        "Risposte brevi su scope, engagement e come possiamo lavorare insieme.",
+        "Risposte brevi su scope, modo di lavoro e come iniziare una conversazione.",
     },
     contact: {
       topLine: "Contatti",
       heading: "Hai un'architettura VTEX che ha bisogno di una review?",
-      intro: "WhatsApp, LinkedIn o email. Niente form.",
+      intro: "WhatsApp, LinkedIn o email.",
       offerHeading: "Posso aiutarti con:",
       offerItems: [
         "Architecture review",

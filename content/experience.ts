@@ -73,8 +73,8 @@ export const experiences: ExperienceItem[] = [
     startDate: "2021-03",
     endDate: "2022-09",
     summary: {
-      en: "Apps · TypeScript · React · GraphQL · Node — Clients · Partners · LATAM Technical Training.",
-      es: "Apps · TypeScript · React · GraphQL · Node — Clientes · Partners · Formación técnica LATAM.",
+      en: "Apps · TypeScript · React · GraphQL · Node. Clients · Partners · LATAM Technical Training.",
+      es: "Apps · TypeScript · React · GraphQL · Node. Clientes · Partners · Formación técnica LATAM.",
     },
     highlights: {
       en: [

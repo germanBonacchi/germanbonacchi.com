@@ -12,8 +12,10 @@ export const decisionsIntro: {
   lead: Localized;
 } = {
   topLine: {
-    es: "Architecture decisions",
+    es: "Decisiones de arquitectura",
     en: "Architecture decisions",
+    "pt-BR": "Decisões de arquitetura",
+    it: "Decisioni di architettura",
   },
   heading: {
     es: "Preguntas que aparecen en proyectos VTEX reales",
@@ -22,11 +24,11 @@ export const decisionsIntro: {
     it: "Domande che emergono in progetti VTEX reali",
   },
   lead: {
-    es: "Respuestas cortas, basadas en trabajo enterprise — no en tutoriales genéricos.",
-    en: "Short answers grounded in enterprise work — not generic tutorials.",
+    es: "Respuestas cortas, basadas en trabajo enterprise, no en tutoriales genéricos.",
+    en: "Short answers grounded in enterprise work, not generic tutorials.",
     "pt-BR":
-      "Respostas curtas, baseadas em trabalho enterprise — não em tutoriais genéricos.",
-    it: "Risposte brevi, basate su lavoro enterprise — non su tutorial generici.",
+      "Respostas curtas, baseadas em trabalho enterprise, não em tutoriais genéricos.",
+    it: "Risposte brevi, basate su lavoro enterprise, non su tutorial generici.",
   },
 };
 
@@ -72,11 +74,11 @@ export const decisions: DecisionItem[] = [
       it: "Come gestire integrazioni asincrone con ERP?",
     },
     answer: {
-      es: "Desacoplar con colas o eventos, idempotencia, reintentos con backoff y un estado de reconciliación visible. El storefront no debería esperar al ERP en el camino crítico de compra salvo que el negocio lo exija — y entonces hay que diseñar degradación explícita.",
-      en: "Decouple with queues or events, idempotency, backoff retries and a visible reconciliation state. The storefront shouldn't wait on the ERP on the critical purchase path unless business requires it — and then you need explicit degradation design.",
+      es: "Desacoplar con colas o eventos, idempotencia, reintentos con backoff y un estado de reconciliación visible. El storefront no debería esperar al ERP en el camino crítico de compra salvo que el negocio lo exija. En ese caso hay que diseñar degradación explícita.",
+      en: "Decouple with queues or events, idempotency, backoff retries and a visible reconciliation state. The storefront shouldn't wait on the ERP on the critical purchase path unless business requires it. In that case you need explicit degradation design.",
       "pt-BR":
-        "Desacoplar com filas ou eventos, idempotência, retries com backoff e um estado de reconciliação visível. O storefront não deveria esperar o ERP no caminho crítico da compra a menos que o negócio exija — e então é preciso desenhar degradação explícita.",
-      it: "Disaccoppia con code o eventi, idempotenza, retry con backoff e uno stato di riconciliazione visibile. Lo storefront non dovrebbe aspettare l'ERP sul percorso critico d'acquisto a meno che il business lo richieda — e allora serve un design di degradazione esplicito.",
+        "Desacoplar com filas ou eventos, idempotência, retries com backoff e um estado de reconciliação visível. O storefront não deveria esperar o ERP no caminho crítico da compra a menos que o negócio exija. Nesse caso é preciso desenhar degradação explícita.",
+      it: "Disaccoppia con code o eventi, idempotenza, retry con backoff e uno stato di riconciliazione visibile. Lo storefront non dovrebbe aspettare l'ERP sul percorso critico d'acquisto a meno che il business lo richieda. In quel caso serve un design di degradazione esplicito.",
     },
   },
   {

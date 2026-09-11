@@ -104,4 +104,18 @@ export const services: ServiceItem[] = [
       it: "Problemi complessi di produzione in checkout, integrazioni, performance o customizzazioni difficili da isolare.",
     },
   },
+  {
+    id: "performance-review",
+    title: {
+      es: "Performance Review",
+      en: "Performance Review",
+    },
+    body: {
+      es: "Diagnóstico de bottlenecks de storefront, APIs e integraciones, con prioridades de remediación accionables.",
+      en: "Diagnosis of storefront, API and integration bottlenecks, with actionable remediation priorities.",
+      "pt-BR":
+        "Diagnóstico de bottlenecks de storefront, APIs e integrações, com prioridades de remediação acionáveis.",
+      it: "Diagnosi di bottleneck di storefront, API e integrazioni, con priorità di remediation azionabili.",
+    },
+  },
 ];

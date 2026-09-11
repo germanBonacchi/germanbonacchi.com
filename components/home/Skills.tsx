@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  coreExpertiseGroups,
-  coreExpertiseIntro,
-} from "@/content/coreExpertise";
+import { coreExpertiseGroups, coreExpertiseIntro } from "@/content/coreExpertise";
 import { useLocale } from "@/lib/locale";
 import { useSectionView } from "@/lib/useSectionView";
 import { SkillsNetwork } from "./SkillsNetwork";
@@ -24,7 +21,7 @@ export function Skills() {
         <div className={styles.copy}>
           <p className={styles.top}>{l(coreExpertiseIntro.topLine)}</p>
           <h2 id="skills-heading" className={styles.heading}>
-            {t.skills.heading}
+            {l(coreExpertiseIntro.heading)}
           </h2>
           <p className={styles.intro}>{t.skills.intro}</p>
 
@@ -37,7 +34,6 @@ export function Skills() {
             ))}
           </ul>
 
-          <p className={styles.explore}>{l(coreExpertiseIntro.exploreLabel)}</p>
           <p className={styles.networkNote}>{t.skills.networkNote}</p>
         </div>
         <div className={styles.visual}>

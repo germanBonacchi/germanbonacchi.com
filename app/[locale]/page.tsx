@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
-import { AuthorityBar } from "@/components/home/AuthorityBar";
 import { About } from "@/components/home/About";
 import { Problems } from "@/components/home/Problems";
 import { Services } from "@/components/home/Services";
@@ -10,6 +9,7 @@ import { Decisions } from "@/components/home/Decisions";
 import { Philosophy } from "@/components/home/Philosophy";
 import { Skills } from "@/components/home/Skills";
 import { Trainings } from "@/components/home/Trainings";
+import { Testimonials } from "@/components/home/Testimonials";
 import { Faq } from "@/components/home/Faq";
 import { Contact } from "@/components/home/Contact";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -68,16 +68,16 @@ export default async function HomePage({ params }: HomePageProps) {
     <>
       <JsonLd data={homeGraphJsonLd(locale)} />
       <Hero />
-      <AuthorityBar />
       <About />
       <Problems />
-      <Services />
       <Experience />
       <Projects />
       <Decisions />
       <Philosophy />
       <Skills />
       <Trainings />
+      <Services />
+      <Testimonials />
       <Faq />
       <Contact />
     </>

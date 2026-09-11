@@ -3,17 +3,17 @@
 import styles from "./ArchitectureDiagram.module.css";
 
 /**
- * High-level VTEX commerce architecture diagram (anonimized / educational).
- * Used on Carrefour case study and problems section context.
+ * Carrefour-realistic architecture view (anonymized):
+ * Web Store Framework + Checkout 6 | VTEX | Middleware | React Native app
  */
 export function ArchitectureDiagram({ caption }: { caption?: string }) {
   return (
     <figure className={styles.figure}>
       <svg
         className={styles.svg}
-        viewBox="0 0 640 360"
+        viewBox="0 0 720 420"
         role="img"
-        aria-label={caption ?? "VTEX architecture diagram"}
+        aria-label={caption ?? "Carrefour VTEX architecture diagram"}
       >
         <defs>
           <marker
@@ -29,107 +29,88 @@ export function ArchitectureDiagram({ caption }: { caption?: string }) {
           </marker>
         </defs>
 
-        {/* Storefront */}
-        <rect
-          x="200"
-          y="16"
-          width="240"
-          height="48"
-          rx="8"
-          className={styles.boxPrimary}
-        />
-        <text x="320" y="38" textAnchor="middle" className={styles.labelStrong}>
-          Storefront
+        {/* Channels */}
+        <rect x="40" y="24" width="280" height="88" rx="8" className={styles.boxPrimary} />
+        <text x="180" y="48" textAnchor="middle" className={styles.labelStrong}>
+          Web storefront
         </text>
-        <text x="320" y="54" textAnchor="middle" className={styles.labelMuted}>
-          VTEX IO / FastStore
+        <text x="180" y="68" textAnchor="middle" className={styles.labelMuted}>
+          VTEX IO Store Framework
+        </text>
+        <text x="180" y="88" textAnchor="middle" className={styles.labelMuted}>
+          Theme · custom apps · Checkout 6
         </text>
 
-        <line
-          x1="320"
-          y1="64"
-          x2="320"
-          y2="96"
-          className={styles.line}
-          markerEnd="url(#arrow)"
-        />
-
-        {/* VTEX platform */}
-        <rect
-          x="180"
-          y="100"
-          width="280"
-          height="56"
-          rx="8"
-          className={styles.boxAccent}
-        />
-        <text x="320" y="124" textAnchor="middle" className={styles.labelStrong}>
-          VTEX Platform
+        <rect x="400" y="24" width="280" height="88" rx="8" className={styles.boxPrimary} />
+        <text x="540" y="48" textAnchor="middle" className={styles.labelStrong}>
+          Mobile app
         </text>
-        <text x="320" y="142" textAnchor="middle" className={styles.labelMuted}>
-          Catalog · Checkout · Orders · Master Data
+        <text x="540" y="68" textAnchor="middle" className={styles.labelMuted}>
+          React Native
+        </text>
+        <text x="540" y="88" textAnchor="middle" className={styles.labelMuted}>
+          Catalog · cart · checkout screens
         </text>
 
-        <line
-          x1="320"
-          y1="156"
-          x2="320"
-          y2="188"
-          className={styles.line}
-          markerEnd="url(#arrow)"
-        />
+        {/* Arrows down */}
+        <line x1="180" y1="112" x2="180" y2="148" className={styles.line} markerEnd="url(#arrow)" />
+        <line x1="540" y1="112" x2="540" y2="148" className={styles.line} markerEnd="url(#arrow)" />
 
-        {/* Integration layer */}
-        <rect
-          x="160"
-          y="192"
-          width="320"
-          height="44"
-          rx="8"
-          className={styles.boxSecondary}
-        />
-        <text x="320" y="219" textAnchor="middle" className={styles.labelStrong}>
-          Integration Layer
+        {/* Middle layer */}
+        <rect x="40" y="152" width="280" height="72" rx="8" className={styles.boxAccent} />
+        <text x="180" y="178" textAnchor="middle" className={styles.labelStrong}>
+          VTEX platform
+        </text>
+        <text x="180" y="198" textAnchor="middle" className={styles.labelMuted}>
+          Catalog · Sessions · OMS · Master Data
         </text>
 
-        {/* External systems */}
-        <line x1="120" y1="236" x2="120" y2="268" className={styles.line} markerEnd="url(#arrow)" />
-        <line x1="250" y1="236" x2="250" y2="268" className={styles.line} markerEnd="url(#arrow)" />
-        <line x1="390" y1="236" x2="390" y2="268" className={styles.line} markerEnd="url(#arrow)" />
-        <line x1="520" y1="236" x2="520" y2="268" className={styles.line} markerEnd="url(#arrow)" />
-        <line x1="120" y1="236" x2="520" y2="236" className={styles.line} />
+        <rect x="400" y="152" width="280" height="72" rx="8" className={styles.boxSecondary} />
+        <text x="540" y="178" textAnchor="middle" className={styles.labelStrong}>
+          Carrefour middleware
+        </text>
+        <text x="540" y="198" textAnchor="middle" className={styles.labelMuted}>
+          Catalog · Checkout · Logistics · Payments
+        </text>
 
-        {[
-          { x: 60, label: "ERP" },
-          { x: 190, label: "OMS" },
-          { x: 330, label: "PIM" },
-          { x: 460, label: "Payments" },
-        ].map((node) => (
-          <g key={node.label}>
-            <rect
-              x={node.x}
-              y="272"
-              width="120"
-              height="40"
-              rx="8"
-              className={styles.boxMuted}
-            />
-            <text
-              x={node.x + 60}
-              y="297"
-              textAnchor="middle"
-              className={styles.labelStrong}
-            >
-              {node.label}
-            </text>
-          </g>
-        ))}
+        {/* Cross link */}
+        <line x1="320" y1="188" x2="400" y2="188" className={styles.line} markerEnd="url(#arrow)" />
+        <text x="360" y="178" textAnchor="middle" className={styles.labelTiny}>
+          connector
+        </text>
 
-        <text x="320" y="340" textAnchor="middle" className={styles.caption}>
-          Decision: keep business systems outside VTEX; integrate, do not absorb
+        {/* IO BFFs */}
+        <line x1="180" y1="224" x2="180" y2="256" className={styles.line} markerEnd="url(#arrow)" />
+        <rect x="70" y="260" width="220" height="48" rx="8" className={styles.boxMuted} />
+        <text x="180" y="282" textAnchor="middle" className={styles.labelStrong}>
+          IO BFFs / Node services
+        </text>
+        <text x="180" y="298" textAnchor="middle" className={styles.labelTiny}>
+          regionalizer · checkout · cart sync
+        </text>
+
+        {/* Domain callouts */}
+        <rect x="360" y="260" width="320" height="100" rx="8" className={styles.boxMuted} />
+        <text x="520" y="286" textAnchor="middle" className={styles.labelStrong}>
+          Shared commerce domain
+        </text>
+        <text x="520" y="308" textAnchor="middle" className={styles.labelMuted}>
+          Regionalizer · Split cart · Food / Non-food
+        </text>
+        <text x="520" y="328" textAnchor="middle" className={styles.labelMuted}>
+          Drive · Quick Commerce · Incompatibility rules
+        </text>
+        <text x="520" y="348" textAnchor="middle" className={styles.labelTiny}>
+          Same rules, different channel implementations
+        </text>
+
+        <text x="360" y="400" textAnchor="middle" className={styles.caption}>
+          Decision: keep channel UIs separate; align domain rules across web and app
         </text>
       </svg>
-      {caption ? <figcaption className={styles.figcaption}>{caption}</figcaption> : null}
+      {caption ? (
+        <figcaption className={styles.figcaption}>{caption}</figcaption>
+      ) : null}
     </figure>
   );
 }

@@ -9,31 +9,16 @@ export interface CoreExpertiseGroup {
 export const coreExpertiseIntro: {
   topLine: Localized;
   heading: Localized;
-  lead: Localized;
-  exploreLabel: Localized;
 } = {
   topLine: {
     es: "Core expertise",
     en: "Core expertise",
   },
   heading: {
-    es: "Lo que uso para resolver problemas de commerce.",
-    en: "What I use to solve commerce problems.",
-    "pt-BR": "O que uso para resolver problemas de commerce.",
-    it: "Cosa uso per risolvere problemi di commerce.",
-  },
-  lead: {
-    es: "Primero el mapa útil para contratar o alinearnos. El grafo interactivo queda como exploración secundaria.",
-    en: "First the map that helps hiring or alignment. The interactive graph stays as secondary exploration.",
-    "pt-BR":
-      "Primeiro o mapa útil para contratar ou alinhar. O grafo interativo fica como exploração secundária.",
-    it: "Prima la mappa utile per assumere o allinearci. Il grafo interattivo resta come esplorazione secondaria.",
-  },
-  exploreLabel: {
-    es: "¿Querés explorar mi evolución técnica?",
-    en: "Want to explore how my skills evolved?",
-    "pt-BR": "Quer explorar minha evolução técnica?",
-    it: "Vuoi esplorare la mia evoluzione tecnica?",
+    es: "Stack y dominios con los que trabajo.",
+    en: "The stack and domains I work with.",
+    "pt-BR": "Stack e domínios com os quais trabalho.",
+    it: "Lo stack e i domini con cui lavoro.",
   },
 };
 

@@ -24,11 +24,11 @@ export const problemsIntro: {
     it: "Decisioni difficili intorno a VTEX.",
   },
   lead: {
-    es: "No vendo una lista de tecnologías: ayudo a retailers y equipos a decidir qué vive dentro de VTEX, qué se externaliza y cómo mantener la plataforma operable a escala.",
-    en: "I don't sell a tech checklist: I help retailers and teams decide what belongs inside VTEX, what to externalize, and how to keep the platform operable at scale.",
+    es: "Ayudo a retailers y equipos a decidir qué vive dentro de VTEX, qué se externaliza y cómo mantener la plataforma operable a escala.",
+    en: "I help retailers and teams decide what belongs inside VTEX, what to externalize, and how to keep the platform operable at scale.",
     "pt-BR":
-      "Não vendo uma lista de tecnologias: ajudo retailers e times a decidir o que vive dentro da VTEX, o que externalizar e como manter a plataforma operável em escala.",
-    it: "Non vendo una lista di tecnologie: aiuto retailer e team a decidere cosa vive dentro di VTEX, cosa esternalizzare e come mantenere la piattaforma operabile su scala.",
+      "Ajudo retailers e times a decidir o que vive dentro da VTEX, o que externalizar e como manter a plataforma operável em escala.",
+    it: "Aiuto retailer e team a decidere cosa vive dentro di VTEX, cosa esternalizzare e come mantenere la piattaforma operabile su scala.",
   },
 };
 
@@ -42,11 +42,11 @@ export const problems: ProblemItem[] = [
       it: "Architettura VTEX",
     },
     body: {
-      es: "Diseño de arquitecturas para retailers de alta escala: límites entre VTEX, servicios externos y sistemas core (ERP, OMS, PIM, WMS).",
-      en: "Architecture design for large-scale retailers: boundaries between VTEX, external services and core systems (ERP, OMS, PIM, WMS).",
+      es: "Diseño de arquitecturas para retailers de alta escala: límites entre VTEX, servicios externos y sistemas core (ERP, OMS, WMS).",
+      en: "Architecture design for large-scale retailers: boundaries between VTEX, external services and core systems (ERP, OMS, WMS).",
       "pt-BR":
-        "Desenho de arquiteturas para retailers de alta escala: limites entre VTEX, serviços externos e sistemas core (ERP, OMS, PIM, WMS).",
-      it: "Design di architetture per retailer su larga scala: confini tra VTEX, servizi esterni e sistemi core (ERP, OMS, PIM, WMS).",
+        "Desenho de arquiteturas para retailers de alta escala: limites entre VTEX, serviços externos e sistemas core (ERP, OMS, WMS).",
+      it: "Design di architetture per retailer su larga scala: confini tra VTEX, servizi esterni e sistemi core (ERP, OMS, WMS).",
     },
   },
   {
@@ -72,11 +72,11 @@ export const problems: ProblemItem[] = [
       it: "Integrazioni",
     },
     body: {
-      es: "ERP · OMS · PIM · WMS · CRM · marketplaces · pagos. Diseño de flujos síncronos y asíncronos sin acoplar de más la plataforma.",
-      en: "ERP · OMS · PIM · WMS · CRM · marketplaces · payments. Sync and async flow design without over-coupling the platform.",
+      es: "ERP · OMS · WMS · CRM · marketplaces · pagos. Diseño de flujos síncronos y asíncronos sin acoplar de más la plataforma.",
+      en: "ERP · OMS · WMS · CRM · marketplaces · payments. Sync and async flow design without over-coupling the platform.",
       "pt-BR":
-        "ERP · OMS · PIM · WMS · CRM · marketplaces · pagamentos. Desenho de fluxos síncronos e assíncronos sem acoplar demais a plataforma.",
-      it: "ERP · OMS · PIM · WMS · CRM · marketplace · pagamenti. Design di flussi sincroni e asincroni senza accoppiare troppo la piattaforma.",
+        "ERP · OMS · WMS · CRM · marketplaces · pagamentos. Desenho de fluxos síncronos e assíncronos sem acoplar demais a plataforma.",
+      it: "ERP · OMS · WMS · CRM · marketplace · pagamenti. Design di flussi sincroni e asincroni senza accoppiare troppo la piattaforma.",
     },
   },
   {

@@ -34,6 +34,7 @@ export function Trainings() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.card}
+                aria-label={`${l(training.title)}. ${t.trainings.watchOnYoutube}`}
               >
                 <Image
                   src={training.thumbnail}
@@ -45,7 +46,6 @@ export function Trainings() {
                 <div className={styles.copy}>
                   <h3>{l(training.title)}</h3>
                   <p>{l(training.subtitle)}</p>
-                  <span className={styles.watch}>{t.trainings.watchOnYoutube}</span>
                 </div>
               </a>
             </li>
