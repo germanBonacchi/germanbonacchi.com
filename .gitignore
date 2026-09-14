@@ -31,3 +31,5 @@ next-env.d.ts
 
 # legacy CRA backup (local only — remove when ready)
 # _legacy_backup/
+
+/assets/
