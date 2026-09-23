@@ -177,16 +177,18 @@ export function SkillsNetwork() {
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    let nodes = layoutNodes(wrap.clientWidth, wrap.clientHeight);
+    let nodes: SimNode[] = [];
     let frame = 0;
-    let running = true;
+    let running = false;
+    let started = false;
     let hoverId: string | null = null;
     let dragId: string | null = null;
     const pulses: Pulse[] = [];
     let pulseTimer = 0;
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const lowPower = window.matchMedia("(max-width: 899px)").matches;
+      const dpr = Math.min(window.devicePixelRatio || 1, lowPower ? 1.5 : 2);
       const width = Math.max(1, wrap.clientWidth);
       const height = Math.max(1, wrap.clientHeight);
       canvas.width = Math.floor(width * dpr);
@@ -388,11 +390,31 @@ export function SkillsNetwork() {
       }
     };
 
-    resize();
-    for (let i = 0; i < 6; i += 1) spawnPulse();
-    frame = window.requestAnimationFrame(draw);
+    const startLoop = () => {
+      if (!started) {
+        started = true;
+        resize();
+        for (let i = 0; i < 6; i += 1) spawnPulse();
+      }
+      if (running) return;
+      running = true;
+      frame = window.requestAnimationFrame(draw);
+    };
 
-    const ro = new ResizeObserver(() => resize());
+    const stopLoop = () => {
+      running = false;
+      window.cancelAnimationFrame(frame);
+    };
+
+    const io = new IntersectionObserver(([entry]) => {
+      if (entry?.isIntersecting) startLoop();
+      else stopLoop();
+    }, { rootMargin: "240px 0px" });
+    io.observe(wrap);
+
+    const ro = new ResizeObserver(() => {
+      if (started) resize();
+    });
     ro.observe(wrap);
     canvas.addEventListener("pointermove", onPointerMove);
     canvas.addEventListener("pointerdown", onPointerDown);
@@ -403,6 +425,7 @@ export function SkillsNetwork() {
     return () => {
       running = false;
       window.cancelAnimationFrame(frame);
+      io.disconnect();
       ro.disconnect();
       canvas.removeEventListener("pointermove", onPointerMove);
       canvas.removeEventListener("pointerdown", onPointerDown);

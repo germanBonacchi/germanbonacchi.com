@@ -223,11 +223,15 @@ export function ParticlesBackground() {
     const pencilFont = (size: number) => `${size}px ${pencilFamily}`;
 
     let frame = 0;
-    let running = true;
+    let running = false;
+    let disposed = false;
+    let ready = false;
+    let inView = true;
+    let lowPower = false;
+    let frameInterval = 1000 / 30;
     let gridCache: HTMLCanvasElement | null = null;
     let bgGradient: CanvasGradient | null = null;
     let lastFrameTime = 0;
-    const FRAME_INTERVAL = 1000 / 30;
     let nodes: Node[] = [];
     let segs: Seg[] = [];
     let callouts: Callout[] = [];
@@ -331,6 +335,7 @@ export function ParticlesBackground() {
       size: number,
       alpha: number,
       seed: number,
+      stroke = true,
     ) => {
       ctx.font = pencilFont(size);
       ctx.textAlign = "left";
@@ -339,6 +344,9 @@ export function ParticlesBackground() {
       const jy = Math.cos(seed * 2.5 + tick * 0.006) * 0.2;
       ctx.fillStyle = `rgba(186, 230, 253, ${alpha * 0.45})`;
       ctx.fillText(text, x + jx, y + jy);
+      // strokeText is the expensive pencil outline. On small screens keep it
+      // while a label is being written, then drop it once the mark is stable.
+      if (!stroke) return;
       ctx.strokeStyle = `rgba(224, 242, 254, ${alpha * 0.72})`;
       ctx.lineWidth = Math.max(0.55, size * 0.04);
       ctx.lineJoin = "round";
@@ -1255,12 +1263,21 @@ export function ParticlesBackground() {
           size,
           0.35 + g.drawn * 0.4 * g.fade,
           seed,
+          !(lowPower && g.phase === "hold"),
         );
       } else if (kind === "bubble" && g.drawn > 0.5) {
         const size = Math.max(10, s * 0.28);
         ctx.font = pencilFont(size);
         const tw = ctx.measureText(label).width;
-        pencilText(label, x - tw / 2, y, size, 0.55 * g.fade, seed);
+        pencilText(
+          label,
+          x - tw / 2,
+          y,
+          size,
+          0.55 * g.fade,
+          seed,
+          !(lowPower && g.phase === "hold"),
+        );
       }
     };
 
@@ -1280,7 +1297,11 @@ export function ParticlesBackground() {
 
     const resize = () => {
       const { width, height } = measure();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      lowPower = window.matchMedia("(max-width: 899px)").matches;
+      frameInterval = lowPower ? 1000 / 18 : 1000 / 30;
+      // Full-viewport retina canvases dominate mobile main-thread time.
+      // 1.5 still looks sharp; 3x phone DPR does not change the sketch read.
+      const dpr = Math.min(window.devicePixelRatio || 1, lowPower ? 1.5 : 2);
       canvas.width = Math.floor(width * dpr);
       canvas.height = Math.floor(height * dpr);
       canvas.style.width = `${width}px`;
@@ -1302,7 +1323,7 @@ export function ParticlesBackground() {
 
     const draw = (time: number = 0) => {
       if (!running) return;
-      if (time - lastFrameTime < FRAME_INTERVAL) {
+      if (time - lastFrameTime < frameInterval) {
         frame = window.requestAnimationFrame(draw);
         return;
       }
@@ -1422,6 +1443,7 @@ export function ParticlesBackground() {
             size,
             (0.45 + box.write * 0.4) * box.fade,
             box.wobble,
+            !(lowPower && box.phase === "hold"),
           );
           ctx.restore();
         }
@@ -1467,6 +1489,7 @@ export function ParticlesBackground() {
           note.size,
           (0.35 + note.write * 0.5) * note.fade,
           note.wobble,
+          !(lowPower && note.phase === "hold"),
         );
         if (note.underline && note.write > 0.85) {
           ctx.font = pencilFont(note.size);
@@ -1546,6 +1569,21 @@ export function ParticlesBackground() {
       frame = window.requestAnimationFrame(draw);
     };
 
+    const shouldRun = () => !disposed && !document.hidden && inView;
+
+    const syncRunning = () => {
+      if (!ready || !shouldRun()) {
+        running = false;
+        window.cancelAnimationFrame(frame);
+        return;
+      }
+      if (!running) {
+        running = true;
+        lastFrameTime = 0;
+        frame = window.requestAnimationFrame(draw);
+      }
+    };
+
     const start = async () => {
       try {
         await document.fonts.load(`16px ${pencilFamily}`);
@@ -1553,32 +1591,52 @@ export function ParticlesBackground() {
       } catch {
         // ignore
       }
+      if (disposed) return;
       resize();
-      draw();
+      ready = true;
+      if (canvas.parentElement) ro.observe(canvas.parentElement);
+      syncRunning();
     };
 
-    void start();
+    // Let the hero text paint and hydrate before the blueprint loop starts.
+    let idleHandle = 0;
+    let startTimer = 0;
+    if (typeof window.requestIdleCallback === "function") {
+      idleHandle = window.requestIdleCallback(() => void start(), {
+        timeout: 1200,
+      });
+    } else {
+      startTimer = window.setTimeout(() => void start(), 500);
+    }
 
-    const ro = new ResizeObserver(() => resize());
-    if (canvas.parentElement) ro.observe(canvas.parentElement);
-    window.addEventListener("resize", resize);
+    const ro = new ResizeObserver(() => {
+      if (!disposed && ready) resize();
+    });
+    const onResize = () => {
+      if (!disposed && ready) resize();
+    };
+    window.addEventListener("resize", onResize);
 
     const onVisibility = () => {
-      if (document.hidden) {
-        running = false;
-        window.cancelAnimationFrame(frame);
-      } else if (!running) {
-        running = true;
-        frame = window.requestAnimationFrame(draw);
-      }
+      syncRunning();
     };
     document.addEventListener("visibilitychange", onVisibility);
 
+    const io = new IntersectionObserver(([entry]) => {
+      inView = Boolean(entry?.isIntersecting);
+      syncRunning();
+    });
+    io.observe(canvas.parentElement ?? canvas);
+
     return () => {
+      disposed = true;
       running = false;
       window.cancelAnimationFrame(frame);
-      window.removeEventListener("resize", resize);
+      if (idleHandle) window.cancelIdleCallback(idleHandle);
+      window.clearTimeout(startTimer);
+      window.removeEventListener("resize", onResize);
       document.removeEventListener("visibilitychange", onVisibility);
+      io.disconnect();
       ro.disconnect();
     };
   }, []);

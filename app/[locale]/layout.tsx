@@ -32,6 +32,9 @@ const pencil = Architects_Daughter({
   weight: "400",
   variable: "--font-pencil",
   display: "swap",
+  // Only the hero canvas reads this face. Keeping it off the preload
+  // list so it doesn't compete with Encode Sans (the LCP text).
+  preload: false,
 });
 
 interface LocaleLayoutProps {
