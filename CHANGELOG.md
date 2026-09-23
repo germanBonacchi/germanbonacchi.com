@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.0] — 2026-09-23
+
+### Changed
+
+- Mobile performance: the hero blueprint and the skills graph give the main thread back (start when idle, pause off-screen, cheaper canvas on small screens) without removing the animations
+- GA4 loads after `window` load (`lazyOnload`). Page views and custom events still send once `gtag` is ready
+- Pencil font (`Architects Daughter`) is no longer preloaded, so it does not compete with the hero name
+- Hero layout and small-screen spacing
+- Scroll restoration: hash targets and `prefers-reduced-motion`
+- Header scroll behavior
+- Decisions section on the dark theme
+- Experience text contrast
+
+### Fixed
+
+- Type declarations for the global CSS side-effect import
+- IndexNow submission list includes the landing routes (decisions, philosophy, services, testimonials, FAQ, problems)
+- Accessible names on project cards
+
 ## [2.1.0] — 2026-09-11
 
 ### Added
@@ -91,7 +110,8 @@ Major rebuild of the personal portfolio on **Next.js 15** (App Router) + **React
 
 - First public version of the portfolio site (CRA-era stack)
 
-[Unreleased]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v2.1.0...v2.2.0
 [2.1.0]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v1.1.1...v2.0.0
 [1.1.1]: https://github.com/germanBonacchi/germanbonacchi.com/compare/v1.1.0...v1.1.1

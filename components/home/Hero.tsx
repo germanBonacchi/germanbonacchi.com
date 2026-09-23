@@ -1,14 +1,22 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/content/site";
 import { useLocale } from "@/lib/locale";
 import { localizedHref } from "@/lib/paths";
-import { ParticlesBackground } from "@/components/ui/ParticlesBackground";
 import { useSectionView } from "@/lib/useSectionView";
 import { track } from "@/lib/analytics";
 import styles from "./Hero.module.css";
+
+const ParticlesBackground = dynamic(
+  () =>
+    import("@/components/ui/ParticlesBackground").then(
+      (mod) => mod.ParticlesBackground,
+    ),
+  { ssr: false },
+);
 
 export function Hero() {
   const { t, l, locale } = useLocale();
@@ -36,6 +44,7 @@ export function Hero() {
             alt={t.hero.photoAlt}
             width={160}
             height={160}
+            sizes="160px"
             priority
             className={styles.photo}
           />
